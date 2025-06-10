@@ -38,6 +38,10 @@ class SplashScreen extends GetView<SplashController> {
                   ),
                   child: Container(
                     color: AppColors.primaryColor,
+                    child:  Image.asset(
+                      AppImages.appLogo,
+                      color: AppColors.whiteColor, 
+                    ).centered,
                   ),
                 );
               },

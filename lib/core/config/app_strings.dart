@@ -72,4 +72,9 @@ class AppStrings{
   static const String doNotHaveAcc = "Don’t have an account?";
   static const String termsAndConditionsAgreement = "By creating an account, you agree to all";
   static const String termsAndConditions = "terms and conditions.";
+
+
+  static const String onboardingCardTitle = "Smart Rentals for\nModern Living";
+  static const String onboardingCardSubTitle = "Now you can find your dream house easily and quickly at a low price";
+
 }

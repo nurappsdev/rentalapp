@@ -7,7 +7,18 @@ class AppNavigation{
   AppNavigation._();
   static final List<GetPage<dynamic>> routes = <GetPage<dynamic>>[
     // Initial routes
-    GetPage<dynamic>(name: AppRoutes.initialRoute, page: () => const SplashScreen(), binding: SplashBinding()),
+    GetPage<dynamic>(
+      name: AppRoutes.initialRoute, 
+      page: () => const SplashScreen(), 
+      binding: SplashBinding()
+    ),
+
+     // onbaording routes
+    GetPage<dynamic>(
+      name: AppRoutes.onboardingRoute, 
+      page: () => const OnboardingScreen(), 
+      binding: OnboardingBinding()
+    ),
 
     // // Auth routes
     // GetPage<dynamic>(name: AppRoutes.signInRoute, page: () => const SignInScreen(), binding: SignInBindings()),

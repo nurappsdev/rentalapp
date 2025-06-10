@@ -9,7 +9,7 @@ class AppColors{
   static const Color textSecondaryColor = Color(0xFF6C757D);
 
   static const Color textWhiteColor = Colors.white;
-  static const Color textBlackColor = Colors.black;
+  static const Color textBlackColor = Color(0XFF111111);
 
   static const Color backgroundColor = Color(0xFFF6F6F6);
   static const Color surfaceColor = Color(0xFFFFFFFF);
@@ -29,5 +29,10 @@ class AppColors{
   static const Color whiteColor = Colors.white;
 
   static const Color dividerColor = Color(0xFFBDBDBD);
+
+
+  //// -----
+  static const Color onboardingCardColor = Color(0XFFEAF8FD);
+
 
 }

@@ -21,10 +21,10 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
     startReveal.value = false;
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 1500),
     );
 
-    radiusAnimation = Tween<double>(begin: 0, end: 3000).animate(
+    radiusAnimation = Tween<double>(begin: 0, end: 1000).animate(
       CurvedAnimation(parent: animationController, curve: Curves.easeInOutCubic),
     );
 
