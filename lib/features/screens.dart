@@ -1,1 +1,1 @@
-// export 'package:alora/presentation/screens/auth/change_password_screen.dart';
+export 'package:alora/features/splash/screens/splash_screen.dart';

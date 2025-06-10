@@ -1,1 +1,1 @@
-// export 'package:alora/presentation/bindings/auth/change_password_bindings.dart';
+export 'package:alora/features/splash/bindings/splash_binding.dart';

@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
-// import '../../features/screens.dart';
-// import '../../features/bindings.dart';
-// import 'app_routes.dart';
+import '../../features/screens.dart';
+import '../../features/bindings.dart';
+import 'app_routes.dart';
 
 class AppNavigation{
   AppNavigation._();
   static final List<GetPage<dynamic>> routes = <GetPage<dynamic>>[
-    // // Initial routes
-    // GetPage<dynamic>(name: AppRoutes.initialRoute, page: () => const SplashScreen(), binding: SplashBindings()),
+    // Initial routes
+    GetPage<dynamic>(name: AppRoutes.initialRoute, page: () => const SplashScreen(), binding: SplashBinding()),
 
     // // Auth routes
     // GetPage<dynamic>(name: AppRoutes.signInRoute, page: () => const SignInScreen(), binding: SignInBindings()),
