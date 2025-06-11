@@ -2,7 +2,7 @@
 [x] this widget edit icon 
 
 ### Splash actual navigation 
-[x]
+[x] 
 
 ### Onboarding Get Started Button Click
 [x]

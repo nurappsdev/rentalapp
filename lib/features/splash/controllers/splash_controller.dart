@@ -1,14 +1,16 @@
+import 'package:alora/core/config/app_constants.dart';
 import 'package:alora/core/routes/app_routes.dart';
+import 'package:alora/core/storage/secure_storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController with GetSingleTickerProviderStateMixin {
-  
+  final SecureStorageService _storage;
+  SplashController(this._storage);
+
   late AnimationController animationController;
   late Animation<double> radiusAnimation;
   final RxBool startReveal = false.obs;
-
-
   
   /// [onInit] Lifecycle method called when the controller is initialized.
   ///
@@ -35,12 +37,26 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
 
       animationController.addStatusListener((AnimationStatus status) {
         if (status == AnimationStatus.completed) {
-          Get.offAllNamed(AppRoutes.onboardingRoute);
+          handleNextRoute();
         }
       });
     });
   }
 
+  Future<void> handleNextRoute() async{
+    final String? authToken = await _storage.read(AppConstants.authToken);
+
+    if(authToken != null && authToken.isNotEmpty){
+      Get.offAllNamed(AppRoutes.onboardingRoute);
+      return;
+    }
+    else{
+      Get.offAllNamed(AppRoutes.onboardingRoute);
+      return;
+    }
+
+
+  }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
   ///

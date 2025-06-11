@@ -54,6 +54,7 @@ class ChooseRoleScreen extends GetView<ChooseRoleController> {
                     roleDesc: AppStrings.rentarRoleDesc,
                     isSelected: controller.isRoleTypeMatch(RoleType.rentar).value,
                     onChanged: (bool? value) => controller.updateRoleType(RoleType.rentar, value),
+                    onTap: () => controller.updateRoleType(RoleType.rentar, !controller.isRoleTypeMatch(RoleType.rentar).value),
                   ),
                 ),
                 const SizedBox(height: AppSizes.spaceBetweenSections,),
@@ -64,6 +65,7 @@ class ChooseRoleScreen extends GetView<ChooseRoleController> {
                     roleDesc: AppStrings.ownerRoleDesc,
                     isSelected: controller.isRoleTypeMatch(RoleType.owner).value,
                     onChanged: (bool? value) => controller.updateRoleType(RoleType.owner, value),
+                    onTap: () => controller.updateRoleType(RoleType.owner, !controller.isRoleTypeMatch(RoleType.owner).value),
                     ),
                  ),
                 const SizedBox(height: AppSizes.spaceBetweenSections,),
@@ -75,6 +77,7 @@ class ChooseRoleScreen extends GetView<ChooseRoleController> {
                     roleDesc: AppStrings.crewRoleDesc,
                     isSelected: controller.isRoleTypeMatch(RoleType.crew).value,
                     onChanged: (bool? value) => controller.updateRoleType(RoleType.crew, value),
+                    onTap: () => controller.updateRoleType(RoleType.crew, !controller.isRoleTypeMatch(RoleType.crew).value),
                     ),
                  ),
                 const SizedBox(height: AppSizes.spaceBetweenSections,),
@@ -90,7 +93,7 @@ class ChooseRoleScreen extends GetView<ChooseRoleController> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             CustomButton(
-              onTap: (){}, 
+              onTap: controller.handleContinue, 
               text: AppStrings.continueBtnTxt
             )
           ],

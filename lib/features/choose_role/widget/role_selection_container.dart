@@ -12,107 +12,112 @@ class RoleSelectionContainer extends StatelessWidget {
   final String roleDesc;
   final bool isSelected;
   final Function(bool?)? onChanged;
+  final VoidCallback onTap;
 
   const RoleSelectionContainer({
     super.key, 
     required this.role, 
     required this.roleDesc,
     required this.onChanged, 
-    required this.isSelected
+    required this.isSelected,
+    required this.onTap
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: .5,
-      color: AppColors.whiteColor,
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: AppColors.blue50,
-            width: AppSizes.dividerHeight
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        elevation: .5,
+        color: AppColors.whiteColor,
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: AppColors.blue50,
+              width: AppSizes.dividerHeight
+            ),
+            borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
           ),
-          borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-        ),
-        child: Stack(
-          children: <Widget>[
-             Align(
-              alignment: Alignment.topLeft,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                child: Image.asset(
-                  AppImages.cardTopCornerWave
+          child: Stack(
+            children: <Widget>[
+               Align(
+                alignment: Alignment.topLeft,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                  child: Image.asset(
+                    AppImages.cardTopCornerWave
+                  ),
                 ),
               ),
-            ),
-    
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSizes.xs, vertical: AppSizes.md),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
-                    child: SizedBox(
-                      width: 72,
-                      height: 72,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[
-                            // Frosted glass background
-                            BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withValues(alpha: .1),
-                                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                                  border: Border.all(
-                                    color: Colors.white,
-                                    width: 1,
+      
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSizes.xs, vertical: AppSizes.md),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
+                      child: SizedBox(
+                        width: 72,
+                        height: 72,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: <Widget>[
+                              // Frosted glass background
+                              BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.withValues(alpha: .1),
+                                    borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 1,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-
-                            SvgPicture.asset(
-                              AppIcons.userBgIcon,
-                              width: 32,
-                              height: 32,
-                            )
-                          ],
+      
+                              SvgPicture.asset(
+                                AppIcons.userBgIcon,
+                                width: 32,
+                                height: 32,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          role,
-                          style: context.textTheme.titleMedium,
-                        ),
-                                          
-                        Text(
-                          roleDesc,
-                          style: context.textTheme.labelSmall,
-                        ),
-                      ],
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            role,
+                            style: context.textTheme.titleMedium,
+                          ),
+                                            
+                          Text(
+                            roleDesc,
+                            style: context.textTheme.labelSmall,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Checkbox(
-                    value: isSelected, 
-                    onChanged: onChanged
-                  ),
-                ],
+                    Checkbox(
+                      value: isSelected, 
+                      onChanged: onChanged
+                    ),
+                  ],
+                ),
               ),
-            ),
-            
-          ],
-        ),
-      )
+              
+            ],
+          ),
+        )
+      ),
     );
   }
 }

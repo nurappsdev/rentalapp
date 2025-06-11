@@ -1,13 +1,16 @@
+import 'package:alora/core/config/app_constants.dart';
 import 'package:alora/core/enums/role_type.dart';
+import 'package:alora/core/routes/app_routes.dart';
+import 'package:alora/core/storage/secure_storage_service.dart';
 import 'package:get/get.dart';
 
 
 
 class ChooseRoleController extends GetxController {
 
-  final RxInt count = 0.obs;
+  final SecureStorageService _storage;
 
-  void increment() => count.value++;
+  ChooseRoleController(this._storage);
 
   Rx<RoleType> roleType = RoleType.rentar.obs;
 
@@ -24,6 +27,11 @@ class ChooseRoleController extends GetxController {
     return RxBool(false);
   }
 
+  Future<void> handleContinue() async{
+    await _storage.write(AppConstants.roleType, roleType.value.name);
+    Get.toNamed(AppRoutes.signInRoute);
+  }
+
   
   /// [onInit] Lifecycle method called when the controller is initialized.
   ///
@@ -33,7 +41,6 @@ class ChooseRoleController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    count.value = 0;
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -42,6 +49,5 @@ class ChooseRoleController extends GetxController {
   @override
   void dispose() {
     super.dispose();
-    count.value = 0;
   }
 }

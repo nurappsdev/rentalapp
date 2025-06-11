@@ -28,15 +28,17 @@ class AppNavigation{
     ),
 
 
-    // // Auth routes
-    // GetPage<dynamic>(name: AppRoutes.signInRoute, page: () => const SignInScreen(), binding: SignInBindings()),
-    // GetPage<dynamic>(name: AppRoutes.signUpRoute, page: () => const SignUpScreen(), binding: SignUpBindings()),
-    // GetPage<dynamic>(name: AppRoutes.verifyEmailRoute, page: () => const VerifyEmailScreen(), binding: VerifyEmailBindings()),
-    // GetPage<dynamic>(name: AppRoutes.forgotPasswordRoute, page: () => const ForgotPasswordScreen(), binding: ForgotPasswordBindings()),
-    // GetPage<dynamic>(name: AppRoutes.resetPasswordRoute, page: () => const ResetPasswordScreen(), binding: ResetPasswordBindings()),
-    // GetPage<dynamic>(name: AppRoutes.changePasswordRoute, page: () => const ChangePasswordScreen(), binding: ChangePasswordBindings()),
-    // // general routes
-    // GetPage<dynamic>(name: AppRoutes.generalRoute, page: () => const GeneralScreen(), binding: GeneralBindings()),
+    // Auth routes
+    GetPage<dynamic>(name: AppRoutes.signInRoute, page: () => const SignInScreen(), binding: AuthBinding()),
+    GetPage<dynamic>(name: AppRoutes.signUpRoute, page: () => const SignUpScreen(), binding: AuthBinding()),
+    GetPage<dynamic>(name: AppRoutes.verifyEmailRoute, page: () => const VerifyEmailScreen(), binding: AuthBinding()),
+    GetPage<dynamic>(name: AppRoutes.takingEmailRoute, page: () => const TakingEmailScreen(), binding: AuthBinding()),
+    GetPage<dynamic>(name: AppRoutes.resetPasswordRoute, page: () => const ResetPasswordScreen(), binding: AuthBinding()),
+    // general routes
+    GetPage<dynamic>(name: AppRoutes.generalRoute, page: () => const GeneralScreen(), binding: GeneralBinding()),
+
+    // setting routes
+    GetPage<dynamic>(name: AppRoutes.settingRoute, page: () => const SettingScreen(), binding: SettingBinding()),
 
   ];
 }
