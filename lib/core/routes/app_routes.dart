@@ -4,6 +4,8 @@ class AppRoutes{
   static const String initialRoute = "/";
   // onboarding routes
   static const String onboardingRoute = "/onboarding";
+  // choose role routes
+  static const String chooseRoleRoute = "/choose-role";
   // Auth routes
   static const String signInRoute = "/sign_in_screen";
   static const String signUpRoute = "/sign_up_screen";

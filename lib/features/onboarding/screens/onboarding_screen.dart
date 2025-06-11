@@ -4,6 +4,7 @@ import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
+import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_app_background.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class OnboardingCard extends StatelessWidget {
       margin: const EdgeInsets.all(AppSizes.md),
       padding: const EdgeInsets.all(AppSizes.md),
       decoration: BoxDecoration(
-        color: AppColors.onboardingCardColor.withValues(alpha: .8),
+        color: AppColors.blue50.withValues(alpha: .8),
         borderRadius: BorderRadius.circular(AppSizes.borderRadiusXxxL),
         border: Border.all(
           color: AppColors.whiteColor,
@@ -83,9 +84,7 @@ class OnboardingCard extends StatelessWidget {
           const SizedBox(height: AppSizes.spaceBetweenSections,),
 
           CustomButton(
-            onTap: () {
-            
-            },
+            onTap: () => Get.offAllNamed(AppRoutes.chooseRoleRoute),
             text: AppStrings.getStarted,
           ),
 

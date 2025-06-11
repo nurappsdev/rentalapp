@@ -32,7 +32,6 @@ class AppColors{
 
 
   //// -----
-  static const Color onboardingCardColor = Color(0XFFEAF8FD);
-
+  static const Color blue50 = Color(0XFFEAF8FD);
 
 }

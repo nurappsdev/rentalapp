@@ -57,16 +57,6 @@ class AppStrings{
   static const String confirmPasswordLabel = "Confirm Password";
   static const String confirmPasswordHint = "Enter Your Confirm Password";
 
-
-  // auth buttons
-  static const String signIn = "Login";
-  static const String signUp = "Sign Up";
-  static const String verify = "Verify";
-  static const String sendOtp = "Send Otp";
-  static const String confirm = "Confirm";
-  static const String savePassword = "Save Password";
-  static const String loginWithGoogle = "Log in with Google";
-
   // auth others
   static const String resetPassword = "Reset Password";
   static const String doNotHaveAcc = "Don’t have an account?";
@@ -76,5 +66,32 @@ class AppStrings{
 
   static const String onboardingCardTitle = "Smart Rentals for\nModern Living";
   static const String onboardingCardSubTitle = "Now you can find your dream house easily and quickly at a low price";
+  static const String skip = "Skip";
 
+  static const String chooseRoleTitle = "Join as";
+  static const String chooseRoleSubTitle = "please select an one option to start your journey with Apartment Rent  service .";
+
+  static const String rentar = "Renter";
+  static const String rentarRoleDesc = "create your account as a Apartment renter.";
+  static const String owner = "Owner";
+  static const String ownerRoleDesc = "Create your account as a Apartment Owner.";
+  static const String crew = "Crew";
+  static const String crewRoleDesc = "Sign In as a Apartment Crew.";
+
+
+
+
+
+
+  // ============================================================// ============================================================
+  // buttons 
+  // ============================================================// ============================================================
+  static const String signIn = "Login";
+  static const String signUp = "Sign Up";
+  static const String verify = "Verify";
+  static const String sendOtp = "Send Otp";
+  static const String confirm = "Confirm";
+  static const String savePassword = "Save Password";
+  static const String loginWithGoogle = "Log in with Google";
+  static const String continueBtnTxt = "Continue";
 }

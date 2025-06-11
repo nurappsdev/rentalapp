@@ -13,12 +13,20 @@ class AppNavigation{
       binding: SplashBinding()
     ),
 
-     // onbaording routes
+    // onbaording routes
     GetPage<dynamic>(
       name: AppRoutes.onboardingRoute, 
       page: () => const OnboardingScreen(), 
       binding: OnboardingBinding()
     ),
+
+    // choose role routes
+    GetPage<dynamic>(
+      name: AppRoutes.chooseRoleRoute, 
+      page: () => const ChooseRoleScreen(), 
+      binding: ChooseRoleBinding()
+    ),
+
 
     // // Auth routes
     // GetPage<dynamic>(name: AppRoutes.signInRoute, page: () => const SignInScreen(), binding: SignInBindings()),
