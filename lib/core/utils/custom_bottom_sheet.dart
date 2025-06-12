@@ -4,47 +4,43 @@ import 'package:get/get.dart';
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/extensions/context_extensions.dart';
-import 'package:alora/core/widgets/custom_app_background.dart';
 
 class CustomBottomSheet{
   CustomBottomSheet._();
 
-  static void showCustomBottomSheet({required BuildContext context, required Widget child}) {
+  static void showCustomBottomSheet({required BuildContext context, required Widget child, bool isDismissible = true}) {
     Get.bottomSheet(
+      isDismissible: isDismissible,
       BackdropFilter(
         filter: ImageFilter.blur(sigmaX: AppSizes.sm, sigmaY: AppSizes.sm),
-        child: CustomAppBackground(
-          isBorderRadius: true,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: AppSizes.lg, vertical: AppSizes.md),
-            constraints: BoxConstraints(
-              minWidth: context.screenWidth,
-              minHeight: context.screenHeight * 0.25,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: AppSizes.lg, vertical: AppSizes.md),
+          constraints: BoxConstraints(
+            minWidth: context.screenWidth,
+            minHeight: context.screenHeight * 0.25,
+          ),
+          decoration: const BoxDecoration(
+            color: AppColors.whiteColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(AppSizes.borderRadiusXxl),
+              topRight: Radius.circular(AppSizes.borderRadiusXxl),
             ),
-            decoration: const BoxDecoration(
-              // color:isLightMode ? AppColors.blackColor : AppColors.blackColor,
-              color: Colors.transparent,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(AppSizes.borderRadiusXxl),
-                topRight: Radius.circular(AppSizes.borderRadiusXxl),
-              ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  width: 50.0,
-                  height: 6.0,
-                  decoration: BoxDecoration(
-                    color: AppColors.greyColor,
-                    borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
-                  ),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                width: 50.0,
+                height: 6.0,
+                decoration: BoxDecoration(
+                  color: AppColors.greyColor,
+                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
                 ),
-                const SizedBox(height: AppSizes.spaceBetweenSections,),
-                child,
-                const SizedBox(height: AppSizes.spaceBetweenSections,),
-              ],
-            ),
+              ),
+              const SizedBox(height: AppSizes.spaceBetweenSections,),
+              child,
+              const SizedBox(height: AppSizes.spaceBetweenSections,),
+            ],
           ),
         ),
       ),

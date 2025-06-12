@@ -1,12 +1,22 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 
 class VerifyEmailController extends GetxController {
 
-  final RxInt count = 0.obs;
+  final RxInt secondsRemaining = 25.obs;
+  Timer? _timer;
 
-  void increment() => count.value++;
 
-
+  void startCountdown() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      if (secondsRemaining.value > 0) {
+        secondsRemaining.value--;
+      } else {
+        _timer?.cancel();
+      }
+    });
+  }
   
   /// [onInit] Lifecycle method called when the controller is initialized.
   ///
@@ -16,7 +26,7 @@ class VerifyEmailController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    count.value = 0;
+    startCountdown();
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -24,7 +34,7 @@ class VerifyEmailController extends GetxController {
   /// Cleans up by resetting loading states and clearing lists and more...
   @override
   void dispose() {
+    _timer?.cancel();
     super.dispose();
-    count.value = 0;
   }
 }

@@ -17,36 +17,34 @@ class CustomPinCodeTextField extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      constraints: const BoxConstraints(
-        maxWidth: 400.0,
-      ),
-      child: PinCodeTextField(
-        backgroundColor: Colors.transparent,
-        cursorColor: AppColors.primaryColor,
-        controller: textEditingController,
-          textStyle: context.textTheme.headlineMedium,
-          autoFocus: false,
-          appContext: context,
-          length: 6,
-          pinTheme: PinTheme(
-              shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(10.0),
-              selectedColor: AppColors.primaryColor,
-              activeFillColor: AppColors.primaryColor,
-              selectedFillColor: Colors.transparent,
-              inactiveFillColor: Colors.transparent,
-              fieldWidth: 50,
-              fieldHeight: 60,
-              inactiveColor: AppColors.primaryColor,
-              activeColor: AppColors.primaryColor,
-          ),
-          obscureText: false,
-          keyboardType: TextInputType.number,
-          onChanged: onChanged,
-          onCompleted: onCompleted,
+    return  PinCodeTextField(
+      backgroundColor: Colors.transparent,
+      cursorColor: AppColors.primaryColor,
+      controller: textEditingController,
+        textStyle: context.textTheme.headlineSmall,
+        autoFocus: false,
+        appContext: context,
+        length: 6,
+        separatorBuilder: (BuildContext context, int index) {
+          return const SizedBox(width: 8.0,);
+        },
+        pinTheme: PinTheme(
+            shape: PinCodeFieldShape.box,
+            borderRadius: BorderRadius.circular(8.0),
+            selectedColor: AppColors.primaryColor,
+            activeFillColor: AppColors.primaryColor,
+            selectedFillColor: Colors.transparent,
+            inactiveFillColor: Colors.transparent,
+            fieldWidth: 40,
+            fieldHeight: 40,
+            inactiveColor: AppColors.primaryColor,
+            activeColor: AppColors.primaryColor,
         ),
-    );
+        obscureText: false,
+        keyboardType: TextInputType.number,
+        onChanged: onChanged,
+        onCompleted: onCompleted,
+      );
   }
 }
 

@@ -24,7 +24,7 @@ class AppTextTheme{
     // body text theme
     bodyLarge: TextStyle(fontSize: AppSizes.fontSizeMd, fontWeight: FontWeight.w500, color: AppColors.textBlackColor),
     bodyMedium: TextStyle(fontSize: AppSizes.fontSizeSm, fontWeight: FontWeight.w500, color: AppColors.textBlackColor),
-    bodySmall: TextStyle(fontSize: AppSizes.fontSizeXs, fontWeight: FontWeight.w500, color: AppColors.greyColor),
+    bodySmall: TextStyle(fontSize: AppSizes.fontSizeXs, fontWeight: FontWeight.w500, color: AppColors.textBlackColor),
 
     // label text theme
     labelLarge: TextStyle(fontSize: AppSizes.fontSizeSm, fontWeight: FontWeight.w400, color: AppColors.textBlackColor),

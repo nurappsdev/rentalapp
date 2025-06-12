@@ -19,48 +19,58 @@ class AppStrings{
 
 
   // auth titles
-  static const String signInTitle = "Welcome Back!";
-  static const String signInSubTitle = "Time to get back in the game!";
+  static const String signInTitle = "Sign in to your account";
+  static const String signInSubTitle = "Welcome Back! Please enter your details.";
 
-  static const String signUpTitle = "Sign Up Please!";
-  static const String signUpSubTitle = "It only takes a few taps. Let’s do this!";
+  static const String signUpTitle = "Sign up with Email";
+  static const String signUpSubTitle = "Welcome Back! Please enter your details.";
 
-  static const String verifyEmailTitle = "Almost There!";
-  static const String verifyEmailSubTitle = "Check your inbox click it, and you’re in!";
+  static const String verifyEmailTitle = "Verify Email";
+  static const String verifyEmailSubTitle = "Please check your phone number and enter the code";
 
   static const String forgotEmailTitle = "Oops, Memory Leak?";
   static const String forgotEmailSubTitle = "No worries! Just enter your email, and we’ll fix this little brain freeze.";
 
-  static const String resetPasswordTitle = "New Password?";
-  static const String resetPasswordSubTitle = "Make it strong. No ‘123456’ please!";
+  static const String resetPasswordTitle = "Reset Password";
+  static const String resetPasswordSubTitle = "Enter a new password";
+
+  static const String emailTakingTitle = "Forgot Password";
+  static const String emailTakingSubTitle = "Please enter your phone number to reset password.";
+
+  static const String resetPasswordBottmSheetTitle = "Password Changed!";
+  static const String resetPasswordBottmSheetSubTitle = "Return to the login page to enter your account with your new password.";
 
 
 
   // auth fields
-  static const String nameHint = "Enter Your Name";
+  static const String nameHint = "Enter Name";
 
-  static const String usernameLabel = "Username";
-  static const String usernameHint = "Enter Your Username";
+  static const String usernameLabel = "User Name";
+  static const String usernameHint = "Enter Username";
 
   static const String passwordLabel = "Password";
-  static const String passwordHint = "Enter Your Password";
+  static const String passwordHint = "Enter Password";
 
-  static const String emailAddressLabel = "Email Address";
-  static const String emailAddressHint = "Enter Your Email";
+  static const String emailAddressLabel = "Your Email";
+  static const String emailAddressHint = "Enter Email";
 
   static const String oldPasswordLabel = "Old Password";
-  static const String oldPasswordHint = "Enter Your Old Password";
+  static const String oldPasswordHint = "Enter Old Password";
 
   static const String newPasswordLabel = "New Password";
-  static const String newPasswordHint = "Enter Your New Password";
+  static const String newPasswordHint = "Enter New Password";
 
   static const String confirmPasswordLabel = "Confirm Password";
-  static const String confirmPasswordHint = "Enter Your Confirm Password";
+  static const String confirmPasswordHint = "Enter Confirm Password";
+
+  static const String forgotPasswordQuestion = "Forgot Password?";
 
   // auth others
   static const String resetPassword = "Reset Password";
   static const String doNotHaveAcc = "Don’t have an account?";
-  static const String termsAndConditionsAgreement = "By creating an account, you agree to all";
+  static const String didNotRecieveCode = "Didn’t receive code?";
+  static const String resendCode = "Resend Code";
+  static const String termsAndConditionsAgreement = "By creating an account, I accept the Terms & Conditions & Privacy Policy.";
   static const String termsAndConditions = "terms and conditions.";
 
 
@@ -86,12 +96,14 @@ class AppStrings{
   // ============================================================// ============================================================
   // buttons 
   // ============================================================// ============================================================
-  static const String signIn = "Login";
+  static const String signIn = "Sign In";
   static const String signUp = "Sign Up";
   static const String verify = "Verify";
-  static const String sendOtp = "Send Otp";
+  static const String verifyEmail = "Verify Email";
+  static const String sendOtp = "Send OTP";
   static const String confirm = "Confirm";
   static const String savePassword = "Save Password";
   static const String loginWithGoogle = "Log in with Google";
   static const String continueBtnTxt = "Continue";
+  static const String backToSignIn = "back to sign in";
 }

@@ -1,11 +1,16 @@
+import 'package:alora/core/enums/role_type.dart';
+import 'package:alora/core/utils/helper_method.dart';
 import 'package:get/get.dart';
 
 class SignInController extends GetxController {
 
-  final RxInt count = 0.obs;
+  final Rx<RoleType> roleType = RoleType.rentar.obs;
 
-  void increment() => count.value++;
 
+  Future<void> getRoleType() async{
+    roleType.value = await HelperMethod.getRoleType();
+  }
+  
 
   
   /// [onInit] Lifecycle method called when the controller is initialized.
@@ -16,7 +21,7 @@ class SignInController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    count.value = 0;
+    getRoleType();
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -25,6 +30,5 @@ class SignInController extends GetxController {
   @override
   void dispose() {
     super.dispose();
-    count.value = 0;
   }
 }

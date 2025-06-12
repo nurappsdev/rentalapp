@@ -2,12 +2,17 @@ import 'package:get/get.dart';
 
 class SignUpController extends GetxController {
 
-  final RxInt count = 0.obs;
+  final RxBool isAgreementAccepted = false.obs;
 
-  void increment() => count.value++;
+  set updateAgreementStatus(bool? value){
+    if(value != null && value == true){
+      isAgreementAccepted.value = true;
+    }
+    else{
+      isAgreementAccepted.value = false;
+    }
+  }
 
-
-  
   /// [onInit] Lifecycle method called when the controller is initialized.
   ///
   /// Resets loading states, clears existing data, and triggers and more..
@@ -16,7 +21,7 @@ class SignUpController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    count.value = 0;
+    isAgreementAccepted.value = false;
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -25,6 +30,6 @@ class SignUpController extends GetxController {
   @override
   void dispose() {
     super.dispose();
-    count.value = 0;
+    isAgreementAccepted.value = false;
   }
 }
