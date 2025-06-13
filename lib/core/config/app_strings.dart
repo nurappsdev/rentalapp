@@ -89,6 +89,15 @@ class AppStrings{
   static const String crewRoleDesc = "Sign In as a Apartment Crew.";
 
 
+  static const String maintenanceReqList = "Maintenance req list";
+  static const String maintenanceEmpty = "Maintenance is empty.";
+
+  static const String view = "View";
+  static const String accept = "Accept";
+  static const String roomNumber = "Room Number";
+  static const String floor = "Floor";
+
+
 
 
 

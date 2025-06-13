@@ -35,7 +35,12 @@ dependencies:
   pin_code_fields: ^8.0.1
   # svg icons loader
   flutter_svg: ^2.1.0
+  # app launcher icon
   flutter_launcher_icons: ^0.14.3
+  # calendar
+  calendar_date_picker2: ^2.0.1
+  # shimmer loader
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

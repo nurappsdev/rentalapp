@@ -9,7 +9,7 @@ enum TitleAlignment { left, center, right }
 
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final String? title;
   final bool isTitleUnderline;
   final TitleAlignment titleAlignment;
   final bool centerTitle;
@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const CustomAppBar({
     super.key,
-    required this.title,
+    this.title,
     this.titleAlignment = TitleAlignment.center,
     this.centerTitle = true,
     this.showBackBtn = false,
@@ -57,8 +57,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading = IconButton(
         icon: SvgPicture.asset(
           AppIcons.sideDrawerIcon, 
-          width: 24.0, 
-          height: 24.0,
+          width: 32.0, 
+          height: 32.0,
           colorFilter: const ColorFilter.mode(AppColors.blackColor, BlendMode.srcATop),
         ),
         onPressed: () {
@@ -83,17 +83,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         decorationColor: Colors.black,
         decorationThickness: 2.0,
       ),
-      title: Align(
+      title: title != null ? Align(
         alignment: _getTitleAlignment(),
         child: Text(
-            title,
+            title!,
             style: context.textTheme.headlineSmall?.copyWith(
               decoration: isTitleUnderline ? TextDecoration.underline : null,
               decorationColor: AppColors.blackColor,
               decorationThickness: AppSizes.dividerHeight,
             ),
           ),
-      ),
+      ) : null,
       centerTitle: false,
       actions: actions,
     );

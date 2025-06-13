@@ -11,4 +11,20 @@ class AppIcons{
   static const String clockIcon ="$baseUrl/clock_icon.svg";
   static const String resetPassBottomSheetIcon ="$baseUrl/reset_password_bottom_sheet_icon.svg";
   static const String userNamePrefixIcon ="$baseUrl/user_name_prefix_icon.svg";
+  static const String contactUsIcon ="$baseUrl/contact_us_icon.svg";
+  static const String editIcon ="$baseUrl/edit_icon.svg";
+  static const String emptyIcon ="$baseUrl/empty_icon.svg";
+  static const String infoIcon ="$baseUrl/info_icon.svg";
+  static const String locationPrefixIcon ="$baseUrl/location_prefix_icon.svg";
+  static const String logoutBottomSheetIcon ="$baseUrl/logout_bottom_sheet_icon.svg";
+  static const String logoutIcon ="$baseUrl/logout_icon.svg";
+  static const String maintenanceIcon ="$baseUrl/maintenance_Icon.svg";
+  static const String nextIcon ="$baseUrl/next_icon.svg";
+  static const String notificationIcon ="$baseUrl/notification_icon.svg";
+  static const String phonePrefixIcon ="$baseUrl/phone_prefix_icon.svg";
+  static const String privacyPolicyIcon ="$baseUrl/privacy_policy_icon.svg";
+  static const String settingsIcon ="$baseUrl/settings_icon.svg";
+  static const String termsConditionIcon ="$baseUrl/terms_condition_icon.svg";
+  static const String uploadIcon ="$baseUrl/upload_icon.svg";
+  static const String userIcon ="$baseUrl/user_icon.svg";
 }

@@ -14,3 +14,13 @@ export 'package:alora/features/auth/screens/sign_up_screen.dart';
 export 'package:alora/features/auth/screens/reset_password_screen.dart';
 export 'package:alora/features/auth/screens/taking_email_screen.dart';
 export 'package:alora/features/auth/screens/verify_email_screen.dart';
+
+
+// crew
+export 'package:alora/features/crew/home_crew/screens/home_crew_screen.dart';
+
+// rentar
+export 'package:alora/features/rentar/home_rentar/screens/home_rentar_screen.dart';
+
+// owner
+export 'package:alora/features/owner/home_owner/screens/home_owner_screen.dart';

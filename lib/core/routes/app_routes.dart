@@ -16,4 +16,11 @@ class AppRoutes{
   static const String generalRoute = "/general-screen";
   // setting routes
   static const String settingRoute = "/general-screen";
+
+
+  // home routes
+  static const String homeCrewRoute = "/home-crew-screen";
+  static const String homeOwnerRoute = "/home-owner-screen";
+  static const String homeRentarRoute = "/home-rentar-screen";
+
 }

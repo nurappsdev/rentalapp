@@ -9,3 +9,13 @@ export 'package:alora/features/auth/bindings/auth_binding.dart';
 export 'package:alora/features/general/bindings/general_binding.dart';
 
 export 'package:alora/features/setting/bindings/setting_binding.dart';
+
+
+// crew
+export 'package:alora/features/crew/home_crew/bindings/home_crew_binding.dart';
+
+// rentar
+export 'package:alora/features/rentar/home_rentar/bindings/home_rentar_binding.dart';
+
+// owner
+export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';

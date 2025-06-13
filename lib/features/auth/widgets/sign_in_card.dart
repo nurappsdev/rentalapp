@@ -91,9 +91,12 @@ class SignInCard extends StatelessWidget {
 
           const SizedBox(height: AppSizes.spaceBetweenSections,),
 
-          CustomButton(
-            onTap: (){}, 
-            text: AppStrings.signIn
+          Obx(
+            ()=> CustomButton(
+              loading: signInController.isLoading.value,
+              onTap: signInController.handleSignIn, 
+              text: AppStrings.signIn
+            ),
           ),
 
           const SizedBox(height: AppSizes.spaceBetweenSections,),

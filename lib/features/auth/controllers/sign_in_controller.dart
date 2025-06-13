@@ -1,4 +1,5 @@
 import 'package:alora/core/enums/role_type.dart';
+import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/utils/helper_method.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,26 @@ class SignInController extends GetxController {
 
   Future<void> getRoleType() async{
     roleType.value = await HelperMethod.getRoleType();
+  }
+
+  final RxBool isLoading = false.obs;
+
+  Future<void> handleSignIn() async{
+    isLoading.value = true;
+    
+    switch(roleType.value){
+      case RoleType.rentar:
+        Get.offAllNamed(AppRoutes.homeRentarRoute);
+        break;
+      case RoleType.owner:
+        Get.offAllNamed(AppRoutes.homeOwnerRoute);
+        break;
+      case RoleType.crew:
+        Get.offAllNamed(AppRoutes.homeCrewRoute);
+        break;
+    }
+    
+    isLoading.value = false;
   }
   
 
@@ -22,6 +43,7 @@ class SignInController extends GetxController {
   void onInit() {
     super.onInit();
     getRoleType();
+    isLoading.value = false;
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -30,5 +52,6 @@ class SignInController extends GetxController {
   @override
   void dispose() {
     super.dispose();
+    isLoading.value = false;
   }
 }
