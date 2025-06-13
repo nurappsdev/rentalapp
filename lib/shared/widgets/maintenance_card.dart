@@ -5,7 +5,7 @@ import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_network_image.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
 
-import '../../features/crew/home_crew/models/maintenance_model.dart';
+import '../models/maintenance_model.dart';
 import 'package:flutter/material.dart';
 
 class MaintenanceCard extends StatelessWidget {

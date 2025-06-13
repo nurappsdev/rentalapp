@@ -45,7 +45,7 @@ class CustomRoundedInnerIcon extends StatelessWidget {
               width: 1,
               color: borderColor,
             ) : null,
-            borderRadius: BorderRadius.circular(AppSizes.sm)
+            borderRadius: boxShape == BoxShape.circle ? null : BorderRadius.circular(AppSizes.sm)
           ),
           child: SvgPicture.asset(icon, width: iconSize, height: iconSize, colorFilter: ColorFilter.mode(iconColor, BlendMode.srcATop,))
       ),
@@ -59,7 +59,7 @@ class CustomRoundedInnerIcon extends StatelessWidget {
           border: isBorder
               ? Border.all(width: 1, color: borderColor)
               : null,
-          borderRadius: BorderRadius.circular(AppSizes.sm)
+          borderRadius:  boxShape == BoxShape.circle ? null : BorderRadius.circular(AppSizes.sm)
         ),
         child: Stack(
           children: <Widget>[
@@ -72,7 +72,7 @@ class CustomRoundedInnerIcon extends StatelessWidget {
                   border: isBorder
                       ? Border.all(width: 1, color: borderColor)
                       : null,
-                  borderRadius: BorderRadius.circular(AppSizes.sm)
+                  borderRadius: boxShape == BoxShape.circle ? null :  BorderRadius.circular(AppSizes.sm)
                 ),
               ),
             ),

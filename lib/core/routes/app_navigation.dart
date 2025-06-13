@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import '../../features/screens.dart';
 import '../../features/bindings.dart';
 import 'app_routes.dart';
+import 'navigation.dart';
 
 class AppNavigation{
   AppNavigation._();
@@ -32,40 +33,7 @@ class AppNavigation{
 
 
     // Auth routes
-    GetPage<dynamic>(
-      name: AppRoutes.signInRoute,
-      page: () => const SignInScreen(), 
-      binding: AuthBinding(),
-      transition: Transition.noTransition
-    ),
-
-    GetPage<dynamic>(
-      name: AppRoutes.signUpRoute, 
-      page: () => const SignUpScreen(), 
-      binding: AuthBinding(),
-      transition: Transition.noTransition
-    ),
-
-    GetPage<dynamic>(
-      name: AppRoutes.verifyEmailRoute, 
-      page: () => const VerifyEmailScreen(), 
-      binding: AuthBinding(),
-      transition: Transition.noTransition
-    ),
-
-    GetPage<dynamic>(
-      name: AppRoutes.takingEmailRoute, 
-      page: () => const TakingEmailScreen(), 
-      binding: AuthBinding(),
-      transition: Transition.noTransition
-    ),
-    
-    GetPage<dynamic>(
-      name: AppRoutes.resetPasswordRoute, 
-      page: () => const ResetPasswordScreen(), 
-      binding: AuthBinding(),
-      transition: Transition.noTransition
-    ),
+    ...AuthNav.routes,
 
     // general routes
     GetPage<dynamic>(
@@ -85,24 +53,22 @@ class AppNavigation{
 
 
      // home routes
+    ...HomeNav.routes,
+
+    // notification routes
     GetPage<dynamic>(
-      name: AppRoutes.homeCrewRoute, 
-      page: () => const HomeCrewScreen(), 
-      binding: HomeCrewBinding(),
+      name: AppRoutes.notificationRoute, 
+      page: () => const NotificationScreen(), 
+      binding: NotificationBinding(),
       transition: Transition.noTransition
     ),
 
-    GetPage<dynamic>(
-      name: AppRoutes.homeOwnerRoute, 
-      page: () => const HomeOwnerScreen(), 
-      binding: HomeOwnerBinding(),
-      transition: Transition.noTransition
-    ),
 
+    // maintenance routes
     GetPage<dynamic>(
-      name: AppRoutes.homeRentarRoute, 
-      page: () => const HomeRentarScreen(), 
-      binding: HomeRentarBinding(),
+      name: AppRoutes.maintananceDetailsRoute, 
+      page: () => const MaintenanceDetailsScreen(), 
+      binding: MaintenanceDetailsBinding(),
       transition: Transition.noTransition
     ),
 

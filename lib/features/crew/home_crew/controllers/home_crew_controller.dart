@@ -1,4 +1,4 @@
-import '../models/maintenance_model.dart';
+import '../../../../shared/models/maintenance_model.dart';
 import 'package:get/get.dart';
 
 class HomeCrewController extends GetxController {

@@ -91,11 +91,11 @@ class AppStrings{
 
   static const String maintenanceReqList = "Maintenance req list";
   static const String maintenanceEmpty = "Maintenance is empty.";
+  static const String notificaitonEmpty = "Notification is empty.";
 
-  static const String view = "View";
-  static const String accept = "Accept";
   static const String roomNumber = "Room Number";
   static const String floor = "Floor";
+  static const String notificaiton = "Notification";
 
 
 
@@ -115,4 +115,6 @@ class AppStrings{
   static const String loginWithGoogle = "Log in with Google";
   static const String continueBtnTxt = "Continue";
   static const String backToSignIn = "back to sign in";
+  static const String view = "View";
+  static const String accept = "Accept";
 }

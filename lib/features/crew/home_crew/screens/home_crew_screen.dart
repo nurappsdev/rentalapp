@@ -4,6 +4,7 @@ import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/config/calendar_config.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
+import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_rounded_inner_icon.dart';
 import 'package:alora/shared/widgets/maintenance_card.dart';
@@ -36,7 +37,7 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
             isBorder: false,
             bgColor: AppColors.greyColor,
             boxShape: BoxShape.rectangle,
-            onTap: (){},
+            onTap: () => Get.toNamed(AppRoutes.notificationRoute),
           ),
           const SizedBox(width: AppSizes.sm,)
         ]
@@ -48,6 +49,8 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
           child: Column(
             children: <Widget>[
               const SizedBox(height: AppSizes.spaceBetweenItems,),
+
+              // calander
               Container(
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
@@ -60,6 +63,8 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
                 ),
               ),
               const SizedBox(height: AppSizes.spaceBetweenSections,),
+              
+              // maintenance header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -79,8 +84,10 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
                   })
                 ],
               ),
+
               const SizedBox(height: AppSizes.spaceBetweenSections,),
 
+              // maintenence list with handling loading and empty state
               Obx((){
                 if(controller.maintenanceList.isEmpty){
                   return const EmptyMaintenance().centered;
