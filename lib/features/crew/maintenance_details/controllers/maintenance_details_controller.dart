@@ -1,11 +1,14 @@
+import 'package:alora/shared/models/maintenance_model.dart';
 import 'package:get/get.dart';
 
 class MaintenanceDetailsController extends GetxController {
 
-  final RxInt count = 0.obs;
+  String maintenenceId = '';
 
-  void increment() => count.value++;
+  set updateMaintenanceId(String maintenenceId) => this.maintenenceId = maintenenceId;
 
+  Rx<MaintenanceModel?> maintenance = Rx<MaintenanceModel?>(null);
+  final RxBool maintenanceLoading = false.obs;
 
   
   /// [onInit] Lifecycle method called when the controller is initialized.
@@ -16,7 +19,16 @@ class MaintenanceDetailsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    count.value = 0;
+    maintenanceLoading.value = true;
+    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+      maintenance.value = MaintenanceModel.dummyMaintenanceList.firstWhere(
+        (MaintenanceModel item) => item.id == maintenenceId,
+      );
+    });
+
+    Future<dynamic>.delayed(const Duration(seconds: 4), (){
+      maintenanceLoading.value = false;
+    });
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -24,7 +36,7 @@ class MaintenanceDetailsController extends GetxController {
   /// Cleans up by resetting loading states and clearing lists and more...
   @override
   void dispose() {
+    maintenanceLoading.value = false;
     super.dispose();
-    count.value = 0;
   }
 }

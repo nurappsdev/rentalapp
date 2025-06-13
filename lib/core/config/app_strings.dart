@@ -91,11 +91,24 @@ class AppStrings{
 
   static const String maintenanceReqList = "Maintenance req list";
   static const String maintenanceEmpty = "Maintenance is empty.";
+  static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
   static const String notificaitonEmpty = "Notification is empty.";
+  static const String maintenanceDetails = "Maintenance details";
 
   static const String roomNumber = "Room Number";
   static const String floor = "Floor";
   static const String notificaiton = "Notification";
+  static const String apartmentName = "Apartment Name";
+  static const String apartmentRoomNo = "Apartment Room Number";
+  static const String location = "Location";
+  static const String issueDate = "Issue Date";
+  static const String description = "Description";
+  static const String issueImage = "Issue Image";
+  static const String issueVideo = "Issue Video";
+  static const String userDetails = "User Details";
+  static const String name = "Name";
+  static const String email = "Email";
+  static const String phoneNo = "Phone Number";
 
 
 

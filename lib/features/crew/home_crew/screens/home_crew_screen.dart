@@ -102,7 +102,12 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
                   itemBuilder: (_, int index){
                     return MaintenanceCard(
                       maintenanceModel: controller.maintenanceList[index],
-                      onViewCallback: () {  },
+                      onViewCallback: () => Get.toNamed(
+                        AppRoutes.maintananceDetailsRoute, 
+                        arguments: <String, String>{
+                          "maintenance_id": controller.maintenanceList[index].id
+                        }
+                      ),
                       onAcceptCallback: () {  },
                     );
                   },

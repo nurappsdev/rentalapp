@@ -22,6 +22,7 @@ class EmptyMaintenance extends StatelessWidget{
     
         Text(
           AppStrings.maintenanceEmpty,
+          textAlign: TextAlign.center,
           style: context.textTheme.titleSmall,
         )
       ],

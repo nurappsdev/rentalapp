@@ -29,6 +29,7 @@ class EmptyNotification extends StatelessWidget{
     
         Text(
           AppStrings.notificaitonEmpty,
+          textAlign: TextAlign.center,
           style: context.textTheme.titleSmall,
         )
       ],
