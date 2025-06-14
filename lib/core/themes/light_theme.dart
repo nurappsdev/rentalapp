@@ -6,7 +6,7 @@ import 'package:alora/core/themes/app_text_theme.dart';
 class LightTheme{
   LightTheme._();
   static final ThemeData lightTheme = ThemeData(
-    fontFamily: "KantumruyPro",
+    fontFamily: "RedHatDisplay",
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor).copyWith( brightness: Brightness.light),
     brightness: Brightness.light,

@@ -10,9 +10,12 @@ extension DateTimeExtensions on DateTime {
 
   String get formattedTime => DateFormat('HH:mm:ss').format(this);
 
+  String get formattedMonthYear => DateFormat('MMM yyyy').format(this);
+
   String get formattedDateTime => DateFormat('yyyy-MM-dd HH:mm:ss').format(this);
 
   bool get isExpired => isBefore(DateTime.now().toUtc());
+
 
   bool get isValid => !isExpired;
 

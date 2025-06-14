@@ -11,7 +11,7 @@ class CustomAppBackground extends StatelessWidget {
     super.key,
     required this.child,
     this.isBorderRadius = false,
-    this.backgroundImage = AppImages.appBackground,
+    this.backgroundImage = AppImages.authBackground,
   });
 
   @override

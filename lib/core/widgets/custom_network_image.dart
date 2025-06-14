@@ -36,7 +36,7 @@ class CustomNetworkImage extends StatelessWidget {
             height: height,
             width: width,
             decoration: BoxDecoration(
-              color: AppColors.greyColor.withValues(alpha: 0.6),
+              color: AppColors.greyColor.withValues(alpha: .2),
               shape: boxShape,
             ),
         ),
@@ -44,7 +44,7 @@ class CustomNetworkImage extends StatelessWidget {
             height: height,
             width: width,
             decoration: BoxDecoration(
-            color: AppColors.greyColor.withValues(alpha: 0.6),
+            color: AppColors.greyColor.withValues(alpha: .2),
             shape: boxShape,
             ),
         ),

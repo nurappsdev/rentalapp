@@ -20,4 +20,8 @@ class AppConstants{
   static const String refressToken = 'refressToken';
   static const String refressTokenExpiry = 'refressTokenExpiry';
 
+
+    static const String roleType = 'roleType';
+    static const String isLoggedIn = 'isLoggedIn';
+
 }

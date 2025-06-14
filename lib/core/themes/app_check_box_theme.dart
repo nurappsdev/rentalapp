@@ -5,6 +5,9 @@ class AppCheckBoxTheme{
   AppCheckBoxTheme._();
 
   static CheckboxThemeData lightCheckBoxTheme = CheckboxThemeData(
+    side: const BorderSide(
+       color: AppColors.primaryColor,
+    ),
     shape: RoundedRectangleBorder(
         side: const BorderSide(
            color: AppColors.primaryColor,
