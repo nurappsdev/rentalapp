@@ -12,6 +12,7 @@ class AppStrings{
   static const String privacyPolicy = "Privacy Policy";
   static const String termsAndCondition = "Terms & Conditions";
   static const String aboutUs = "About us";
+  static const String lastUpdated = "Last Updated";
 
   // splash or onboarding
   static const String getStarted = 'Get Started';

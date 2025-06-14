@@ -20,7 +20,7 @@ class AppRoutes{
   static const String generalRoute = "/general-screen";
 
   // setting routes
-  static const String settingRoute = "/general-screen";
+  static const String settingRoute = "/setting-screen";
 
   // setting routes
   static const String notificationRoute = "/notificaiton-screen";

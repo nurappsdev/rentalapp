@@ -16,7 +16,7 @@ class AppColors{
 
   static const Color buttonDisabledColor = Color(0xFFc4c4c4);
 
-  static const Color borderColor = Color(0xFFd9d9d9);
+  static const Color borderColor = Color(0x28333F40);
 
   static const Color errorColor = Color(0xFFE70101);
   static const Color successColor = Color(0xFF81C784);
