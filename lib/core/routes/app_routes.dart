@@ -28,6 +28,8 @@ class AppRoutes{
   // contactUs routes
   static const String contactUsRoute = "/contact-us-screen";
 
+  // contactUs routes
+  static const String profileRoute = "/profile-screen";
   // maintanance routes
   static const String maintananceDetailsRoute = "/maintanance-details-screen";
 

@@ -59,6 +59,14 @@ class AppNavigation{
       transition: Transition.noTransition
     ),
 
+    // contact us routes
+    GetPage<dynamic>(
+      name: AppRoutes.profileRoute, 
+      page: () => const ProfileScreen(), 
+      binding: ProfileBinding(),
+      transition: Transition.noTransition
+    ),
+
 
      // home routes
     ...HomeNav.routes,

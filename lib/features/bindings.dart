@@ -12,6 +12,8 @@ export 'package:alora/features/setting/bindings/setting_binding.dart';
 
 export 'package:alora/features/notification/bindings/notification_binding.dart';
 
+export 'package:alora/features/profile/bindings/profile_binding.dart';
+
 
 // crew
 export 'package:alora/features/crew/home_crew/bindings/home_crew_binding.dart';

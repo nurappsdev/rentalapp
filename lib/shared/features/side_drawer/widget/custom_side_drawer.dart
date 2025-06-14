@@ -8,7 +8,7 @@ import 'package:alora/core/utils/custom_bottom_sheet.dart';
 import 'package:alora/core/utils/custom_loader.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_rounded_inner_icon.dart';
-import 'package:alora/core/widgets/rounded_profile_card.dart';
+import 'package:alora/core/widgets/profile_image.dart';
 import 'package:alora/shared/features/side_drawer/controllers/custom_side_drawer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -34,7 +34,7 @@ class CustomSideDrawer extends StatelessWidget {
                 // header section
                 const SizedBox(height: AppSizes.spaceBetweenSections,),
                 Obx(
-                  () => RoundedProfileImage(
+                  () => ProfileImage(
                     imageUrl: controller.user.value?.profileImage,
                     height: 100.0,
                     width: 100.0,
@@ -54,12 +54,15 @@ class CustomSideDrawer extends StatelessWidget {
                   
                 const SizedBox(height: AppSizes.xs,),
                   
-                Text(
+                GestureDetector(
+                  onTap: () => Get.toNamed(AppRoutes.profileRoute),
+                  child: Text(
                   AppStrings.viewProfile,
-                  style: context.textTheme.labelMedium?.copyWith(
-                    color: AppColors.textPrimaryColor,
-                    decoration: TextDecoration.underline,
-                    decorationColor: AppColors.primaryColor
+                    style: context.textTheme.labelMedium?.copyWith(
+                      color: AppColors.textPrimaryColor,
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.primaryColor
+                    ),
                   ),
                 ),
 
