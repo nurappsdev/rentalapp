@@ -7,6 +7,7 @@ import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_rounded_inner_icon.dart';
+import 'package:alora/shared/features/side_drawer/widget/custom_side_drawer.dart';
 import 'package:alora/shared/widgets/maintenance_card.dart';
 import 'package:alora/shared/widgets/maintenance_shimmer.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
@@ -42,6 +43,7 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
           const SizedBox(width: AppSizes.sm,)
         ]
       ),
+      drawer: const CustomSideDrawer(),
       backgroundColor: AppColors.surfaceColor,
       body: SingleChildScrollView(
         child: Padding(

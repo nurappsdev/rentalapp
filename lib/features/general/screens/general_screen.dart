@@ -1,4 +1,9 @@
+import 'package:alora/core/config/app_colors.dart';
+import 'package:alora/core/config/app_icons.dart';
+import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../controllers/general_controller.dart';
 
@@ -10,12 +15,18 @@ class GeneralScreen extends GetView<GeneralController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('General'),
-        centerTitle: true,
+      appBar: const CustomAppBar(
+        showBackBtn: true,
+        title: AppStrings.setting,
+        backgroundColor: AppColors.whiteColor,
+        elevation: 0.0,
       ),
-      body: Center(
-        child: Obx(() => Text('Count: ${controller.count}')),
+      body: ListView(
+        children: [
+          ListTile(
+            leading: SvgPicture.asset(AppIcons.privacyPolicyIcon),
+          )
+        ],
       ),
     );
   }

@@ -63,10 +63,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         onPressed: () {
           if(scaffoldKey != null && scaffoldKey!.currentState != null && scaffoldKey!.currentState!.hasDrawer){
+            print("pressed on side scaffoldKey!.currentState!.isDrawerOpen : ${scaffoldKey!.currentState!.isDrawerOpen}");
             if(!scaffoldKey!.currentState!.isDrawerOpen){
+              print("open drawer now");
               scaffoldKey!.currentState!.openDrawer();
             }
             else{
+              print("close drawer now");
               scaffoldKey!.currentState!.closeDrawer();
             }
           }

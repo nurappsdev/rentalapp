@@ -40,6 +40,9 @@ class AppStrings{
   static const String resetPasswordBottmSheetTitle = "Password Changed!";
   static const String resetPasswordBottmSheetSubTitle = "Return to the login page to enter your account with your new password.";
 
+  static const String logoutBottmSheetTitle = "LogOut";
+  static const String logoutBottmSheetSubTitle = "Are you sure you want to log out ?";
+
 
 
   // auth fields
@@ -109,6 +112,11 @@ class AppStrings{
   static const String name = "Name";
   static const String email = "Email";
   static const String phoneNo = "Phone Number";
+  static const String viewProfile = "View Profile";
+  static const String myMaintenance = "My Maintenance";
+  static const String contactUs = "Contact Us";
+  static const String setting = "Setting";
+  static const String logout = "Logout";
 
 
 
@@ -130,4 +138,6 @@ class AppStrings{
   static const String backToSignIn = "back to sign in";
   static const String view = "View";
   static const String accept = "Accept";
+  static const String no = "No";
+  static const String yes = "Yes";
 }
