@@ -85,9 +85,15 @@ class MaintenanceModel {
   // https://i.ibb.co/7dtBDZHy/d5e76c655b0cfd55a7449f24d43b8129f4334ab2.png
   // https://i.ibb.co/RpvxyL3C/8e09f2137bde140d80ce1ec0253b9e802a214a13.png
   // https://i.ibb.co/gb89tL7H/4cecfcf834e669ed760ddf8d1110821cf8547ef3.jpg
+
+  // http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+  // http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
   static String maintenanceImage = "https://i.ibb.co/7dtBDZHy/d5e76c655b0cfd55a7449f24d43b8129f4334ab2.png";
   static String issueImage = "https://i.ibb.co/RpvxyL3C/8e09f2137bde140d80ce1ec0253b9e802a214a13.png";
   static String userImage = "https://i.ibb.co/gb89tL7H/4cecfcf834e669ed760ddf8d1110821cf8547ef3.jpg";
+  static String issueVideo1 = "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+  static String issueVideo2 = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4";
+
   static final List<MaintenanceModel> dummyMaintenanceList = <MaintenanceModel>[
     MaintenanceModel(
       id: "1",
@@ -101,7 +107,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 5, 10),
       description: 'Water leakage in bathroom',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>['https://example.com/leak1.mp4'],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Alice Johnson',
       userEmail: 'alice@mail.com',
       userPhoneNumber: '1234567890',
@@ -119,7 +125,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 5, 12),
       description: 'Broken window',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>[],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Bob Smith',
       userEmail: 'bob@mail.com',
       userPhoneNumber: '9876543210',
@@ -137,7 +143,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 5, 8),
       description: 'AC not working',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>['https://example.com/ac.mp4'],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Charlie Green',
       userEmail: 'charlie@mail.com',
       userPhoneNumber: '1122334455',
@@ -155,7 +161,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 4, 30),
       description: 'Power socket broken',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>[],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Diana Rose',
       userEmail: 'diana@mail.com',
       userPhoneNumber: '5566778899',
@@ -173,7 +179,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 6, 1),
       description: 'Lift malfunctioning',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>['https://example.com/lift.mp4'],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Evan Black',
       userEmail: 'evan@mail.com',
       userPhoneNumber: '6677889900',
@@ -191,7 +197,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 5, 20),
       description: 'Clogged kitchen sink',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>[],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Fiona White',
       userEmail: 'fiona@mail.com',
       userPhoneNumber: '9988776655',
@@ -209,7 +215,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 5, 17),
       description: 'Broken door lock',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>[],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'George Hill',
       userEmail: 'george@mail.com',
       userPhoneNumber: '1231231234',
@@ -227,7 +233,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 5, 11),
       description: 'Wi-Fi outage',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>['https://example.com/wifi.mp4'],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Hannah Reed',
       userEmail: 'hannah@mail.com',
       userPhoneNumber: '2342342345',
@@ -245,7 +251,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 6, 2),
       description: 'Ceiling fan noise',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>[],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Isaac Lane',
       userEmail: 'isaac@mail.com',
       userPhoneNumber: '3453453456',
@@ -263,7 +269,7 @@ class MaintenanceModel {
       issueDate: DateTime(2025, 5, 28),
       description: 'No hot water in shower',
       issueImages: <String>[issueImage, issueImage, issueImage],
-      issueVideos: <String>['https://example.com/water.mp4'],
+      issueVideos: <String>[issueVideo1, issueVideo2],
       userName: 'Julia Stone',
       userEmail: 'julia@mail.com',
       userPhoneNumber: '4564564567',

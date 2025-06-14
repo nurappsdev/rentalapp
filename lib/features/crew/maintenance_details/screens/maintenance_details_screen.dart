@@ -2,16 +2,20 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_button.dart';
+import 'package:alora/core/widgets/custom_network_image.dart';
 import 'package:alora/core/widgets/rounded_profile_card.dart';
-import 'package:alora/features/notification/widgets/notification_shimmer.dart';
 import 'package:alora/shared/models/maintenance_model.dart';
 import 'package:alora/shared/widgets/empty_maintenance_details.dart';
+import 'package:alora/shared/widgets/maintenance_details_shimmer.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 import '../controllers/maintenance_details_controller.dart';
 
 class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
@@ -41,7 +45,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
               
               Obx((){
                 if(controller.maintenanceLoading.value){
-                  return const NotificationShimmer();
+                  return const MaintenanceDetailsShimmer();
                 }
                 else if(controller.maintenance.value == null){
                   return const EmptyMaintenanceDetails().centered;
@@ -97,12 +101,28 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                         ),
                     
                         const SizedBox(height: AppSizes.xs,),
-                    
-                        Text(
-                          maintenance.description,
-                          style: context.textTheme.bodySmall,
-                        ),
 
+
+                        SizedBox(
+                          height: 100.0,
+                          child: ListView.separated(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: maintenance.issueImages.length,
+                            itemBuilder: (_, int index){
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                                child: CustomNetworkImage(
+                                  imageUrl: maintenance.issueImages[index],
+                                  width: 100.0,
+                                  height: double.infinity,
+                                  boxShape: BoxShape.rectangle,
+                                ),
+                              );
+                            },
+                            separatorBuilder: (_,_) => const SizedBox(width: AppSizes.md,),
+                          ),
+                        ),
                         const SizedBox(height: AppSizes.spaceBetweenItems,),
                         // issue video layout
                         Text(
@@ -112,10 +132,45 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                     
                         const SizedBox(height: AppSizes.xs,),
                     
-                        Text(
-                          maintenance.description,
-                          style: context.textTheme.bodySmall,
-                        ),
+                        Obx(() {
+                          if (controller.videoItems.isEmpty) {
+                            return const SizedBox.shrink();
+                          }
+                          return SizedBox(
+                            height: 150.0,
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.videoItems.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                final VideoItemModel item = controller.videoItems[index];
+                            
+                                return VisibilityDetector(
+                                  key: Key('video_$index'),
+                                  onVisibilityChanged: (VisibilityInfo info) {
+                                    if (info.visibleFraction > 0.5) {
+                                      controller.playOnly(index);
+                                    }
+                                  },
+                                  child: Container(
+                                    width: context.screenWidth * .8,
+                                    height: 150.0,
+                                    decoration: BoxDecoration(
+                                      color: AppColors.greyColor,
+                                      borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd)
+                                    ),
+                                    child: item.initialized
+                                        ? AspectRatio(
+                                          aspectRatio: item.chewieController.videoPlayerController.value.aspectRatio,
+                                          child: Chewie(controller: item.chewieController),
+                                        )
+                                        : const Center(child: CircularProgressIndicator()),
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        }),
 
                         const SizedBox(height: AppSizes.spaceBetweenItems,),
 
@@ -138,7 +193,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
 
 
                         CustomButton(
-                          onTap: (){}, 
+                          onTap: () => Get.back(), 
                           text: AppStrings.accept
                         ),
 
