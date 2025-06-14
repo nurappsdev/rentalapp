@@ -95,7 +95,7 @@ class CustomSideDrawer extends StatelessWidget {
                           ),
 
                           ListTile(
-                            // onTap: () => Get.toNamed(AppRoutes.),
+                            onTap: () => Get.toNamed(AppRoutes.contactUsRoute),
                             contentPadding: EdgeInsets.zero,
                             leading: const CustomRoundedInnerIcon(
                               icon: AppIcons.contactUsIcon,
@@ -105,21 +105,6 @@ class CustomSideDrawer extends StatelessWidget {
                             ),
                             title: Text(
                               AppStrings.contactUs,
-                              style: context.textTheme.bodyMedium,
-                            ),
-                          ),
-
-                          ListTile(
-                            onTap: () => Get.toNamed(AppRoutes.settingRoute),
-                            contentPadding: EdgeInsets.zero,
-                            leading: const CustomRoundedInnerIcon(
-                              icon: AppIcons.settingsIcon,
-                              containerSize: 32.0,
-                              bgColor: AppColors.primaryColor,
-                              iconColor: AppColors.whiteColor,
-                            ),
-                           title: Text(
-                              AppStrings.setting,
                               style: context.textTheme.bodyMedium,
                             ),
                           ),
@@ -146,6 +131,23 @@ class CustomSideDrawer extends StatelessWidget {
                     }
                   }
                 }),
+
+
+
+                ListTile(
+                  onTap: () => Get.toNamed(AppRoutes.settingRoute),
+                  contentPadding: EdgeInsets.zero,
+                  leading: const CustomRoundedInnerIcon(
+                    icon: AppIcons.settingsIcon,
+                    containerSize: 32.0,
+                    bgColor: AppColors.primaryColor,
+                    iconColor: AppColors.whiteColor,
+                  ),
+                  title: Text(
+                    AppStrings.setting,
+                    style: context.textTheme.bodyMedium,
+                  ),
+                ),
 
 
                 const Divider(

@@ -51,6 +51,14 @@ class AppNavigation{
       transition: Transition.noTransition
     ),
 
+     // contact us routes
+    GetPage<dynamic>(
+      name: AppRoutes.contactUsRoute, 
+      page: () => const ContactUsScreen(), 
+      binding: ContactUsBinding(),
+      transition: Transition.noTransition
+    ),
+
 
      // home routes
     ...HomeNav.routes,

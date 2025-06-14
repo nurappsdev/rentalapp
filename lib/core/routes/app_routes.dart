@@ -22,8 +22,11 @@ class AppRoutes{
   // setting routes
   static const String settingRoute = "/setting-screen";
 
-  // setting routes
+  // notification routes
   static const String notificationRoute = "/notificaiton-screen";
+
+  // contactUs routes
+  static const String contactUsRoute = "/contact-us-screen";
 
   // maintanance routes
   static const String maintananceDetailsRoute = "/maintanance-details-screen";

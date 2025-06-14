@@ -21,6 +21,7 @@ export 'package:alora/features/auth/screens/verify_email_screen.dart';
 // crew
 export 'package:alora/features/crew/home_crew/screens/home_crew_screen.dart';
 export 'package:alora/features/crew/maintenance_details/screens/maintenance_details_screen.dart';
+export 'package:alora/features/crew/contact_us/screens/contact_us_screen.dart';
 
 // rentar
 export 'package:alora/features/rentar/home_rentar/screens/home_rentar_screen.dart';
