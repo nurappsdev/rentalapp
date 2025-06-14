@@ -50,3 +50,6 @@ flutter:
 dart:
   prefer_const_constructors_in_immutables: true
   prefer_final_fields: true
+analyzer:
+  errors:
+    unused_import: ignore

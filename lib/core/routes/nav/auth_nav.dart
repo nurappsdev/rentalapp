@@ -42,5 +42,12 @@ class AuthNav{
       binding: AuthBinding(),
       transition: Transition.noTransition
     ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.changePasswordRoute, 
+      page: () => const ChangePasswordScreen(), 
+      binding: AuthBinding(),
+      transition: Transition.noTransition
+    ),
   ];
 }

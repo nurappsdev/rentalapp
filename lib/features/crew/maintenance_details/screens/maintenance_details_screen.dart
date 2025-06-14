@@ -7,7 +7,7 @@ import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_network_image.dart';
-import 'package:alora/core/widgets/rounded_profile_card.dart';
+import 'package:alora/core/widgets/profile_image.dart';
 import 'package:alora/shared/models/maintenance_model.dart';
 import 'package:alora/shared/widgets/empty_maintenance_details.dart';
 import 'package:alora/shared/widgets/maintenance_details_shimmer.dart';
@@ -225,7 +225,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
 
         Row(
           children: <Widget>[
-            RoundedProfileImage(
+            ProfileImage(
               imageUrl: maintenance.userUserImage,
               width: 32.0,
               height: 32.0,

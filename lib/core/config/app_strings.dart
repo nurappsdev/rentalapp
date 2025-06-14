@@ -95,6 +95,7 @@ class AppStrings{
 
   static const String maintenanceReqList = "Maintenance req list";
   static const String maintenanceEmpty = "Maintenance is empty.";
+  static const String userInfoNotFound = "User info is not found.";
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
   static const String notificaitonEmpty = "Notification is empty.";
   static const String maintenanceDetails = "Maintenance details";
@@ -105,6 +106,7 @@ class AppStrings{
   static const String apartmentName = "Apartment Name";
   static const String apartmentRoomNo = "Apartment Room Number";
   static const String location = "Location";
+  static const String address = "Address";
   static const String issueDate = "Issue Date";
   static const String description = "Description";
   static const String issueImage = "Issue Image";
@@ -114,6 +116,10 @@ class AppStrings{
   static const String email = "Email";
   static const String phoneNo = "Phone Number";
   static const String viewProfile = "View Profile";
+  static const String profile = "Profile";
+  static const String personalInformation = "Personal Information";
+  static const String editProfile = "Edit Profile";
+  static const String changePassword = "Change Password";
   static const String myMaintenance = "My Maintenance";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
