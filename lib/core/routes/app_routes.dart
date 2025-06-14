@@ -13,6 +13,7 @@ class AppRoutes{
   static const String signInRoute = "/sign-in-screen";
   static const String signUpRoute = "/sign-up-screen";
   static const String resetPasswordRoute = "/reset-password-screen";
+  static const String changePasswordRoute = "/change-password-screen";
   static const String verifyEmailRoute = "/verify-email-screen";
   static const String takingEmailRoute = "/taking-email-screen";
 
@@ -30,6 +31,8 @@ class AppRoutes{
 
   // contactUs routes
   static const String profileRoute = "/profile-screen";
+  static const String editProfileRoute = "/edit-profile-screen";
+  
   // maintanance routes
   static const String maintananceDetailsRoute = "/maintanance-details-screen";
 

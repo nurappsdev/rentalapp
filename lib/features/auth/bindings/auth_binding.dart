@@ -1,3 +1,4 @@
+import 'package:alora/features/auth/controllers/change_password_controller.dart';
 import 'package:alora/features/auth/controllers/reset_password_controller.dart';
 import 'package:alora/features/auth/controllers/taking_email_controller.dart';
 import 'package:alora/features/auth/controllers/verify_email_controller.dart';
@@ -26,6 +27,10 @@ class AuthBinding extends Bindings {
 
     Get.lazyPut<VerifyEmailController>(
       () => VerifyEmailController()
+    );
+
+    Get.lazyPut<ChangePasswordController>(
+      () => ChangePasswordController()
     );
   }
 }

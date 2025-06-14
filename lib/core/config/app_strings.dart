@@ -119,7 +119,7 @@ class AppStrings{
   static const String profile = "Profile";
   static const String personalInformation = "Personal Information";
   static const String editProfile = "Edit Profile";
-  static const String changeProfile = "Change Profile";
+  static const String changePassword = "Change Password";
   static const String myMaintenance = "My Maintenance";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";

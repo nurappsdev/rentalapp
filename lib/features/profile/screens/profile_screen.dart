@@ -3,6 +3,7 @@ import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
+import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/utils/image_picker_utils.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/profile_image.dart';
@@ -85,20 +86,26 @@ class ProfileScreen extends GetView<ProfileController> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Text(
-                          AppStrings.editProfile,
-                          style: context.textTheme.labelMedium?.copyWith(
-                            decoration: TextDecoration.underline
+                        GestureDetector(
+                          onTap: () => Get.toNamed(AppRoutes.editProfileRoute),
+                          child: Text(
+                            AppStrings.editProfile,
+                            style: context.textTheme.labelMedium?.copyWith(
+                              decoration: TextDecoration.underline
+                            ),
                           ),
                         ),
 
                         const SizedBox(width: AppSizes.lg,),
 
 
-                        Text(
-                          AppStrings.changeProfile,
-                          style: context.textTheme.labelMedium?.copyWith(
-                            decoration: TextDecoration.underline
+                        GestureDetector(
+                          onTap: () => Get.toNamed(AppRoutes.changePasswordRoute),
+                          child: Text(
+                            AppStrings.changePassword,
+                            style: context.textTheme.labelMedium?.copyWith(
+                              decoration: TextDecoration.underline
+                            ),
                           ),
                         ),
                       ],
