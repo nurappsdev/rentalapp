@@ -35,6 +35,7 @@ class AppRoutes{
   
   // maintanance routes
   static const String maintananceDetailsRoute = "/maintanance-details-screen";
+  static const String maintananceRoute = "/maintanance-screen";
 
   // home routes
   static const String homeCrewRoute = "/home-crew-screen";

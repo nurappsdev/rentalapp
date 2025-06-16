@@ -19,6 +19,7 @@ export 'package:alora/features/profile/bindings/profile_binding.dart';
 export 'package:alora/features/crew/home_crew/bindings/home_crew_binding.dart';
 export 'package:alora/features/crew/maintenance_details/bindings/maintenance_details_binding.dart';
 export 'package:alora/features/crew/contact_us/bindings/contact_us_binding.dart';
+export 'package:alora/features/crew/maintenance/bindings/maintenance_binding.dart';
 
 
 // rentar

@@ -95,6 +95,13 @@ class AppNavigation{
       transition: Transition.noTransition
     ),
 
+    GetPage<dynamic>(
+      name: AppRoutes.maintananceRoute, 
+      page: () => const MaintenanceScreen(), 
+      binding: MaintenanceBinding(),
+      transition: Transition.noTransition
+    ),
+
 
   ];
 }

@@ -27,6 +27,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
   Widget build(BuildContext context) {
     final dynamic arguments = Get.arguments;
     controller.updateMaintenanceId = arguments != null ? (arguments as Map<String, dynamic>)['maintenance_id'] : '';
+    final String type = arguments != null ? (arguments as Map<String, dynamic>)['type'] : '';
 
     return Scaffold(
       appBar: const CustomAppBar(
@@ -191,12 +192,29 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
 
                         const SizedBox(height: AppSizes.spaceBetweenItems,),
 
-
-                        CustomButton(
-                          onTap: () => Get.back(), 
-                          text: AppStrings.accept
-                        ),
-
+                         if(type == "maintenance") 
+                          CustomButton(
+                            onTap: () => Get.back(), 
+                            text: AppStrings.accept
+                          )
+                        else if(type == "maintenance_recent")
+                          CustomButton(
+                            onTap: () => Get.back(), 
+                            text: AppStrings.resolvingIssue
+                          )
+                        else if(type == "maintenance_resolved") ...<Widget>[
+                          Text(
+                            AppStrings.resolvingIssueDate,
+                            style: context.textTheme.labelMedium?.copyWith(
+                              color: AppColors.primaryColor
+                            ),
+                          ),
+                          const SizedBox(height: AppSizes.sm,),
+                          Text(
+                            "Sat 12 April 2025  8.30 PM",
+                            style: context.textTheme.labelLarge
+                          ),
+                        ],
                         const SizedBox(height: AppSizes.spaceBetweenItems,),
                       ],
                     ),

@@ -126,6 +126,8 @@ class AppStrings{
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
+  static const String resolvingIssueDate = "Resolving Issue Date";
+
 
 
 
@@ -147,9 +149,19 @@ class AppStrings{
   static const String backToSignIn = "back to sign in";
   static const String view = "View";
   static const String accept = "Accept";
+  static const String resolvingIssue = "Resolving Issue";
+  static const String complete = "Complete";
   static const String no = "No";
   static const String yes = "Yes";
   static const String changePassword = "Change Password";
   static const String updateProfile = "Update Profile";
+
+
+  // ============================================================// ============================================================
+  // tab item
+  // ============================================================// ============================================================
+  
+    static const String recentMaintenance = "Recent Maintenance";
+    static const String resolvedMaintenance = "Resolved Maintenance";
 
 }

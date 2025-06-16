@@ -1,3 +1,4 @@
+import 'package:alora/core/themes/app_tab_bar_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/themes/app_check_box_theme.dart';
@@ -14,6 +15,7 @@ class DarkTheme{
     primaryColor: AppColors.primaryColor,
     scaffoldBackgroundColor: AppColors.backgroundColor,
     textTheme: AppTextTheme.darkTextTheme,
-    checkboxTheme: AppCheckBoxTheme.darkCheckBoxTheme
+    checkboxTheme: AppCheckBoxTheme.darkCheckBoxTheme,
+    tabBarTheme: AppTabBarTheme.tabBarThemeDark
   );
 }
