@@ -127,6 +127,7 @@ class AppStrings{
   static const String setting = "Setting";
   static const String logout = "Logout";
   static const String resolvingIssueDate = "Resolving Issue Date";
+  static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
 
 
 

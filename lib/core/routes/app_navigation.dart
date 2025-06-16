@@ -16,12 +16,7 @@ class AppNavigation{
     ),
 
     // onbaording routes
-    GetPage<dynamic>(
-      name: AppRoutes.onboardingRoute, 
-      page: () => const OnboardingScreen(), 
-      binding: OnboardingBinding(),
-      transition: Transition.noTransition
-    ),
+    ...OnboardingNav.routes,
 
     // choose role routes
     GetPage<dynamic>(
@@ -31,77 +26,23 @@ class AppNavigation{
       transition: Transition.noTransition
     ),
 
-
     // Auth routes
     ...AuthNav.routes,
 
-    // general routes
-    GetPage<dynamic>(
-      name: AppRoutes.generalRoute, 
-      page: () => const GeneralScreen(), 
-      binding: GeneralBinding(),
-      transition: Transition.noTransition
-    ),
-
-    // setting routes
-    GetPage<dynamic>(
-      name: AppRoutes.settingRoute, 
-      page: () => const SettingScreen(), 
-      binding: SettingBinding(),
-      transition: Transition.noTransition
-    ),
-
-     // contact us routes
-    GetPage<dynamic>(
-      name: AppRoutes.contactUsRoute, 
-      page: () => const ContactUsScreen(), 
-      binding: ContactUsBinding(),
-      transition: Transition.noTransition
-    ),
-
     // profile routes
-    GetPage<dynamic>(
-      name: AppRoutes.profileRoute, 
-      page: () => const ProfileScreen(), 
-      binding: ProfileBinding(),
-      transition: Transition.noTransition
-    ),
+    ...ProfileNav.routes,
 
-    GetPage<dynamic>(
-      name: AppRoutes.editProfileRoute, 
-      page: () => const EditProfileScreen(), 
-      binding: ProfileBinding(),
-      transition: Transition.noTransition
-    ),
-
-
-     // home routes
+    // home routes
     ...HomeNav.routes,
 
-    // notification routes
-    GetPage<dynamic>(
-      name: AppRoutes.notificationRoute, 
-      page: () => const NotificationScreen(), 
-      binding: NotificationBinding(),
-      transition: Transition.noTransition
-    ),
-
-
     // maintenance routes
-    GetPage<dynamic>(
-      name: AppRoutes.maintananceDetailsRoute, 
-      page: () => const MaintenanceDetailsScreen(), 
-      binding: MaintenanceDetailsBinding(),
-      transition: Transition.noTransition
-    ),
+    ...MaintenanceNav.routes,
 
-    GetPage<dynamic>(
-      name: AppRoutes.maintananceRoute, 
-      page: () => const MaintenanceScreen(), 
-      binding: MaintenanceBinding(),
-      transition: Transition.noTransition
-    ),
+    // general routes
+    ...GeneralNav.routes,
 
+    // renter
+    ...RenterNav.routes,
 
   ];
 }

@@ -23,7 +23,8 @@ export 'package:alora/features/crew/maintenance/bindings/maintenance_binding.dar
 
 
 // rentar
-export 'package:alora/features/rentar/home_rentar/bindings/home_rentar_binding.dart';
+export 'package:alora/features/renter/home_renter/bindings/home_renter_binding.dart';
+export 'package:alora/features/renter/search_apartments/bindings/search_apartments_binding.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';

@@ -27,4 +27,5 @@ class AppIcons{
   static const String termsConditionIcon ="$baseUrl/terms_condition_icon.svg";
   static const String uploadIcon ="$baseUrl/upload_icon.svg";
   static const String userIcon ="$baseUrl/user_icon.svg";
+  static const String onbaordingIcon ="$baseUrl/onboarding_icon.svg";
 }
