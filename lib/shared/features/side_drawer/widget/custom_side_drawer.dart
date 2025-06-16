@@ -84,6 +84,7 @@ class CustomSideDrawer extends StatelessWidget {
                       return Column(
                         children: <Widget>[
                            ListTile(
+                            onTap: () => Get.toNamed(AppRoutes.maintananceRoute),
                             contentPadding: EdgeInsets.zero,
                             leading: const CustomRoundedInnerIcon(
                               icon: AppIcons.maintenanceIcon,

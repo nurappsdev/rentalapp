@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class HomeRentarController extends GetxController {
+class SearchApartmentsController extends GetxController {
 
   final RxInt count = 0.obs;
 

@@ -25,7 +25,7 @@ class HomeNav{
     GetPage<dynamic>(
       name: AppRoutes.homeRentarRoute, 
       page: () => const HomeRentarScreen(), 
-      binding: HomeRentarBinding(),
+      binding: HomeRenterBinding(),
       transition: Transition.noTransition
     ),
   ];

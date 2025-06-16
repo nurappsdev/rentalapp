@@ -1,6 +1,7 @@
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/utils/helper_method.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_network_image.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
@@ -12,12 +13,16 @@ class MaintenanceCard extends StatelessWidget {
   final MaintenanceModel maintenanceModel;
   final VoidCallback onViewCallback;
   final VoidCallback onAcceptCallback;
+  final VoidCallback onCompleteCallback;
+  final String type;
 
   const MaintenanceCard({
     super.key,
     required this.maintenanceModel, 
-    required this.onViewCallback, 
-    required this.onAcceptCallback
+    this.onViewCallback = HelperMethod.emptyCallback, 
+    this.onAcceptCallback = HelperMethod.emptyCallback,
+    this.onCompleteCallback = HelperMethod.emptyCallback,
+    this.type = "maintenance",
   });
 
   @override
@@ -78,23 +83,40 @@ class MaintenanceCard extends StatelessWidget {
       
                   const Spacer(),
       
-                  CustomButton(
-                    onTap: onViewCallback, 
-                    width: 100.0,
-                    height: 32.0,
-                    borderRadius: 24.0,
-                    isOutline: true,
-                    text: AppStrings.view
-                  ),
-                  const SizedBox(width: AppSizes.sm,),
-      
-                  CustomButton(
-                    onTap: onAcceptCallback, 
-                    width: 100.0,
-                    height: 32.0,
-                    borderRadius: 24.0,
-                    text: AppStrings.accept
-                  )
+                  if(type != "maintenance_resolved")...<Widget>[
+                    CustomButton(
+                      onTap: onViewCallback, 
+                      width: 100.0,
+                      height: 32.0,
+                      borderRadius: 24.0,
+                      isOutline: true,
+                      text: AppStrings.view
+                    ),
+                  ],
+
+                  if(type == "maintenance") ...<Widget>[
+                    const SizedBox(width: AppSizes.sm,),
+        
+                    CustomButton(
+                      onTap: onAcceptCallback, 
+                      width: 100.0,
+                      height: 32.0,
+                      borderRadius: 24.0,
+                      text: AppStrings.accept
+                    )
+                  ]
+                  else if(type == "maintenance_resolved") ...<Widget>[
+                    const SizedBox(width: AppSizes.sm,),
+        
+                    CustomButton(
+                      onTap: onCompleteCallback, 
+                      width: 100.0,
+                      height: 32.0,
+                      borderRadius: 24.0,
+                      isOutline: true,
+                      text: AppStrings.complete
+                    )
+                  ]
                 ],
               ),
       
@@ -128,9 +150,8 @@ class MaintenanceCard extends StatelessWidget {
                     AppStrings.floor,
                     style: context.textTheme.bodyMedium
                   ),
-      
+
                   const Spacer(),
-      
                   Text(
                     maintenanceModel.floor,
                     style: context.textTheme.bodyMedium

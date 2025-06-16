@@ -19,10 +19,12 @@ export 'package:alora/features/profile/bindings/profile_binding.dart';
 export 'package:alora/features/crew/home_crew/bindings/home_crew_binding.dart';
 export 'package:alora/features/crew/maintenance_details/bindings/maintenance_details_binding.dart';
 export 'package:alora/features/crew/contact_us/bindings/contact_us_binding.dart';
+export 'package:alora/features/crew/maintenance/bindings/maintenance_binding.dart';
 
 
 // rentar
-export 'package:alora/features/rentar/home_rentar/bindings/home_rentar_binding.dart';
+export 'package:alora/features/renter/home_renter/bindings/home_renter_binding.dart';
+export 'package:alora/features/renter/search_apartments/bindings/search_apartments_binding.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';

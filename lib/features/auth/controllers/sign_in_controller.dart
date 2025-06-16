@@ -19,10 +19,10 @@ class SignInController extends GetxController {
     
     switch(roleType.value){
       case RoleType.rentar:
-        Get.offAllNamed(AppRoutes.homeRentarRoute);
+        Get.offAllNamed(AppRoutes.onboardingAfetLoginRoute);
         break;
       case RoleType.owner:
-        Get.offAllNamed(AppRoutes.homeOwnerRoute);
+        Get.offAllNamed(AppRoutes.onboardingAfetLoginRoute);
         break;
       case RoleType.crew:
         Get.offAllNamed(AppRoutes.homeCrewRoute);

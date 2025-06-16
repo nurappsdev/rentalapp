@@ -4,10 +4,11 @@ class AppRoutes{
   static const String initialRoute = "/";
 
   // onboarding routes
-  static const String onboardingRoute = "/onboarding";
+  static const String onboardingRoute = "/onboarding-screen";
+  static const String onboardingAfetLoginRoute = "/onboarding-after-login-screen";
 
   // choose role routes
-  static const String chooseRoleRoute = "/choose-role";
+  static const String chooseRoleRoute = "/choose-role-screen";
 
   // Auth routes
   static const String signInRoute = "/sign-in-screen";
@@ -35,10 +36,13 @@ class AppRoutes{
   
   // maintanance routes
   static const String maintananceDetailsRoute = "/maintanance-details-screen";
+  static const String maintananceRoute = "/maintanance-screen";
 
   // home routes
   static const String homeCrewRoute = "/home-crew-screen";
   static const String homeOwnerRoute = "/home-owner-screen";
   static const String homeRentarRoute = "/home-rentar-screen";
 
+  // renter
+  static const String searchApartmentsRoute = "/search-apartments-screen";
 }

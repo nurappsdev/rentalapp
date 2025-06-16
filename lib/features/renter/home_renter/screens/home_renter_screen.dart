@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/home_rentar_controller.dart';
+import '../controllers/home_renter_controller.dart';
 
-class HomeRentarScreen extends GetView<HomeRentarController> {
+class HomeRentarScreen extends GetView<HomeRenterController> {
   const HomeRentarScreen({
     super.key
   });
@@ -11,7 +11,7 @@ class HomeRentarScreen extends GetView<HomeRentarController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomeRentar'),
+        title: const Text('HomeRenter'),
         centerTitle: true,
       ),
       body: Center(
