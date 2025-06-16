@@ -106,6 +106,7 @@ class AppStrings{
   static const String apartmentName = "Apartment Name";
   static const String apartmentRoomNo = "Apartment Room Number";
   static const String location = "Location";
+  static const String locationHint = "Type Location";
   static const String address = "Address";
   static const String issueDate = "Issue Date";
   static const String description = "Description";
@@ -115,11 +116,12 @@ class AppStrings{
   static const String name = "Name";
   static const String email = "Email";
   static const String phoneNo = "Phone Number";
+  static const String phoneNoHint = "Type Phone Number";
   static const String viewProfile = "View Profile";
   static const String profile = "Profile";
   static const String personalInformation = "Personal Information";
+  static const String editPersonalDetails = "Edit Personal Details";
   static const String editProfile = "Edit Profile";
-  static const String changePassword = "Change Password";
   static const String myMaintenance = "My Maintenance";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
@@ -147,4 +149,7 @@ class AppStrings{
   static const String accept = "Accept";
   static const String no = "No";
   static const String yes = "Yes";
+  static const String changePassword = "Change Password";
+  static const String updateProfile = "Update Profile";
+
 }
