@@ -1,4 +1,6 @@
 import 'package:alora/core/config/app_icons.dart';
+import 'package:alora/core/routes/app_routes.dart';
+import 'package:alora/core/utils/custom_snack_bar.dart';
 import 'package:alora/features/renter/search_apartments/model/apartment_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,6 +25,31 @@ class ApartmentDetailsController extends GetxController {
   Rxn<ApartmentUnit?> selectedApartmentNumber = Rxn<ApartmentUnit?>(null);
   set updateSelectedApartmentNumber(ApartmentUnit selectedApartmentNumber) => this.selectedApartmentNumber.value = selectedApartmentNumber;
   
+
+  Future<void> handleApartmentApplicationProcess() async{
+    if(selectedUnitType.isEmpty){
+      return CustomSnackBar.show(message: "Select Unit");
+    }
+    else if(selectedFloor.isEmpty){
+      return CustomSnackBar.show(message: "Select Floor");
+    }
+    else if(selectedApartmentNumber.value == null){
+      return CustomSnackBar.show(message: "Apartment Number");
+    }
+
+    Get.toNamed(
+      AppRoutes.apartmentBookingRoute,
+      arguments: <String, String?>{
+        "apartment_id": apartmentId,
+        "apartment_name": apartment.value?.apartmentName ?? '',
+        "unit_type": selectedUnitType,
+        "floor": selectedFloor,
+        "apartment_number": selectedApartmentNumber.value!.title,
+        "moving_date": movingDateCTRL.text.trim(),
+      }
+    );
+
+  }
 
   /// [onInit] Lifecycle method called when the controller is initialized.
   ///

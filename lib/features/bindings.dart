@@ -26,6 +26,7 @@ export 'package:alora/features/crew/maintenance/bindings/maintenance_binding.dar
 export 'package:alora/features/renter/home_renter/bindings/home_renter_binding.dart';
 export 'package:alora/features/renter/search_apartments/bindings/search_apartments_binding.dart';
 export 'package:alora/features/renter/apartment_details/bindings/apartment_details_binding.dart';
+export 'package:alora/features/renter/apartment_booking/bindings/apartment_booking_binding.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';

@@ -21,5 +21,12 @@ class RenterNav{
       binding: ApartmentDetailsBinding(),
       transition: Transition.noTransition
     ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.apartmentBookingRoute, 
+      page: () => const ApartmentBookingScreen(), 
+      binding: ApartmentBookingBinding(),
+      transition: Transition.noTransition
+    ),
   ];
 }

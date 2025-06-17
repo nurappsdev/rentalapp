@@ -5,6 +5,7 @@ import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/utils/date_picker_utils.dart';
+import 'package:alora/core/utils/device/device_utility.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_network_image.dart';
@@ -37,6 +38,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
       appBar: const CustomAppBar(
         showBackBtn: true,
         elevation: 0.0,
+        backgroundColor: AppColors.whiteColor,
         title: AppStrings.apartmentDetails,
       ),
       backgroundColor: AppColors.surfaceColor,
@@ -322,15 +324,21 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                                   ),
                                 ),
 
-                                const Row(
+                                Row(
                                   spacing: AppSizes.md,
                                   children: <Widget>[
                                     CustomRoundedInnerIcon(
+                                      onTap: (){
+                                        DeviceUtility.launchEmail(apartment.ownerEmail);
+                                      },
                                       containerSize: 32.0,
                                       boxShape: BoxShape.rectangle,
                                       icon: AppIcons.emailPrefixIcon
                                     ),
                                     CustomRoundedInnerIcon(
+                                      onTap: (){
+                                        DeviceUtility.launchPhone(apartment.ownerPhoneNumber);
+                                      },
                                       containerSize: 32.0,
                                       boxShape: BoxShape.rectangle,
                                       icon: AppIcons.phonePrefixIcon
@@ -360,7 +368,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                       ],
                       const SizedBox(height: AppSizes.spaceBetweenItems,),
                       CustomButton(
-                        onTap: (){}, 
+                        onTap: controller.handleApartmentApplicationProcess, 
                         text: AppStrings.beginApplicationProcess
                       ),
                       const SizedBox(height: AppSizes.spaceBetweenSections,),

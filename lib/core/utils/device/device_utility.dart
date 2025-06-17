@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:alora/core/utils/logger_utils.dart';
 import 'package:vibration/vibration.dart';
-// import 'package:url_launcher/url_launcher_string.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DeviceUtility {
   DeviceUtility._();
@@ -71,18 +71,22 @@ class DeviceUtility {
   }
 
   // Launch URL Safely
-  // use url_launcher packages
-  static Future<void> launchUrl(String url) async {
-    try {
-      // if (await canLaunchUrlString(url)) {
-      //   await launchUrlString(url);
-      // } else {
-      //   LoggerUtils.info("Could not launch $url");
-      // }
 
-      LoggerUtils.info("add packages");
-    } catch (exception) {
-      LoggerUtils.error("Error launching URL: $exception");
+  static Future<void> launchEmail(String email) async {
+    final Uri emailUri = Uri(scheme: 'mailto', path: email);
+      if (await canLaunchUrl(emailUri)) {
+        await launchUrl(emailUri);
+      } else {
+        throw 'Could not launch $emailUri';
+      }
+  }
+
+  static Future<void> launchPhone(String phoneNumber) async {
+    final Uri phoneUri = Uri(scheme: 'tel', path: phoneNumber);
+    if (await canLaunchUrl(phoneUri)) {
+      await launchUrl(phoneUri);
+    } else {
+      throw 'Could not launch phone $phoneUri';
     }
   }
 }

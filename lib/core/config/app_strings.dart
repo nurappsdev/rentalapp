@@ -72,6 +72,8 @@ class AppStrings{
 
   static const String searchApartmentHint = "Search Property";
   static const String selectMovingDateHint = "Select moving date";
+  static const String expectedMovingDate = "Expected moving date";
+  static const String submitYourInfo = "Submit  your  information";
 
 
   // auth others
@@ -112,6 +114,7 @@ class AppStrings{
   static const String floor = "Floor";
   static const String selectFloor = "Select Floor";
   static const String availableUnitType = "Available Unit Type";
+  static const String unitType = "Unit Type";
   static const String notificaiton = "Notification";
   static const String apartmentName = "Apartment Name";
   static const String apartmentRoomNo = "Apartment Room Number";
@@ -143,6 +146,8 @@ class AppStrings{
   static const String logout = "Logout";
   static const String price = "Price :";
   static const String resolvingIssueDate = "Resolving Issue Date";
+  static const String dropFileOrBrowse = "Drop file or browse";
+  static const String formatFile = "Format: .jpeg, .png & Max file size: 25 MB";
   static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
 
 
@@ -172,6 +177,8 @@ class AppStrings{
   static const String changePassword = "Change Password";
   static const String updateProfile = "Update Profile";
   static const String beginApplicationProcess = "Begin application process";
+  static const String browseFile = "Browse Files";
+
 
 
   // ============================================================// ============================================================
