@@ -28,4 +28,17 @@ class AppIcons{
   static const String uploadIcon ="$baseUrl/upload_icon.svg";
   static const String userIcon ="$baseUrl/user_icon.svg";
   static const String onbaordingIcon ="$baseUrl/onboarding_icon.svg";
+  static const String searchIcon ="$baseUrl/search_icon.svg";
+
+
+
+  //
+  static const String wifiIcon ="$baseUrl/wifi_icon.svg";
+  static const String squareFitIcon ="$baseUrl/square_fit_icon.svg";
+  static const String leftIcon ="$baseUrl/left_icon.svg";
+  static const String gardenIcon ="$baseUrl/garden_icon.svg";
+  static const String carIcon ="$baseUrl/car_icon.svg";
+  static const String bedRoomIcon ="$baseUrl/bed_room_icon.svg";
+  static const String bathRoomIcon ="$baseUrl/bath_room_icon.svg";
+
 }

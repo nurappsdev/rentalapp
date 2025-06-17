@@ -69,6 +69,10 @@ class AppStrings{
 
   static const String forgotPasswordQuestion = "Forgot Password?";
 
+
+  static const String searchApartmentHint = "Search Property";
+
+
   // auth others
   static const String resetPassword = "Reset Password";
   static const String doNotHaveAcc = "Don’t have an account?";
@@ -128,7 +132,6 @@ class AppStrings{
   static const String logout = "Logout";
   static const String resolvingIssueDate = "Resolving Issue Date";
   static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
-
 
 
 
