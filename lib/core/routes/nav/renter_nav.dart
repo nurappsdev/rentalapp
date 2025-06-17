@@ -14,5 +14,12 @@ class RenterNav{
       binding: SearchApartmentsBinding(),
       transition: Transition.noTransition
     ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.apartmentDetailsRoute, 
+      page: () => const ApartmentDetailsScreen(), 
+      binding: ApartmentDetailsBinding(),
+      transition: Transition.noTransition
+    ),
   ];
 }

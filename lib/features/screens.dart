@@ -32,6 +32,7 @@ export 'package:alora/features/crew/maintenance/screens/maintenance_screen.dart'
 // rentar
 export 'package:alora/features/renter/home_renter/screens/home_renter_screen.dart';
 export 'package:alora/features/renter/search_apartments/screens/search_apartments_screen.dart';
+export 'package:alora/features/renter/apartment_details/screens/apartment_details_screen.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/screens/home_owner_screen.dart';

@@ -7,7 +7,7 @@ import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_text_field.dart';
-import 'package:alora/features/renter/search_apartments/widgets/apartment_card.dart';
+import 'package:alora/shared/widgets/apartment_card.dart';
 import 'package:alora/features/renter/search_apartments/widgets/apartments_shimmer.dart';
 import 'package:alora/shared/widgets/maintenance_card.dart';
 import 'package:alora/shared/widgets/maintenance_shimmer.dart';
@@ -87,6 +87,15 @@ class SearchApartmentsScreen extends GetView<SearchApartmentsController> {
                   itemBuilder: (_, int index) {
                     return ApartmentCard(
                       apartment: controller.apartmentList[index],
+                      onViewCallback: (){
+                        Get.toNamed(
+                          AppRoutes.apartmentDetailsRoute, 
+                          arguments: <String, String>{
+                            "aparment_id": controller.apartmentList[index].id,
+                            "type": "apartment"
+                          }
+                        );
+                      },
                     );
                   },
                   separatorBuilder: (_, __) => const SizedBox(height: AppSizes.spaceBetweenItems),

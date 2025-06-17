@@ -71,6 +71,7 @@ class AppStrings{
 
 
   static const String searchApartmentHint = "Search Property";
+  static const String selectMovingDateHint = "Select moving date";
 
 
   // auth others
@@ -101,11 +102,16 @@ class AppStrings{
   static const String maintenanceEmpty = "Maintenance is empty.";
   static const String userInfoNotFound = "User info is not found.";
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
+  static const String apartmentDetailsNull = "Something went wrong!! Not Found the Apartment Details";
   static const String notificaitonEmpty = "Notification is empty.";
   static const String maintenanceDetails = "Maintenance details";
+  static const String apartmentDetails = "Apartment details";
 
+  static const String apartmentNumber = "Apartment Number";
   static const String roomNumber = "Room Number";
   static const String floor = "Floor";
+  static const String selectFloor = "Select Floor";
+  static const String availableUnitType = "Available Unit Type";
   static const String notificaiton = "Notification";
   static const String apartmentName = "Apartment Name";
   static const String apartmentRoomNo = "Apartment Room Number";
@@ -114,6 +120,11 @@ class AppStrings{
   static const String address = "Address";
   static const String issueDate = "Issue Date";
   static const String description = "Description";
+  static const String apartmetnDescription = "Apartment  Description";
+  static const String apartmetnImage = "Apartment Image";
+  static const String image = "Image";
+  static const String apartmetnFacilities = "Apartment Facilities";
+  static const String facilities = "Facilities";
   static const String issueImage = "Issue Image";
   static const String issueVideo = "Issue Video";
   static const String userDetails = "User Details";
@@ -130,6 +141,7 @@ class AppStrings{
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
+  static const String price = "Price :";
   static const String resolvingIssueDate = "Resolving Issue Date";
   static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
 
@@ -159,6 +171,7 @@ class AppStrings{
   static const String yes = "Yes";
   static const String changePassword = "Change Password";
   static const String updateProfile = "Update Profile";
+  static const String beginApplicationProcess = "Begin application process";
 
 
   // ============================================================// ============================================================

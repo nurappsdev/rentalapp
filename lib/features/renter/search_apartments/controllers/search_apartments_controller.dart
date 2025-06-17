@@ -58,11 +58,12 @@ class SearchApartmentsController extends GetxController {
 
   final List<ApartmentModel> dummyApartments = <ApartmentModel>[
     ApartmentModel(
+      id: "1",
       title: 'Luxury Studio in Downtown',
       image: image,
       apartmentName: 'City View Apartments',
       apartmentLocation: 'Downtown, New York',
-      apartmentDescription: 'A cozy studio apartment with an amazing city view.',
+      apartmentDescription: 'Welcome to Suncity Apartments, where comfort meets convenience. Located in a prime urban neighborhood, Suncity offers stylish 1, 2, and 3-bedroom units designed for modern living. Each apartment features spacious layouts, large windows with natural light, fully equipped kitchens, premium fittings, and private balconies with stunning city views.',
       apartmentFacilities: <Facility>[
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
@@ -149,6 +150,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "2",
       title: 'Modern 2 Bedroom Flat',
       image: image,
       apartmentName: 'Sunset Residences',
@@ -240,6 +242,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "3",
       title: 'Stylish Penthouse Suite',
       image: image,
       apartmentName: 'Elite Heights',
@@ -331,6 +334,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "4",
       title: 'Affordable 1 Bedroom',
       image: image,
       apartmentName: 'Greenwood Apartments',
@@ -423,6 +427,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "5",
       title: 'Downtown Highrise Studio',
       image: image,
       apartmentName: 'Skyline Towers',
@@ -514,6 +519,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "6",
       title: 'Beachfront Family Apartment',
       image: image,
       apartmentName: 'Ocean Breeze',
@@ -605,6 +611,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "7",
       title: 'Minimalist 1 Bedroom Loft',
       image: image,
       apartmentName: 'Loft Living',
@@ -696,6 +703,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "8",
       title: 'Family Size Apartment',
       image: image,
       apartmentName: 'Harmony Homes',
@@ -786,6 +794,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "9",
       title: 'Compact City Studio',
       image: image,
       apartmentName: 'MicroLiving',
@@ -877,6 +886,7 @@ class SearchApartmentsController extends GetxController {
     ),
 
     ApartmentModel(
+      id: "10",
       title: 'Elegant Suburban Home',
       image: image,
       apartmentName: 'Willow Creek Estates',

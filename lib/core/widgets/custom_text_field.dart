@@ -10,6 +10,7 @@ class CustomTextField extends StatefulWidget {
   final bool? isObscureText;
   final String? obscureCharacrter;
   final Color? filColor;
+  final Color? borderColor;
   final int? maxLines;
   final int? minLines;
   final Widget? prefixIcon;
@@ -40,6 +41,7 @@ class CustomTextField extends StatefulWidget {
     this.suffixIcons,
     this.validator,
     this.isEmail,
+    this.borderColor,
     required this.controller,
     this.keyboardType = TextInputType.text,
     this.isObscureText = false,
@@ -140,7 +142,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderRadius: BorderRadius.circular(widget.borderRadius != null ? widget.borderRadius! : 4.0),
           borderSide: BorderSide(
             width: widget.isBorder == true ? 1.0 : 0.0,
-            color:  widget.isBorder == true ? AppColors.borderColor : Colors.transparent,
+            color:  widget.isBorder == true ? widget.borderColor ?? AppColors.borderColor : Colors.transparent,
           ),
         ),
         errorBorder: _buildOutlineInputBorder(),
@@ -165,7 +167,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return OutlineInputBorder(
       borderSide: BorderSide(
         width: widget.isBorder == true ? 1.0 : 0.0,
-        color:  widget.isBorder == true ? AppColors.borderColor : Colors.transparent,
+        color:  widget.isBorder == true ? widget.borderColor ?? AppColors.borderColor : Colors.transparent,
         strokeAlign: BorderSide.strokeAlignOutside,
         // color: AppColors.borderColor,
       ),

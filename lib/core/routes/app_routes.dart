@@ -45,4 +45,5 @@ class AppRoutes{
 
   // renter
   static const String searchApartmentsRoute = "/search-apartments-screen";
+  static const String apartmentDetailsRoute = "/apartment-details-screen";
 }
