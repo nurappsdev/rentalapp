@@ -47,4 +47,7 @@ class AppRoutes{
   static const String searchApartmentsRoute = "/search-apartments-screen";
   static const String apartmentDetailsRoute = "/apartment-details-screen";
   static const String apartmentBookingRoute = "/apartment-booking-screen";
+  
+  
+  static const String paymentTicketRoute = "/payment-ticket-screen";
 }

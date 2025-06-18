@@ -59,15 +59,15 @@ class CustomFileUploadLayout extends StatelessWidget {
 
             if(file != null)
               Material(
-              elevation: 4,
-              borderRadius: BorderRadius.circular(12),
+              elevation: 1,
+              borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
               child: Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey, width: 1.5),
-                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppColors.primaryColor, width: 1.0),
+                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
                   child: Image.file(
                     file!,
                     height: 200.0,

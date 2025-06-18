@@ -31,8 +31,10 @@ class AppIcons{
   static const String searchIcon ="$baseUrl/search_icon.svg";
   static const String dateIcon ="$baseUrl/date_icon.svg";
   static const String cardIcon ="$baseUrl/card_icon.svg";
-
-
+  static const String congratulationIcon ="$baseUrl/congratulation_icon.svg";
+  static const String verifiedIcon ="$baseUrl/verified_icon.svg";
+  static const String walletIcon ="$baseUrl/wallet_icon.svg";
+  static const String fileDownloadIcon ="$baseUrl/file_download_icon.svg";
 
   //
   static const String wifiIcon ="$baseUrl/wifi_icon.svg";

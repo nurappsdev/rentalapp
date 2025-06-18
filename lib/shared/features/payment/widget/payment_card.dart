@@ -16,17 +16,25 @@ class PaymentData{
   final String cardHolderName;
   final String cvv;
   final String mm;
+  double? price;
+  String? email;
+  final String transactionId;
+  final String paymentDate;
 
   PaymentData({
     required this.option,
     required this.cardHolderName,
     required this.cvv,
     required this.mm,
+    this.price,
+    this.email,
+    required this.transactionId,
+    required this.paymentDate,
   });
 
   @override
   String toString() {
-    return "Payment Info Option : ${option.name} || Holder Name : $cardHolderName || CVV/CVC : $cvv || MM/YY : $mm";
+    return "Payment Info Option : ${option.name} || Holder Name : $cardHolderName || CVV/CVC : $cvv || MM/YY : $mm || Transaction Id : $transactionId || Payment Date : $paymentDate";
   }
 }
 
@@ -44,6 +52,8 @@ class PaymentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final PaymentController controller = Get.put<PaymentController>(PaymentController());
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
           'Select Payment Method',
@@ -142,7 +152,7 @@ class PaymentCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Text(
-                "${AppStrings.submissionFee} ",
+                "${AppStrings.submissionFee} : ",
                 style: context.textTheme.headlineLarge,
               ),
               Text(

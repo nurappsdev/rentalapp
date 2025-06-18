@@ -7,6 +7,8 @@ import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/enums/payment_option.dart';
 import 'package:alora/core/extensions/context_extensions.dart';
+import 'package:alora/core/routes/app_routes.dart';
+import 'package:alora/core/utils/custom_bottom_sheet.dart';
 import 'package:alora/core/utils/date_picker_utils.dart';
 import 'package:alora/core/utils/image_picker_utils.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
@@ -14,6 +16,7 @@ import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_text_field.dart';
 import 'package:alora/core/widgets/dotted_border.dart';
 import 'package:alora/shared/features/payment/widget/payment_card.dart';
+import 'package:alora/shared/widgets/congratulation_sheet.dart';
 import 'package:alora/shared/widgets/custom_file_upload_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -203,10 +206,27 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
                       ),
                     ),
 
+                    const SizedBox(height: AppSizes.spaceBetweenSections,),
 
                     PaymentCard(
                       price: price,
                       onPayCallBack: (PaymentData data){
+                        CustomBottomSheet.showCustomBottomSheet(
+                          context: context, 
+                          isDismissible: false,
+                          child: CongratulationSheet(
+                            title: "Congratulations!",
+                            description: "You have successfully registered your property. We will update you via email within 72 hours.",
+                            onProceedCallback: (){
+                              data.price = price;
+                              data.email = "email.@gmail.com";
+                              Get.toNamed(
+                                AppRoutes.paymentTicketRoute,
+                                arguments: data,
+                              );
+                            },
+                          )
+                        );
                       }
                     ),
                   ],

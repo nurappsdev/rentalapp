@@ -133,6 +133,7 @@ class AppStrings{
   static const String issueVideo = "Issue Video";
   static const String userDetails = "User Details";
   static const String name = "Name";
+  static const String paymentDate = "Payment Date";
   static const String email = "Email";
   static const String phoneNo = "Phone Number";
   static const String phoneNoHint = "Type Phone Number";
@@ -146,11 +147,17 @@ class AppStrings{
   static const String setting = "Setting";
   static const String logout = "Logout";
   static const String price = "Price :";
-  static const String submissionFee = "Submission fee :";
+  static const String submissionFee = "Submission fee";
   static const String resolvingIssueDate = "Resolving Issue Date";
   static const String dropFileOrBrowse = "Drop file or browse";
   static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
   static const String formatFile = "Format: .jpeg, .png & Max file size: 25 MB";
+  static const String paymentTicket = "Payment Ticket";
+  static const String transactionSuccessfulTitle = "Transaction Successful";
+  static const String transactionSuccessfulSubTitle = "Your payment has been successful done";
+  static const String paymentDetails = "Payment details";
+  static const String transactionId = "Transaction  ID";
+  static const String totalTopUp = "Total Top Up";
 
 
 
@@ -181,6 +188,8 @@ class AppStrings{
   static const String beginApplicationProcess = "Begin application process";
   static const String browseFile = "Browse Files";
   static const String payNow = "Pay Now";
+  static const String proceed = "Proceed";
+  static const String backToHome = "Back To Home";
 
 
 

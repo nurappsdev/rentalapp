@@ -22,6 +22,8 @@ export 'package:alora/features/auth/screens/taking_email_screen.dart';
 export 'package:alora/features/auth/screens/verify_email_screen.dart';
 export 'package:alora/features/auth/screens/change_password_screen.dart';
 
+export 'package:alora/shared/features/payment_ticket/screens/payment_ticket_screen.dart';
+
 
 // crew
 export 'package:alora/features/crew/home_crew/screens/home_crew_screen.dart';

@@ -1,4 +1,5 @@
 import 'package:alora/core/enums/payment_option.dart';
+import 'package:alora/core/extensions/date_time_extensions.dart';
 import 'package:alora/core/utils/custom_snack_bar.dart';
 import 'package:alora/shared/features/payment/widget/payment_card.dart';
 import 'package:flutter/material.dart';
@@ -59,9 +60,10 @@ class PaymentController extends GetxController{
       option: selectedPaymentOption.value!, 
       cardHolderName: holderNameCTRL.text.trim(), 
       cvv: cvvCTRL.text.trim(), 
-      mm: mmCTRL.text.trim()
+      mm: mmCTRL.text.trim(),
+      transactionId: "1234 5678 2345",
+      paymentDate: DateTime.now().formattedDateTime,
     );
-
   }
 
 
