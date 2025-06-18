@@ -139,7 +139,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         hintText: widget.hintText,
         hintStyle: const TextStyle(color: AppColors.textBlackColor, fontFamily: 'RedHatDisplay', fontSize: 14.0),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(widget.borderRadius != null ? widget.borderRadius! : 4.0),
+          borderRadius: BorderRadius.circular(widget.borderRadius != null ? widget.borderRadius! : 8.0),
           borderSide: BorderSide(
             width: widget.isBorder == true ? 1.0 : 0.0,
             color:  widget.isBorder == true ? widget.borderColor ?? AppColors.borderColor : Colors.transparent,

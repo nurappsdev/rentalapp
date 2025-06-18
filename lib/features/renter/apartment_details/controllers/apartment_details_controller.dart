@@ -39,13 +39,14 @@ class ApartmentDetailsController extends GetxController {
 
     Get.toNamed(
       AppRoutes.apartmentBookingRoute,
-      arguments: <String, String?>{
+      arguments: <String, Object?>{
         "apartment_id": apartmentId,
         "apartment_name": apartment.value?.apartmentName ?? '',
         "unit_type": selectedUnitType,
         "floor": selectedFloor,
         "apartment_number": selectedApartmentNumber.value!.title,
         "moving_date": movingDateCTRL.text.trim(),
+        "price": apartment.value?.price,
       }
     );
 

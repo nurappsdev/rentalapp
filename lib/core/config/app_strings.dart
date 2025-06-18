@@ -82,6 +82,7 @@ class AppStrings{
   static const String didNotRecieveCode = "Didn’t receive code?";
   static const String resendCode = "Resend Code";
   static const String termsAndConditionsAgreement = "By creating an account, I accept the Terms & Conditions & Privacy Policy.";
+  static const String paymentTermsAndConditionAgreement = "I accept the Terms & Conditions & Privacy Policy.";
   static const String termsAndConditions = "terms and conditions.";
 
 
@@ -145,10 +146,11 @@ class AppStrings{
   static const String setting = "Setting";
   static const String logout = "Logout";
   static const String price = "Price :";
+  static const String submissionFee = "Submission fee :";
   static const String resolvingIssueDate = "Resolving Issue Date";
   static const String dropFileOrBrowse = "Drop file or browse";
-  static const String formatFile = "Format: .jpeg, .png & Max file size: 25 MB";
   static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
+  static const String formatFile = "Format: .jpeg, .png & Max file size: 25 MB";
 
 
 
@@ -178,6 +180,8 @@ class AppStrings{
   static const String updateProfile = "Update Profile";
   static const String beginApplicationProcess = "Begin application process";
   static const String browseFile = "Browse Files";
+  static const String payNow = "Pay Now";
+
 
 
 

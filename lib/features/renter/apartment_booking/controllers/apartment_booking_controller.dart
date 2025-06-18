@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +21,12 @@ class ApartmentBookingController extends GetxController {
   set updateSelectedApartmentNumber(String selectedApartmentNumber) => this.selectedApartmentNumber = selectedApartmentNumber;
 
   late TextEditingController movingDateCTRL;
+
+
+  Rxn<File?> incomeTaxDoc = Rxn<File>(null);
+  Rxn<File?> idCardFront = Rxn<File>(null);
+  Rxn<File?> idCardBack = Rxn<File>(null);
+  Rxn<File?> creditCardApplicaitonDoc = Rxn<File>(null);
 
 
   
