@@ -19,6 +19,7 @@ class AppIcons{
   static const String logoutBottomSheetIcon ="$baseUrl/logout_bottom_sheet_icon.svg";
   static const String logoutIcon ="$baseUrl/logout_icon.svg";
   static const String maintenanceIcon ="$baseUrl/maintenance_Icon.svg";
+  static const String homeMaintenanceIcon ="$baseUrl/home_maintenance_icon.svg";
   static const String nextIcon ="$baseUrl/next_icon.svg";
   static const String notificationIcon ="$baseUrl/notification_icon.svg";
   static const String phonePrefixIcon ="$baseUrl/phone_prefix_icon.svg";
@@ -35,6 +36,8 @@ class AppIcons{
   static const String verifiedIcon ="$baseUrl/verified_icon.svg";
   static const String walletIcon ="$baseUrl/wallet_icon.svg";
   static const String fileDownloadIcon ="$baseUrl/file_download_icon.svg";
+  static const String eventIcon ="$baseUrl/event_icon.svg";
+  
 
   //
   static const String wifiIcon ="$baseUrl/wifi_icon.svg";

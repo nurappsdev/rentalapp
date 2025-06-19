@@ -143,6 +143,9 @@ class AppStrings{
   static const String editPersonalDetails = "Edit Personal Details";
   static const String editProfile = "Edit Profile";
   static const String myMaintenance = "My Maintenance";
+  static const String maintenance = "Maintenance";
+  static const String events = "Events";
+  static const String searchProperty = "Search property";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
@@ -158,6 +161,7 @@ class AppStrings{
   static const String paymentDetails = "Payment details";
   static const String transactionId = "Transaction  ID";
   static const String totalTopUp = "Total Top Up";
+  static const String apartmentDueBalance = "Apartment  due balance";
 
 
 
@@ -190,6 +194,7 @@ class AppStrings{
   static const String payNow = "Pay Now";
   static const String proceed = "Proceed";
   static const String backToHome = "Back To Home";
+  static const String makePayment = "Make Payment";
 
 
 

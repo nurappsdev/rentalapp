@@ -50,13 +50,13 @@ class PaymentTicketController extends GetxController {
         showDownloadButton.value = false;
         await Future<dynamic>.delayed(const Duration(milliseconds: 200));
         
-        if (Platform.isAndroid) {
-          final PermissionStatus status = await Permission.storage.request();
-          if (!status.isGranted) {
-            LoggerUtils.info("Storage permission denied");
-            return;
-          }
-        }
+        // if (Platform.isAndroid) {
+        //   final PermissionStatus status = await Permission.storage.request();
+        //   if (!status.isGranted) {
+        //     LoggerUtils.info("Storage permission denied");
+        //     return;
+        //   }
+        // }
 
         final RenderRepaintBoundary? boundary = transactionCardKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
         if (boundary == null){

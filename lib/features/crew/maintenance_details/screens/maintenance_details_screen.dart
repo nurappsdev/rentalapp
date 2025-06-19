@@ -27,7 +27,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
   Widget build(BuildContext context) {
     final dynamic arguments = Get.arguments;
     controller.updateMaintenanceId = arguments != null ? (arguments as Map<String, dynamic>)['maintenance_id'] : '';
-    final String type = arguments != null ? (arguments as Map<String, dynamic>)['type'] : '';
+    final String type = arguments != null ? (arguments as Map<String, dynamic>)['type'] ?? '' : '';
 
     return Scaffold(
       appBar: const CustomAppBar(

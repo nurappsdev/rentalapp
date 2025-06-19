@@ -33,30 +33,35 @@ class ContactUsScreen extends GetView<ContactUsController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               const SizedBox(height: AppSizes.spaceBetweenSections,),
-              Container(
-                padding: const EdgeInsets.all(28.0),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.primaryColor
-                ),
-                child: SvgPicture.asset(
-                  AppIcons.emailPrefixIcon,
-                  width: 32.0,
-                  height: 32.0,
-                  colorFilter: const ColorFilter.mode(AppColors.whiteColor, BlendMode.srcATop),
-                ),
-              ).centered,
-              
-              const SizedBox(height: AppSizes.md,),
               
               Obx(
                 () {
                   if(controller.isLoading.value){
                     return loader();
                   }
-                  return Text(
-                    controller.email.value ?? "Not Found",
-                    style: context.textTheme.bodyLarge,
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(28.0),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.primaryColor
+                        ),
+                        child: SvgPicture.asset(
+                          AppIcons.emailPrefixIcon,
+                          width: 32.0,
+                          height: 32.0,
+                          colorFilter: const ColorFilter.mode(AppColors.whiteColor, BlendMode.srcATop),
+                        ),
+                      ).centered,
+
+                      const SizedBox(height: AppSizes.md,),
+
+                      Text(
+                        controller.email.value ?? "Not Found",
+                        style: context.textTheme.bodyLarge,
+                      ),
+                    ],
                   );
                 },
               ),
@@ -68,31 +73,35 @@ class ContactUsScreen extends GetView<ContactUsController> {
               ),
 
               const SizedBox(height: AppSizes.spaceBetweenSections,),
-
-              Container(
-                padding: const EdgeInsets.all(28.0),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.primaryColor
-                ),
-                child: SvgPicture.asset(
-                  AppIcons.phonePrefixIcon,
-                  width: 32.0,
-                  height: 32.0,
-                  colorFilter: const ColorFilter.mode(AppColors.whiteColor, BlendMode.srcATop),
-                ),
-              ).centered,
-              
-              const SizedBox(height: AppSizes.md,),
               
               Obx(
                 () {
                   if(controller.isLoading.value){
                     return loader();
                   }
-                  return Text(
-                    controller.phone.value ?? "Not Found",
-                    style: context.textTheme.bodyLarge,
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.all(28.0),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.primaryColor
+                        ),
+                        child: SvgPicture.asset(
+                          AppIcons.phonePrefixIcon,
+                          width: 32.0,
+                          height: 32.0,
+                          colorFilter: const ColorFilter.mode(AppColors.whiteColor, BlendMode.srcATop),
+                        ),
+                      ).centered,
+                      
+                      const SizedBox(height: AppSizes.md,),
+
+                      Text(
+                        controller.phone.value ?? "Not Found",
+                        style: context.textTheme.bodyLarge,
+                      ),
+                    ],
                   );
                 },
               ),
@@ -107,14 +116,33 @@ class ContactUsScreen extends GetView<ContactUsController> {
     return Shimmer.fromColors(
       baseColor: Colors.grey.shade300,
       highlightColor: Colors.grey.shade100,
-      child: Container(
-        height: 15.0,
-        width: double.infinity,
-        margin: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-        ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(28.0),
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.primaryColor
+            ),
+            child: SvgPicture.asset(
+              AppIcons.phonePrefixIcon,
+              width: 32.0,
+              height: 32.0,
+              colorFilter: const ColorFilter.mode(AppColors.whiteColor, BlendMode.srcATop),
+            ),
+          ).centered,
+          const SizedBox(height: AppSizes.spaceBetweenItems,),
+
+          Container(
+            height: 15.0,
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+            ),
+          ),
+        ],
       ),
     );
   }

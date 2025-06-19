@@ -7,4 +7,5 @@ class AppImages{
   static const String cardTopCornerWave = "$baseUrl/card_top_corner_wave.png";
   static const String visa = "$baseUrl/visa.png";
   static const String paypal = "$baseUrl/paypal.png";
+  static const String bannerCard ="$baseUrl/banner_card.png";
 }

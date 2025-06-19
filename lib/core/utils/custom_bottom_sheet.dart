@@ -11,40 +11,44 @@ class CustomBottomSheet{
   static void showCustomBottomSheet({required BuildContext context, required Widget child, bool isDismissible = true}) {
     Get.bottomSheet(
       isDismissible: isDismissible,
-      BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: AppSizes.sm, sigmaY: AppSizes.sm),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: AppSizes.lg, vertical: AppSizes.md),
-          constraints: BoxConstraints(
-            minWidth: context.screenWidth,
-            minHeight: context.screenHeight * 0.25,
-          ),
-          decoration: const BoxDecoration(
-            color: AppColors.whiteColor,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(AppSizes.borderRadiusXxl),
-              topRight: Radius.circular(AppSizes.borderRadiusXxl),
+      enableDrag: isDismissible, 
+      isScrollControlled: true,
+      PopScope(
+        canPop: isDismissible,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: AppSizes.sm, sigmaY: AppSizes.sm),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: AppSizes.lg, vertical: AppSizes.md),
+            constraints: BoxConstraints(
+              minWidth: context.screenWidth,
+              minHeight: context.screenHeight * 0.25,
             ),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Container(
-                width: 50.0,
-                height: 6.0,
-                decoration: BoxDecoration(
-                  color: AppColors.greyColor,
-                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
-                ),
+            decoration: const BoxDecoration(
+              color: AppColors.whiteColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(AppSizes.borderRadiusXxl),
+                topRight: Radius.circular(AppSizes.borderRadiusXxl),
               ),
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
-              child,
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
-            ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  width: 50.0,
+                  height: 6.0,
+                  decoration: BoxDecoration(
+                    color: AppColors.greyColor,
+                    borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
+                  ),
+                ),
+                const SizedBox(height: AppSizes.spaceBetweenSections,),
+                child,
+                const SizedBox(height: AppSizes.spaceBetweenSections,),
+              ],
+            ),
           ),
         ),
       ),
-      isScrollControlled: true,
     );
   }
 

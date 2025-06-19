@@ -130,7 +130,7 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
               const SizedBox(height: AppSizes.sm,),
         
               Text(
-                controller.paymentData?.price?.toString() ?? 'N/A',
+                "\$ ${controller.paymentData?.price?.toString() ?? 'N/A'}",
                 style: context.textTheme.titleLarge?.copyWith(
                   color: AppColors.textWhiteColor
                 ),
