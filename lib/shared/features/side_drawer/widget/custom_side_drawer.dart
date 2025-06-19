@@ -120,7 +120,7 @@ class CustomSideDrawer extends StatelessWidget {
                             context: context,
                             text: AppStrings.myDocuments,
                             svgAsset: AppIcons.docIcon,
-                            onTapCallback: () {},
+                            onTapCallback: () => Get.toNamed(AppRoutes.renterDocumentRoute),
                           ),
                          ],
                        );

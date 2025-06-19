@@ -170,8 +170,10 @@ class AppStrings{
   static const String apartmentDueBalance = "Apartment  due balance";
   static const String autoPay = "Auto Pay";
   static const String pastPayment = "Past Payment";
-  static const String emptyOpenReqest = "You don’t have any open maintenance request at this time add  one by clicking on the + button";
-  static const String emptyPastRequest = "You don’t have any past maintenance request at this time .add go to open request and add request";
+  static const String emptyOpenReqest = "You don’t have any open maintenance request at this time add one by clicking on the + button";
+  static const String emptyPastRequest = "You don’t have any past maintenance request at this time for add go to open request and add request";
+  static const String emptyPendingDoc = "You don’t have any pending documents at this time upload one by clicking on the upload button";
+  static const String emptyCompleteDoc = "You don’t have any completed documents at this time for add go to pending documents and add documents";
   static const String balanceDetails = "Balance Details";
 
 
@@ -208,6 +210,7 @@ class AppStrings{
   static const String makePayment = "Make Payment";
   static const String addAccount = "Add Account";
   static const String submitIssue = "Submit Issue";
+  static const String uploadDocuments = "Upload Documents";
 
 
 
@@ -220,5 +223,7 @@ class AppStrings{
     static const String resolvedMaintenance = "Resolved Maintenance";
     static const String openRequest = "Open Request";
     static const String pastRequest = "Past Request";
+    static const String pendingDocuments = "Pending Documents";
+    static const String completedDocuments = "Completed Documents";
 
 }
