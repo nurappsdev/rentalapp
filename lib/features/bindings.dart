@@ -30,6 +30,8 @@ export 'package:alora/features/renter/search_apartments/bindings/search_apartmen
 export 'package:alora/features/renter/apartment_details/bindings/apartment_details_binding.dart';
 export 'package:alora/features/renter/apartment_booking/bindings/apartment_booking_binding.dart';
 export 'package:alora/features/renter/renter_payment/bindings/renter_payment_binding.dart';
+export 'package:alora/features/renter/renter_maintenance/bindings/renter_maintenance_binding.dart';
+export 'package:alora/features/renter/renter_maintenance_create/bindings/renter_maintenance_create_binding.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';

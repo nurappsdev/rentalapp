@@ -168,6 +168,8 @@ class AppStrings{
   static const String apartmentDueBalance = "Apartment  due balance";
   static const String autoPay = "Auto Pay";
   static const String pastPayment = "Past Payment";
+  static const String emptyOpenReqest = "You don’t have any open maintenance request at this time add  one by clicking on the + button";
+  static const String emptyPastRequest = "You don’t have any past maintenance request at this time .add go to open request and add request";
   static const String balanceDetails = "Balance Details";
 
 
@@ -213,5 +215,7 @@ class AppStrings{
   
     static const String recentMaintenance = "Recent Maintenance";
     static const String resolvedMaintenance = "Resolved Maintenance";
+    static const String openRequest = "Open Request";
+    static const String pastRequest = "Past Request";
 
 }

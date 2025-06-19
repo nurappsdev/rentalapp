@@ -155,6 +155,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                                   },
                                   child: Container(
                                     width: context.screenWidth * .8,
+                                    margin: const EdgeInsets.only(right: AppSizes.sm),
                                     height: 150.0,
                                     decoration: BoxDecoration(
                                       color: AppColors.greyColor,

@@ -40,6 +40,8 @@ export 'package:alora/features/renter/renter_payment/screens/renter_payment_scre
 export 'package:alora/features/renter/renter_payment/screens/renter_balance_details_screen.dart';
 export 'package:alora/features/renter/renter_payment/screens/renter_past_payments_screen.dart';
 export 'package:alora/features/renter/renter_payment/screens/renter_payment_details_screen.dart';
+export 'package:alora/features/renter/renter_maintenance/screens/renter_maintenance_screen.dart';
+export 'package:alora/features/renter/renter_maintenance_create/screens/renter_maintenance_create_screen.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/screens/home_owner_screen.dart';

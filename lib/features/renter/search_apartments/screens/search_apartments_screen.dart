@@ -24,6 +24,11 @@ class SearchApartmentsScreen extends GetView<SearchApartmentsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: (Get.arguments is bool) ? const CustomAppBar(
+        showBackBtn: true,
+        elevation: 0.0,
+        backgroundColor: AppColors.whiteColor,
+      ) : null,
       backgroundColor: AppColors.surfaceColor,
       body: SafeArea(
         child: Padding(

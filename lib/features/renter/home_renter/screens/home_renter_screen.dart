@@ -65,8 +65,7 @@ class HomeRentarScreen extends GetView<HomeRenterController> {
                     child: HomeCard(
                       text: AppStrings.maintenance,
                       svgAsset: AppIcons.homeMaintenanceIcon,
-                      onTapCallback: () {
-                      },
+                      onTapCallback: () => Get.toNamed(AppRoutes.renterMaintenanceRoute),
                     ),
                   ),
                   Expanded(
@@ -90,9 +89,7 @@ class HomeRentarScreen extends GetView<HomeRenterController> {
                     child: HomeCard(
                       svgAsset: AppIcons.searchIcon,
                       text: AppStrings.searchProperty,
-                      onTapCallback: () {
-                        
-                      },
+                      onTapCallback: () => Get.toNamed(AppRoutes.searchApartmentsRoute, arguments: true),
                     ),
                   ),
                   Expanded(

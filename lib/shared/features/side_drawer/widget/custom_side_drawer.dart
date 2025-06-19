@@ -108,7 +108,7 @@ class CustomSideDrawer extends StatelessWidget {
                             context: context,
                             text: AppStrings.maintenance,
                             svgAsset: AppIcons.maintenanceIcon,
-                            onTapCallback: () {},
+                            onTapCallback: () => Get.toNamed(AppRoutes.renterMaintenanceRoute),
                           ),
                           item(
                             context: context,
@@ -132,10 +132,7 @@ class CustomSideDrawer extends StatelessWidget {
                       );
                     }
                     else{
-                      return Text(
-                        "Something is Wrong!",
-                        style: context.txtTheme.titleMedium,
-                      );
+                      return const SizedBox.shrink();
                     }
                   }
                 }),
