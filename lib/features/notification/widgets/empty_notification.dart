@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/widgets/custom_rounded_inner_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
@@ -30,7 +31,7 @@ class EmptyNotification extends StatelessWidget{
         Text(
           AppStrings.notificaitonEmpty,
           textAlign: TextAlign.center,
-          style: context.textTheme.titleSmall,
+          style: context.txtTheme.titleSmall,
         )
       ],
     );

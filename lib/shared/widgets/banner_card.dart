@@ -51,7 +51,7 @@ class BannerCard extends StatelessWidget {
               children: <Widget>[
                 Text(
                   "\$ $price",
-                  style: context.textTheme.headlineSmall?.copyWith(
+                  style: context.txtTheme.headlineSmall?.copyWith(
                     fontSize: 36.0,
                     color: AppColors.orange
                   ),
@@ -60,7 +60,7 @@ class BannerCard extends StatelessWidget {
 
                 Text(
                   text,
-                  style: context.textTheme.labelLarge
+                  style: context.txtTheme.labelLarge
                 ),
 
                 const SizedBox(height: AppSizes.sm),

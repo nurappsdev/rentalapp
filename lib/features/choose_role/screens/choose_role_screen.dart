@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/enums/role_type.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class ChooseRoleScreen extends GetView<ChooseRoleController> {
                 Text(
                   AppStrings.chooseRoleTitle,
                   textAlign: TextAlign.center,
-                  style: context.textTheme.headlineMedium,
+                  style: context.txtTheme.headlineMedium,
                 ).centered,
         
                 const SizedBox(height: AppSizes.spaceBetweenItems,),
@@ -40,7 +41,7 @@ class ChooseRoleScreen extends GetView<ChooseRoleController> {
                 Text(
                   AppStrings.chooseRoleSubTitle,
                   textAlign: TextAlign.center,
-                  style: context.textTheme.labelMedium,
+                  style: context.txtTheme.labelMedium,
                 ).centered,
         
         

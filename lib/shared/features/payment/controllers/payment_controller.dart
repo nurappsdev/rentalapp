@@ -32,7 +32,7 @@ class PaymentController extends GetxController{
 
   Future<PaymentData?> handlePayNow() async{
     if(!isAgreementAccepted.value){
-      CustomSnackBar.show(message: "Accept the Terms & condition");
+      CustomSnackBar.show(message: "Mark the Check Box for accepting.");
       return null;
     }
 

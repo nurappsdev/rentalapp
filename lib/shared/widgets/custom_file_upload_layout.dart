@@ -52,7 +52,7 @@ class CustomFileUploadLayout extends StatelessWidget {
         
             Text(
               label,
-              style: context.textTheme.bodyMedium
+              style: context.txtTheme.bodyMedium
             ),
             const SizedBox(height: AppSizes.md,),
 
@@ -102,14 +102,14 @@ class CustomFileUploadLayout extends StatelessWidget {
                       Text(
                         title,
                         textAlign: TextAlign.center,
-                        style: context.textTheme.bodyMedium
+                        style: context.txtTheme.bodyMedium
                       ),
                       const SizedBox(height: AppSizes.md,),
                   
                       Text(
                         subTitle,
                         textAlign: TextAlign.center,
-                        style: context.textTheme.bodyMedium
+                        style: context.txtTheme.bodyMedium
                       ),
 
                       const SizedBox(height: AppSizes.md,),

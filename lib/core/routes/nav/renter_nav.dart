@@ -28,5 +28,34 @@ class RenterNav{
       binding: ApartmentBookingBinding(),
       transition: Transition.noTransition
     ),
+
+    // payment
+    GetPage<dynamic>(
+      name: AppRoutes.renterBalanceDetailsRoute, 
+      page: () => const RenterBalanceDetailsScreen(), 
+      binding: RenterPaymentBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterPastPaymentsRoute, 
+      page: () => const RenterPastPaymentsScreen(), 
+      binding: RenterPaymentBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterPaymentDetailsRoute, 
+      page: () => const RenterPaymentDetailsScreen(), 
+      binding: RenterPaymentBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterPaymentRoute, 
+      page: () => const RenterPaymentScreen(), 
+      binding: RenterPaymentBinding(),
+      transition: Transition.noTransition
+    ),
   ];
 }

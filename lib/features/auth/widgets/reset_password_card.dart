@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/utils/custom_bottom_sheet.dart';
 import 'package:alora/core/widgets/custom_button.dart';
@@ -35,14 +36,14 @@ class ResetPasswordCard extends StatelessWidget {
           // title & subtitle
           Text(
             AppStrings.resetPasswordTitle,
-            style: context.textTheme.headlineSmall,
+            style: context.txtTheme.headlineSmall,
           ),
 
           const SizedBox(height: AppSizes.sm,),
 
           Text(
             AppStrings.resetPasswordSubTitle,
-            style: context.textTheme.bodySmall,
+            style: context.txtTheme.bodySmall,
           ),
 
           const SizedBox(height: AppSizes.lg,),
@@ -51,7 +52,7 @@ class ResetPasswordCard extends StatelessWidget {
           
           Text(
             AppStrings.passwordLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),
@@ -69,7 +70,7 @@ class ResetPasswordCard extends StatelessWidget {
 
           Text(
             AppStrings.confirmPasswordLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),
@@ -123,7 +124,7 @@ class ResetPassBottomSheet extends StatelessWidget {
 
             Text(
               AppStrings.resetPasswordBottmSheetTitle,
-              style: context.textTheme.bodyLarge,
+              style: context.txtTheme.bodyLarge,
             ),
 
             const SizedBox(height: AppSizes.sm),
@@ -132,7 +133,7 @@ class ResetPassBottomSheet extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
                 AppStrings.resetPasswordBottmSheetSubTitle, 
-                style: context.textTheme.labelMedium,
+                style: context.txtTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
             ),

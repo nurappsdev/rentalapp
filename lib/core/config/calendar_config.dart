@@ -1,5 +1,6 @@
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/date_time_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
@@ -13,11 +14,11 @@ class CalendarConfig {
     return CalendarDatePicker2Config(
       calendarType: CalendarDatePicker2Type.range,
       calendarViewMode: CalendarDatePicker2Mode.day,
-      selectedDayTextStyle: context.textTheme.titleSmall?.copyWith(color: AppColors.textWhiteColor),
+      selectedDayTextStyle: context.txtTheme.titleSmall?.copyWith(color: AppColors.textWhiteColor),
       selectedDayHighlightColor: AppColors.primaryColor,
-      weekdayLabelTextStyle: context.textTheme.titleSmall,
-      dayTextStyle: context.textTheme.titleSmall,
-      controlsTextStyle: context.textTheme.titleSmall,
+      weekdayLabelTextStyle: context.txtTheme.titleSmall,
+      dayTextStyle: context.txtTheme.titleSmall,
+      controlsTextStyle: context.txtTheme.titleSmall,
       disableModePicker: true,
       weekdayLabelBuilder: ({bool? isScrollViewTopHeader, required int weekday,}) {
         const List<String> labels = <String>['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -27,7 +28,7 @@ class CalendarConfig {
           ),
           child: Text(
             labels[weekday],
-            style: context.textTheme.titleSmall,
+            style: context.txtTheme.titleSmall,
           ).centered,
       );
       },
@@ -37,7 +38,7 @@ class CalendarConfig {
         }
         return Text(
           monthDate.formattedMonthYear,
-          style: context.textTheme.titleMedium,
+          style: context.txtTheme.titleMedium,
         ).centered;
       },
       dayBuilder: ({required DateTime date, BoxDecoration? decoration, bool? isDisabled, bool? isSelected, bool? isToday, TextStyle? textStyle}) {
@@ -58,7 +59,7 @@ class CalendarConfig {
           alignment: Alignment.center,
           child: Text(
             '${date.day}',
-            style: context.textTheme.titleSmall?.copyWith(
+            style: context.txtTheme.titleSmall?.copyWith(
               color: isSelectedDay ? AppColors.textWhiteColor : AppColors.textBlackColor,
             )
           ),

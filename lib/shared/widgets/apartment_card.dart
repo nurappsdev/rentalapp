@@ -1,5 +1,6 @@
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/utils/helper_method.dart';
 import 'package:alora/core/widgets/custom_network_image.dart';
 import 'package:alora/features/renter/search_apartments/controllers/search_apartments_controller.dart';
@@ -54,7 +55,7 @@ class ApartmentCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     apartment.title,
-                    style: context.textTheme.titleMedium?.copyWith(
+                    style: context.txtTheme.titleMedium?.copyWith(
                       color: AppColors.textWhiteColor
                     ),
                   ),
@@ -63,7 +64,7 @@ class ApartmentCard extends StatelessWidget {
               
                   Text(
                     apartment.apartmentName,
-                    style: context.textTheme.labelMedium?.copyWith(
+                    style: context.txtTheme.labelMedium?.copyWith(
                       color: AppColors.textWhiteColor
                     ),
                   ),
@@ -72,7 +73,7 @@ class ApartmentCard extends StatelessWidget {
               
                   Text(
                     apartment.apartmentLocation,
-                    style: context.textTheme.labelMedium?.copyWith(
+                    style: context.txtTheme.labelMedium?.copyWith(
                       color: AppColors.textWhiteColor
                     ),
                   ),

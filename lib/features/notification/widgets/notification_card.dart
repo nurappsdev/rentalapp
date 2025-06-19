@@ -1,5 +1,6 @@
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/date_time_extensions.dart';
 import 'package:alora/core/widgets/custom_rounded_inner_icon.dart';
 import 'package:alora/features/notification/models/notification_model.dart';
@@ -40,21 +41,21 @@ class NotificationCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 notification.title,
-                style: context.textTheme.bodyLarge,
+                style: context.txtTheme.bodyLarge,
               ),
             
               const SizedBox(height: AppSizes.sm,),
             
               Text(
                 notification.description,
-                style: context.textTheme.labelLarge,
+                style: context.txtTheme.labelLarge,
               ),
             
               const SizedBox(height: AppSizes.sm,),
             
               Text(
                 notification.time.timeAgo,
-                style: context.textTheme.labelSmall,
+                style: context.txtTheme.labelSmall,
               ),
             ],
           )

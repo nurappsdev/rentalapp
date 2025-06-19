@@ -1,6 +1,7 @@
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/date_time_extensions.dart';
 import 'package:alora/core/utils/helper_method.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
@@ -46,7 +47,7 @@ class GeneralScreen extends GetView<GeneralController> {
                       children: <Widget>[
                         Text(
                           HelperMethod.getGeneralTitleByType(arguments["generalType"]),
-                          style: context.textTheme.titleLarge,
+                          style: context.txtTheme.titleLarge,
                         ),
 
                         const SizedBox(height: AppSizes.xs,),
@@ -54,7 +55,7 @@ class GeneralScreen extends GetView<GeneralController> {
                         Obx(
                           ()=> Text(
                             AppStrings.lastUpdated,
-                            style: context.textTheme.labelSmall,
+                            style: context.txtTheme.labelSmall,
                           ),
                         ),
 
@@ -64,7 +65,7 @@ class GeneralScreen extends GetView<GeneralController> {
                           ()=> Text(
                             "No Info found",
                             textAlign: TextAlign.justify,
-                            style: context.textTheme.labelLarge,
+                            style: context.txtTheme.labelLarge,
                           ),
                         ),
                       ],
@@ -76,7 +77,7 @@ class GeneralScreen extends GetView<GeneralController> {
                     children: <Widget>[
                       Text(
                         HelperMethod.getGeneralTitleByType(arguments["generalType"]),
-                        style: context.textTheme.titleLarge,
+                        style: context.txtTheme.titleLarge,
                       ),
 
                       const SizedBox(height: AppSizes.xs,),
@@ -84,7 +85,7 @@ class GeneralScreen extends GetView<GeneralController> {
                       Obx(
                         ()=> Text(
                           "${AppStrings.lastUpdated} ${controller.lastUpdated.value?.formattedMonthYear ?? ''}",
-                          style: context.textTheme.labelSmall,
+                          style: context.txtTheme.labelSmall,
                         ),
                       ),
 
@@ -94,7 +95,7 @@ class GeneralScreen extends GetView<GeneralController> {
                         ()=> Text(
                           controller.content.value ?? "No Info found",
                           textAlign: TextAlign.justify,
-                          style: context.textTheme.labelLarge,
+                          style: context.txtTheme.labelLarge,
                         ),
                       ),
                     ],

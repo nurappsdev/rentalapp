@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class ContactUsScreen extends GetView<ContactUsController> {
 
                       Text(
                         controller.email.value ?? "Not Found",
-                        style: context.textTheme.bodyLarge,
+                        style: context.txtTheme.bodyLarge,
                       ),
                     ],
                   );
@@ -99,7 +100,7 @@ class ContactUsScreen extends GetView<ContactUsController> {
 
                       Text(
                         controller.phone.value ?? "Not Found",
-                        style: context.textTheme.bodyLarge,
+                        style: context.txtTheme.bodyLarge,
                       ),
                     ],
                   );

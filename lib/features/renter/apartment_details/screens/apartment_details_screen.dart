@@ -69,7 +69,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                       // description layout
                       Text(
                         AppStrings.apartmetnDescription,
-                        style: context.textTheme.titleMedium?.copyWith(
+                        style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
                           decorationThickness: 1.0,
@@ -80,7 +80,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                   
                       Text(
                         apartment.apartmentDescription,
-                        style: context.textTheme.bodyMedium,
+                        style: context.txtTheme.bodyMedium,
                       ),
 
 
@@ -88,7 +88,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                       // image layout
                       Text(
                         AppStrings.apartmetnImage,
-                        style: context.textTheme.titleMedium?.copyWith(
+                        style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
                           decorationThickness: 1.0,
@@ -123,7 +123,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                       // facilities layout
                       Text(
                         AppStrings.apartmetnFacilities,
-                        style: context.textTheme.titleMedium?.copyWith(
+                        style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
                           decorationThickness: 1.0,
@@ -219,7 +219,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                         // facilities layout
                         Text(
                           "${controller.selectedApartmentNumber.value!.title} ${AppStrings.facilities}",
-                          style: context.textTheme.titleMedium?.copyWith(
+                          style: context.txtTheme.titleMedium?.copyWith(
                             decoration: TextDecoration.underline,
                             decorationColor: AppColors.primaryColor,
                             decorationThickness: 1.0,
@@ -247,7 +247,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                         // image layout
                         Text(
                           "${controller.selectedApartmentNumber.value!.title} ${AppStrings.image}",
-                          style: context.textTheme.titleMedium?.copyWith(
+                          style: context.txtTheme.titleMedium?.copyWith(
                             decoration: TextDecoration.underline,
                             decorationColor: AppColors.primaryColor,
                             decorationThickness: 1.0,
@@ -313,12 +313,12 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                                     children: <Widget>[
                                       Text(
                                         AppStrings.apartmentName,
-                                        style: context.textTheme.labelSmall,
+                                        style: context.txtTheme.labelSmall,
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
                                         apartment.apartmentName,
-                                        style: context.textTheme.bodyMedium,
+                                        style: context.txtTheme.bodyMedium,
                                       ),
                                     ],
                                   ),
@@ -357,11 +357,11 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                           children: <Widget>[
                             Text(
                               "${AppStrings.price} \$${apartment.price}",
-                              style: context.textTheme.headlineMedium,
+                              style: context.txtTheme.headlineMedium,
                             ),
                             Text(
                               " / ${apartment.priceType}",
-                              style: context.textTheme.bodyLarge,
+                              style: context.txtTheme.bodyLarge,
                             )
                           ],
                         )

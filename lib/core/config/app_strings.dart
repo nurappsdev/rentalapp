@@ -105,6 +105,7 @@ class AppStrings{
   static const String maintenanceEmpty = "Maintenance is empty.";
   static const String userInfoNotFound = "User info is not found.";
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
+  static const String balanceDetailsNull = "Something went wrong!! Not Found the Balance Details";
   static const String apartmentDetailsNull = "Something went wrong!! Not Found the Apartment Details";
   static const String notificaitonEmpty = "Notification is empty.";
   static const String maintenanceDetails = "Maintenance details";
@@ -161,6 +162,7 @@ class AppStrings{
   static const String transactionSuccessfulTitle = "Transaction Successful";
   static const String transactionSuccessfulSubTitle = "Your payment has been successful done";
   static const String paymentDetails = "Payment details";
+  static const String paymentSuccess = "Payment Success";
   static const String transactionId = "Transaction  ID";
   static const String totalTopUp = "Total Top Up";
   static const String apartmentDueBalance = "Apartment  due balance";
@@ -200,6 +202,7 @@ class AppStrings{
   static const String proceed = "Proceed";
   static const String backToHome = "Back To Home";
   static const String makePayment = "Make Payment";
+  static const String addAccount = "Add Account";
 
 
 

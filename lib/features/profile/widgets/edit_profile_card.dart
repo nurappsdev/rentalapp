@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/utils/custom_bottom_sheet.dart';
 import 'package:alora/core/widgets/custom_button.dart';
@@ -52,7 +53,7 @@ class EditProfileCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     AppStrings.usernameLabel,
-                    style: context.textTheme.bodyMedium,
+                    style: context.txtTheme.bodyMedium,
                   ),
                   const SizedBox(height: AppSizes.xs,),
                   Row(
@@ -110,7 +111,7 @@ class EditProfileCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     AppStrings.phoneNo,
-                    style: context.textTheme.bodyMedium,
+                    style: context.txtTheme.bodyMedium,
                   ),
                   const SizedBox(height: AppSizes.xs,),
                   Row(
@@ -176,7 +177,7 @@ class EditProfileCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     AppStrings.location,
-                    style: context.textTheme.bodyMedium,
+                    style: context.txtTheme.bodyMedium,
                   ),
                   const SizedBox(height: AppSizes.xs,),
                   Row(

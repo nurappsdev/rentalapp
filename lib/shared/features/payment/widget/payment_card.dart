@@ -4,6 +4,7 @@ import 'package:alora/core/config/app_images.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/enums/payment_option.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_text_field.dart';
 import 'package:alora/shared/features/payment/controllers/payment_controller.dart';
@@ -40,11 +41,13 @@ class PaymentData{
 
 class PaymentCard extends StatelessWidget {
   final double? price;
+  final bool isAutoPay;
   final Function(PaymentData data) onPayCallBack;
 
   const PaymentCard({
     super.key,
     this.price,
+    this.isAutoPay = false,
     required this.onPayCallBack
   });
 
@@ -57,7 +60,7 @@ class PaymentCard extends StatelessWidget {
       children: <Widget>[
         Text(
           'Select Payment Method',
-          style: context.textTheme.bodyLarge
+          style: context.txtTheme.bodyLarge
         ),
         const SizedBox(height: 16.0),
         Row(
@@ -153,11 +156,11 @@ class PaymentCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 "${AppStrings.submissionFee} : ",
-                style: context.textTheme.headlineLarge,
+                style: context.txtTheme.headlineLarge,
               ),
               Text(
                 "\$ $price",
-                style: context.textTheme.titleLarge?.copyWith(
+                style: context.txtTheme.titleLarge?.copyWith(
                   color: AppColors.primaryColor
                 ),
               )
@@ -179,8 +182,8 @@ class PaymentCard extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                AppStrings.paymentTermsAndConditionAgreement,
-                style: context.textTheme.labelMedium
+                isAutoPay ? "Pay Via Auto" : AppStrings.paymentTermsAndConditionAgreement,
+                style: context.txtTheme.labelMedium
               ),
             ),
             const SizedBox(width: AppSizes.lg,)

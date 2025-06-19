@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_button.dart';
@@ -103,7 +104,7 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
         
               Text(
                 AppStrings.transactionSuccessfulTitle,
-                style: context.textTheme.headlineLarge?.copyWith(
+                style: context.txtTheme.headlineLarge?.copyWith(
                   color: AppColors.textWhiteColor
                 ),
               ),
@@ -112,7 +113,7 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
         
               Text(
                 AppStrings.transactionSuccessfulSubTitle,
-                style: context.textTheme.labelLarge?.copyWith(
+                style: context.txtTheme.labelLarge?.copyWith(
                   color: AppColors.textWhiteColor
                 ),
               ),
@@ -122,7 +123,7 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
         
               Text(
                 AppStrings.submissionFee,
-                style: context.textTheme.titleLarge?.copyWith(
+                style: context.txtTheme.titleLarge?.copyWith(
                   color: AppColors.textWhiteColor
                 ),
               ),
@@ -131,7 +132,7 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
         
               Text(
                 "\$ ${controller.paymentData?.price?.toString() ?? 'N/A'}",
-                style: context.textTheme.titleLarge?.copyWith(
+                style: context.txtTheme.titleLarge?.copyWith(
                   color: AppColors.textWhiteColor
                 ),
               ),
@@ -148,7 +149,7 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
                     children: <Widget>[
                       Text(
                         AppStrings.paymentDetails,
-                        style: context.textTheme.headlineMedium?.copyWith(
+                        style: context.txtTheme.headlineMedium?.copyWith(
                           color: AppColors.textWhiteColor
                         ),
                       ),
@@ -167,13 +168,13 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
                               children: <Widget>[
                                   Text(
                                     AppStrings.name,
-                                    style: context.textTheme.titleLarge?.copyWith(
+                                    style: context.txtTheme.titleLarge?.copyWith(
                                       color: AppColors.textWhiteColor
                                     ),
                                   ),
                                   Text(
                                     controller.paymentData?.cardHolderName ?? '',
-                                    style: context.textTheme.bodyLarge?.copyWith(
+                                    style: context.txtTheme.bodyLarge?.copyWith(
                                       color: AppColors.textWhiteColor
                                     ),
                                   ),
@@ -182,13 +183,13 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
                             
                                   Text(
                                     AppStrings.paymentDate,
-                                    style: context.textTheme.titleLarge?.copyWith(
+                                    style: context.txtTheme.titleLarge?.copyWith(
                                       color: AppColors.textWhiteColor
                                     ),
                                   ),
                                   Text(
                                     controller.paymentData?.paymentDate ?? '',
-                                    style: context.textTheme.bodyLarge?.copyWith(
+                                    style: context.txtTheme.bodyLarge?.copyWith(
                                       color: AppColors.textWhiteColor
                                     ),
                                   ),
@@ -202,13 +203,13 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
                               children: <Widget>[
                                   Text(
                                     AppStrings.email,
-                                    style: context.textTheme.titleLarge?.copyWith(
+                                    style: context.txtTheme.titleLarge?.copyWith(
                                       color: AppColors.textWhiteColor
                                     ),
                                   ),
                                   Text(
                                     controller.paymentData?.email ?? 'N/A',
-                                    style: context.textTheme.bodyLarge?.copyWith(
+                                    style: context.txtTheme.bodyLarge?.copyWith(
                                       color: AppColors.textWhiteColor
                                     ),
                                   ),
@@ -238,7 +239,7 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
                   margin: const EdgeInsets.symmetric(horizontal: AppSizes.md),
                   child: Text(
                     AppStrings.totalTopUp,
-                    style: context.textTheme.titleLarge?.copyWith(
+                    style: context.txtTheme.titleLarge?.copyWith(
                       color: AppColors.textWhiteColor
                     ),
                   ),
@@ -263,11 +264,11 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
                   ),
                   title: Text(
                     AppStrings.transactionId,
-                    style: context.textTheme.bodyLarge
+                    style: context.txtTheme.bodyLarge
                   ),
                   subtitle: Text(
                     controller.paymentData?.transactionId ?? "N/A",
-                    style: context.textTheme.bodySmall
+                    style: context.txtTheme.bodySmall
                   ),
                 ),
               ),

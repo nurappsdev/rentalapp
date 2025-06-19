@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_text_field.dart';
@@ -34,14 +35,14 @@ class SignUpCard extends StatelessWidget {
           // title & subtitle
           Text(
             AppStrings.signUpTitle,
-            style: context.textTheme.headlineSmall,
+            style: context.txtTheme.headlineSmall,
           ),
 
           const SizedBox(height: AppSizes.sm,),
 
           Text(
             AppStrings.signUpSubTitle,
-            style: context.textTheme.bodySmall,
+            style: context.txtTheme.bodySmall,
           ),
 
           const SizedBox(height: AppSizes.lg,),
@@ -50,7 +51,7 @@ class SignUpCard extends StatelessWidget {
 
           Text(
             AppStrings.usernameLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),
@@ -66,7 +67,7 @@ class SignUpCard extends StatelessWidget {
           
           Text(
             AppStrings.emailAddressLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),
@@ -83,7 +84,7 @@ class SignUpCard extends StatelessWidget {
 
           Text(
             AppStrings.passwordLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),
@@ -112,7 +113,7 @@ class SignUpCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   AppStrings.termsAndConditionsAgreement,
-                  style: context.textTheme.labelSmall
+                  style: context.txtTheme.labelSmall
                 ),
               ),
               const SizedBox(width: AppSizes.lg,)
@@ -134,13 +135,13 @@ class SignUpCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 AppStrings.alreadyHaveAcc,
-                style: context.textTheme.labelLarge
+                style: context.txtTheme.labelLarge
               ),
               GestureDetector(
                 onTap: () => Get.offAllNamed(AppRoutes.signInRoute),
                 child: Text(
                   AppStrings.signIn,
-                  style: context.textTheme.labelLarge?.copyWith(
+                  style: context.txtTheme.labelLarge?.copyWith(
                     fontWeight: FontWeight.w600,
                     color: AppColors.textBlackColor,
                     decoration: TextDecoration.underline,

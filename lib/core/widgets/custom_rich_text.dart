@@ -1,3 +1,4 @@
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,11 +25,11 @@ class CustomRichText extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           text: firstLabel,
-          style: context.textTheme.bodySmall,
+          style: context.txtTheme.bodySmall,
           children: <TextSpan>[
             TextSpan(
               text: " $secondLabel",
-              style: context.textTheme.bodySmall?.copyWith(
+              style: context.txtTheme.bodySmall?.copyWith(
                   color: AppColors.primaryColor
               ),
               recognizer: TapGestureRecognizer()..onTap = onPress
@@ -39,11 +40,11 @@ class CustomRichText extends StatelessWidget {
     ) : RichText(
       text: TextSpan(
         text: firstLabel,
-        style: context.textTheme.bodySmall,
+        style: context.txtTheme.bodySmall,
         children: <TextSpan>[
           TextSpan(
               text: " $secondLabel",
-              style: context.textTheme.bodySmall?.copyWith(
+              style: context.txtTheme.bodySmall?.copyWith(
                   color: AppColors.primaryColor
               ),
               recognizer: TapGestureRecognizer()..onTap = onPress

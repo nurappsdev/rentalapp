@@ -69,7 +69,7 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
                   children: <Widget>[
                     Text(
                       controller.selectedApartmentName,
-                      style: context.textTheme.bodyMedium?.copyWith(
+                      style: context.txtTheme.bodyMedium?.copyWith(
                         color: AppColors.textWhiteColor
                       ),
                     ),
@@ -118,7 +118,7 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
                     const SizedBox(height: AppSizes.spaceBetweenInputs,),
                     Text(
                       AppStrings.expectedMovingDate,
-                      style: context.textTheme.bodyMedium
+                      style: context.txtTheme.bodyMedium
                     ),
                     const SizedBox(height: AppSizes.md,),
 
@@ -150,7 +150,7 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
 
                     Text(
                       AppStrings.submitYourInfo,
-                      style: context.textTheme.bodyMedium
+                      style: context.txtTheme.bodyMedium
                     ),
                     const SizedBox(height: AppSizes.md,),
 
@@ -257,14 +257,14 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
         children: <Widget>[
           Text(
             label,
-            style: context.textTheme.labelSmall?.copyWith(
+            style: context.txtTheme.labelSmall?.copyWith(
               color: AppColors.textWhiteColor
             ),
           ),
           const SizedBox(height: AppSizes.sm,),
           Text(
             value,
-            style: context.textTheme.bodyMedium?.copyWith(
+            style: context.txtTheme.bodyMedium?.copyWith(
               color: AppColors.textWhiteColor
             ),
           ),

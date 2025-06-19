@@ -49,7 +49,7 @@ class CustomSideDrawer extends StatelessWidget {
                 Obx(
                   () => Text(
                     controller.user.value?.name ?? "Unknown",
-                    style: context.textTheme.titleMedium,
+                    style: context.txtTheme.titleMedium,
                   ),
                 ),
                   
@@ -59,7 +59,7 @@ class CustomSideDrawer extends StatelessWidget {
                   onTap: () => Get.toNamed(AppRoutes.profileRoute),
                   child: Text(
                   AppStrings.viewProfile,
-                    style: context.textTheme.labelMedium?.copyWith(
+                    style: context.txtTheme.labelMedium?.copyWith(
                       color: AppColors.textPrimaryColor,
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.primaryColor
@@ -128,13 +128,13 @@ class CustomSideDrawer extends StatelessWidget {
                     else if(controller.isRoleTypeMatch(RoleType.owner).value){
                        return Text(
                         "Nothing Implemanted for owner",
-                        style: context.textTheme.titleMedium,
+                        style: context.txtTheme.titleMedium,
                       );
                     }
                     else{
                       return Text(
                         "Something is Wrong!",
-                        style: context.textTheme.titleMedium,
+                        style: context.txtTheme.titleMedium,
                       );
                     }
                   }
@@ -189,7 +189,7 @@ class CustomSideDrawer extends StatelessWidget {
       ),
       title: Text(
         text,
-        style: context.textTheme.bodyMedium,
+        style: context.txtTheme.bodyMedium,
       ),
       onTap: onTapCallback,
     );
@@ -217,7 +217,7 @@ class LogoutBottomSheet extends StatelessWidget {
 
             Text(
               AppStrings.logoutBottmSheetTitle,
-              style: context.textTheme.bodyLarge,
+              style: context.txtTheme.bodyLarge,
             ),
 
             const SizedBox(height: AppSizes.sm),
@@ -226,7 +226,7 @@ class LogoutBottomSheet extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
                 AppStrings.logoutBottmSheetSubTitle, 
-                style: context.textTheme.labelMedium,
+                style: context.txtTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -312,9 +312,15 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
                   contentPadding: EdgeInsets.zero,
                   title: Text(
                     AppStrings.autoPay,
-                    style: context.textTheme.bodyMedium,
+                    style: context.txtTheme.bodyMedium,
                   ), 
-                  onTap: _toggleDropdown
+                  onTap: (){
+                    _toggleDropdown();
+                    Get.toNamed(
+                      AppRoutes.renterBalanceDetailsRoute,
+                      arguments: true,
+                    );
+                  }
                 ),
                 const Divider(
                   thickness: .5,
@@ -325,9 +331,15 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
                  contentPadding: EdgeInsets.zero,
                   title: Text(
                     AppStrings.pastPayment,
-                    style: context.textTheme.bodyMedium,
+                    style: context.txtTheme.bodyMedium,
                   ), 
-                  onTap: _toggleDropdown
+                  onTap: (){
+                    _toggleDropdown();
+                    Get.toNamed(
+                      AppRoutes.renterPastPaymentsRoute,
+                      arguments: true,
+                    );
+                  }
                 ),
             
                 const Divider(
@@ -339,9 +351,15 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
                  contentPadding: EdgeInsets.zero,
                   title: Text(
                     AppStrings.balanceDetails,
-                    style: context.textTheme.bodyMedium,
+                    style: context.txtTheme.bodyMedium,
                   ), 
-                  onTap: _toggleDropdown
+                  onTap: (){
+                    _toggleDropdown();
+                    Get.toNamed(
+                      AppRoutes.renterBalanceDetailsRoute,
+                      arguments: false,
+                    );
+                  }
                 ),
               ],
             ),
@@ -365,7 +383,7 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
       ),
       title: Text(
         AppStrings.payment,
-        style: context.textTheme.bodyMedium,
+        style: context.txtTheme.bodyMedium,
       ),
       trailing: const Icon(Icons.arrow_drop_down, size: 24.0,),
       onTap: _toggleDropdown,

@@ -1,4 +1,5 @@
 import 'package:alora/core/config/app_sizes.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:alora/core/config/app_colors.dart';
@@ -27,7 +28,7 @@ class RowEndText extends StatelessWidget {
           onTap: onPress,
           child: Text(
             label,
-            style: context.textTheme.labelLarge?.copyWith(
+            style: context.txtTheme.labelLarge?.copyWith(
               color: color,
               decoration: isUnderLine ? TextDecoration.underline : null,
               decorationColor: AppColors.blackColor,
