@@ -221,9 +221,15 @@ class AppStrings{
   
     static const String recentMaintenance = "Recent Maintenance";
     static const String resolvedMaintenance = "Resolved Maintenance";
+
     static const String openRequest = "Open Request";
     static const String pastRequest = "Past Request";
+
     static const String pendingDocuments = "Pending Documents";
     static const String completedDocuments = "Completed Documents";
+
+    static const String allEvents = "All Events";
+    static const String thisWeekEvents = "This Week";
+    static const String thisMonthEvents = "This Month";
 
 }

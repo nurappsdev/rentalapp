@@ -60,11 +60,12 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
                   border: Border.all(color: AppColors.greyColor, width: AppSizes.dividerHeight)
                 ),
                 child: CalendarDatePicker2(
-                  config: CalendarConfig.calendarConfig(context),
+                  config: CalendarConfig.calendarConfig(context: context),
                   value: <DateTime?>[DateTime.now()],
                   onValueChanged: (List<DateTime> dates){},
                 ),
               ),
+
               const SizedBox(height: AppSizes.spaceBetweenSections,),
               
               // maintenance header

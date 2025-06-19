@@ -72,9 +72,7 @@ class HomeRentarScreen extends GetView<HomeRenterController> {
                     child: HomeCard(
                       svgAsset: AppIcons.eventIcon,
                       text: AppStrings.events,
-                      onTapCallback: () {
-                        
-                      },
+                      onTapCallback: () => Get.toNamed(AppRoutes.renterEventsRoute),
                     ),
                   ),
                 ],

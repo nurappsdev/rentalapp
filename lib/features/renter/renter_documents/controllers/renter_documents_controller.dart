@@ -26,21 +26,21 @@ class RenterDocumentsController extends GetxController with GetSingleTickerProvi
     tabController = TabController(length: 2, vsync: this);
     uploadedDoc.value = null;
     pendingDocumentsLoading.value = true;
-    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+    Future<dynamic>.delayed(const Duration(seconds: 1), (){
       pendingDocumentsList.value = <String>["document"];
     });
 
-    Future<dynamic>.delayed(const Duration(seconds: 4), (){
+    Future<dynamic>.delayed(const Duration(seconds: 2), (){
       pendingDocumentsLoading.value = false;
     });
 
 
     compeletedDocumentsLoading.value = true;
-    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+    Future<dynamic>.delayed(const Duration(seconds: 1), (){
       completedDocumentsList.value = <String>["document"];
     });
 
-    Future<dynamic>.delayed(const Duration(seconds: 4), (){
+    Future<dynamic>.delayed(const Duration(seconds: 2), (){
       compeletedDocumentsLoading.value = false;
     });
     super.onInit();
