@@ -77,9 +77,7 @@ class OpenRequest extends StatelessWidget {
           )
         ),
         child: FloatingActionButton(
-          onPressed: (){
-        
-          },
+          onPressed: () => Get.toNamed(AppRoutes.renterMaintenanceCreateRoute),
           backgroundColor: Colors.transparent,
           child: const Icon(Icons.add, size: 28.0, color: AppColors.whiteColor,)
         ),

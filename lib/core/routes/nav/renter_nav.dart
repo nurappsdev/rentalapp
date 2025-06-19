@@ -36,6 +36,13 @@ class RenterNav{
       transition: Transition.noTransition
     ),
 
+    GetPage<dynamic>(
+      name: AppRoutes.renterMaintenanceCreateRoute, 
+      page: () => const RenterMaintenanceCreateScreen(), 
+      binding: RenterMaintenanceCreateBinding(),
+      transition: Transition.noTransition
+    ),
+
     // payment
     GetPage<dynamic>(
       name: AppRoutes.renterBalanceDetailsRoute, 

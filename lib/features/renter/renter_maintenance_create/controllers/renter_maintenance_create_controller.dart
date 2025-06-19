@@ -1,10 +1,27 @@
+import 'dart:io';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class RenterMaintenanceCreateController extends GetxController {
 
-  final RxInt count = 0.obs;
+  final Rxn<File?> issueImage = Rxn<File>(null);
+  final Rxn<File?> issuVideo = Rxn<File>(null);
 
-  void increment() => count.value++;
+  final RxBool isNeedEarlyService = false.obs;
+  set updateNeedEarlyService(bool? value){
+    if(value != null){
+      isNeedEarlyService.value = value;
+    }
+  }
+
+  final RxBool isYes = true.obs;
+  set updateYes(bool? value){
+    if(value != null){
+      isYes.value = value;
+    }
+  }
+
+  final TextEditingController calendarCTRL = TextEditingController();
 
 
   
@@ -16,7 +33,10 @@ class RenterMaintenanceCreateController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    count.value = 0;
+    issueImage.value = null;
+    issuVideo.value = null;
+    isNeedEarlyService.value = false;
+    isYes.value = true;
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -24,7 +44,10 @@ class RenterMaintenanceCreateController extends GetxController {
   /// Cleans up by resetting loading states and clearing lists and more...
   @override
   void dispose() {
+    issueImage.value = null;
+    issuVideo.value = null;
+    isNeedEarlyService.value = false;
+    isYes.value = true;
     super.dispose();
-    count.value = 0;
   }
 }

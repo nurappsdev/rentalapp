@@ -82,6 +82,7 @@ class AppStrings{
   static const String didNotRecieveCode = "Didn’t receive code?";
   static const String resendCode = "Resend Code";
   static const String termsAndConditionsAgreement = "By creating an account, I accept the Terms & Conditions & Privacy Policy.";
+  static const String needEarlyService = "Need Early Service";
   static const String paymentTermsAndConditionAgreement = "I accept the Terms & Conditions & Privacy Policy.";
   static const String termsAndConditions = "terms and conditions.";
 
@@ -125,6 +126,7 @@ class AppStrings{
   static const String address = "Address";
   static const String issueDate = "Issue Date";
   static const String description = "Description";
+  static const String calendar = "Calendar";
   static const String apartmetnDescription = "Apartment  Description";
   static const String apartmetnImage = "Apartment Image";
   static const String image = "Image";
@@ -205,6 +207,7 @@ class AppStrings{
   static const String backToHome = "Back To Home";
   static const String makePayment = "Make Payment";
   static const String addAccount = "Add Account";
+  static const String submitIssue = "Submit Issue";
 
 
 
