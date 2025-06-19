@@ -143,6 +143,7 @@ class AppStrings{
   static const String editPersonalDetails = "Edit Personal Details";
   static const String editProfile = "Edit Profile";
   static const String myMaintenance = "My Maintenance";
+  static const String myDocuments = "My Documents";
   static const String maintenance = "Maintenance";
   static const String events = "Events";
   static const String searchProperty = "Search property";
@@ -156,12 +157,16 @@ class AppStrings{
   static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
   static const String formatFile = "Format: .jpeg, .png & Max file size: 25 MB";
   static const String paymentTicket = "Payment Ticket";
+  static const String payment = "Payment";
   static const String transactionSuccessfulTitle = "Transaction Successful";
   static const String transactionSuccessfulSubTitle = "Your payment has been successful done";
   static const String paymentDetails = "Payment details";
   static const String transactionId = "Transaction  ID";
   static const String totalTopUp = "Total Top Up";
   static const String apartmentDueBalance = "Apartment  due balance";
+  static const String autoPay = "Auto Pay";
+  static const String pastPayment = "Past Payment";
+  static const String balanceDetails = "Balance Details";
 
 
 

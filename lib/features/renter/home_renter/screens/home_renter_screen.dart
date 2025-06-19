@@ -9,6 +9,7 @@ import 'package:alora/core/utils/custom_bottom_sheet.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_rounded_inner_icon.dart';
+import 'package:alora/shared/features/side_drawer/widget/custom_side_drawer.dart';
 import 'package:alora/shared/widgets/banner_card.dart';
 import 'package:alora/shared/widgets/home_card.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class HomeRentarScreen extends GetView<HomeRenterController> {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
+      key: scaffoldKey,
       appBar: CustomAppBar(
         showDrawerIcon: true,
         scaffoldKey: scaffoldKey,
@@ -42,6 +44,7 @@ class HomeRentarScreen extends GetView<HomeRenterController> {
         ]
       ),
       backgroundColor: AppColors.surfaceColor,
+      drawer: const CustomSideDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),

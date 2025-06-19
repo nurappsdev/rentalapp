@@ -3,6 +3,7 @@ import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/enums/role_type.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/utils/custom_bottom_sheet.dart';
 import 'package:alora/core/utils/custom_loader.dart';
@@ -83,43 +84,46 @@ class CustomSideDrawer extends StatelessWidget {
                     if(controller.isRoleTypeMatch(RoleType.crew).value){
                       return Column(
                         children: <Widget>[
-                           ListTile(
-                            onTap: () => Get.toNamed(AppRoutes.maintananceRoute),
-                            contentPadding: EdgeInsets.zero,
-                            leading: const CustomRoundedInnerIcon(
-                              icon: AppIcons.maintenanceIcon,
-                              containerSize: 32.0,
-                              bgColor: AppColors.primaryColor,
-                              iconColor: AppColors.whiteColor,
-                            ),
-                            title: Text(
-                              AppStrings.myMaintenance,
-                              style: context.textTheme.bodyMedium,
-                            ),
+                          item(
+                            context: context,
+                            text: AppStrings.myMaintenance,
+                            svgAsset: AppIcons.maintenanceIcon,
+                            onTapCallback: () => Get.toNamed(AppRoutes.maintananceRoute),
                           ),
 
-                          ListTile(
-                            onTap: () => Get.toNamed(AppRoutes.contactUsRoute),
-                            contentPadding: EdgeInsets.zero,
-                            leading: const CustomRoundedInnerIcon(
-                              icon: AppIcons.contactUsIcon,
-                              containerSize: 32.0,
-                              bgColor: AppColors.primaryColor,
-                              iconColor: AppColors.whiteColor,
-                            ),
-                            title: Text(
-                              AppStrings.contactUs,
-                              style: context.textTheme.bodyMedium,
-                            ),
+                          item(
+                            context: context,
+                            text: AppStrings.contactUs,
+                            svgAsset: AppIcons.contactUsIcon,
+                            onTapCallback: () => Get.toNamed(AppRoutes.contactUsRoute),
                           ),
                         ],
                       );
                     }
                     else if(controller.isRoleTypeMatch(RoleType.rentar).value){
-                       return Text(
-                        "Nothing Implemanted for rentar",
-                        style: context.textTheme.titleMedium,
-                      );
+                       return Column(
+                         children: <Widget>[
+                          const PaymentDropDown(),
+                           item(
+                            context: context,
+                            text: AppStrings.maintenance,
+                            svgAsset: AppIcons.maintenanceIcon,
+                            onTapCallback: () {},
+                          ),
+                          item(
+                            context: context,
+                            text: AppStrings.events,
+                            svgAsset: AppIcons.eventSideDrawerIcon,
+                            onTapCallback: () {},
+                          ),
+                          item(
+                            context: context,
+                            text: AppStrings.myDocuments,
+                            svgAsset: AppIcons.docIcon,
+                            onTapCallback: () {},
+                          ),
+                         ],
+                       );
                     }
                     else if(controller.isRoleTypeMatch(RoleType.owner).value){
                        return Text(
@@ -136,41 +140,24 @@ class CustomSideDrawer extends StatelessWidget {
                   }
                 }),
 
-
-
-                ListTile(
-                  onTap: () => Get.toNamed(AppRoutes.settingRoute),
-                  contentPadding: EdgeInsets.zero,
-                  leading: const CustomRoundedInnerIcon(
-                    icon: AppIcons.settingsIcon,
-                    containerSize: 32.0,
-                    bgColor: AppColors.primaryColor,
-                    iconColor: AppColors.whiteColor,
-                  ),
-                  title: Text(
-                    AppStrings.setting,
-                    style: context.textTheme.bodyMedium,
-                  ),
+                item(
+                  context: context,
+                  text: AppStrings.setting,
+                  svgAsset: AppIcons.settingsIcon,
+                  onTapCallback: () => Get.toNamed(AppRoutes.settingRoute),
                 ),
 
+                SizedBox(height: context.screenHeight * .1,),
 
                 const Divider(
                   thickness: AppSizes.dividerHeight,
                 ),
             
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const CustomRoundedInnerIcon(
-                    icon: AppIcons.logoutIcon,
-                    containerSize: 32.0,
-                    bgColor: AppColors.primaryColor,
-                    iconColor: AppColors.whiteColor,
-                  ),
-                  title: Text(
-                    AppStrings.logout,
-                    style: context.textTheme.bodyMedium,
-                  ),
-                  onTap: (){
+                item(
+                  context: context,
+                  text: AppStrings.logout,
+                  svgAsset: AppIcons.logoutIcon,
+                  onTapCallback: () {
                     CustomBottomSheet.showCustomBottomSheet(
                       context: context, 
                       child: LogoutBottomSheet(controller: controller,)
@@ -183,6 +170,28 @@ class CustomSideDrawer extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  ListTile item({
+    required BuildContext context, 
+    required String text,  
+    required String svgAsset,  
+    required VoidCallback onTapCallback,  
+    }) {
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      leading: CustomRoundedInnerIcon(
+        icon: svgAsset,
+        containerSize: 32.0,
+        bgColor: AppColors.primaryColor,
+        iconColor: AppColors.whiteColor,
+      ),
+      title: Text(
+        text,
+        style: context.textTheme.bodyMedium,
+      ),
+      onTap: onTapCallback,
     );
   }
 }
@@ -246,6 +255,121 @@ class LogoutBottomSheet extends StatelessWidget {
             )
           ],
         ),
+    );
+  }
+}
+
+
+
+class PaymentDropDown extends StatefulWidget {
+  const PaymentDropDown({super.key});
+
+  @override
+  State createState() => _PaymentDropDownState();
+}
+
+class _PaymentDropDownState extends State<PaymentDropDown> {
+  final LayerLink _layerLink = LayerLink();
+  OverlayEntry? _dropdownOverlay;
+
+  void _toggleDropdown() {
+    if (_dropdownOverlay == null) {
+      _dropdownOverlay = _createDropdown();
+      Overlay.of(context).insert(_dropdownOverlay!);
+    } else {
+      _dropdownOverlay?.remove();
+      _dropdownOverlay = null;
+    }
+  }
+
+  @override
+  void dispose() {
+    _dropdownOverlay?.remove();
+    _dropdownOverlay = null;
+    super.dispose();
+  }
+
+  
+
+  OverlayEntry _createDropdown() {
+    final RenderBox renderBox = context.findRenderObject() as RenderBox;
+    final Offset offset = renderBox.localToGlobal(Offset.zero);
+
+    return OverlayEntry(
+      builder: (BuildContext context) => Positioned(
+        left: offset.dx,
+        top: offset.dy + renderBox.size.height,
+        width: renderBox.size.width,
+        child: Material(
+          elevation: 4,
+          color: AppColors.whiteColor,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(
+                    AppStrings.autoPay,
+                    style: context.textTheme.bodyMedium,
+                  ), 
+                  onTap: _toggleDropdown
+                ),
+                const Divider(
+                  thickness: .5,
+                  color: AppColors.dividerColor,
+                ),
+                
+               ListTile(
+                 contentPadding: EdgeInsets.zero,
+                  title: Text(
+                    AppStrings.pastPayment,
+                    style: context.textTheme.bodyMedium,
+                  ), 
+                  onTap: _toggleDropdown
+                ),
+            
+                const Divider(
+                  thickness: .5,
+                  color: AppColors.dividerColor,
+                ),
+                
+               ListTile(
+                 contentPadding: EdgeInsets.zero,
+                  title: Text(
+                    AppStrings.balanceDetails,
+                    style: context.textTheme.bodyMedium,
+                  ), 
+                  onTap: _toggleDropdown
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CompositedTransformTarget(
+      link: _layerLink,
+      child: ListTile(
+      contentPadding: EdgeInsets.zero,
+      leading: const CustomRoundedInnerIcon(
+        icon: AppIcons.paymentIcon,
+        containerSize: 32.0,
+        bgColor: AppColors.primaryColor,
+        iconColor: AppColors.whiteColor,
+      ),
+      title: Text(
+        AppStrings.payment,
+        style: context.textTheme.bodyMedium,
+      ),
+      trailing: const Icon(Icons.arrow_drop_down, size: 24.0,),
+      onTap: _toggleDropdown,
+    ),
     );
   }
 }

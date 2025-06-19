@@ -37,6 +37,9 @@ class AppIcons{
   static const String walletIcon ="$baseUrl/wallet_icon.svg";
   static const String fileDownloadIcon ="$baseUrl/file_download_icon.svg";
   static const String eventIcon ="$baseUrl/event_icon.svg";
+  static const String paymentIcon ="$baseUrl/payment_icon.svg";
+  static const String eventSideDrawerIcon ="$baseUrl/event_side_drawer_icon.svg";
+  static const String docIcon ="$baseUrl/doc_icon.svg";
   
 
   //
