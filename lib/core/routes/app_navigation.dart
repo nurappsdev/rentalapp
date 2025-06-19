@@ -44,5 +44,15 @@ class AppNavigation{
     // renter
     ...RenterNav.routes,
 
+
+
+    // payment routes
+    GetPage<dynamic>(
+      name: AppRoutes.paymentTicketRoute, 
+      page: () => const PaymentTicketScreen(), 
+      binding: PaymentTicketBinding(),
+      transition: Transition.noTransition
+    ),
+
   ];
 }

@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_pin_code_text_field.dart';
@@ -35,14 +36,14 @@ class VerifyEmailCard extends StatelessWidget {
           // title & subtitle
           Text(
             AppStrings.verifyEmailTitle,
-            style: context.textTheme.headlineSmall,
+            style: context.txtTheme.headlineSmall,
           ),
 
           const SizedBox(height: AppSizes.sm,),
 
           Text(
             AppStrings.verifyEmailSubTitle,
-            style: context.textTheme.bodySmall,
+            style: context.txtTheme.bodySmall,
           ),
 
           const SizedBox(height: AppSizes.lg,),
@@ -69,7 +70,7 @@ class VerifyEmailCard extends StatelessWidget {
                 return Center(
                   child: Text(
                     "${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}",
-                     style: context.textTheme.bodyLarge,
+                     style: context.txtTheme.bodyLarge,
                   ),
                 );
               }),
@@ -91,7 +92,7 @@ class VerifyEmailCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 AppStrings.didNotRecieveCode,
-                style: context.textTheme.labelLarge
+                style: context.txtTheme.labelLarge
               ),
               GestureDetector(
                 onTap: (){
@@ -102,7 +103,7 @@ class VerifyEmailCard extends StatelessWidget {
                 },
                 child: Text(
                   AppStrings.resendCode,
-                  style: context.textTheme.labelLarge?.copyWith(
+                  style: context.txtTheme.labelLarge?.copyWith(
                     fontWeight: FontWeight.w600,
                     color: AppColors.textBlackColor,
                     decoration: TextDecoration.underline,

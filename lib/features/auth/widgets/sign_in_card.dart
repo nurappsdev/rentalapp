@@ -3,6 +3,7 @@ import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/enums/role_type.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_text_field.dart';
@@ -36,14 +37,14 @@ class SignInCard extends StatelessWidget {
           // title & subtitle
           Text(
             AppStrings.signInTitle,
-            style: context.textTheme.headlineSmall,
+            style: context.txtTheme.headlineSmall,
           ),
 
           const SizedBox(height: AppSizes.sm,),
 
           Text(
             AppStrings.signInSubTitle,
-            style: context.textTheme.bodySmall,
+            style: context.txtTheme.bodySmall,
           ),
 
           const SizedBox(height: AppSizes.lg,),
@@ -52,7 +53,7 @@ class SignInCard extends StatelessWidget {
           
           Text(
             AppStrings.emailAddressLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),
@@ -69,7 +70,7 @@ class SignInCard extends StatelessWidget {
 
           Text(
             AppStrings.passwordLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),
@@ -112,13 +113,13 @@ class SignInCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     AppStrings.doNotHaveAcc,
-                    style: context.textTheme.labelLarge
+                    style: context.txtTheme.labelLarge
                   ),
                   GestureDetector(
                     onTap: () => Get.offAllNamed(AppRoutes.signUpRoute),
                     child: Text(
                       AppStrings.signUp,
-                      style: context.textTheme.labelLarge?.copyWith(
+                      style: context.txtTheme.labelLarge?.copyWith(
                         fontWeight: FontWeight.w600,
                         color: AppColors.textBlackColor,
                         decoration: TextDecoration.underline,

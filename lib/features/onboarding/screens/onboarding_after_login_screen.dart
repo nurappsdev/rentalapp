@@ -39,7 +39,7 @@ class OnboardingAfterLoginScreen extends GetView<OnboardingController> {
             
                 Text(
                   AppStrings.onboardingAfterLoginDesc,
-                  style: context.textTheme.bodyLarge,
+                  style: context.txtTheme.bodyLarge,
                   textAlign: TextAlign.center,
                 ).centered,
             

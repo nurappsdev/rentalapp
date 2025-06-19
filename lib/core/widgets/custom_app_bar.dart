@@ -1,6 +1,7 @@
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/get_utils.dart';
@@ -79,7 +80,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: elevation,
       leading: leading,
       automaticallyImplyLeading: false,
-      titleTextStyle: context.textTheme.headlineSmall?.copyWith(
+      titleTextStyle: context.txtTheme.headlineSmall?.copyWith(
         decoration: isTitleUnderline ? TextDecoration.underline : null,
         decorationColor: Colors.black,
         decorationThickness: 2.0,
@@ -88,7 +89,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         alignment: _getTitleAlignment(),
         child: Text(
             title!,
-            style: context.textTheme.headlineSmall?.copyWith(
+            style: context.txtTheme.headlineSmall?.copyWith(
               decoration: isTitleUnderline ? TextDecoration.underline : null,
               decorationColor: AppColors.blackColor,
               decorationThickness: AppSizes.dividerHeight,

@@ -19,6 +19,7 @@ class AppIcons{
   static const String logoutBottomSheetIcon ="$baseUrl/logout_bottom_sheet_icon.svg";
   static const String logoutIcon ="$baseUrl/logout_icon.svg";
   static const String maintenanceIcon ="$baseUrl/maintenance_Icon.svg";
+  static const String homeMaintenanceIcon ="$baseUrl/home_maintenance_icon.svg";
   static const String nextIcon ="$baseUrl/next_icon.svg";
   static const String notificationIcon ="$baseUrl/notification_icon.svg";
   static const String phonePrefixIcon ="$baseUrl/phone_prefix_icon.svg";
@@ -28,4 +29,26 @@ class AppIcons{
   static const String uploadIcon ="$baseUrl/upload_icon.svg";
   static const String userIcon ="$baseUrl/user_icon.svg";
   static const String onbaordingIcon ="$baseUrl/onboarding_icon.svg";
+  static const String searchIcon ="$baseUrl/search_icon.svg";
+  static const String dateIcon ="$baseUrl/date_icon.svg";
+  static const String cardIcon ="$baseUrl/card_icon.svg";
+  static const String congratulationIcon ="$baseUrl/congratulation_icon.svg";
+  static const String verifiedIcon ="$baseUrl/verified_icon.svg";
+  static const String walletIcon ="$baseUrl/wallet_icon.svg";
+  static const String fileDownloadIcon ="$baseUrl/file_download_icon.svg";
+  static const String eventIcon ="$baseUrl/event_icon.svg";
+  static const String paymentIcon ="$baseUrl/payment_icon.svg";
+  static const String eventSideDrawerIcon ="$baseUrl/event_side_drawer_icon.svg";
+  static const String docIcon ="$baseUrl/doc_icon.svg";
+  
+
+  //
+  static const String wifiIcon ="$baseUrl/wifi_icon.svg";
+  static const String squareFitIcon ="$baseUrl/square_fit_icon.svg";
+  static const String leftIcon ="$baseUrl/left_icon.svg";
+  static const String gardenIcon ="$baseUrl/garden_icon.svg";
+  static const String carIcon ="$baseUrl/car_icon.svg";
+  static const String bedRoomIcon ="$baseUrl/bed_room_icon.svg";
+  static const String bathRoomIcon ="$baseUrl/bath_room_icon.svg";
+
 }

@@ -3,6 +3,7 @@ import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/config/calendar_config.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
@@ -72,14 +73,14 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
                 children: <Widget>[
                   Text(
                     AppStrings.maintenanceReqList,
-                    style: context.textTheme.titleLarge,
+                    style: context.txtTheme.titleLarge,
                   ),
 
                   Obx((){
                     if(controller.maintenanceList.isNotEmpty){
                       return Text(
                         "(${controller.maintenanceList.length})",
-                        style: context.textTheme.titleLarge,
+                        style: context.txtTheme.titleLarge,
                       );
                     }
                     return const SizedBox.shrink();

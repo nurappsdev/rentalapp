@@ -1,3 +1,4 @@
+import 'package:alora/core/themes/app_radio_theme.dart';
 import 'package:alora/core/themes/app_tab_bar_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:alora/core/config/app_colors.dart';
@@ -16,6 +17,7 @@ class LightTheme{
     dividerColor: AppColors.dividerColor,
     textTheme: AppTextTheme.lightTextTheme,
     checkboxTheme: AppCheckBoxTheme.lightCheckBoxTheme,
-    tabBarTheme: AppTabBarTheme.tabBarThemeLight
+    tabBarTheme: AppTabBarTheme.tabBarThemeLight,
+    radioTheme: AppRadioTheme.radioThemeLight
   );
 }

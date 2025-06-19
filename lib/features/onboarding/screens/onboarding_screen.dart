@@ -66,7 +66,7 @@ class OnboardingCard extends StatelessWidget {
           Text(
             AppStrings.onboardingCardTitle,
             textAlign: TextAlign.center,
-            style: context.textTheme.headlineMedium,
+            style: context.txtTheme.headlineMedium,
           ),
 
 
@@ -77,7 +77,7 @@ class OnboardingCard extends StatelessWidget {
             child: Text(
               AppStrings.onboardingCardSubTitle,
               textAlign: TextAlign.center,
-              style: context.textTheme.labelLarge
+              style: context.txtTheme.labelLarge
             ),
           ),
 

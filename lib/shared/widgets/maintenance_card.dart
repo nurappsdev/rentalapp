@@ -1,6 +1,7 @@
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/utils/helper_method.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_network_image.dart';
@@ -59,7 +60,7 @@ class MaintenanceCard extends StatelessWidget {
       
               Text(
                 maintenanceModel.apartmentName,
-                style: context.textTheme.titleMedium,
+                style: context.txtTheme.titleMedium,
               ),
       
       
@@ -67,7 +68,7 @@ class MaintenanceCard extends StatelessWidget {
       
               Text(
                 maintenanceModel.apartmentLocation,
-                style: context.textTheme.labelMedium,
+                style: context.txtTheme.labelMedium,
               ),
       
               const SizedBox(height: AppSizes.sm,),
@@ -76,7 +77,7 @@ class MaintenanceCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     maintenanceModel.type,
-                    style: context.textTheme.titleMedium?.copyWith(
+                    style: context.txtTheme.titleMedium?.copyWith(
                       color: AppColors.orange
                     ),
                   ),
@@ -126,14 +127,14 @@ class MaintenanceCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     AppStrings.roomNumber,
-                    style: context.textTheme.bodyMedium
+                    style: context.txtTheme.bodyMedium
                   ),
       
                   const Spacer(),
       
                   Text(
                     maintenanceModel.apartmentRoomNumber,
-                    style: context.textTheme.bodyMedium
+                    style: context.txtTheme.bodyMedium
                   ),
                 ],
               ),
@@ -148,13 +149,13 @@ class MaintenanceCard extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     AppStrings.floor,
-                    style: context.textTheme.bodyMedium
+                    style: context.txtTheme.bodyMedium
                   ),
 
                   const Spacer(),
                   Text(
                     maintenanceModel.floor,
-                    style: context.textTheme.bodyMedium
+                    style: context.txtTheme.bodyMedium
                   ),
                 ],
               ),

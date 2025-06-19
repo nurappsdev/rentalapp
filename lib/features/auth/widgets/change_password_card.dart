@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/utils/custom_bottom_sheet.dart';
 import 'package:alora/core/widgets/custom_button.dart';
@@ -35,7 +36,7 @@ class ChangePasswordCard extends StatelessWidget {
           
           Text(
             AppStrings.oldPasswordLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.spaceBetweenInputs,),
@@ -53,7 +54,7 @@ class ChangePasswordCard extends StatelessWidget {
 
           Text(
             AppStrings.newPasswordLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),
@@ -71,7 +72,7 @@ class ChangePasswordCard extends StatelessWidget {
 
           Text(
             AppStrings.confirmPasswordLabel,
-            style: context.textTheme.titleMedium,
+            style: context.txtTheme.titleMedium,
           ),
 
           const SizedBox(height: AppSizes.md,),

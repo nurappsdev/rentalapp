@@ -3,6 +3,7 @@ import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/enums/general_type.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/features/setting/controllers/setting_controller.dart';
@@ -44,7 +45,7 @@ class SettingScreen extends GetView<SettingController> {
                 leading: SvgPicture.asset(AppIcons.privacyPolicyIcon),
                 title: Text(
                   AppStrings.privacyPolicy,
-                  style: context.textTheme.bodyLarge,
+                  style: context.txtTheme.bodyLarge,
                 ),
                 trailing: SvgPicture.asset(AppIcons.nextIcon),
               ),
@@ -64,7 +65,7 @@ class SettingScreen extends GetView<SettingController> {
                 leading: SvgPicture.asset(AppIcons.termsConditionIcon),
                 title: Text(
                   AppStrings.termsAndConditions,
-                  style: context.textTheme.bodyLarge,
+                  style: context.txtTheme.bodyLarge,
                 ),
                 trailing: SvgPicture.asset(AppIcons.nextIcon),
               ),
@@ -84,7 +85,7 @@ class SettingScreen extends GetView<SettingController> {
                 leading: SvgPicture.asset(AppIcons.termsConditionIcon),
                 title: Text(
                   AppStrings.aboutUs,
-                  style: context.textTheme.bodyLarge,
+                  style: context.txtTheme.bodyLarge,
                 ),
                 trailing: SvgPicture.asset(AppIcons.nextIcon),
               ),

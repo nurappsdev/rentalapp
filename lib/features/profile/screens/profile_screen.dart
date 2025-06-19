@@ -2,6 +2,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/utils/image_picker_utils.dart';
@@ -71,7 +72,7 @@ class ProfileScreen extends GetView<ProfileController> {
                   children: <Widget>[
                     Text(
                       AppStrings.personalInformation,
-                      style: context.textTheme.titleMedium,
+                      style: context.txtTheme.titleMedium,
                     ),
 
                     const SizedBox(height: AppSizes.spaceBetweenItems,),
@@ -90,7 +91,7 @@ class ProfileScreen extends GetView<ProfileController> {
                           onTap: () => Get.toNamed(AppRoutes.editProfileRoute),
                           child: Text(
                             AppStrings.editProfile,
-                            style: context.textTheme.labelMedium?.copyWith(
+                            style: context.txtTheme.labelMedium?.copyWith(
                               decoration: TextDecoration.underline
                             ),
                           ),
@@ -103,7 +104,7 @@ class ProfileScreen extends GetView<ProfileController> {
                           onTap: () => Get.toNamed(AppRoutes.changePasswordRoute),
                           child: Text(
                             AppStrings.changePassword,
-                            style: context.textTheme.labelMedium?.copyWith(
+                            style: context.txtTheme.labelMedium?.copyWith(
                               decoration: TextDecoration.underline
                             ),
                           ),
@@ -159,7 +160,7 @@ class ProfileScreen extends GetView<ProfileController> {
               children: <Widget>[
                 Text(
                   AppStrings.name,
-                  style: context.textTheme.labelSmall,
+                  style: context.txtTheme.labelSmall,
                 ),
             
                 const SizedBox(height: AppSizes.xs,),
@@ -168,7 +169,7 @@ class ProfileScreen extends GetView<ProfileController> {
                   user.name,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.bodySmall,
+                  style: context.txtTheme.bodySmall,
                 )
               ],
             ),
@@ -192,7 +193,7 @@ class ProfileScreen extends GetView<ProfileController> {
               children: <Widget>[
                 Text(
                   AppStrings.email,
-                  style: context.textTheme.labelSmall,
+                  style: context.txtTheme.labelSmall,
                 ),
             
                 const SizedBox(height: AppSizes.xs,),
@@ -201,7 +202,7 @@ class ProfileScreen extends GetView<ProfileController> {
                   user.email,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.bodySmall,
+                  style: context.txtTheme.bodySmall,
                 )
               ],
             ),
@@ -225,7 +226,7 @@ class ProfileScreen extends GetView<ProfileController> {
               children: <Widget>[
                 Text(
                   AppStrings.phoneNo,
-                  style: context.textTheme.labelSmall,
+                  style: context.txtTheme.labelSmall,
                 ),
             
                 const SizedBox(height: AppSizes.xs,),
@@ -234,7 +235,7 @@ class ProfileScreen extends GetView<ProfileController> {
                   user.phoneNumber,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.bodySmall,
+                  style: context.txtTheme.bodySmall,
                 )
               ],
             ),
@@ -258,7 +259,7 @@ class ProfileScreen extends GetView<ProfileController> {
               children: <Widget>[
                 Text(
                   AppStrings.address,
-                  style: context.textTheme.labelSmall,
+                  style: context.txtTheme.labelSmall,
                 ),
             
                 const SizedBox(height: AppSizes.xs,),
@@ -267,7 +268,7 @@ class ProfileScreen extends GetView<ProfileController> {
                   user.address,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.bodySmall,
+                  style: context.txtTheme.bodySmall,
                 )
               ],
             ),

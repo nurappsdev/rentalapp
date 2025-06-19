@@ -1,4 +1,5 @@
 import 'package:alora/core/config/app_colors.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -65,7 +66,7 @@ class CustomButton extends StatelessWidget {
                 )
               : Text(
                   text,
-                  style: context.textTheme.titleMedium?.copyWith(
+                  style: context.txtTheme.titleMedium?.copyWith(
                     color: isOutline ? (borderColor ?? AppColors.primaryColor) : (textColor ?? AppColors.textWhiteColor),
                 ),
           ),

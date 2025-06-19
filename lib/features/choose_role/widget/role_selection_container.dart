@@ -3,6 +3,7 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_images.dart';
 import 'package:alora/core/config/app_sizes.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
@@ -96,12 +97,12 @@ class RoleSelectionContainer extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             role,
-                            style: context.textTheme.titleMedium,
+                            style: context.txtTheme.titleMedium,
                           ),
                                             
                           Text(
                             roleDesc,
-                            style: context.textTheme.labelSmall,
+                            style: context.txtTheme.labelSmall,
                           ),
                         ],
                       ),

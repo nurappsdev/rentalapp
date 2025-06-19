@@ -78,7 +78,7 @@ class MaintenanceDetailsController extends GetxController {
   void onInit() {
     super.onInit();
     maintenanceLoading.value = true;
-    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+    Future<dynamic>.delayed(const Duration(seconds: 1), (){
       maintenance.value = MaintenanceModel.dummyMaintenanceList.firstWhere(
         (MaintenanceModel item) => item.id == maintenenceId,
       );
@@ -87,7 +87,7 @@ class MaintenanceDetailsController extends GetxController {
       }
     });
 
-    Future<dynamic>.delayed(const Duration(seconds: 4), (){
+    Future<dynamic>.delayed(const Duration(seconds: 2), (){
       maintenanceLoading.value = false;
     });
   }

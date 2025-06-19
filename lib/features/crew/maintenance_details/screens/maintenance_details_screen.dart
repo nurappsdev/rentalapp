@@ -27,7 +27,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
   Widget build(BuildContext context) {
     final dynamic arguments = Get.arguments;
     controller.updateMaintenanceId = arguments != null ? (arguments as Map<String, dynamic>)['maintenance_id'] : '';
-    final String type = arguments != null ? (arguments as Map<String, dynamic>)['type'] : '';
+    final String type = arguments != null ? (arguments as Map<String, dynamic>)['type'] ?? '' : '';
 
     return Scaffold(
       appBar: const CustomAppBar(
@@ -83,14 +83,14 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                         // description layout
                         Text(
                           AppStrings.description,
-                          style: context.textTheme.bodyLarge,
+                          style: context.txtTheme.bodyLarge,
                         ),
                     
                         const SizedBox(height: AppSizes.xs,),
                     
                         Text(
                           maintenance.description,
-                          style: context.textTheme.bodySmall,
+                          style: context.txtTheme.bodySmall,
                         ),
 
                         const SizedBox(height: AppSizes.spaceBetweenItems,),
@@ -98,7 +98,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                         // issue image layout
                         Text(
                           AppStrings.issueImage,
-                          style: context.textTheme.bodyLarge,
+                          style: context.txtTheme.bodyLarge,
                         ),
                     
                         const SizedBox(height: AppSizes.xs,),
@@ -128,7 +128,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                         // issue video layout
                         Text(
                           AppStrings.issueVideo,
-                          style: context.textTheme.bodyLarge,
+                          style: context.txtTheme.bodyLarge,
                         ),
                     
                         const SizedBox(height: AppSizes.xs,),
@@ -155,6 +155,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                                   },
                                   child: Container(
                                     width: context.screenWidth * .8,
+                                    margin: const EdgeInsets.only(right: AppSizes.sm),
                                     height: 150.0,
                                     decoration: BoxDecoration(
                                       color: AppColors.greyColor,
@@ -205,14 +206,14 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                         else if(type == "maintenance_resolved") ...<Widget>[
                           Text(
                             AppStrings.resolvingIssueDate,
-                            style: context.textTheme.labelMedium?.copyWith(
+                            style: context.txtTheme.labelMedium?.copyWith(
                               color: AppColors.primaryColor
                             ),
                           ),
                           const SizedBox(height: AppSizes.sm,),
                           Text(
                             "Sat 12 April 2025  8.30 PM",
-                            style: context.textTheme.labelLarge
+                            style: context.txtTheme.labelLarge
                           ),
                         ],
                         const SizedBox(height: AppSizes.spaceBetweenItems,),
@@ -237,7 +238,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
       children: <Widget>[
         Text(
           AppStrings.userDetails,
-          style: context.textTheme.titleMedium,
+          style: context.txtTheme.titleMedium,
         ),
         const SizedBox(height: AppSizes.spaceBetweenItems,),
 
@@ -258,7 +259,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
               children: <Widget>[
                 Text(
                   AppStrings.name,
-                  style: context.textTheme.labelSmall,
+                  style: context.txtTheme.labelSmall,
                 ),
             
                 const SizedBox(height: AppSizes.xs,),
@@ -267,7 +268,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                   maintenance.userName,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.bodySmall,
+                  style: context.txtTheme.bodySmall,
                 )
               ],
             ),
@@ -291,7 +292,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
               children: <Widget>[
                 Text(
                   AppStrings.email,
-                  style: context.textTheme.labelSmall,
+                  style: context.txtTheme.labelSmall,
                 ),
             
                 const SizedBox(height: AppSizes.xs,),
@@ -300,7 +301,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                   maintenance.userEmail,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.bodySmall,
+                  style: context.txtTheme.bodySmall,
                 )
               ],
             ),
@@ -324,7 +325,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
               children: <Widget>[
                 Text(
                   AppStrings.phoneNo,
-                  style: context.textTheme.labelSmall,
+                  style: context.txtTheme.labelSmall,
                 ),
             
                 const SizedBox(height: AppSizes.xs,),
@@ -333,7 +334,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                   maintenance.userPhoneNumber,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.bodySmall,
+                  style: context.txtTheme.bodySmall,
                 )
               ],
             ),
@@ -355,7 +356,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
             children: <Widget>[
               Text(
                 AppStrings.apartmentName,
-                style: context.textTheme.labelSmall,
+                style: context.txtTheme.labelSmall,
               ),
           
               const SizedBox(height: AppSizes.xs,),
@@ -364,7 +365,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                 maintenance.apartmentName,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: context.textTheme.bodySmall,
+                style: context.txtTheme.bodySmall,
               )
             ],
           ),
@@ -377,7 +378,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
             children: <Widget>[
               Text(
                 AppStrings.location,
-                style: context.textTheme.labelSmall,
+                style: context.txtTheme.labelSmall,
               ),
           
               const SizedBox(height: AppSizes.xs,),
@@ -386,7 +387,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                 maintenance.apartmentLocation,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: context.textTheme.bodySmall,
+                style: context.txtTheme.bodySmall,
               )
             ],
           ),
@@ -406,7 +407,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
             children: <Widget>[
               Text(
                 AppStrings.apartmentRoomNo,
-                style: context.textTheme.labelSmall,
+                style: context.txtTheme.labelSmall,
               ),
           
               const SizedBox(height: AppSizes.xs,),
@@ -415,7 +416,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                 "${maintenance.apartmentRoomNumber} (${maintenance.floor})",
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: context.textTheme.bodySmall,
+                style: context.txtTheme.bodySmall,
               )
             ],
           ),
@@ -428,7 +429,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
             children: <Widget>[
               Text(
                 AppStrings.location,
-                style: context.textTheme.labelSmall,
+                style: context.txtTheme.labelSmall,
               ),
           
               const SizedBox(height: AppSizes.xs,),
@@ -437,7 +438,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                 maintenance.apartmentLocation,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: context.textTheme.bodySmall,
+                style: context.txtTheme.bodySmall,
               )
             ],
           ),

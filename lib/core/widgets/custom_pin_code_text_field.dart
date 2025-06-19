@@ -1,3 +1,4 @@
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -21,7 +22,7 @@ class CustomPinCodeTextField extends StatelessWidget {
       backgroundColor: Colors.transparent,
       cursorColor: AppColors.primaryColor,
       controller: textEditingController,
-        textStyle: context.textTheme.headlineSmall,
+        textStyle: context.txtTheme.headlineSmall,
         autoFocus: false,
         appContext: context,
         length: 6,

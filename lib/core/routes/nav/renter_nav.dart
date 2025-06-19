@@ -14,5 +14,77 @@ class RenterNav{
       binding: SearchApartmentsBinding(),
       transition: Transition.noTransition
     ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.apartmentDetailsRoute, 
+      page: () => const ApartmentDetailsScreen(), 
+      binding: ApartmentDetailsBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.apartmentBookingRoute, 
+      page: () => const ApartmentBookingScreen(), 
+      binding: ApartmentBookingBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterMaintenanceRoute, 
+      page: () => const RenterMaintenanceScreen(), 
+      binding: RenterMaintenanceBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterMaintenanceCreateRoute, 
+      page: () => const RenterMaintenanceCreateScreen(), 
+      binding: RenterMaintenanceCreateBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterDocumentRoute, 
+      page: () => const RenterDocumentsScreen(), 
+      binding: RenterDocumentsBinding(),
+      transition: Transition.noTransition
+    ),
+
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterDocumentCreateRoute, 
+      page: () => const RenterCreateDocumentsScreen(), 
+      binding: RenterDocumentsBinding(),
+      transition: Transition.noTransition
+    ),
+
+    // payment
+    GetPage<dynamic>(
+      name: AppRoutes.renterBalanceDetailsRoute, 
+      page: () => const RenterBalanceDetailsScreen(), 
+      binding: RenterPaymentBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterPastPaymentsRoute, 
+      page: () => const RenterPastPaymentsScreen(), 
+      binding: RenterPaymentBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterPaymentDetailsRoute, 
+      page: () => const RenterPaymentDetailsScreen(), 
+      binding: RenterPaymentBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterPaymentRoute, 
+      page: () => const RenterPaymentScreen(), 
+      binding: RenterPaymentBinding(),
+      transition: Transition.noTransition
+    ),
   ];
 }

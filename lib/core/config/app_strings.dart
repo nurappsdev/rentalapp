@@ -69,12 +69,21 @@ class AppStrings{
 
   static const String forgotPasswordQuestion = "Forgot Password?";
 
+
+  static const String searchApartmentHint = "Search Property";
+  static const String selectMovingDateHint = "Select moving date";
+  static const String expectedMovingDate = "Expected moving date";
+  static const String submitYourInfo = "Submit  your  information";
+
+
   // auth others
   static const String resetPassword = "Reset Password";
   static const String doNotHaveAcc = "Don’t have an account?";
   static const String didNotRecieveCode = "Didn’t receive code?";
   static const String resendCode = "Resend Code";
   static const String termsAndConditionsAgreement = "By creating an account, I accept the Terms & Conditions & Privacy Policy.";
+  static const String needEarlyService = "Need Early Service";
+  static const String paymentTermsAndConditionAgreement = "I accept the Terms & Conditions & Privacy Policy.";
   static const String termsAndConditions = "terms and conditions.";
 
 
@@ -97,11 +106,18 @@ class AppStrings{
   static const String maintenanceEmpty = "Maintenance is empty.";
   static const String userInfoNotFound = "User info is not found.";
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
+  static const String balanceDetailsNull = "Something went wrong!! Not Found the Balance Details";
+  static const String apartmentDetailsNull = "Something went wrong!! Not Found the Apartment Details";
   static const String notificaitonEmpty = "Notification is empty.";
   static const String maintenanceDetails = "Maintenance details";
+  static const String apartmentDetails = "Apartment details";
 
+  static const String apartmentNumber = "Apartment Number";
   static const String roomNumber = "Room Number";
   static const String floor = "Floor";
+  static const String selectFloor = "Select Floor";
+  static const String availableUnitType = "Available Unit Type";
+  static const String unitType = "Unit Type";
   static const String notificaiton = "Notification";
   static const String apartmentName = "Apartment Name";
   static const String apartmentRoomNo = "Apartment Room Number";
@@ -110,10 +126,17 @@ class AppStrings{
   static const String address = "Address";
   static const String issueDate = "Issue Date";
   static const String description = "Description";
+  static const String calendar = "Calendar";
+  static const String apartmetnDescription = "Apartment  Description";
+  static const String apartmetnImage = "Apartment Image";
+  static const String image = "Image";
+  static const String apartmetnFacilities = "Apartment Facilities";
+  static const String facilities = "Facilities";
   static const String issueImage = "Issue Image";
   static const String issueVideo = "Issue Video";
   static const String userDetails = "User Details";
   static const String name = "Name";
+  static const String paymentDate = "Payment Date";
   static const String email = "Email";
   static const String phoneNo = "Phone Number";
   static const String phoneNoHint = "Type Phone Number";
@@ -123,12 +146,35 @@ class AppStrings{
   static const String editPersonalDetails = "Edit Personal Details";
   static const String editProfile = "Edit Profile";
   static const String myMaintenance = "My Maintenance";
+  static const String myDocuments = "My Documents";
+  static const String maintenance = "Maintenance";
+  static const String events = "Events";
+  static const String searchProperty = "Search property";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
+  static const String price = "Price :";
+  static const String submissionFee = "Submission fee";
   static const String resolvingIssueDate = "Resolving Issue Date";
+  static const String dropFileOrBrowse = "Drop file or browse";
   static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
-
+  static const String formatFile = "Format: .jpeg, .png & Max file size: 25 MB";
+  static const String paymentTicket = "Payment Ticket";
+  static const String payment = "Payment";
+  static const String transactionSuccessfulTitle = "Transaction Successful";
+  static const String transactionSuccessfulSubTitle = "Your payment has been successful done";
+  static const String paymentDetails = "Payment details";
+  static const String paymentSuccess = "Payment Success";
+  static const String transactionId = "Transaction  ID";
+  static const String totalTopUp = "Total Top Up";
+  static const String apartmentDueBalance = "Apartment  due balance";
+  static const String autoPay = "Auto Pay";
+  static const String pastPayment = "Past Payment";
+  static const String emptyOpenReqest = "You don’t have any open maintenance request at this time add one by clicking on the + button";
+  static const String emptyPastRequest = "You don’t have any past maintenance request at this time for add go to open request and add request";
+  static const String emptyPendingDoc = "You don’t have any pending documents at this time upload one by clicking on the upload button";
+  static const String emptyCompleteDoc = "You don’t have any completed documents at this time for add go to pending documents and add documents";
+  static const String balanceDetails = "Balance Details";
 
 
 
@@ -156,6 +202,17 @@ class AppStrings{
   static const String yes = "Yes";
   static const String changePassword = "Change Password";
   static const String updateProfile = "Update Profile";
+  static const String beginApplicationProcess = "Begin application process";
+  static const String browseFile = "Browse Files";
+  static const String payNow = "Pay Now";
+  static const String proceed = "Proceed";
+  static const String backToHome = "Back To Home";
+  static const String makePayment = "Make Payment";
+  static const String addAccount = "Add Account";
+  static const String submitIssue = "Submit Issue";
+  static const String uploadDocuments = "Upload Documents";
+
+
 
 
   // ============================================================// ============================================================
@@ -164,5 +221,9 @@ class AppStrings{
   
     static const String recentMaintenance = "Recent Maintenance";
     static const String resolvedMaintenance = "Resolved Maintenance";
+    static const String openRequest = "Open Request";
+    static const String pastRequest = "Past Request";
+    static const String pendingDocuments = "Pending Documents";
+    static const String completedDocuments = "Completed Documents";
 
 }
