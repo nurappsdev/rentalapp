@@ -258,4 +258,7 @@ class AppStrings{
     static const String thisWeekEvents = "This Week";
     static const String thisMonthEvents = "This Month";
 
+    static const String myDocumentsTab = "My Docuemnts";
+    static const String receivedDocuments = "Recieved Docuemnts";
+
 }

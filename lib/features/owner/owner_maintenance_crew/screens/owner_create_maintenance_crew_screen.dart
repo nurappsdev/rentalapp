@@ -41,7 +41,8 @@ class OwnerCreateMaintenanceCrewScreen extends GetView<OwnerMaintenanceCrewContr
                   border: Border.all(
                     width: AppSizes.dividerThick,
                     color: AppColors.borderColor
-                  )
+                  ),
+                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd)
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
