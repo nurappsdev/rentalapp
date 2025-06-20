@@ -70,6 +70,7 @@ class OwnerDocumentsController extends GetxController with GetSingleTickerProvid
     apartmentsLoading.value = false;
     singleApartmentLoading.value = false;
     apartmentList.clear();
+    tabController.dispose();
     super.dispose();
   }
 

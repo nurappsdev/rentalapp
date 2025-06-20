@@ -95,6 +95,16 @@ class OwnerApartmentCard extends StatelessWidget {
                       text: AppStrings.view
                     ),
                   ],
+
+                  if(type == "resolved")...<Widget>[
+                    CustomButton(
+                      onTap: (){}, 
+                      width: 100.0,
+                      height: 32.0,
+                      borderRadius: 24.0,
+                      text: AppStrings.resolved
+                    ),
+                  ],
                 ],
               ),
       

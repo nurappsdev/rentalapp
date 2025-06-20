@@ -21,7 +21,7 @@ class OwnerApartmentDocumentsScreen extends GetView<OwnerDocumentsController> {
 
     return Scaffold(
      appBar: const CustomAppBar(
-        title: AppStrings.maintenance,
+        title: AppStrings.myDocuments,
         showBackBtn: true,
         elevation: 0.0,
         backgroundColor: AppColors.whiteColor,

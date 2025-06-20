@@ -141,7 +141,7 @@ class CustomSideDrawer extends StatelessWidget {
                             context: context,
                             text: AppStrings.maintenance,
                             svgAsset: AppIcons.maintenanceIcon,
-                            onTapCallback: () {},
+                            onTapCallback: () => Get.toNamed(AppRoutes.ownerMaintenanceRoute),
                           ),
 
                           item(

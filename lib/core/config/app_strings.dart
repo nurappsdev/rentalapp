@@ -216,6 +216,7 @@ class AppStrings{
   static const String continueBtnTxt = "Continue";
   static const String backToSignIn = "back to sign in";
   static const String view = "View";
+  static const String resolved = "Resolved";
   static const String accept = "Accept";
   static const String resolvingIssue = "Resolving Issue";
   static const String complete = "Complete";
