@@ -152,6 +152,9 @@ class AppStrings{
   static const String maintenance = "Maintenance";
   static const String events = "Events";
   static const String searchProperty = "Search property";
+  static const String applicationReq = "Application Req";
+  static const String maintenanceReq = "Maintenance Req";
+  static const String myApartment = "My Apartment";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
@@ -169,7 +172,8 @@ class AppStrings{
   static const String paymentSuccess = "Payment Success";
   static const String transactionId = "Transaction  ID";
   static const String totalTopUp = "Total Top Up";
-  static const String apartmentDueBalance = "Apartment  due balance";
+  static const String apartmentDueBalance = "Apartment due balance";
+  static const String apartmentSetup = "Your Apartment Setup Now";
   static const String autoPay = "Auto Pay";
   static const String pastPayment = "Past Payment";
   static const String emptyOpenReqest = "You don’t have any open maintenance request at this time add one by clicking on the + button";

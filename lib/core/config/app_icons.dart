@@ -30,6 +30,7 @@ class AppIcons{
   static const String userIcon ="$baseUrl/user_icon.svg";
   static const String onbaordingIcon ="$baseUrl/onboarding_icon.svg";
   static const String searchIcon ="$baseUrl/search_icon.svg";
+  static const String usersIcon ="$baseUrl/users_icon.svg";
   static const String dateIcon ="$baseUrl/date_icon.svg";
   static const String cardIcon ="$baseUrl/card_icon.svg";
   static const String congratulationIcon ="$baseUrl/congratulation_icon.svg";
@@ -40,6 +41,7 @@ class AppIcons{
   static const String paymentIcon ="$baseUrl/payment_icon.svg";
   static const String eventSideDrawerIcon ="$baseUrl/event_side_drawer_icon.svg";
   static const String docIcon ="$baseUrl/doc_icon.svg";
+  static const String apartmentIcon ="$baseUrl/apartment_icon.svg";
   
 
   //
