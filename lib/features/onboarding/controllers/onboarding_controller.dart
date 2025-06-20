@@ -23,7 +23,7 @@ class OnboardingController extends GetxController {
         Get.offAllNamed(AppRoutes.searchApartmentsRoute);
         break;
       case RoleType.owner:
-        Get.offAllNamed(AppRoutes.homeOwnerRoute);
+        Get.offAllNamed(AppRoutes.ownerSubscriptionRoute);
         break;
       case RoleType.crew:
         Get.offAllNamed(AppRoutes.homeCrewRoute);

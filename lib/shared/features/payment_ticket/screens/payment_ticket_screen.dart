@@ -178,21 +178,6 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
                                       color: AppColors.textWhiteColor
                                     ),
                                   ),
-                            
-                                  const SizedBox(height: AppSizes.spaceBetweenItems,),
-                            
-                                  Text(
-                                    AppStrings.paymentDate,
-                                    style: context.txtTheme.titleLarge?.copyWith(
-                                      color: AppColors.textWhiteColor
-                                    ),
-                                  ),
-                                  Text(
-                                    controller.paymentData?.paymentDate ?? '',
-                                    style: context.txtTheme.bodyLarge?.copyWith(
-                                      color: AppColors.textWhiteColor
-                                    ),
-                                  ),
                               ],
                             ),
                           ),
@@ -217,6 +202,21 @@ class PaymentTicketScreen extends GetView<PaymentTicketController> {
                             ),
                           )
                         ],
+                      ),
+
+                      const SizedBox(height: AppSizes.spaceBetweenItems,),
+                
+                      Text(
+                        AppStrings.paymentDate,
+                        style: context.txtTheme.titleLarge?.copyWith(
+                          color: AppColors.textWhiteColor
+                        ),
+                      ),
+                      Text(
+                        controller.paymentData?.paymentDate ?? '',
+                        style: context.txtTheme.bodyLarge?.copyWith(
+                          color: AppColors.textWhiteColor
+                        ),
                       ),
                     ],
                   ),

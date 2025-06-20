@@ -104,6 +104,7 @@ class AppStrings{
 
   static const String maintenanceReqList = "Maintenance req list";
   static const String maintenanceEmpty = "Maintenance is empty.";
+  static const String subscriptionEmpty = "Subscriptions are empty.";
   static const String eventsEmpty = "Events are empty.";
   static const String userInfoNotFound = "User info is not found.";
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
@@ -176,6 +177,9 @@ class AppStrings{
   static const String emptyPendingDoc = "You don’t have any pending documents at this time upload one by clicking on the upload button";
   static const String emptyCompleteDoc = "You don’t have any completed documents at this time for add go to pending documents and add documents";
   static const String balanceDetails = "Balance Details";
+  static const String subscription = "Subscription";
+  static const String subscriptionTitle = "Purchase your preferred subscription package.";
+  static const String selectUnit = "Select unit";
 
 
 

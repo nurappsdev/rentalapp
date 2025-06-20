@@ -37,3 +37,4 @@ export 'package:alora/features/renter/renter_events/bindings/renter_events_bindi
 
 // owner
 export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';
+export 'package:alora/features/owner/owner_subscription/bindings/owner_subscription_binding.dart';

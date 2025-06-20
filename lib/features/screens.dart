@@ -48,3 +48,5 @@ export 'package:alora/features/renter/renter_events/screens/renter_events_screen
 
 // owner
 export 'package:alora/features/owner/home_owner/screens/home_owner_screen.dart';
+export 'package:alora/features/owner/owner_subscription/screens/owner_subscription_screen.dart';
+export 'package:alora/features/owner/owner_subscription/screens/owner_subscription_payment_screen.dart';

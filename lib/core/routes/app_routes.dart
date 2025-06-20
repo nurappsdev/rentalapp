@@ -56,6 +56,12 @@ class AppRoutes{
   static const String renterDocumentRoute = "/renter-document-screen";
   static const String renterDocumentCreateRoute = "/renter-document-create-screen";
   static const String renterEventsRoute = "/renter-events-screen";
+
+
+  // owner
+  static const String ownerSubscriptionRoute = "/owner-subscription-screen";
+  static const String ownerSubscriptionPaymentRoute = "/owner-subscription-payment-screen";
+  
   
   
   static const String paymentTicketRoute = "/payment-ticket-screen";
