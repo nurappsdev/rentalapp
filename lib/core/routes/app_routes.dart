@@ -61,6 +61,19 @@ class AppRoutes{
   // owner
   static const String ownerSubscriptionRoute = "/owner-subscription-screen";
   static const String ownerSubscriptionPaymentRoute = "/owner-subscription-payment-screen";
+  static const String ownerAllocateBillRoute = "/owner-allocate-bill-screen";
+  static const String ownerAllocateBillDetailsRoute = "/owner-allocate-bill-details-screen";
+  static const String ownerCreateAllocateBillRoute = "/owner-create-allocate-bill-screen";
+  static const String ownerDocumentsRoute = "/owner-documents-screen";
+  static const String ownerCreateDocumentsRoute = "/owner-create-documents-screen";
+  static const String ownerApartmentDocumentsRoute = "/owner-apartment_documents-screen";
+  static const String ownerMaintenanceCrewRoute = "/owner-maintenance-crew-screen";
+  static const String ownerMaintenanceCrewDetailsRoute = "/owner-maintenance-crew-details-screen";
+  static const String ownerCreateMaintenanceCrewRoute = "/owner-create-maintenance-crew-screen";
+  static const String ownerEventsRoute = "/owner-events-screen";
+  static const String ownerCreateEventRoute = "/owner-create-events-screen";
+  static const String ownerRenterListRoute = "/owner-renter-list-screen";
+  static const String ownerRenterListDetailsRoute = "/owner-renter-list-details-screen";
   
   
   

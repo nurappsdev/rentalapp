@@ -149,7 +149,9 @@ class AppStrings{
   static const String editProfile = "Edit Profile";
   static const String myMaintenance = "My Maintenance";
   static const String myDocuments = "My Documents";
+  static const String maintenanceCrew = "Maintenance Crew";
   static const String maintenance = "Maintenance";
+  static const String renterList = "Renter List";
   static const String events = "Events";
   static const String searchProperty = "Search property";
   static const String applicationReq = "Application Req";
@@ -176,6 +178,8 @@ class AppStrings{
   static const String apartmentSetup = "Your Apartment Setup Now";
   static const String autoPay = "Auto Pay";
   static const String pastPayment = "Past Payment";
+  static const String allocateBill = "Allocate Bill";
+  static const String accountDetails = "Account Details";
   static const String emptyOpenReqest = "You don’t have any open maintenance request at this time add one by clicking on the + button";
   static const String emptyPastRequest = "You don’t have any past maintenance request at this time for add go to open request and add request";
   static const String emptyPendingDoc = "You don’t have any pending documents at this time upload one by clicking on the upload button";

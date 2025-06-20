@@ -38,3 +38,8 @@ export 'package:alora/features/renter/renter_events/bindings/renter_events_bindi
 // owner
 export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';
 export 'package:alora/features/owner/owner_subscription/bindings/owner_subscription_binding.dart';
+export 'package:alora/features/owner/owner_allocate_bill/bindings/owner_allocate_bill_binding.dart';
+export 'package:alora/features/owner/owner_documents/bindings/owner_documents_binding.dart';
+export 'package:alora/features/owner/owner_maintenance_crew/bindings/owner_maintenance_crew_binding.dart';
+export 'package:alora/features/owner/owner_event/bindings/owner_event_binding.dart';
+export 'package:alora/features/owner/owner_renter_list/bindings/owner_renter_list_binding.dart';
