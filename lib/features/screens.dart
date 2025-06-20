@@ -63,3 +63,5 @@ export 'package:alora/features/owner/owner_event/screens/owner_event_screen.dart
 export 'package:alora/features/owner/owner_event/screens/owner_create_event_screen.dart';
 export 'package:alora/features/owner/owner_renter_list/screens/owner_renter_list_screen.dart';
 export 'package:alora/features/owner/owner_renter_list/screens/owner_renter_list_details_screen.dart';
+export 'package:alora/features/owner/owner_maintenance/screens/owner_maintenance_screen.dart';
+export 'package:alora/features/owner/owner_maintenance/screens/owner_maintenance_details_screen.dart';

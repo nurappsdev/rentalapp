@@ -14,8 +14,8 @@ class OwnerCreateEventScreen extends GetView<OwnerEventController> {
         title: const Text('OwnerEvent'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Obx(() => Text('Count: ${controller.count}')),
+      body: const Center(
+
       ),
     );
   }

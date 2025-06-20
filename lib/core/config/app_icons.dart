@@ -42,6 +42,8 @@ class AppIcons{
   static const String eventSideDrawerIcon ="$baseUrl/event_side_drawer_icon.svg";
   static const String docIcon ="$baseUrl/doc_icon.svg";
   static const String apartmentIcon ="$baseUrl/apartment_icon.svg";
+  static const String deleteIcon ="$baseUrl/delete_icon.svg";
+  static const String deleteBottomSheetIcon ="$baseUrl/delete_bottom_sheet_icon.svg";
   
 
   //

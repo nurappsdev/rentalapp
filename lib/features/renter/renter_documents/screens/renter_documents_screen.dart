@@ -27,25 +27,25 @@ class RenterDocumentsScreen extends GetView<RenterDocumentsController> {
         padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
         child: Column(
           children: <Widget>[
-          TabBar(
-            controller: controller.tabController,
-            tabs: const <Widget>[
-              Tab(text: AppStrings.pendingDocuments),
-              Tab(text: AppStrings.completedDocuments),
-            ],
-          ),
-
-          const SizedBox(height: AppSizes.spaceBetweenItems,),
-
-          Expanded(
-            child: TabBarView(
+            TabBar(
               controller: controller.tabController,
-              children: <Widget>[
-                PendingDocument(controller: controller),
-                CompletedDocument(controller: controller),
+              tabs: const <Widget>[
+                Tab(text: AppStrings.pendingDocuments),
+                Tab(text: AppStrings.completedDocuments),
               ],
             ),
-          ),
+
+            const SizedBox(height: AppSizes.spaceBetweenItems,),
+
+            Expanded(
+              child: TabBarView(
+                controller: controller.tabController,
+                children: <Widget>[
+                  PendingDocument(controller: controller),
+                  CompletedDocument(controller: controller),
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -44,6 +44,8 @@ class AppStrings{
   static const String logoutBottmSheetTitle = "LogOut";
   static const String logoutBottmSheetSubTitle = "Are you sure you want to log out ?";
 
+  static const String deleteBottmSheetTitle = "Delete";
+  static const String deleteBottmSheetSubTitle = "Are you sure you want to delete ?";
 
 
   // auth fields

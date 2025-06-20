@@ -119,5 +119,20 @@ class OwnerNav{
       transition: Transition.noTransition
     ),
 
+    // maintenance
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMaintenanceRoute, 
+      page: () => const OwnerMaintenanceScreen(), 
+      binding: OwnerMaintenanceBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMaintenanceDetailsRoute, 
+      page: () => const OwnerMaintenanceDetailsScreen(), 
+      binding: OwnerMaintenanceBinding(),
+      transition: Transition.noTransition
+    ),
+
   ];
 }

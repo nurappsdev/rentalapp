@@ -74,6 +74,8 @@ class AppRoutes{
   static const String ownerCreateEventRoute = "/owner-create-events-screen";
   static const String ownerRenterListRoute = "/owner-renter-list-screen";
   static const String ownerRenterListDetailsRoute = "/owner-renter-list-details-screen";
+  static const String ownerMaintenanceRoute = "/owner-maintenance-screen";
+  static const String ownerMaintenanceDetailsRoute = "/owner-maintenance-details-screen";
   
   
   

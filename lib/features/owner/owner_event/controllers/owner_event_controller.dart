@@ -1,10 +1,10 @@
+import '../models/owner_event_model.dart';
 import 'package:get/get.dart';
 
 class OwnerEventController extends GetxController {
 
-  final RxInt count = 0.obs;
-
-  void increment() => count.value++;
+  final RxList<OwnerEventModel> events = <OwnerEventModel>[].obs;
+  final RxBool eventsLoading = false.obs;
 
 
   
@@ -16,7 +16,14 @@ class OwnerEventController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    count.value = 0;
+    eventsLoading.value = true;
+    Future<dynamic>.delayed(const Duration(seconds: 1), (){
+      events.value = OwnerEventModel.ownerEvents;
+    });
+
+    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+      eventsLoading.value = false;
+    });
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -24,7 +31,8 @@ class OwnerEventController extends GetxController {
   /// Cleans up by resetting loading states and clearing lists and more...
   @override
   void dispose() {
+    events.clear();
+    eventsLoading.value = false;
     super.dispose();
-    count.value = 0;
   }
 }
