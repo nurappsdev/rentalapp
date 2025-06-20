@@ -74,6 +74,8 @@ class AppStrings{
 
   static const String searchApartmentHint = "Search Property";
   static const String selectMovingDateHint = "Select moving date";
+  static const String selectDateHint = "Select Date";
+  static const String dateLabel = "Date";
   static const String expectedMovingDate = "Expected moving date";
   static const String submitYourInfo = "Submit  your  information";
 
@@ -226,6 +228,7 @@ class AppStrings{
   static const String addAccount = "Add Account";
   static const String submitIssue = "Submit Issue";
   static const String uploadDocuments = "Upload Documents";
+  static const String submit = "Submit";
 
 
 

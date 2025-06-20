@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+
 import '../models/owner_event_model.dart';
 import 'package:get/get.dart';
 
@@ -5,6 +9,19 @@ class OwnerEventController extends GetxController {
 
   final RxList<OwnerEventModel> events = <OwnerEventModel>[].obs;
   final RxBool eventsLoading = false.obs;
+
+  late TextEditingController dateCTRL;
+  late TextEditingController titleCTRL;
+  late TextEditingController descriptionCTRL;
+  final Rxn<File?> eventImage = Rxn<File?>(null);
+
+  Future<void> handleAddOrEditEvent() async{
+    Get.back();
+    dateCTRL.clear();
+    titleCTRL.clear();
+    descriptionCTRL.clear();
+    eventImage.value = null;
+  }
 
 
   
@@ -16,6 +33,10 @@ class OwnerEventController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    dateCTRL = TextEditingController();
+    titleCTRL = TextEditingController();
+    descriptionCTRL = TextEditingController();
+
     eventsLoading.value = true;
     Future<dynamic>.delayed(const Duration(seconds: 1), (){
       events.value = OwnerEventModel.ownerEvents;
@@ -32,6 +53,9 @@ class OwnerEventController extends GetxController {
   @override
   void dispose() {
     events.clear();
+    dateCTRL.dispose();
+    titleCTRL.dispose();
+    descriptionCTRL.dispose();
     eventsLoading.value = false;
     super.dispose();
   }

@@ -34,7 +34,7 @@ class OwnerEventScreen extends GetView<OwnerEventController> {
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
           child: Column(
             children: <Widget>[
-              // maintenence list with handling loading and empty state
+              // event list with handling loading and empty state
               Obx((){
                 if(controller.events.isEmpty){
                   return SizedBox(
@@ -60,7 +60,7 @@ class OwnerEventScreen extends GetView<OwnerEventController> {
                         );
                       },
                       onEditCallback: () {
-                        Get.toNamed(AppRoutes.ownerCreateDocumentsRoute);
+                        Get.toNamed(AppRoutes.ownerCreateEventRoute);
                       },
                       event: controller.events[index]
                     );
@@ -87,7 +87,7 @@ class OwnerEventScreen extends GetView<OwnerEventController> {
           )
         ),
         child: FloatingActionButton(
-          onPressed: () => Get.toNamed(AppRoutes.ownerCreateDocumentsRoute),
+          onPressed: () => Get.toNamed(AppRoutes.ownerCreateEventRoute),
           backgroundColor: Colors.transparent,
           child: const Icon(Icons.add, size: 28.0, color: AppColors.whiteColor,)
         ),
