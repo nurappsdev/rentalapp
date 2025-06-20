@@ -103,6 +103,7 @@ class AppStrings{
   static const String owner = "Owner";
   static const String ownerRoleDesc = "Create your account as a Apartment Owner.";
   static const String crew = "Crew";
+  static const String crewDetails = "Crew Details";
   static const String crewRoleDesc = "Sign In as a Apartment Crew.";
 
 
@@ -110,7 +111,9 @@ class AppStrings{
   static const String maintenanceEmpty = "Maintenance is empty.";
   static const String subscriptionEmpty = "Subscriptions are empty.";
   static const String eventsEmpty = "Events are empty.";
+  static const String eventsCrew = "Crew are empty.";
   static const String userInfoNotFound = "User info is not found.";
+  static const String crewInfoNotFound = "Crew info is not found.";
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
   static const String balanceDetailsNull = "Something went wrong!! Not Found the Balance Details";
   static const String apartmentDetailsNull = "Something went wrong!! Not Found the Apartment Details";
@@ -154,6 +157,7 @@ class AppStrings{
   static const String myMaintenance = "My Maintenance";
   static const String myDocuments = "My Documents";
   static const String maintenanceCrew = "Maintenance Crew";
+  static const String maintenanceCrewList = "Maintenance Crew List";
   static const String maintenance = "Maintenance";
   static const String renterList = "Renter List";
   static const String events = "Events";
@@ -229,6 +233,10 @@ class AppStrings{
   static const String submitIssue = "Submit Issue";
   static const String uploadDocuments = "Upload Documents";
   static const String submit = "Submit";
+  static const String create = "Create";
+  static const String deleteCrew = "Delete Crew";
+  static const String createAccount = "Create Account";
+
 
 
 

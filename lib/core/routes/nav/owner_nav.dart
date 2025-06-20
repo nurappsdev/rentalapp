@@ -77,7 +77,7 @@ class OwnerNav{
 
     GetPage<dynamic>(
       name: AppRoutes.ownerCreateMaintenanceCrewRoute, 
-      page: () => const OwnerMaintenanceCrewDetailsScreen(), 
+      page: () => const OwnerCreateMaintenanceCrewScreen(), 
       binding: OwnerMaintenanceCrewBinding(),
       transition: Transition.noTransition
     ),
