@@ -9,6 +9,8 @@ import 'package:alora/features/crew/maintenance/controllers/maintenance_controll
 import 'package:alora/features/renter/renter_documents/controllers/renter_documents_controller.dart';
 import 'package:alora/features/renter/renter_documents/widgets/document_shimmer.dart';
 import 'package:alora/features/renter/renter_events/controllers/renter_events_controller.dart';
+import 'package:alora/features/renter/renter_events/widgets/empty_events.dart';
+import 'package:alora/features/renter/renter_events/widgets/event_shimmer.dart';
 import 'package:alora/features/renter/renter_maintenance/controllers/renter_maintenance_controller.dart';
 import 'package:alora/features/renter/renter_maintenance/widgets/request_card.dart';
 import 'package:alora/features/renter/renter_maintenance/widgets/request_shimmer.dart';
@@ -38,16 +40,11 @@ class CurrentWeekEvents extends StatelessWidget {
             if(controller.currentWeekEvents.isEmpty){
               return SizedBox(
                 width: context.screenWidth,
-                height: context.screenHeight * .6,
-                child: Text(
-                  AppStrings.emptyCompleteDoc,
-                  textAlign: TextAlign.center,
-                  style: context.txtTheme.titleSmall,
-                ).centered,
+                child: const EmptyEvents().centered,
               );
             }
             else if(controller.currentWeekEventsLoading.value){
-              return const DocumentShimmer();
+              return const EventShimmer();
             }
             return ListView.separated(
               shrinkWrap: true,

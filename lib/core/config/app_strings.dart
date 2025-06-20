@@ -104,6 +104,7 @@ class AppStrings{
 
   static const String maintenanceReqList = "Maintenance req list";
   static const String maintenanceEmpty = "Maintenance is empty.";
+  static const String eventsEmpty = "Events are empty.";
   static const String userInfoNotFound = "User info is not found.";
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
   static const String balanceDetailsNull = "Something went wrong!! Not Found the Balance Details";
