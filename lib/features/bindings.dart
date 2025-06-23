@@ -45,3 +45,4 @@ export 'package:alora/features/owner/owner_event/bindings/owner_event_binding.da
 export 'package:alora/features/owner/owner_renter_list/bindings/owner_renter_list_binding.dart';
 export 'package:alora/features/owner/owner_maintenance/bindings/owner_maintenance_binding.dart';
 export 'package:alora/features/owner/owner_application_req/bindings/owner_application_req_binding.dart';
+export 'package:alora/features/owner/owner_my_apartment/bindings/owner_my_apartment_binding.dart';

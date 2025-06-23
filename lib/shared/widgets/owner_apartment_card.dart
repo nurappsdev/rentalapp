@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 class OwnerApartmentCard extends StatelessWidget {
   final ApartmentModel apartment;
   final VoidCallback onViewCallback;
+  final VoidCallback onEditCallback;
   final String type;
   final bool isShowImage;
   final Widget? appendWidget;
@@ -22,6 +23,7 @@ class OwnerApartmentCard extends StatelessWidget {
     super.key,
     required this.apartment, 
     this.onViewCallback = HelperMethod.emptyCallback, 
+    this.onEditCallback = HelperMethod.emptyCallback, 
     this.type = "no_view",
     this.isShowImage = true,
     this.appendWidget,
@@ -103,6 +105,16 @@ class OwnerApartmentCard extends StatelessWidget {
                       height: 32.0,
                       borderRadius: 24.0,
                       text: AppStrings.resolved
+                    ),
+                  ],
+
+                  if(type == "edit")...<Widget>[
+                    CustomButton(
+                      onTap: onEditCallback, 
+                      width: 100.0,
+                      height: 32.0,
+                      borderRadius: 24.0,
+                      text: AppStrings.edit
                     ),
                   ],
                 ],

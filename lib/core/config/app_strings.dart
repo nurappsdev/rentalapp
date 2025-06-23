@@ -166,8 +166,11 @@ class AppStrings{
   static const String applicationReq = "Application Req";
   static const String unitList = "Unit List";
   static const String unitDetails = "Unit Details";
+  static const String unitDetailsList = "Unit Details List";
   static const String maintenanceReq = "Maintenance Req";
   static const String myApartment = "My Apartment";
+  static const String apartmentList = "Apartment List";
+  static const String editApartment = "Edit Apartment";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
@@ -245,6 +248,9 @@ class AppStrings{
   static const String createAccount = "Create Account";
   static const String sendBill = "Send Bill";
   static const String viewDetails = "View Details";
+  static const String editUnit = "Edit Unit";
+  static const String edit = "Edit";
+  static const String update = "Update";
 
 
 

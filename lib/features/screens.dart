@@ -68,4 +68,14 @@ export 'package:alora/features/owner/owner_maintenance/screens/owner_maintenance
 export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_screen.dart';
 export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_unit_list_screen.dart';
 export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_unit_details_screen.dart';
-export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_user_details_sscreen.dart';
+export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_user_details_screen.dart';
+
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_my_apartment_screen.dart';
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_apartment_list_screen.dart';
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_apartment_preview_screen.dart';
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_apartment_renter_details_screen.dart';
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_apartment_unit_details_edit_screen.dart';
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_apartment_unit_details_screen.dart';
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_apartment_unit_edit_screen.dart';
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_apartment_unit_list_screen.dart';
+export 'package:alora/features/owner/owner_my_apartment/screens/owner_apartment_edit_screen.dart';

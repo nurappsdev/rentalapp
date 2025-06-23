@@ -163,5 +163,66 @@ class OwnerNav{
       transition: Transition.noTransition
     ),
 
+
+    // my aparmtent
+
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentRoute, 
+      page: () => const OwnerMyApartmentScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentListRoute, 
+      page: () => const OwnerApartmentListScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentEditRoute, 
+      page: () => const OwnerApartmentEditScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentUnitListRoute, 
+      page: () => const OwnerApartmentUnitListScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentUnitEditRoute, 
+      page: () => const OwnerApartmentUnitEditScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentUnitDetailsRoute, 
+      page: () => const OwnerApartmentUnitDetailsScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentUnitDetailsEditRoute, 
+      page: () => const OwnerApartmentUnitDetailsEditScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentPreviewRoute, 
+      page: () => const OwnerApartmentPreviewScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerMyApartmentRenterDetailsRoute, 
+      page: () => const OwnerApartmentRenterDetailsScreen(), 
+      binding: OwnerMyApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+
+
+
   ];
 }

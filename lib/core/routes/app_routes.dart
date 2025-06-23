@@ -81,6 +81,16 @@ class AppRoutes{
   static const String ownerApplicationReqUnitDetailsRoute = "/owner-application-req-unit-details-screen";
   static const String ownerApplicationReqUserDetailsRoute = "/owner-application-req-user-details-screen";
   
+  static const String ownerMyApartmentRoute = "/owner-my-apartment-screen";
+  static const String ownerMyApartmentListRoute = "/owner-my-apartment-list-screen";
+  static const String ownerMyApartmentEditRoute = "/owner-my-apartment-edit-screen";
+  static const String ownerMyApartmentUnitListRoute = "/owner-my-apartment-unit-list-screen";
+  static const String ownerMyApartmentUnitEditRoute = "/owner-my-apartment-unit-edit-screen";
+  static const String ownerMyApartmentUnitDetailsRoute = "/owner-my-apartment-unit-details-screen";
+  static const String ownerMyApartmentUnitDetailsEditRoute = "/owner-my-apartment-unit-details-edit-screen";
+  static const String ownerMyApartmentPreviewRoute = "/owner-my-apartment-preview-screen";
+  static const String ownerMyApartmentRenterDetailsRoute = "/owner-my-apartment-renter-details-screen";
+  
   
   
   static const String paymentTicketRoute = "/payment-ticket-screen";

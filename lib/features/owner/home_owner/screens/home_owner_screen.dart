@@ -66,7 +66,7 @@ class HomeOwnerScreen extends GetView<HomeOwnerController> {
                     child: HomeCard(
                       text: AppStrings.myApartment,
                       svgAsset: AppIcons.apartmentIcon,
-                      onTapCallback: () {},
+                       onTapCallback: () => Get.toNamed(AppRoutes.ownerMyApartmentRoute),
                     ),
                   ),
 
