@@ -13,14 +13,14 @@ class OwnerAllocateBillController extends GetxController {
   final RxList<ApartmentModel> apartmentList = <ApartmentModel>[].obs;
   final RxBool apartmentsLoading = false.obs;
 
-  String apartmentId = '';
+  String apartmentId = '1';
   set updateApartmentId(String? apartmentId){
     if(apartmentId != null){
       this.apartmentId = apartmentId;
     }
   }
 
-   final Rxn<ApartmentModel?> singleApartment = Rxn<ApartmentModel?>(null);
+  final Rxn<ApartmentModel?> singleApartment = Rxn<ApartmentModel?>(null);
   final RxBool singleApartmentLoading = false.obs;
   Future<void> handleRetriveSingleApartment() async{
     singleApartmentLoading.value = true;

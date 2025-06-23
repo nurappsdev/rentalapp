@@ -197,6 +197,7 @@ class AppStrings{
   static const String subscription = "Subscription";
   static const String subscriptionTitle = "Purchase your preferred subscription package.";
   static const String selectUnit = "Select unit";
+  static const String totalBalance = "Total Balance";
 
 
 
@@ -239,6 +240,7 @@ class AppStrings{
   static const String create = "Create";
   static const String deleteCrew = "Delete Crew";
   static const String createAccount = "Create Account";
+  static const String sendBill = "Send Bill";
 
 
 
