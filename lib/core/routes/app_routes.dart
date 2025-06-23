@@ -76,6 +76,10 @@ class AppRoutes{
   static const String ownerRenterListDetailsRoute = "/owner-renter-list-details-screen";
   static const String ownerMaintenanceRoute = "/owner-maintenance-screen";
   static const String ownerMaintenanceDetailsRoute = "/owner-maintenance-details-screen";
+  static const String ownerApplicationReqRoute = "/owner-application-req-screen";
+  static const String ownerApplicationReqUnitListRoute = "/owner-application-req-unit-list-screen";
+  static const String ownerApplicationReqUnitDetailsRoute = "/owner-application-req-unit-details-screen";
+  static const String ownerApplicationReqUserDetailsRoute = "/owner-application-req-user-details-screen";
   
   
   

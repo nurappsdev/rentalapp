@@ -134,5 +134,34 @@ class OwnerNav{
       transition: Transition.noTransition
     ),
 
+
+    // application req
+    GetPage<dynamic>(
+      name: AppRoutes.ownerApplicationReqRoute, 
+      page: () => const OwnerApplicationReqScreen(), 
+      binding: OwnerApplicationReqBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.ownerApplicationReqUnitDetailsRoute, 
+      page: () => const OwnerApplicationReqUnitDetailsScreen(), 
+      binding: OwnerApplicationReqBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerApplicationReqUnitListRoute, 
+      page: () => const OwnerApplicationReqUnitListScreen(), 
+      binding: OwnerApplicationReqBinding(),
+      transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+      name: AppRoutes.ownerApplicationReqUserDetailsRoute, 
+      page: () => const OwnerApplicationReqUserDetailsscreen(), 
+      binding: OwnerApplicationReqBinding(),
+      transition: Transition.noTransition
+    ),
+
   ];
 }

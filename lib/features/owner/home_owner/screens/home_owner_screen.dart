@@ -90,7 +90,7 @@ class HomeOwnerScreen extends GetView<HomeOwnerController> {
                     child: HomeCard(
                       svgAsset: AppIcons.usersIcon,
                       text: AppStrings.applicationReq,
-                      onTapCallback: () {},
+                      onTapCallback: () => Get.toNamed(AppRoutes.ownerApplicationReqRoute),
                     ),
                   ),
 

@@ -65,3 +65,7 @@ export 'package:alora/features/owner/owner_renter_list/screens/owner_renter_list
 export 'package:alora/features/owner/owner_renter_list/screens/owner_renter_list_details_screen.dart';
 export 'package:alora/features/owner/owner_maintenance/screens/owner_maintenance_screen.dart';
 export 'package:alora/features/owner/owner_maintenance/screens/owner_maintenance_details_screen.dart';
+export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_screen.dart';
+export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_unit_list_screen.dart';
+export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_unit_details_screen.dart';
+export 'package:alora/features/owner/owner_application_req/screens/owner_application_req_user_details_sscreen.dart';
