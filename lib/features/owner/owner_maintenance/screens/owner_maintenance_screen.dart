@@ -30,8 +30,8 @@ class OwnerMaintenanceScreen extends GetView<OwnerMaintenanceController> {
           TabBar(
             controller: controller.tabController,
             tabs: const <Widget>[
-              Tab(text: AppStrings.myDocumentsTab),
-              Tab(text: AppStrings.receivedDocuments),
+              Tab(text: AppStrings.recentRequest),
+              Tab(text: AppStrings.pastRequest),
             ],
           ),
 

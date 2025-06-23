@@ -351,6 +351,10 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
                     ), 
                     onTap: (){
                       _toggleDropdown();
+                      Get.toNamed(
+                        AppRoutes.renterPastPaymentsRoute,
+                        arguments: false,
+                      );
                     }
                   ),
 

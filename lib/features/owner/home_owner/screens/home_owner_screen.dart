@@ -74,7 +74,7 @@ class HomeOwnerScreen extends GetView<HomeOwnerController> {
                     child: HomeCard(
                       text: AppStrings.maintenanceReqList,
                       svgAsset: AppIcons.maintenanceIcon,
-                      onTapCallback: () {},
+                      onTapCallback: () => Get.toNamed(AppRoutes.ownerMaintenanceRoute),
                     ),
                   ),
                   

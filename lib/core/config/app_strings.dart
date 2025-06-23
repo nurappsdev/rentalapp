@@ -160,6 +160,7 @@ class AppStrings{
   static const String maintenanceCrewList = "Maintenance Crew List";
   static const String maintenance = "Maintenance";
   static const String renterList = "Renter List";
+  static const String renterDetails = "Renter Details";
   static const String events = "Events";
   static const String searchProperty = "Search property";
   static const String applicationReq = "Application Req";
@@ -231,6 +232,7 @@ class AppStrings{
   static const String backToHome = "Back To Home";
   static const String makePayment = "Make Payment";
   static const String addAccount = "Add Account";
+  static const String add = "Add";
   static const String submitIssue = "Submit Issue";
   static const String uploadDocuments = "Upload Documents";
   static const String submit = "Submit";
@@ -261,5 +263,7 @@ class AppStrings{
 
     static const String myDocumentsTab = "My Docuemnts";
     static const String receivedDocuments = "Recieved Docuemnts";
+
+    static const String recentRequest = "Recent Request";
 
 }

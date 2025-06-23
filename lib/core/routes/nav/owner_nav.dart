@@ -33,14 +33,14 @@ class OwnerNav{
 
     GetPage<dynamic>(
       name: AppRoutes.ownerAllocateBillDetailsRoute, 
-      page: () => const OwnerSubscriptionPaymentScreen(), 
+      page: () => const OwnerAllocateBillDetailsScreen(), 
       binding: OwnerAllocateBillBinding(),
       transition: Transition.noTransition
     ),
 
     GetPage<dynamic>(
       name: AppRoutes.ownerCreateAllocateBillRoute, 
-      page: () => const OwnerSubscriptionPaymentScreen(), 
+      page: () => const OwnerCreateAllocateBillScreen(), 
       binding: OwnerAllocateBillBinding(),
       transition: Transition.noTransition
     ),
