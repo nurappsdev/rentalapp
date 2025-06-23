@@ -44,6 +44,9 @@ class AppNavigation{
     // renter
     ...RenterNav.routes,
 
+    // owner
+    ...OwnerNav.routes,
+
 
 
     // payment routes

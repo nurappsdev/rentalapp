@@ -10,7 +10,7 @@ import 'package:get/get_utils/src/extensions/context_extensions.dart';
 class CalendarConfig {
   CalendarConfig._();
   
-  static CalendarDatePicker2Config calendarConfig(BuildContext context) {
+  static CalendarDatePicker2Config calendarConfig({required BuildContext context}) {
     return CalendarDatePicker2Config(
       calendarType: CalendarDatePicker2Type.range,
       calendarViewMode: CalendarDatePicker2Mode.day,
@@ -28,9 +28,9 @@ class CalendarConfig {
           ),
           child: Text(
             labels[weekday],
-            style: context.txtTheme.titleSmall,
+            style: context.txtTheme.titleSmall
           ).centered,
-      );
+        );
       },
       modePickerBuilder: ({ bool? isMonthPicker, required DateTime monthDate, required CalendarDatePicker2Mode viewMode,}) {
         if (isMonthPicker == true) {

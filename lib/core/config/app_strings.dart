@@ -44,6 +44,8 @@ class AppStrings{
   static const String logoutBottmSheetTitle = "LogOut";
   static const String logoutBottmSheetSubTitle = "Are you sure you want to log out ?";
 
+  static const String deleteBottmSheetTitle = "Delete";
+  static const String deleteBottmSheetSubTitle = "Are you sure you want to delete ?";
 
 
   // auth fields
@@ -72,6 +74,8 @@ class AppStrings{
 
   static const String searchApartmentHint = "Search Property";
   static const String selectMovingDateHint = "Select moving date";
+  static const String selectDateHint = "Select Date";
+  static const String dateLabel = "Date";
   static const String expectedMovingDate = "Expected moving date";
   static const String submitYourInfo = "Submit  your  information";
 
@@ -99,12 +103,17 @@ class AppStrings{
   static const String owner = "Owner";
   static const String ownerRoleDesc = "Create your account as a Apartment Owner.";
   static const String crew = "Crew";
+  static const String crewDetails = "Crew Details";
   static const String crewRoleDesc = "Sign In as a Apartment Crew.";
 
 
   static const String maintenanceReqList = "Maintenance req list";
   static const String maintenanceEmpty = "Maintenance is empty.";
+  static const String subscriptionEmpty = "Subscriptions are empty.";
+  static const String eventsEmpty = "Events are empty.";
+  static const String eventsCrew = "Crew are empty.";
   static const String userInfoNotFound = "User info is not found.";
+  static const String crewInfoNotFound = "Crew info is not found.";
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
   static const String balanceDetailsNull = "Something went wrong!! Not Found the Balance Details";
   static const String apartmentDetailsNull = "Something went wrong!! Not Found the Apartment Details";
@@ -147,9 +156,21 @@ class AppStrings{
   static const String editProfile = "Edit Profile";
   static const String myMaintenance = "My Maintenance";
   static const String myDocuments = "My Documents";
+  static const String maintenanceCrew = "Maintenance Crew";
+  static const String maintenanceCrewList = "Maintenance Crew List";
   static const String maintenance = "Maintenance";
+  static const String renterList = "Renter List";
+  static const String renterDetails = "Renter Details";
   static const String events = "Events";
   static const String searchProperty = "Search property";
+  static const String applicationReq = "Application Req";
+  static const String unitList = "Unit List";
+  static const String unitDetails = "Unit Details";
+  static const String unitDetailsList = "Unit Details List";
+  static const String maintenanceReq = "Maintenance Req";
+  static const String myApartment = "My Apartment";
+  static const String apartmentList = "Apartment List";
+  static const String editApartment = "Edit Apartment";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
@@ -167,14 +188,21 @@ class AppStrings{
   static const String paymentSuccess = "Payment Success";
   static const String transactionId = "Transaction  ID";
   static const String totalTopUp = "Total Top Up";
-  static const String apartmentDueBalance = "Apartment  due balance";
+  static const String apartmentDueBalance = "Apartment due balance";
+  static const String apartmentSetup = "Your Apartment Setup Now";
   static const String autoPay = "Auto Pay";
   static const String pastPayment = "Past Payment";
+  static const String allocateBill = "Allocate Bill";
+  static const String accountDetails = "Account Details";
   static const String emptyOpenReqest = "You don’t have any open maintenance request at this time add one by clicking on the + button";
   static const String emptyPastRequest = "You don’t have any past maintenance request at this time for add go to open request and add request";
   static const String emptyPendingDoc = "You don’t have any pending documents at this time upload one by clicking on the upload button";
   static const String emptyCompleteDoc = "You don’t have any completed documents at this time for add go to pending documents and add documents";
   static const String balanceDetails = "Balance Details";
+  static const String subscription = "Subscription";
+  static const String subscriptionTitle = "Purchase your preferred subscription package.";
+  static const String selectUnit = "Select unit";
+  static const String totalBalance = "Total Balance";
 
 
 
@@ -195,7 +223,9 @@ class AppStrings{
   static const String continueBtnTxt = "Continue";
   static const String backToSignIn = "back to sign in";
   static const String view = "View";
+  static const String resolved = "Resolved";
   static const String accept = "Accept";
+  static const String deny = "Deny";
   static const String resolvingIssue = "Resolving Issue";
   static const String complete = "Complete";
   static const String no = "No";
@@ -209,8 +239,19 @@ class AppStrings{
   static const String backToHome = "Back To Home";
   static const String makePayment = "Make Payment";
   static const String addAccount = "Add Account";
+  static const String add = "Add";
   static const String submitIssue = "Submit Issue";
   static const String uploadDocuments = "Upload Documents";
+  static const String submit = "Submit";
+  static const String create = "Create";
+  static const String deleteCrew = "Delete Crew";
+  static const String createAccount = "Create Account";
+  static const String sendBill = "Send Bill";
+  static const String viewDetails = "View Details";
+  static const String editUnit = "Edit Unit";
+  static const String edit = "Edit";
+  static const String update = "Update";
+
 
 
 
@@ -221,9 +262,20 @@ class AppStrings{
   
     static const String recentMaintenance = "Recent Maintenance";
     static const String resolvedMaintenance = "Resolved Maintenance";
+
     static const String openRequest = "Open Request";
     static const String pastRequest = "Past Request";
+
     static const String pendingDocuments = "Pending Documents";
     static const String completedDocuments = "Completed Documents";
+
+    static const String allEvents = "All Events";
+    static const String thisWeekEvents = "This Week";
+    static const String thisMonthEvents = "This Month";
+
+    static const String myDocumentsTab = "My Docuemnts";
+    static const String receivedDocuments = "Recieved Docuemnts";
+
+    static const String recentRequest = "Recent Request";
 
 }

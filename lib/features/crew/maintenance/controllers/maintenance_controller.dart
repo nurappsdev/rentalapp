@@ -22,11 +22,11 @@ class MaintenanceController extends GetxController with GetTickerProviderStateMi
     super.onInit();
     tabController = TabController(length: 2, vsync: this);
     maintenanceLoading.value = true;
-    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+    Future<dynamic>.delayed(const Duration(seconds: 1), (){
       maintenanceList.value = MaintenanceModel.dummyMaintenanceList;
     });
 
-    Future<dynamic>.delayed(const Duration(seconds: 4), (){
+    Future<dynamic>.delayed(const Duration(seconds: 2), (){
       maintenanceLoading.value = false;
     });
   }

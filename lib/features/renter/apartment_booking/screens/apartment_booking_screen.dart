@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_images.dart';

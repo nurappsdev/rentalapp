@@ -58,6 +58,13 @@ class RenterNav{
       transition: Transition.noTransition
     ),
 
+    GetPage<dynamic>(
+      name: AppRoutes.renterEventsRoute, 
+      page: () => const RenterEventsScreen(), 
+      binding: RenterEventsBinding(),
+      transition: Transition.noTransition
+    ),
+
     // payment
     GetPage<dynamic>(
       name: AppRoutes.renterBalanceDetailsRoute, 

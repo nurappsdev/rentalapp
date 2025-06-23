@@ -55,6 +55,42 @@ class AppRoutes{
   static const String renterMaintenanceCreateRoute = "/renter-maintenance-create-screen";
   static const String renterDocumentRoute = "/renter-document-screen";
   static const String renterDocumentCreateRoute = "/renter-document-create-screen";
+  static const String renterEventsRoute = "/renter-events-screen";
+
+
+  // owner
+  static const String ownerSubscriptionRoute = "/owner-subscription-screen";
+  static const String ownerSubscriptionPaymentRoute = "/owner-subscription-payment-screen";
+  static const String ownerAllocateBillRoute = "/owner-allocate-bill-screen";
+  static const String ownerAllocateBillDetailsRoute = "/owner-allocate-bill-details-screen";
+  static const String ownerCreateAllocateBillRoute = "/owner-create-allocate-bill-screen";
+  static const String ownerDocumentsRoute = "/owner-documents-screen";
+  static const String ownerCreateDocumentsRoute = "/owner-create-documents-screen";
+  static const String ownerApartmentDocumentsRoute = "/owner-apartment_documents-screen";
+  static const String ownerMaintenanceCrewRoute = "/owner-maintenance-crew-screen";
+  static const String ownerMaintenanceCrewDetailsRoute = "/owner-maintenance-crew-details-screen";
+  static const String ownerCreateMaintenanceCrewRoute = "/owner-create-maintenance-crew-screen";
+  static const String ownerEventsRoute = "/owner-events-screen";
+  static const String ownerCreateEventRoute = "/owner-create-events-screen";
+  static const String ownerRenterListRoute = "/owner-renter-list-screen";
+  static const String ownerRenterListDetailsRoute = "/owner-renter-list-details-screen";
+  static const String ownerMaintenanceRoute = "/owner-maintenance-screen";
+  static const String ownerMaintenanceDetailsRoute = "/owner-maintenance-details-screen";
+  static const String ownerApplicationReqRoute = "/owner-application-req-screen";
+  static const String ownerApplicationReqUnitListRoute = "/owner-application-req-unit-list-screen";
+  static const String ownerApplicationReqUnitDetailsRoute = "/owner-application-req-unit-details-screen";
+  static const String ownerApplicationReqUserDetailsRoute = "/owner-application-req-user-details-screen";
+  
+  static const String ownerMyApartmentRoute = "/owner-my-apartment-screen";
+  static const String ownerMyApartmentListRoute = "/owner-my-apartment-list-screen";
+  static const String ownerMyApartmentEditRoute = "/owner-my-apartment-edit-screen";
+  static const String ownerMyApartmentUnitListRoute = "/owner-my-apartment-unit-list-screen";
+  static const String ownerMyApartmentUnitEditRoute = "/owner-my-apartment-unit-edit-screen";
+  static const String ownerMyApartmentUnitDetailsRoute = "/owner-my-apartment-unit-details-screen";
+  static const String ownerMyApartmentUnitDetailsEditRoute = "/owner-my-apartment-unit-details-edit-screen";
+  static const String ownerMyApartmentPreviewRoute = "/owner-my-apartment-preview-screen";
+  static const String ownerMyApartmentRenterDetailsRoute = "/owner-my-apartment-renter-details-screen";
+  
   
   
   static const String paymentTicketRoute = "/payment-ticket-screen";

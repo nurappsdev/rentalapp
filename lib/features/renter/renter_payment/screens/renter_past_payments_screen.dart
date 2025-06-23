@@ -49,69 +49,73 @@ class RenterPastPaymentsScreen extends GetView<RenterPaymentController> {
                 ),
                 const SizedBox(height: AppSizes.spaceBetweenItems,),
 
-                ListView.separated(
-                  shrinkWrap: true,
-                  itemCount: controller.pastPayments.length,
-                  itemBuilder: (_, int index){
-                    final RenterBalanceDetailsModel pastPayment = controller.pastPayments[index];
-                    return GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () {
-                        Get.toNamed(
-                          AppRoutes.renterPaymentDetailsRoute,
-                          arguments: pastPayment.id
-                        );
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                Obx(
+                  () {
+                    return ListView.separated(
+                      shrinkWrap: true,
+                      itemCount: controller.pastPayments.length,
+                      itemBuilder: (_, int index){
+                        final RenterBalanceDetailsModel pastPayment = controller.pastPayments[index];
+                        return GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () {
+                            Get.toNamed(
+                              AppRoutes.renterPaymentDetailsRoute,
+                              arguments: pastPayment.id
+                            );
+                          },
+                          child: Column(
                             children: <Widget>[
-                              Text(
-                                pastPayment.isSuccess ? 'Payment Success' : "Payment Due",
-                                style: context.txtTheme.bodyMedium
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    pastPayment.isSuccess ? 'Payment Success' : "Payment Due",
+                                    style: context.txtTheme.bodyMedium
+                                  ),
+                                  SvgPicture.asset(AppIcons.infoIcon, width: 24.0, height: 24.0,)
+                                ],
                               ),
-                              SvgPicture.asset(AppIcons.infoIcon, width: 24.0, height: 24.0,)
+                          
+                              const SizedBox(height: AppSizes.sm,),
+                          
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    pastPayment.date.formattedDateTime12,
+                                    style: context.txtTheme.titleLarge
+                                  ),
+                          
+                                  Text(
+                                    pastPayment.totalBill.toString(),
+                                    style: context.txtTheme.titleLarge
+                                  ),
+                                ],
+                              )
                             ],
                           ),
-                      
-                          const SizedBox(height: AppSizes.sm,),
-                      
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                pastPayment.date.formattedDateTime12,
-                                style: context.txtTheme.titleLarge
-                              ),
-                      
-                              Text(
-                                pastPayment.totalBill.toString(),
-                                style: context.txtTheme.titleLarge
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+                        );
+                      }, 
+                      separatorBuilder: (_, int index){
+                        if((index - 1) == controller.pastPayments.length){
+                          return const SizedBox.shrink();
+                        }
+                        return const Column(
+                          children: <Widget>[
+                            SizedBox(height: AppSizes.sm,),
+                            Divider(
+                              thickness: .5,
+                              color: AppColors.dividerColor,
+                            ),
+                            SizedBox(height: AppSizes.sm,),
+                          ],
+                        );
+                      }, 
                     );
-                  }, 
-                  separatorBuilder: (_, int index){
-                    if((index - 1) == controller.pastPayments.length){
-                      return const SizedBox.shrink();
-                    }
-                    return const Column(
-                      children: <Widget>[
-                        SizedBox(height: AppSizes.sm,),
-                        Divider(
-                          thickness: .5,
-                          color: AppColors.dividerColor,
-                        ),
-                        SizedBox(height: AppSizes.sm,),
-                      ],
-                    );
-                  }, 
+                  },
                 ),
               ],
            ),

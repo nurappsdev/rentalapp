@@ -10,7 +10,7 @@ import 'package:alora/core/widgets/custom_app_bar.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_rounded_inner_icon.dart';
 import 'package:alora/shared/features/side_drawer/widget/custom_side_drawer.dart';
-import 'package:alora/shared/widgets/banner_card.dart';
+import 'package:alora/features/renter/home_renter/widgets/banner_card.dart';
 import 'package:alora/shared/widgets/home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -72,9 +72,7 @@ class HomeRentarScreen extends GetView<HomeRenterController> {
                     child: HomeCard(
                       svgAsset: AppIcons.eventIcon,
                       text: AppStrings.events,
-                      onTapCallback: () {
-                        
-                      },
+                      onTapCallback: () => Get.toNamed(AppRoutes.renterEventsRoute),
                     ),
                   ),
                 ],
