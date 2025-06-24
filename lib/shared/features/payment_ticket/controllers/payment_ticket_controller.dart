@@ -28,7 +28,7 @@ class PaymentTicketController extends GetxController {
     
     switch(roleType){
       case RoleType.rentar:
-        Get.offAllNamed(AppRoutes.homeRentarRoute);
+        Get.offAllNamed(AppRoutes.renterRequestRoute);
         break;
       case RoleType.owner:
         Get.offAllNamed(AppRoutes.homeOwnerRoute);

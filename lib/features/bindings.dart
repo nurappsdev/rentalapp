@@ -34,6 +34,7 @@ export 'package:alora/features/renter/renter_maintenance/bindings/renter_mainten
 export 'package:alora/features/renter/renter_maintenance_create/bindings/renter_maintenance_create_binding.dart';
 export 'package:alora/features/renter/renter_documents/bindings/renter_documents_binding.dart';
 export 'package:alora/features/renter/renter_events/bindings/renter_events_binding.dart';
+export 'package:alora/features/renter/renter_request/bindings/renter_request_binding.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';

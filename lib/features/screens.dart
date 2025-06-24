@@ -45,6 +45,7 @@ export 'package:alora/features/renter/renter_maintenance_create/screens/renter_m
 export 'package:alora/features/renter/renter_documents/screens/renter_documents_screen.dart';
 export 'package:alora/features/renter/renter_documents/screens/renter_create_documents_screen.dart';
 export 'package:alora/features/renter/renter_events/screens/renter_events_screen.dart';
+export 'package:alora/features/renter/renter_request/screens/renter_request_screen.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/screens/home_owner_screen.dart';
