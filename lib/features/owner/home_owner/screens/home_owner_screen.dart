@@ -52,9 +52,10 @@ class HomeOwnerScreen extends GetView<HomeOwnerController> {
             children: <Widget>[
               BannerCard(
                 price: 1959.90,
+                isCreate: true,
                 apartmentDropDown: const ApartmentDropDown(),
                 onCreateApartmentCallback: () {
-                  
+                  Get.toNamed(AppRoutes.ownerCreateApartmentFormSetupRoute);
                 },
               ),
               const SizedBox(height: AppSizes.spaceBetweenSections,),

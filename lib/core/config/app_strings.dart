@@ -171,6 +171,8 @@ class AppStrings{
   static const String myApartment = "My Apartment";
   static const String apartmentList = "Apartment List";
   static const String editApartment = "Edit Apartment";
+  static const String createUnit = "Create Unit";
+  static const String formInformationSetup = "Form Information Setup";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
@@ -246,6 +248,7 @@ class AppStrings{
   static const String create = "Create";
   static const String deleteCrew = "Delete Crew";
   static const String createAccount = "Create Account";
+  static const String createApartment = "Create Apartment";
   static const String sendBill = "Send Bill";
   static const String viewDetails = "View Details";
   static const String editUnit = "Edit Unit";

@@ -231,7 +231,11 @@ class OwnerApartmentPreviewScreen extends GetView<OwnerMyApartmentController> {
 
                       const RenterDetail(),
                       
-                      const SizedBox(height: AppSizes.md,),
+                      const SizedBox(height: AppSizes.spaceBetweenSections,),
+
+                      CustomButton(onTap: () => Get.offAllNamed(AppRoutes.homeOwnerRoute), text: "Back To Home"),
+
+                      const SizedBox(height: AppSizes.spaceBetweenSections,),
                     ],
                   );
                 }

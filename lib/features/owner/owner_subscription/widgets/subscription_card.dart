@@ -35,38 +35,39 @@ class SubscriptionCard extends StatelessWidget {
               border: Border.all(color: isSelected ? AppColors.primaryColor : AppColors.dividerColor, width: 2.0),
             ),
             child: SizedBox(
-              width: 150.0,
+              width: context.screenWidth,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  const SizedBox(height: AppSizes.sm,),
                   Text(
                     subscription.durationNumber.toString(),
                     style: context.txtTheme.headlineLarge,
                   ),
               
-                  const SizedBox(height: AppSizes.spaceBetweenItems,),
+                  const SizedBox(height: AppSizes.sm,),
               
                   Text(
                     subscription.duration,
                     style: context.txtTheme.bodyMedium,
                   ),
               
-                  const SizedBox(height: AppSizes.spaceBetweenItems,),
+                  const SizedBox(height: AppSizes.sm,),
               
                   Text(
                     AppStrings.unitType,
                     style: context.txtTheme.labelSmall,
                   ),
               
-                  const SizedBox(height: AppSizes.spaceBetweenItems,),
+                  const SizedBox(height: AppSizes.sm,),
               
                   Text(
                     subscription.unitType,
                     style: context.txtTheme.titleMedium,
                   ),
               
-                  const SizedBox(height: AppSizes.spaceBetweenItems,),
+                  const SizedBox(height: AppSizes.sm,),
               
                   Text(
                     "\$ ${subscription.price}",

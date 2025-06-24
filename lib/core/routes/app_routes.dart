@@ -91,6 +91,13 @@ class AppRoutes{
   static const String ownerMyApartmentPreviewRoute = "/owner-my-apartment-preview-screen";
   static const String ownerMyApartmentRenterDetailsRoute = "/owner-my-apartment-renter-details-screen";
   
+  static const String ownerCreateApartmentAddUnitRoute = "/owner-create-apartment-add-unit-screen";
+  static const String ownerCreateApartmentCreateUnitFirstRoute = "/owner-create-apartment-create-unit-first-screen";
+  static const String ownerCreateApartmentCreateUnitSecondRoute = "/owner-create-apartment-create-unit-second-screen";
+  static const String ownerCreateApartmentFormSetupRoute = "/owner-create-apartment-form-setup-screen";
+  static const String ownerCreateApartmentPreviewRoute = "/owner-create-apartment-preview-screen";
+  static const String ownerCreateApartmentRoute = "/owner-create-apartment-screen";
+  
   
   
   static const String paymentTicketRoute = "/payment-ticket-screen";

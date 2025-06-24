@@ -222,6 +222,44 @@ class OwnerNav{
       transition: Transition.noTransition
     ),
 
+    // create apartment
+    GetPage<dynamic>(
+      name: AppRoutes.ownerCreateApartmentAddUnitRoute, 
+      page: () => const OwnerCreateApartmentAddUnitScreen(), 
+      binding: OwnerCreateApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerCreateApartmentCreateUnitFirstRoute, 
+      page: () => const OwnerCreateApartmentCreateUnitFirstScreen(), 
+      binding: OwnerCreateApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerCreateApartmentCreateUnitSecondRoute, 
+      page: () => const OwnerCreateApartmentCreateUnitSecondScreen(), 
+      binding: OwnerCreateApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerCreateApartmentFormSetupRoute, 
+      page: () => const OwnerCreateApartmentFormSetupScreen(), 
+      binding: OwnerCreateApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerCreateApartmentPreviewRoute, 
+      page: () => const OwnerCreateApartmentPreviewScreen(), 
+      binding: OwnerCreateApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerCreateApartmentRoute, 
+      page: () => const OwnerCreateApartmentScreen(), 
+      binding: OwnerCreateApartmentBinding(),
+      transition: Transition.noTransition
+    ),
+
 
 
   ];

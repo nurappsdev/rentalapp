@@ -1,5 +1,6 @@
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_sizes.dart';
+import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -9,12 +10,12 @@ class SubscriptionShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300.0,
+      width: context.screenWidth,
       child: ListView.separated(
         shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
         itemCount: 6,
-        separatorBuilder: (_, _) => const SizedBox(width: AppSizes.spaceBetweenItems,),
+        physics: const NeverScrollableScrollPhysics(),
+        separatorBuilder: (_, _) => const SizedBox(height: AppSizes.spaceBetweenItems,),
         itemBuilder: (_, _) {
           return Center(
             child: Stack(
@@ -31,7 +32,7 @@ class SubscriptionShimmer extends StatelessWidget {
                     border: Border.all(color: AppColors.dividerColor, width: .5),
                   ),
                   child: SizedBox(
-                    width: 150.0,
+                    width: context.screenWidth,
                     child: Shimmer.fromColors(
                       baseColor: AppColors.greyColor.withValues(alpha: 0.5),
                       highlightColor: AppColors.greyColor.withValues(alpha: 0.5),
