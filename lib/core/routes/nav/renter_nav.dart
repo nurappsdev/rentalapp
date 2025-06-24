@@ -101,5 +101,21 @@ class RenterNav{
       binding: RenterRequestBinding(),
       transition: Transition.noTransition
     ),
+
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterProfileDocumentsRoute, 
+      page: () => const RenterProfileDocumentsScreen(), 
+      binding: ProfileBinding(),
+      transition: Transition.noTransition
+    ),
+
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterProfileCreateDocumentsRoute, 
+      page: () => const RenterProfileCreateDocumentsScreen(), 
+      binding: ProfileBinding(),
+      transition: Transition.noTransition
+    ),
   ];
 }

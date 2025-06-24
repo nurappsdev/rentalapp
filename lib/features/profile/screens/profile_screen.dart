@@ -2,11 +2,13 @@ import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
+import 'package:alora/core/enums/role_type.dart';
 import 'package:alora/core/extensions/context_extensions.dart';
 import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/utils/image_picker_utils.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
+import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/profile_image.dart';
 import 'package:alora/features/profile/widgets/empty_user_info.dart';
 import 'package:alora/features/profile/widgets/user_shimmer.dart';
@@ -124,10 +126,44 @@ class ProfileScreen extends GetView<ProfileController> {
                         return const EmptyUserInfo().centered;
                       }
                       final UserModel user = controller.user.value!;
-                      return userdetails(context, user);
-                    })
+                      return Column(
+                        children: <Widget>[
+                          userdetails(context, user),
+                          const SizedBox(height: AppSizes.spaceBetweenSections,),
+                          CustomButton(
+                            onTap: (){
+                              controller.isVacentBtnVisible.value = !controller.isVacentBtnVisible.value;
+                            },
+                            width: 100.0,
+                            isOutline: true,
+                            text: "Vacant Notice"
+                          ).centered.visible(controller.isVacentBtnVisible.value),
 
-                    // userdetails(context, controller.user.value),
+                          if(!controller.isVacentBtnVisible.value)
+                            Row(
+                              spacing: AppSizes.md,
+                              children: <Widget>[
+                                Expanded(
+                                  child: CustomButton(
+                                    onTap: (){
+                                    },
+                                    text: "Download Pdf"
+                                  ),
+                                ),
+                                Expanded(
+                                  child: CustomButton(
+                                    onTap: (){
+                                      Get.toNamed(AppRoutes.renterProfileDocumentsRoute);
+                                    },
+                                    isOutline: true,
+                                    text: "Submit Document"
+                                  ),
+                                )
+                              ],
+                            )
+                        ],
+                      );
+                    }),
 
                   ],
                 ),

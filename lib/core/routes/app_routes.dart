@@ -57,6 +57,8 @@ class AppRoutes{
   static const String renterDocumentCreateRoute = "/renter-document-create-screen";
   static const String renterEventsRoute = "/renter-events-screen";
   static const String renterRequestRoute = "/renter-reqest-screen";
+  static const String renterProfileDocumentsRoute = "/renter-profile-documents-screen";
+  static const String renterProfileCreateDocumentsRoute = "/renter-profile-create-documents-screen";
 
 
   // owner
@@ -98,6 +100,8 @@ class AppRoutes{
   static const String ownerCreateApartmentFormSetupRoute = "/owner-create-apartment-form-setup-screen";
   static const String ownerCreateApartmentPreviewRoute = "/owner-create-apartment-preview-screen";
   static const String ownerCreateApartmentRoute = "/owner-create-apartment-screen";
+  static const String ownerRenterListDocumentsRoute = "/owner-owner-renter-list-documents-screen";
+  static const String ownerRenterListCreateDocumentsRoute = "/owner-owner-renter-list-create-documents-screen";
   
   
   

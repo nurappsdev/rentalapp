@@ -3,7 +3,9 @@ import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/extensions/context_extensions.dart';
+import 'package:alora/core/routes/app_routes.dart';
 import 'package:alora/core/widgets/custom_app_bar.dart';
+import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_network_image.dart';
 import 'package:alora/features/owner/owner_maintenance_crew/models/maintenance_crew_model.dart';
 import 'package:alora/shared/models/user_model.dart';
@@ -52,6 +54,29 @@ class OwnerRenterListDetailsScreen extends GetView<OwnerRenterListController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       userdetails(context, UserModel(name: "Alax Tom", profileImage: MaintenanceCrewModel.userImage, phoneNumber: "2381912315", email: "support@gmail.com", address: "Dhaka")),
+                      const SizedBox(height: AppSizes.spaceBetweenSections,),
+
+                      Row(
+                        spacing: AppSizes.md,
+                        children: <Widget>[
+                          CustomButton(
+                            onTap: (){}, 
+                            isOutline: true,
+                            width: 50.0,
+                            text: "Deny"
+                          ),
+
+                          Expanded(
+                            child: CustomButton(
+                              onTap: (){
+                                Get.toNamed(AppRoutes.ownerRenterListDocumentsRoute);
+                              }, 
+                              text: "approve Vacant Notice"
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: AppSizes.spaceBetweenSections,),
                     ],
                   ),
                 ),

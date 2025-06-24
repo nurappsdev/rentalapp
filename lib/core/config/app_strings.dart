@@ -254,6 +254,7 @@ class AppStrings{
   static const String editUnit = "Edit Unit";
   static const String edit = "Edit";
   static const String update = "Update";
+  static const String uploadPdf = "Upload Pdf";
 
 
 

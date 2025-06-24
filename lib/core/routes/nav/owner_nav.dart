@@ -260,6 +260,20 @@ class OwnerNav{
       transition: Transition.noTransition
     ),
 
+    // renter list documents
+    GetPage<dynamic>(
+      name: AppRoutes.ownerRenterListDocumentsRoute, 
+      page: () => const OwnerRenterListDocumentsScreen(), 
+      binding: OwnerRenterListBinding(),
+      transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+      name: AppRoutes.ownerRenterListCreateDocumentsRoute, 
+      page: () => const OwnerRenterListCreateDocumentsScreen(), 
+      binding: OwnerRenterListBinding(),
+      transition: Transition.noTransition
+    ),
+
 
 
   ];
