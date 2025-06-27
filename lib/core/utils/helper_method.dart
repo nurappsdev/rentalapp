@@ -27,6 +27,9 @@ class HelperMethod{
     else if(roleType == "owner"){
       return RoleType.owner;
     }
+    else if(roleType == "agent"){
+      return RoleType.agent;
+    }
     else{
       return RoleType.crew;
     }

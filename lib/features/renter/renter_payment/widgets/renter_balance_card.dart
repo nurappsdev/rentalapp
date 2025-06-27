@@ -56,6 +56,7 @@ class RenterBalanceCard extends StatelessWidget {
     
         const SizedBox(height: AppSizes.spaceBetweenItems,),
     
+        _billRow(context: context, label: "Rent", bill: balanceDetails.rent),
         _billRow(context: context, label: "Gas Bill", bill: balanceDetails.gasBill),
         _billRow(context: context, label: "Water Bill", bill: balanceDetails.waterBill),
         _billRow(context: context, label: "Utility Administation Fee", bill: balanceDetails.utilityAdminFee),
@@ -117,13 +118,13 @@ class RenterBalanceCard extends StatelessWidget {
             text: AppStrings.makePayment
           ),
 
-          const SizedBox(height: AppSizes.spaceBetweenItems,),
+          // const SizedBox(height: AppSizes.spaceBetweenItems,),
 
-          CustomButton(
-            onTap: onAddAccount, 
-            isOutline: true,
-            text: AppStrings.addAccount
-          ),
+          // CustomButton(
+          //   onTap: onAddAccount, 
+          //   isOutline: true,
+          //   text: AppStrings.addAccount
+          // ),
 
         ],
 

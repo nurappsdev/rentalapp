@@ -8,6 +8,7 @@ import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/features/owner/owner_subscription/widgets/empty_subscription.dart';
 import 'package:alora/features/owner/owner_subscription/widgets/subscription_card.dart';
 import 'package:alora/features/owner/owner_subscription/widgets/subscription_shimmer.dart';
+import 'package:alora/shared/widgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/owner_subscription_controller.dart';
@@ -39,6 +40,21 @@ class OwnerSubscriptionScreen extends GetView<OwnerSubscriptionController> {
 
               const SizedBox(height: AppSizes.spaceBetweenItems,),
 
+
+              CustomDropdown<String>(
+                hint: "Select Unit",
+                options: const <String>["1-3 units", "4-5 units", "5-10 units"], 
+                displayString: (String value) => value,
+                onChanged: (String value) {
+                  if(value.isNotEmpty){
+                    controller.hanldeRetriveSubscriptions(value);
+                  }
+                },
+              ),
+              
+              
+              const SizedBox(height: AppSizes.spaceBetweenItems,),
+
               Obx((){
                 if(controller.subscriptions.isEmpty){
                   return const EmptySubscription().centered;
@@ -47,10 +63,9 @@ class OwnerSubscriptionScreen extends GetView<OwnerSubscriptionController> {
                   return const SubscriptionShimmer();
                 }
                 return SizedBox(
-                  height: 300.0,
                   child: ListView.separated(
                     shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: controller.subscriptions.length,
                     itemBuilder: (_, int index){
                       return Obx(
@@ -63,7 +78,7 @@ class OwnerSubscriptionScreen extends GetView<OwnerSubscriptionController> {
                         ),
                       );
                     },
-                    separatorBuilder: (_, _) => const SizedBox(width: AppSizes.spaceBetweenItems,),
+                    separatorBuilder: (_, _) => const SizedBox(height: AppSizes.spaceBetweenItems,),
                   ),
                 );
               }),

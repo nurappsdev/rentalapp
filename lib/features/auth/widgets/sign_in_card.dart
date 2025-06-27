@@ -104,7 +104,7 @@ class SignInCard extends StatelessWidget {
 
           Obx(
             (){
-              if(signInController.roleType.value == RoleType.crew){
+              if(signInController.roleType.value == RoleType.crew || signInController.roleType.value == RoleType.agent){
                 return const SizedBox.shrink();
               }
               return Row(

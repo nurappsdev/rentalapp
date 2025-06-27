@@ -24,7 +24,8 @@ class HomeOwnerScreen extends GetView<HomeOwnerController> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-
+    controller.getRoleType();
+    
     return Scaffold(
       key: scaffoldKey,
       appBar: CustomAppBar(
@@ -50,12 +51,15 @@ class HomeOwnerScreen extends GetView<HomeOwnerController> {
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
           child: Column(
             children: <Widget>[
-              BannerCard(
-                price: 1959.90,
-                apartmentDropDown: const ApartmentDropDown(),
-                onCreateApartmentCallback: () {
-                  
-                },
+              Obx(
+                () => BannerCard(
+                  price: 1959.90,
+                  isCreate: controller.roleType.value.name != 'agent',
+                  apartmentDropDown: const ApartmentDropDown(),
+                  onCreateApartmentCallback: () {
+                    Get.toNamed(AppRoutes.ownerCreateApartmentFormSetupRoute);
+                  },
+                ),
               ),
               const SizedBox(height: AppSizes.spaceBetweenSections,),
 

@@ -66,6 +66,7 @@ class CustomButton extends StatelessWidget {
                 )
               : Text(
                   text,
+                  textAlign: TextAlign.center,
                   style: context.txtTheme.titleMedium?.copyWith(
                     color: isOutline ? (borderColor ?? AppColors.primaryColor) : (textColor ?? AppColors.textWhiteColor),
                 ),

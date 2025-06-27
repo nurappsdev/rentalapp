@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/features/renter/search_apartments/model/apartment_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class OwnerRenterListController extends GetxController {
+class OwnerRenterListController extends GetxController with GetSingleTickerProviderStateMixin{
 
   final RxInt count = 0.obs;
 
@@ -11,7 +14,16 @@ class OwnerRenterListController extends GetxController {
   final RxList<ApartmentModel> apartmentList = <ApartmentModel>[].obs;
   final RxBool apartmentsLoading = false.obs;
 
+  final Rx<File?> uploadedDoc = Rx<File?>(null);
 
+  late TabController tabController;
+
+
+  final RxList<String> pendingDocumentsList = <String>[].obs;
+  final RxBool pendingDocumentsLoading = false.obs;
+
+  final RxList<String> completedDocumentsList = <String>[].obs;
+  final RxBool compeletedDocumentsLoading = false.obs;
   
   /// [onInit] Lifecycle method called when the controller is initialized.
   ///
@@ -21,6 +33,7 @@ class OwnerRenterListController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    tabController = TabController(length: 2, vsync: this);
     apartmentsLoading.value = true;
     Future<dynamic>.delayed(const Duration(milliseconds: 500), (){
       apartmentList.assignAll(dummyApartments);
@@ -28,6 +41,26 @@ class OwnerRenterListController extends GetxController {
 
     Future<dynamic>.delayed(const Duration(seconds: 1), (){
       apartmentsLoading.value = false;
+    });
+
+
+    pendingDocumentsLoading.value = true;
+    Future<dynamic>.delayed(const Duration(seconds: 1), (){
+      pendingDocumentsList.value = <String>["document"];
+    });
+
+    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+      pendingDocumentsLoading.value = false;
+    });
+
+
+    compeletedDocumentsLoading.value = true;
+    Future<dynamic>.delayed(const Duration(seconds: 1), (){
+      completedDocumentsList.value = <String>["document"];
+    });
+
+    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+      compeletedDocumentsLoading.value = false;
     });
   }
 
@@ -38,6 +71,12 @@ class OwnerRenterListController extends GetxController {
   void dispose() {
     apartmentList.clear();
     apartmentsLoading.value = false;
+    tabController.dispose();
+    uploadedDoc.value = null;
+    pendingDocumentsLoading.value = false;
+    compeletedDocumentsLoading.value = false;
+    pendingDocumentsList.clear();
+    completedDocumentsList.clear();
     super.dispose();
   }
 

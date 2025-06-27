@@ -4,6 +4,7 @@ class RenterBalanceDetailsModel {
   final bool isSuccess;
   final DateTime date;
   final double gasBill;
+  final double rent;
   final double waterBill;
   final double utilityAdminFee;
   final double trashReimbursement;
@@ -15,6 +16,7 @@ class RenterBalanceDetailsModel {
     required this.id,
     this.transactionId,
     required this.isSuccess,
+    required this.rent,
     required this.date,
     required this.gasBill,
     required this.waterBill,
@@ -40,6 +42,7 @@ class RenterBalanceDetailsModel {
       id: "1",
       isSuccess: false,
       date: DateTime.now(),
+      rent: 3000.0,
       gasBill: 150.0,
       waterBill: 170.0,
       utilityAdminFee: 100.0,
@@ -55,6 +58,7 @@ class RenterBalanceDetailsModel {
       isSuccess: true,
       date: DateTime(2025, 6, 1),
       gasBill: 35.5,
+      rent: 3000.0,
       waterBill: 22.0,
       utilityAdminFee: 12.5,
       trashReimbursement: 6.0,
@@ -67,6 +71,7 @@ class RenterBalanceDetailsModel {
       id: "3",
       transactionId: "1345 3463 346",
       isSuccess: true,
+      rent: 3000.0,
       date: DateTime(2025, 5, 1),
       gasBill: 40.0,
       waterBill: 20.0,
@@ -81,6 +86,7 @@ class RenterBalanceDetailsModel {
       id: "4",
       transactionId: "1345 SGSGS 346",
       isSuccess: true,
+      rent: 3000.0,
       date: DateTime(2025, 4, 1),
       gasBill: 30.0,
       waterBill: 25.5,
@@ -93,6 +99,7 @@ class RenterBalanceDetailsModel {
 
     RenterBalanceDetailsModel(
       id: "5",
+      rent: 3000.0,
       transactionId: "1345 3463 346",
       isSuccess: true,
       date: DateTime(2025, 3, 1),

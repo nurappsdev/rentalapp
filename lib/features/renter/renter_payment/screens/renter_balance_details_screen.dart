@@ -74,7 +74,6 @@ class RenterBalanceDetailsScreen extends GetView<RenterPaymentController> {
                           Get.toNamed(
                             AppRoutes.renterPaymentRoute,
                             arguments: <String, dynamic>{
-                              "isAutoPay": Get.arguments,
                               "price": balanceDetails.totalBill
                             }
                           );

@@ -72,7 +72,7 @@ class BannerCard extends StatelessWidget {
 
                   CustomButton(
                     onTap: onCreateApartmentCallback, 
-                    text: AppStrings.makePayment,
+                    text: AppStrings.createApartment,
                     width: 130.0,
                   )
                 ]

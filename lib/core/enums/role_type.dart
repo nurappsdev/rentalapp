@@ -1,5 +1,6 @@
 enum RoleType{
   rentar, 
   owner,
-  crew
+  crew,
+  agent,
 }

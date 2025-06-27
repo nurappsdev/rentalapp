@@ -93,5 +93,29 @@ class RenterNav{
       binding: RenterPaymentBinding(),
       transition: Transition.noTransition
     ),
+
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterRequestRoute, 
+      page: () => const RenterRequestScreen(), 
+      binding: RenterRequestBinding(),
+      transition: Transition.noTransition
+    ),
+
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterProfileDocumentsRoute, 
+      page: () => const RenterProfileDocumentsScreen(), 
+      binding: ProfileBinding(),
+      transition: Transition.noTransition
+    ),
+
+
+    GetPage<dynamic>(
+      name: AppRoutes.renterProfileCreateDocumentsRoute, 
+      page: () => const RenterProfileCreateDocumentsScreen(), 
+      binding: ProfileBinding(),
+      transition: Transition.noTransition
+    ),
   ];
 }

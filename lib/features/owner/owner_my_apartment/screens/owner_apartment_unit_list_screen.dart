@@ -35,7 +35,10 @@ class OwnerApartmentUnitListScreen extends GetView<OwnerMyApartmentController> {
             children: <Widget>[
               // maintenence list with handling loading and empty state
               Obx((){
-                if(controller.unitList.isEmpty){
+                if(controller.unitListLoading.value){
+                  return const ApplicationReqShimmer();
+                }
+                else if(controller.unitList.isEmpty){
                   return SizedBox(
                     height: context.screenHeight * .8,
                     width: context.screenWidth,
@@ -44,9 +47,6 @@ class OwnerApartmentUnitListScreen extends GetView<OwnerMyApartmentController> {
                       style: context.txtTheme.titleSmall,
                     ).centered,
                   );
-                }
-                else if(controller.unitListLoading.value){
-                  return const ApplicationReqShimmer();
                 }
                 return ListView.separated(
                   shrinkWrap: true,

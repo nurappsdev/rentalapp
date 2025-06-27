@@ -34,6 +34,7 @@ export 'package:alora/features/renter/renter_maintenance/bindings/renter_mainten
 export 'package:alora/features/renter/renter_maintenance_create/bindings/renter_maintenance_create_binding.dart';
 export 'package:alora/features/renter/renter_documents/bindings/renter_documents_binding.dart';
 export 'package:alora/features/renter/renter_events/bindings/renter_events_binding.dart';
+export 'package:alora/features/renter/renter_request/bindings/renter_request_binding.dart';
 
 // owner
 export 'package:alora/features/owner/home_owner/bindings/home_owner_binding.dart';
@@ -46,3 +47,4 @@ export 'package:alora/features/owner/owner_renter_list/bindings/owner_renter_lis
 export 'package:alora/features/owner/owner_maintenance/bindings/owner_maintenance_binding.dart';
 export 'package:alora/features/owner/owner_application_req/bindings/owner_application_req_binding.dart';
 export 'package:alora/features/owner/owner_my_apartment/bindings/owner_my_apartment_binding.dart';
+export 'package:alora/features/owner/owner_create_apartment/bindings/owner_create_apartment_binding.dart';

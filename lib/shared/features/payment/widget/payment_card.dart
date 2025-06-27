@@ -5,6 +5,7 @@ import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/enums/payment_option.dart';
 import 'package:alora/core/extensions/context_extensions.dart';
+import 'package:alora/core/extensions/widget_extensions.dart';
 import 'package:alora/core/widgets/custom_button.dart';
 import 'package:alora/core/widgets/custom_text_field.dart';
 import 'package:alora/shared/features/payment/controllers/payment_controller.dart';
@@ -168,7 +169,32 @@ class PaymentCard extends StatelessWidget {
           )
         ],
 
-        const SizedBox(height: AppSizes.spaceBetweenItems),
+        if(isAutoPay)...<Widget>[
+          const SizedBox(height: AppSizes.spaceBetweenItems),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            spacing: AppSizes.xs,
+            children: <Widget>[
+              Obx(
+                () => Checkbox(
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  value: controller.isAutoPayAccept.value, 
+                  onChanged: (bool? value) => controller.updateisAutoPayStatus = value,
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  AppStrings.enableAutoPay,
+                  style: context.txtTheme.labelMedium
+                ),
+              ),
+              const SizedBox(width: AppSizes.sm,)
+            ],
+          ),
+        ],
+
+        const SizedBox(height: AppSizes.sm),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           spacing: AppSizes.xs,
@@ -182,7 +208,7 @@ class PaymentCard extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                isAutoPay ? "Pay Via Auto" : AppStrings.paymentTermsAndConditionAgreement,
+                AppStrings.paymentTermsAndConditionAgreement,
                 style: context.txtTheme.labelMedium
               ),
             ),
@@ -194,7 +220,7 @@ class PaymentCard extends StatelessWidget {
 
         CustomButton(
           onTap: () async{
-            final PaymentData? paymentData = await controller.handlePayNow();
+            final PaymentData? paymentData = await controller.handlePayNow(isAutoPay, context, onPayCallBack);
             if(paymentData != null){
               onPayCallBack(paymentData);
             }
@@ -217,6 +243,76 @@ class PaymentCard extends StatelessWidget {
         ),
         child: Image.asset(assetPath, width: 32.0, height: 32.0),
       ),
+    );
+  }
+}
+
+class AutoPayBottomSheet extends StatelessWidget {
+  final PaymentController controller;
+  final Function(PaymentData data) onPayCallBack;
+
+  const AutoPayBottomSheet({
+    super.key,
+    required this.controller,
+    required this.onPayCallBack,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+
+        Text(
+          "Auto Pay",
+          textAlign: TextAlign.justify,
+          style: context.txtTheme.titleMedium?.copyWith(
+            color: AppColors.primaryColor
+          )          
+        ),
+
+        const SizedBox(height: AppSizes.spaceBetweenItems),
+
+        Text(
+          "By enabling Auto Pay, your future bills will be paid automatically on the due date using your saved payment method. This ensures your payments are always on time and helps avoid any late fees or service interruptions",
+          textAlign: TextAlign.justify,
+          style: context.txtTheme.labelMedium          
+        ),
+        const SizedBox(height: AppSizes.spaceBetweenItems),
+
+        
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          spacing: AppSizes.xs,
+          children: <Widget>[
+            Obx(
+              () => Checkbox(
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                value: controller.isAutoPayAccept.value, 
+                onChanged: (bool? value) => controller.updateisAutoPayStatus = value,
+              ),
+            ),
+            Text(
+              AppStrings.enableAutoPay,
+              style: context.txtTheme.labelMedium
+            ),
+            const SizedBox(width: AppSizes.sm,)
+          ],
+        ).centered,
+
+         const SizedBox(height: AppSizes.spaceBetweenItems),
+
+        CustomButton(
+          onTap: () async{
+            final PaymentData? paymentData = await controller.handlePayNow(false, context,onPayCallBack);
+            if(paymentData != null){
+              onPayCallBack(paymentData);
+            }
+          }, 
+          text: AppStrings.payNow
+        ),
+      ],
     );
   }
 }

@@ -208,6 +208,7 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
                     const SizedBox(height: AppSizes.spaceBetweenSections,),
 
                     PaymentCard(
+                      isAutoPay: false,
                       price: price,
                       onPayCallBack: (PaymentData data){
                         CustomBottomSheet.showCustomBottomSheet(

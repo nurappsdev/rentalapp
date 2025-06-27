@@ -1,10 +1,15 @@
+import 'package:alora/core/enums/role_type.dart';
+import 'package:alora/core/utils/helper_method.dart';
 import 'package:get/get.dart';
 
 class HomeOwnerController extends GetxController {
 
-  final RxInt count = 0.obs;
+  final Rx<RoleType> roleType = RoleType.rentar.obs;
 
-  void increment() => count.value++;
+
+  Future<void> getRoleType() async{
+    roleType.value = await HelperMethod.getRoleType();
+  }
 
 
   
@@ -16,7 +21,7 @@ class HomeOwnerController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    count.value = 0;
+    getRoleType();
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.
@@ -24,7 +29,7 @@ class HomeOwnerController extends GetxController {
   /// Cleans up by resetting loading states and clearing lists and more...
   @override
   void dispose() {
+    getRoleType();
     super.dispose();
-    count.value = 0;
   }
 }

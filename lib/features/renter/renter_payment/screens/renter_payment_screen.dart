@@ -44,7 +44,7 @@ class RenterPaymentScreen extends GetView<RenterPaymentController> {
                 ),
                 child: PaymentCard(
                   price: arguments?["price"],
-                  isAutoPay: arguments?["isAutoPay"],
+                  isAutoPay: true,
                   onPayCallBack: (PaymentData data){
                     CustomBottomSheet.showCustomBottomSheet(
                       context: context, 

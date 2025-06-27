@@ -37,6 +37,7 @@ class OwnerAllocateBillController extends GetxController {
   }
 
   final TextEditingController calendarCTRL = TextEditingController();
+  final TextEditingController rentCTRL = TextEditingController();
 
 
   final TextEditingController labelInputController = TextEditingController();

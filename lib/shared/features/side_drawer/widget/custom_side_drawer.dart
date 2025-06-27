@@ -114,7 +114,7 @@ class CustomSideDrawer extends StatelessWidget {
                             context: context,
                             text: AppStrings.events,
                             svgAsset: AppIcons.eventSideDrawerIcon,
-                            onTapCallback: () {},
+                            onTapCallback: () => Get.toNamed(AppRoutes.renterEventsRoute),
                           ),
                           item(
                             context: context,
@@ -125,7 +125,7 @@ class CustomSideDrawer extends StatelessWidget {
                          ],
                        );
                     }
-                    else if(controller.isRoleTypeMatch(RoleType.owner).value){
+                    else if(controller.isRoleTypeMatch(RoleType.owner).value || controller.isRoleTypeMatch(RoleType.agent).value){
                        return Column(
                          children: <Widget>[
                           const PaymentDropDown(isOwner: true,),
@@ -328,117 +328,127 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
   OverlayEntry _createDropdown() {
     final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final Offset offset = renderBox.localToGlobal(Offset.zero);
+    final Size size = renderBox.size;
 
     return OverlayEntry(
-      builder: (BuildContext context) => Positioned(
-        left: offset.dx,
-        top: offset.dy + renderBox.size.height,
-        width: renderBox.size.width,
-        child: Material(
-          elevation: 4,
-          color: AppColors.whiteColor,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                if(widget.isOwner)...<Widget>[
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Text(
-                      AppStrings.pastPayment,
-                      style: context.txtTheme.bodyMedium,
-                    ), 
-                    onTap: (){
-                      _toggleDropdown();
-                      Get.toNamed(
-                        AppRoutes.renterPastPaymentsRoute,
-                        arguments: false,
-                      );
-                    }
-                  ),
-
-                  const Divider(
-                    thickness: .5,
-                    color: AppColors.dividerColor,
-                  ),
-                  
-
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Text(
-                      AppStrings.allocateBill,
-                      style: context.txtTheme.bodyMedium,
-                    ), 
-                    onTap: (){
-                      _toggleDropdown();
-                      Get.toNamed(
-                        AppRoutes.ownerAllocateBillRoute,
-                        arguments: true,
-                      );
-                    }
-                  ),
-
-                ]
-                else ...<Widget>[
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Text(
-                      AppStrings.autoPay,
-                      style: context.txtTheme.bodyMedium,
-                    ), 
-                    onTap: (){
-                      _toggleDropdown();
-                      Get.toNamed(
-                        AppRoutes.renterBalanceDetailsRoute,
-                        arguments: true,
-                      );
-                    }
-                  ),
-                  const Divider(
-                    thickness: .5,
-                    color: AppColors.dividerColor,
-                  ),
-                  
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Text(
-                      AppStrings.pastPayment,
-                      style: context.txtTheme.bodyMedium,
-                    ), 
-                    onTap: (){
-                      _toggleDropdown();
-                      Get.toNamed(
-                        AppRoutes.renterPastPaymentsRoute,
-                        arguments: true,
-                      );
-                    }
-                  ),
-              
-                  const Divider(
-                    thickness: .5,
-                    color: AppColors.dividerColor,
-                  ),
-                  
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Text(
-                      AppStrings.balanceDetails,
-                      style: context.txtTheme.bodyMedium,
-                    ), 
-                    onTap: (){
-                      _toggleDropdown();
-                      Get.toNamed(
-                        AppRoutes.renterBalanceDetailsRoute,
-                        arguments: false,
-                      );
-                    }
-                  ),
-                ]
-              ],
+      builder: (BuildContext context) => Stack(
+        children: <Widget>[
+           Positioned.fill(
+            child: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: _toggleDropdown,
+              child: const SizedBox.expand(),
             ),
           ),
-        ),
+
+          Positioned(
+            left: offset.dx,
+            top: offset.dy + size.height,
+            width: size.width,
+            child: Material(
+              elevation: 4,
+              color: AppColors.whiteColor,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    if(widget.isOwner)...<Widget>[
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title: Text(
+                          AppStrings.pastPayment,
+                          style: context.txtTheme.bodyMedium,
+                        ), 
+                        onTap: (){
+                          _toggleDropdown();
+                          Get.toNamed(
+                            AppRoutes.renterPastPaymentsRoute,
+                          );
+                        }
+                      ),
+          
+                      const Divider(
+                        thickness: .5,
+                        color: AppColors.dividerColor,
+                      ),
+                      
+          
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title: Text(
+                          AppStrings.allocateBill,
+                          style: context.txtTheme.bodyMedium,
+                        ), 
+                        onTap: (){
+                          _toggleDropdown();
+                          Get.toNamed(
+                            AppRoutes.ownerAllocateBillRoute,
+                            arguments: true,
+                          );
+                        }
+                      ),
+          
+                    ]
+                    else ...<Widget>[
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title: Text(
+                          AppStrings.makePayment,
+                          style: context.txtTheme.bodyMedium,
+                        ), 
+                        onTap: (){
+                          _toggleDropdown();
+                          Get.toNamed(
+                            AppRoutes.renterBalanceDetailsRoute,
+                          );
+                        }
+                      ),
+                      const Divider(
+                        thickness: .5,
+                        color: AppColors.dividerColor,
+                      ),
+                      
+                      ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title: Text(
+                          AppStrings.pastPayment,
+                          style: context.txtTheme.bodyMedium,
+                        ), 
+                        onTap: (){
+                          _toggleDropdown();
+                          Get.toNamed(
+                            AppRoutes.renterPastPaymentsRoute,
+                          );
+                        }
+                      ),
+                  
+                      // const Divider(
+                      //   thickness: .5,
+                      //   color: AppColors.dividerColor,
+                      // ),
+                      
+                      // ListTile(
+                      //   contentPadding: EdgeInsets.zero,
+                      //   title: Text(
+                      //     AppStrings.balanceDetails,
+                      //     style: context.txtTheme.bodyMedium,
+                      //   ), 
+                      //   onTap: (){
+                      //     _toggleDropdown();
+                      //     Get.toNamed(
+                      //       AppRoutes.renterBalanceDetailsRoute,
+                      //       arguments: false,
+                      //     );
+                      //   }
+                      // ),
+                    ]
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
