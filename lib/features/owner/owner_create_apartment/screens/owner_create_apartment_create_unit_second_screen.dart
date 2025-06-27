@@ -125,7 +125,7 @@ class OwnerCreateApartmentCreateUnitSecondScreen extends GetView<OwnerCreateApar
 
 
                     Text(
-                      "Floor Type",
+                      "Floor Level",
                       style: context.txtTheme.titleMedium
                     ),
                     const SizedBox(height: AppSizes.md,),

@@ -135,7 +135,7 @@ class OwnerApartmentUnitDetailsEditScreen extends GetView<OwnerMyApartmentContro
 
 
                     Text(
-                      "Floor Type",
+                      "Floor Level",
                       style: context.txtTheme.titleMedium
                     ),
                     const SizedBox(height: AppSizes.md,),

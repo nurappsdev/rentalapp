@@ -67,6 +67,21 @@ class OwnerCreateApartmentScreen extends GetView<OwnerCreateApartmentController>
                       borderRadius: 12.0,
                     ),
 
+                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    Text(
+                      "Apartment Description",
+                      style: context.txtTheme.titleMedium
+                    ),
+                    const SizedBox(height: AppSizes.md,),
+
+                    CustomTextField(
+                      controller: TextEditingController(),
+                      isBorder: true,
+                      minLines: 4,
+                      maxLines: 10,
+                      borderRadius: 12.0,
+                    ),
+
 
                     const SizedBox(height: AppSizes.spaceBetweenItems,),
                     Text(

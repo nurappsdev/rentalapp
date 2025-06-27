@@ -89,6 +89,7 @@ class AppStrings{
   static const String needEarlyService = "Need Early Service";
   static const String paymentTermsAndConditionAgreement = "I accept the Terms & Conditions & Privacy Policy.";
   static const String termsAndConditions = "terms and conditions.";
+  static const String enableAutoPay = "Enable Auto Pay";
 
 
   static const String onboardingCardTitle = "Smart Rentals for\nModern Living";
@@ -102,6 +103,8 @@ class AppStrings{
   static const String rentarRoleDesc = "create your account as a Apartment renter.";
   static const String owner = "Owner";
   static const String ownerRoleDesc = "Create your account as a Apartment Owner.";
+  static const String agent = "Front Desk Agent";
+  static const String agentRoleDesc = "create your account as a Front Desk Agent.";
   static const String crew = "Crew";
   static const String crewDetails = "Crew Details";
   static const String crewRoleDesc = "Sign In as a Apartment Crew.";

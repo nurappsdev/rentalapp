@@ -72,13 +72,25 @@ class ChooseRoleScreen extends GetView<ChooseRoleController> {
                 const SizedBox(height: AppSizes.spaceBetweenSections,),
         
         
-                 Obx(
-                   () => RoleSelectionContainer(
+                Obx(
+                  () => RoleSelectionContainer(
                     role: AppStrings.crew,
                     roleDesc: AppStrings.crewRoleDesc,
                     isSelected: controller.isRoleTypeMatch(RoleType.crew).value,
                     onChanged: (bool? value) => controller.updateRoleType(RoleType.crew, value),
                     onTap: () => controller.updateRoleType(RoleType.crew, !controller.isRoleTypeMatch(RoleType.crew).value),
+                    ),
+                 ),
+                const SizedBox(height: AppSizes.spaceBetweenSections,),
+
+
+                Obx(
+                  () => RoleSelectionContainer(
+                    role: AppStrings.agent,
+                    roleDesc: AppStrings.agentRoleDesc,
+                    isSelected: controller.isRoleTypeMatch(RoleType.agent).value,
+                    onChanged: (bool? value) => controller.updateRoleType(RoleType.agent, value),
+                    onTap: () => controller.updateRoleType(RoleType.agent, !controller.isRoleTypeMatch(RoleType.agent).value),
                     ),
                  ),
                 const SizedBox(height: AppSizes.spaceBetweenSections,),

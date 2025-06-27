@@ -41,6 +41,7 @@ class OwnerSubscriptionPaymentScreen extends GetView<OwnerSubscriptionController
               const SizedBox(height: AppSizes.spaceBetweenItems,),
 
               PaymentCard(
+                isAutoPay: false,
                 price: arguments?["price"],
                 onPayCallBack: (PaymentData data){
                   CustomBottomSheet.showCustomBottomSheet(

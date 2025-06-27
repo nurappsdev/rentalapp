@@ -69,6 +69,15 @@ class OwnerCreateAllocateBillScreen extends GetView<OwnerAllocateBillController>
 
                 const SizedBox(height: AppSizes.spaceBetweenInputs,),
 
+                CustomTextField(
+                  controller: controller.rentCTRL,
+                  isBorder: true,
+                  borderRadius: 12.0,
+                  hintText: "Rent",
+                ),
+
+                const SizedBox(height: AppSizes.spaceBetweenInputs,),
+
                 Obx(
                   () => ListView.separated(
                     shrinkWrap: true,

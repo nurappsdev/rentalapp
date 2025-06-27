@@ -68,6 +68,7 @@ class OwnerAllocateBillDetailsScreen extends GetView<OwnerAllocateBillController
 
               const SizedBox(height: AppSizes.spaceBetweenItems,),
 
+              _billRow(context: context, label: "Rent", bill: 2355),
               _billRow(context: context, label: "Gas Bill", bill: 245),
               _billRow(context: context, label: "Water Bill", bill: 34),
               _billRow(context: context, label: "Utility Administation Fee", bill: 467),

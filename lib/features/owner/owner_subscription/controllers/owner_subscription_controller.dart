@@ -32,6 +32,17 @@ class OwnerSubscriptionController extends GetxController {
       }
     );
   }
+
+  Future<void> hanldeRetriveSubscriptions(String unitType) async{
+    subscriptionsLoading.value = true;
+    await Future<dynamic>.delayed(const Duration(seconds: 1), (){
+      subscriptions.value = SubscriptionModel.dummySubscriptions.where((SubscriptionModel subs) => subs.unitType == unitType).toList();
+    });
+
+    await Future<dynamic>.delayed(const Duration(seconds: 2), (){
+      subscriptionsLoading.value = false;
+    });
+  }
   
 
   
@@ -47,14 +58,14 @@ class OwnerSubscriptionController extends GetxController {
     isAgreementAccepted.value = false;
 
 
-    subscriptionsLoading.value = true;
-    Future<dynamic>.delayed(const Duration(seconds: 1), (){
-      subscriptions.value = SubscriptionModel.dummySubscriptions;
-    });
+    // subscriptionsLoading.value = true;
+    // Future<dynamic>.delayed(const Duration(seconds: 1), (){
+    //   subscriptions.value = SubscriptionModel.dummySubscriptions;
+    // });
 
-    Future<dynamic>.delayed(const Duration(seconds: 2), (){
-      subscriptionsLoading.value = false;
-    });
+    // Future<dynamic>.delayed(const Duration(seconds: 2), (){
+    //   subscriptionsLoading.value = false;
+    // });
   }
 
   /// [dispose] Lifecycle method called when the controller is destroyed.

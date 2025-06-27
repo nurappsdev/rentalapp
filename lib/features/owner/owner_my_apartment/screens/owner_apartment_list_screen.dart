@@ -49,6 +49,8 @@ class OwnerApartmentListScreen extends GetView<OwnerMyApartmentController> {
                 prefixIcon: SvgPicture.asset(AppIcons.searchIcon),
               ),
 
+               const SizedBox(height: AppSizes.spaceBetweenItems,),
+
               Card(
                 color: AppColors.whiteColor,
                 shape: RoundedRectangleBorder(

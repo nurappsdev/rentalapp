@@ -36,7 +36,7 @@ class OwnerApartmentUnitDetailsScreen extends GetView<OwnerMyApartmentController
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
              Obx((){
-                if(controller.unitList.isEmpty){
+                if(controller.unitListDetails.isEmpty){
                   return SizedBox(
                     height: context.screenHeight * .8,
                     width: context.screenWidth,
@@ -46,13 +46,13 @@ class OwnerApartmentUnitDetailsScreen extends GetView<OwnerMyApartmentController
                     ).centered,
                   );
                 }
-                else if(controller.unitListLoading.value){
+                else if(controller.unitDetailsLoading.value){
                   return const ApartmentsShimmer();
                 }
                 return ListView.separated(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: controller.unitList.length,
+                  itemCount: controller.unitListDetails.length,
                   itemBuilder: (_, int index){
                     return OwnerApartmentCard(
                       apartment: controller.unitListDetails[index],

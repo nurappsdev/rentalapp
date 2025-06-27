@@ -1,5 +1,6 @@
 import 'package:alora/core/enums/payment_option.dart';
 import 'package:alora/core/extensions/date_time_extensions.dart';
+import 'package:alora/core/utils/custom_bottom_sheet.dart';
 import 'package:alora/core/utils/custom_snack_bar.dart';
 import 'package:alora/shared/features/payment/widget/payment_card.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,18 @@ class PaymentController extends GetxController{
     }
   }
 
-  Future<PaymentData?> handlePayNow() async{
+  final RxBool isAutoPayAccept = false.obs;
+
+  set updateisAutoPayStatus(bool? value){
+    if(value != null){
+      isAutoPayAccept.value = value;
+    }
+    else{
+      isAutoPayAccept.value = false;
+    }
+  }
+
+  Future<PaymentData?> handlePayNow(bool isAutoPay, BuildContext context, final Function(PaymentData data) onPayCallBack) async{
     if(!isAgreementAccepted.value){
       CustomSnackBar.show(message: "Mark the Check Box for accepting.");
       return null;
@@ -53,6 +65,17 @@ class PaymentController extends GetxController{
 
     if(mmCTRL.text.trim().isEmpty){
       CustomSnackBar.show(message: "Fill the MM/YY Field");
+      return null;
+    }
+
+    if(isAutoPay && !isAutoPayAccept.value){
+      CustomBottomSheet.showCustomBottomSheet(
+        context: context, 
+        child: AutoPayBottomSheet(
+          controller: this,
+          onPayCallBack: onPayCallBack,
+        )
+      );
       return null;
     }
     

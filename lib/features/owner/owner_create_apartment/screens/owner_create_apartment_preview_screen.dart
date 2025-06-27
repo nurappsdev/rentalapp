@@ -143,7 +143,7 @@ class OwnerCreateApartmentPreviewScreen extends GetView<OwnerCreateApartmentCont
 
 
                   Text(
-                    "Floor Type",
+                    "Floor Level",
                     style: context.txtTheme.titleMedium?.copyWith(
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.primaryColor,

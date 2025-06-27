@@ -43,95 +43,91 @@ class CustomFileUploadLayout extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
       ),
-      child: Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const SizedBox(height: AppSizes.spaceBetweenInputs,),
-        
-            Text(
-              label,
-              style: context.txtTheme.bodyMedium
-            ),
-            const SizedBox(height: AppSizes.md,),
-
-
-            if(file != null)
-              Material(
-              elevation: 1,
-              borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.primaryColor, width: 1.0),
-                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
-                  child: Image.file(
-                    file!,
-                    height: 200.0,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const SizedBox(height: AppSizes.spaceBetweenInputs,),
+      
+          Text(
+            label,
+            style: context.txtTheme.bodyMedium
+          ),
+          const SizedBox(height: AppSizes.md,),
+      
+      
+          if(file != null)
+            Material(
+            elevation: 1,
+            borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.primaryColor, width: 1.0),
+                borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
+                child: Image.file(
+                  file!,
+                  height: 200.0,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
                 ),
               ),
-            )
-            else DottedBorder(
-              borderColor: AppColors.primaryColor,
-              gap: 6.0,
-              strokeWidth: 2.0,
-              child:  Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
-                child: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      const SizedBox(height: AppSizes.spaceBetweenSections,),
-    
-                      SvgPicture.asset(
-                        icon,
-                        width: 24.0,
-                        height: 24.0,
-                      ),
-                  
-                      const SizedBox(height: AppSizes.md,),
-    
-                      Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: context.txtTheme.bodyMedium
-                      ),
-                      const SizedBox(height: AppSizes.md,),
-                  
-                      Text(
-                        subTitle,
-                        textAlign: TextAlign.center,
-                        style: context.txtTheme.bodyMedium
-                      ),
-
-                      const SizedBox(height: AppSizes.md,),
-
-                      CustomButton(
-                        onTap: onBrowseCallback, 
-                        text: btnText,
-                        borderRadius: AppSizes.borderRadiusMd,
-                        width: 100.0,
-                        height: 35.0,
-                      ),
-    
-                      const SizedBox(height: AppSizes.spaceBetweenSections,),
-                    ],
-                  ),
-                ),
-              )
             ),
-    
-            const SizedBox(height: AppSizes.spaceBetweenInputs,),
-          ],
-        ),
+          )
+          else DottedBorder(
+            borderColor: AppColors.primaryColor,
+            gap: 6.0,
+            strokeWidth: 2.0,
+            child:  Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  const SizedBox(height: AppSizes.spaceBetweenSections,),
+                        
+                  SvgPicture.asset(
+                    icon,
+                    width: 24.0,
+                    height: 24.0,
+                  ),
+              
+                  const SizedBox(height: AppSizes.md,),
+                        
+                  Text(
+                    title,
+                    textAlign: TextAlign.center,
+                    style: context.txtTheme.bodyMedium
+                  ),
+                  const SizedBox(height: AppSizes.md,),
+              
+                  Text(
+                    subTitle,
+                    textAlign: TextAlign.center,
+                    style: context.txtTheme.bodyMedium
+                  ),
+                    
+                  const SizedBox(height: AppSizes.md,),
+                    
+                  CustomButton(
+                    onTap: onBrowseCallback, 
+                    text: btnText,
+                    borderRadius: AppSizes.borderRadiusMd,
+                    width: 100.0,
+                    height: 35.0,
+                  ),
+                        
+                  const SizedBox(height: AppSizes.spaceBetweenSections,),
+                ],
+              ),
+            )
+          ),
+          
+          const SizedBox(height: AppSizes.spaceBetweenInputs,),
+        ],
       ),
     );
   }

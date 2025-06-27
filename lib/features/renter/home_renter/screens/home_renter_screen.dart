@@ -53,7 +53,9 @@ class HomeRentarScreen extends GetView<HomeRenterController> {
               BannerCard(
                 price: 1959.90,
                 onMakePaymentCallback: () {
-                  
+                  Get.toNamed(
+                    AppRoutes.renterBalanceDetailsRoute,
+                  );
                 },
               ),
               const SizedBox(height: AppSizes.spaceBetweenSections,),

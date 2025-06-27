@@ -30,7 +30,7 @@ class RenterRequestScreen extends GetView<RenterRequestController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: AppStrings.maintenanceCrewList,
+        title: "Property Request",
         showBackBtn: true,
         elevation: 0.0,
         backgroundColor: AppColors.whiteColor,

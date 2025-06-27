@@ -36,6 +36,9 @@ class PaymentTicketController extends GetxController {
       case RoleType.crew:
         Get.offAllNamed(AppRoutes.homeCrewRoute);
         break;
+      case RoleType.agent:
+        Get.offAllNamed(AppRoutes.homeOwnerRoute);
+        break;
     }
     
     isLoading.value = false;

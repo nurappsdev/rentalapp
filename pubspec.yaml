@@ -57,6 +57,7 @@ dependencies:
   path_provider: ^2.1.5
   # open a file 
   open_file: ^3.5.10
+  flip_card: ^0.7.0
  
 
 dev_dependencies:
