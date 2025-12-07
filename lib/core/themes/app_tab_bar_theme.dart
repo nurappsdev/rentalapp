@@ -3,10 +3,10 @@ import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/themes/app_text_theme.dart';
 import 'package:flutter/material.dart';
 
-class AppTabBarTheme{
+class AppTabBarTheme {
   AppTabBarTheme._();
 
-  static TabBarTheme tabBarThemeLight =  TabBarTheme(
+  static TabBarThemeData tabBarThemeLight = TabBarThemeData(
     labelColor: AppColors.textBlackColor,
     dividerHeight: 0.0,
     indicatorSize: TabBarIndicatorSize.tab,
@@ -14,14 +14,11 @@ class AppTabBarTheme{
     unselectedLabelStyle: AppTextTheme.lightTextTheme.bodyMedium,
     unselectedLabelColor: AppColors.textSecondaryColor,
     indicator: const UnderlineTabIndicator(
-      borderSide: BorderSide(
-          color: AppColors.primaryColor,
-          width: AppSizes.xs
-      ),
+      borderSide: BorderSide(color: AppColors.primaryColor, width: AppSizes.xs),
     ),
   );
 
-  static TabBarTheme tabBarThemeDark = TabBarTheme(
+  static TabBarThemeData tabBarThemeDark = TabBarThemeData(
     labelColor: AppColors.textBlackColor,
     dividerHeight: 0.0,
     indicatorSize: TabBarIndicatorSize.tab,
@@ -29,11 +26,7 @@ class AppTabBarTheme{
     unselectedLabelStyle: AppTextTheme.darkTextTheme.bodyMedium,
     unselectedLabelColor: AppColors.textSecondaryColor,
     indicator: const UnderlineTabIndicator(
-      borderSide: BorderSide(
-        color: AppColors.primaryColor,
-        width: AppSizes.xs,
-      ),
+      borderSide: BorderSide(color: AppColors.primaryColor, width: AppSizes.xs),
     ),
   );
-
 }

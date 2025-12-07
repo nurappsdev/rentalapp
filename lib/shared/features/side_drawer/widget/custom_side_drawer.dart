@@ -88,7 +88,7 @@ class CustomSideDrawer extends StatelessWidget {
                             context: context,
                             text: AppStrings.myMaintenance,
                             svgAsset: AppIcons.maintenanceIcon,
-                            onTapCallback: () => Get.toNamed(AppRoutes.maintananceRoute),
+                            onTapCallback: () => Get.toNamed(AppRoutes.maintenanceRoute),
                           ),
 
                           item(
@@ -100,7 +100,7 @@ class CustomSideDrawer extends StatelessWidget {
                         ],
                       );
                     }
-                    else if(controller.isRoleTypeMatch(RoleType.rentar).value){
+                    else if(controller.isRoleTypeMatch(RoleType.renter).value){
                        return Column(
                          children: <Widget>[
                           const PaymentDropDown(),
@@ -249,7 +249,7 @@ class LogoutBottomSheet extends StatelessWidget {
             const SizedBox(height: AppSizes.spaceBetweenItems),
 
             Text(
-              AppStrings.logoutBottmSheetTitle,
+              AppStrings.logoutBottomSheetTitle,
               style: context.txtTheme.bodyLarge,
             ),
 
@@ -258,7 +258,7 @@ class LogoutBottomSheet extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
-                AppStrings.logoutBottmSheetSubTitle, 
+                AppStrings.logoutBottomSheetSubTitle, 
                 style: context.txtTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),

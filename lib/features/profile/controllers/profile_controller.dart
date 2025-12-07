@@ -15,13 +15,13 @@ class ProfileController extends GetxController with GetSingleTickerProviderState
   final Rx<File?> profileImageFile = Rx<File?>(null);
 
 
-  Rx<RoleType> roleType = RoleType.rentar.obs;
+  Rx<RoleType> roleType = RoleType.renter.obs;
 
    Future<void> getRoleType() async{
     roleType.value = await HelperMethod.getRoleType();
   }
 
-  final RxBool isVacentBtnVisible = true.obs;
+  final RxBool isVacantBtnVisible = true.obs;
 
 
   late TabController tabController;
@@ -33,7 +33,7 @@ class ProfileController extends GetxController with GetSingleTickerProviderState
   final RxBool pendingDocumentsLoading = false.obs;
 
   final RxList<String> completedDocumentsList = <String>[].obs;
-  final RxBool compeletedDocumentsLoading = false.obs;
+  final RxBool completedDocumentsLoading = false.obs;
 
   
   /// [onInit] Lifecycle method called when the controller is initialized.
@@ -48,7 +48,7 @@ class ProfileController extends GetxController with GetSingleTickerProviderState
 
     tabController = TabController(length: 2, vsync: this);
     getRoleType();
-    isVacentBtnVisible.value = true;
+    isVacantBtnVisible.value = true;
 
     userLoading.value = true;
     Future<dynamic>.delayed(const Duration(seconds: 2), (){
@@ -75,13 +75,13 @@ class ProfileController extends GetxController with GetSingleTickerProviderState
     });
 
 
-    compeletedDocumentsLoading.value = true;
+    completedDocumentsLoading.value = true;
     Future<dynamic>.delayed(const Duration(seconds: 1), (){
       completedDocumentsList.value = <String>["document"];
     });
 
     Future<dynamic>.delayed(const Duration(seconds: 2), (){
-      compeletedDocumentsLoading.value = false;
+      completedDocumentsLoading.value = false;
     });
   }
 
@@ -92,11 +92,11 @@ class ProfileController extends GetxController with GetSingleTickerProviderState
   void dispose() {
     uploadedDoc.value = null;
     userLoading.value = false;
-    isVacentBtnVisible.value = true;
+    isVacantBtnVisible.value = true;
     tabController.dispose();
     uploadedDoc.value = null;
     pendingDocumentsLoading.value = false;
-    compeletedDocumentsLoading.value = false;
+    completedDocumentsLoading.value = false;
     pendingDocumentsList.clear();
     completedDocumentsList.clear();
     super.dispose();

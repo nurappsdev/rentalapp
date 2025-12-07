@@ -23,8 +23,8 @@ class HomeNav{
     ),
 
     GetPage<dynamic>(
-      name: AppRoutes.homeRentarRoute, 
-      page: () => const HomeRentarScreen(), 
+      name: AppRoutes.homeRenterRoute, 
+      page: () => const HomeRenterScreen(), 
       binding: HomeRenterBinding(),
       transition: Transition.noTransition
     ),

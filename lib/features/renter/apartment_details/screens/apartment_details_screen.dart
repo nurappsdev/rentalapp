@@ -32,7 +32,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
   @override
   Widget build(BuildContext context) {
     final dynamic arguments = Get.arguments;
-    controller.updateApartmentId = arguments != null ? (arguments as Map<String, dynamic>)['aparment_id'] : '';
+    controller.updateApartmentId = arguments != null ? (arguments as Map<String, dynamic>)['apartment_id'] : '';
     // final String type = arguments != null ? (arguments as Map<String, dynamic>)['type'] : '';
     return Scaffold(
       appBar: const CustomAppBar(
@@ -68,7 +68,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
 
                       // description layout
                       Text(
-                        AppStrings.apartmetnDescription,
+                        AppStrings.apartmentDescription,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -87,7 +87,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                       const SizedBox(height: AppSizes.spaceBetweenItems,),
                       // image layout
                       Text(
-                        AppStrings.apartmetnImage,
+                        AppStrings.apartmentImage,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -122,7 +122,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                       const SizedBox(height: AppSizes.spaceBetweenItems,),
                       // facilities layout
                       Text(
-                        AppStrings.apartmetnFacilities,
+                        AppStrings.apartmentFacilities,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -161,13 +161,13 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                           child: SvgPicture.asset(AppIcons.dateIcon),
                         ),
                         prefixIconCallBack: () async{
-                          final String? date = await DatePickerUtils.pickFormatedDate(context: context);
+                          final String? date = await DatePickerUtils.pickFormattedDate(context: context);
                           if(date != null){
                             controller.movingDateCTRL.text = date;
                           }
                         },
                         onTab: () async{
-                          final String? date = await DatePickerUtils.pickFormatedDate(context: context);
+                          final String? date = await DatePickerUtils.pickFormattedDate(context: context);
                           if(date != null){
                             controller.movingDateCTRL.text = date;
                           }
@@ -213,7 +213,7 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
                         },
                       ),
 
-                      // unit facilites and images
+                      // unit facilities and images
                       if(controller.selectedApartmentNumber.value != null)...<Widget>[
                         const SizedBox(height: AppSizes.spaceBetweenSections,),
                         // facilities layout

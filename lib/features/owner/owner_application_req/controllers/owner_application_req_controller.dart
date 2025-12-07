@@ -5,7 +5,6 @@ import '../model/application_req_model.dart';
 import 'package:get/get.dart';
 
 class OwnerApplicationReqController extends GetxController {
-
   final RxInt count = 0.obs;
 
   final RxList<ApplicationReqModel> applicationReqList = <ApplicationReqModel>[].obs;
@@ -14,43 +13,38 @@ class OwnerApplicationReqController extends GetxController {
   final RxList<ApartmentModel> apartmentList = <ApartmentModel>[].obs;
   final RxBool apartmentLoading = false.obs;
 
-  Future<void> handleRetriveUnitList() async{
+  Future<void> handleRetrieveUnitList() async {
     apartmentLoading.value = true;
 
-    await Future<dynamic>.delayed(const Duration(milliseconds: 500), (){
+    await Future<dynamic>.delayed(const Duration(milliseconds: 500), () {
       apartmentList.value = dummyApartments;
     });
 
-    await Future<dynamic>.delayed(const Duration(seconds: 1), (){
+    await Future<dynamic>.delayed(const Duration(seconds: 1), () {
       apartmentLoading.value = false;
     });
   }
 
-
   Rx<ApartmentModel?> unitDetails = Rx<ApartmentModel?>(null);
   final RxBool unitDetailsLoading = false.obs;
 
-
-  Future<void> handleRetriveUnitDetails() async{
+  Future<void> handleRetrieveUnitDetails() async {
     unitDetailsLoading.value = true;
 
-    await Future<dynamic>.delayed(const Duration(milliseconds: 500), (){
+    await Future<dynamic>.delayed(const Duration(milliseconds: 500), () {
       unitDetails.value = dummyApartments.first;
     });
 
-    await Future<dynamic>.delayed(const Duration(seconds: 1), (){
+    await Future<dynamic>.delayed(const Duration(seconds: 1), () {
       unitDetailsLoading.value = false;
     });
   }
 
-
-
-  
   /// [onInit] Lifecycle method called when the controller is initialized.
   ///
   /// Resets loading states, clears existing data, and triggers and more..
   /// initial fetch
-  /// 
+  ///
   @override
   void onInit() {
     super.onInit();
@@ -58,11 +52,11 @@ class OwnerApplicationReqController extends GetxController {
     unitDetailsLoading.value = false;
 
     applicationReqLoading.value = true;
-    Future<dynamic>.delayed(const Duration(seconds: 1), (){
+    Future<dynamic>.delayed(const Duration(seconds: 1), () {
       applicationReqList.value = ApplicationReqModel.dummyApplicationReqModel;
     });
 
-    Future<dynamic>.delayed(const Duration(seconds: 2), (){
+    Future<dynamic>.delayed(const Duration(seconds: 2), () {
       applicationReqLoading.value = false;
     });
   }
@@ -77,9 +71,10 @@ class OwnerApplicationReqController extends GetxController {
     apartmentLoading.value = false;
     super.dispose();
   }
-  
+
   static String image = "https://i.ibb.co/7dtBDZHy/d5e76c655b0cfd55a7449f24d43b8129f4334ab2.png";
-  static String apartmentImage = "https://i.ibb.co/RpvxyL3C/8e09f2137bde140d80ce1ec0253b9e802a214a13.png";
+  static String apartmentImage =
+      "https://i.ibb.co/RpvxyL3C/8e09f2137bde140d80ce1ec0253b9e802a214a13.png";
 
   final List<ApartmentModel> dummyApartments = <ApartmentModel>[
     ApartmentModel(
@@ -88,17 +83,13 @@ class OwnerApplicationReqController extends GetxController {
       image: image,
       apartmentName: 'City View Apartments',
       apartmentLocation: 'Downtown, New York',
-      apartmentDescription: 'Welcome to Suncity Apartments, where comfort meets convenience. Located in a prime urban neighborhood, Suncity offers stylish 1, 2, and 3-bedroom units designed for modern living. Each apartment features spacious layouts, large windows with natural light, fully equipped kitchens, premium fittings, and private balconies with stunning city views.',
+      apartmentDescription:
+          'Welcome to Sanity Apartments, where comfort meets convenience. Located in a prime urban neighborhood, Sanity offers stylish 1, 2, and 3-bedroom units designed for modern living. Each apartment features spacious layouts, large windows with natural light, fully equipped kitchens, premium fittings, and private balconies with stunning city views.',
       apartmentFacilities: <Facility>[
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -110,13 +101,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -126,13 +113,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -143,13 +126,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -161,11 +140,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner1@example.com',
@@ -185,12 +160,7 @@ class OwnerApplicationReqController extends GetxController {
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.gardenIcon, name: 'Garden'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -202,13 +172,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -218,13 +184,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -235,13 +197,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -253,11 +211,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner2@example.com',
@@ -277,12 +231,7 @@ class OwnerApplicationReqController extends GetxController {
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -294,13 +243,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -310,13 +255,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -327,13 +268,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -345,11 +282,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner3@example.com',
@@ -370,12 +303,7 @@ class OwnerApplicationReqController extends GetxController {
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
         Facility(icon: AppIcons.gardenIcon, name: 'Garden'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -387,13 +315,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -403,13 +327,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -420,13 +340,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -438,11 +354,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner4@example.com',
@@ -453,7 +365,7 @@ class OwnerApplicationReqController extends GetxController {
 
     ApartmentModel(
       id: "5",
-      title: 'Downtown Highrise Studio',
+      title: 'Downtown high-rise Studio',
       image: image,
       apartmentName: 'Skyline Towers',
       apartmentLocation: 'Chicago, IL',
@@ -462,12 +374,7 @@ class OwnerApplicationReqController extends GetxController {
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -479,13 +386,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -495,13 +398,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -512,13 +411,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -530,11 +425,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner5@example.com',
@@ -554,12 +445,7 @@ class OwnerApplicationReqController extends GetxController {
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -571,13 +457,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -587,13 +469,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -604,13 +482,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -622,11 +496,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner6@example.com',
@@ -646,12 +516,7 @@ class OwnerApplicationReqController extends GetxController {
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],    
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -663,13 +528,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -679,13 +540,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -696,13 +553,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -714,11 +567,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner7@example.com',
@@ -734,15 +583,8 @@ class OwnerApplicationReqController extends GetxController {
       apartmentName: 'Harmony Homes',
       apartmentLocation: 'Seattle, WA',
       apartmentDescription: 'Spacious and family-friendly living spaces.',
-      apartmentFacilities: <Facility>[
-        Facility(icon: AppIcons.carIcon, name: 'Parking'),
-      ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentFacilities: <Facility>[Facility(icon: AppIcons.carIcon, name: 'Parking')],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -754,13 +596,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -770,13 +608,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -787,13 +621,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -805,11 +635,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner8@example.com',
@@ -829,12 +655,7 @@ class OwnerApplicationReqController extends GetxController {
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -846,13 +667,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -862,13 +679,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -879,13 +692,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -897,11 +706,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner9@example.com',
@@ -922,12 +727,7 @@ class OwnerApplicationReqController extends GetxController {
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
         Facility(icon: AppIcons.gardenIcon, name: 'Garden'),
       ],
-      apartmentImages: <String>[
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-        apartmentImage,
-      ],
+      apartmentImages: <String>[apartmentImage, apartmentImage, apartmentImage, apartmentImage],
       availableUnitTypes: <String>['Studio', 'Bed Room', '2 Bed Room', '3 Bed Room', 'Pent House'],
       availableFloors: <String>['1st Floor', '2nd Floor', '3rd Floor', '4th Floor', '5th Floor'],
       apartmentNumbers: <ApartmentUnit>[
@@ -939,13 +739,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG102',
@@ -955,13 +751,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG103',
@@ -972,13 +764,9 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
         ApartmentUnit(
           title: 'BG104',
@@ -990,11 +778,7 @@ class OwnerApplicationReqController extends GetxController {
             Facility(icon: AppIcons.squareFitIcon, name: '14 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
           ],
-          unitImages: <String>[
-            apartmentImage,
-            apartmentImage,
-            apartmentImage,
-          ],
+          unitImages: <String>[apartmentImage, apartmentImage, apartmentImage],
         ),
       ],
       ownerEmail: 'owner10@example.com',

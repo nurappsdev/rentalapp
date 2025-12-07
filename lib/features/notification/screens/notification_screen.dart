@@ -22,7 +22,7 @@ class NotificationScreen extends GetView<NotificationController> {
       appBar: const CustomAppBar(
         showBackBtn: true,
         elevation: 0.0,
-        title: AppStrings.notificaiton,
+        title: AppStrings.notification,
       ),
       backgroundColor: AppColors.surfaceColor,
       body: SingleChildScrollView(

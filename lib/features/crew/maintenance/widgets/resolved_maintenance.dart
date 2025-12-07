@@ -20,7 +20,7 @@ class ResolvedMaintenance extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          // maintenence list with handling loading and empty state
+          // maintenance list with handling loading and empty state
           Obx((){
             if(controller.maintenanceList.isEmpty){
               return const EmptyMaintenance().centered;
@@ -38,7 +38,7 @@ class ResolvedMaintenance extends StatelessWidget {
                   type: "maintenance_resolved",
                   onCompleteCallback: () { },
                   onViewCallback: () => Get.toNamed(
-                    AppRoutes.maintananceDetailsRoute, 
+                    AppRoutes.maintenanceDetailsRoute, 
                     arguments: <String, String>{
                       "maintenance_id": controller.maintenanceList[index].id,
                       "type": "maintenance_resolved"

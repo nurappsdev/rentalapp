@@ -25,7 +25,7 @@ class OwnerApartmentPreviewScreen extends GetView<OwnerMyApartmentController> {
 
   @override
   Widget build(BuildContext context) {
-    controller.handleRetriveUnitPreview();
+    controller.handleRetrieveUnitPreview();
     return Scaffold(
      appBar: const CustomAppBar(
         title: AppStrings.unitDetails,
@@ -60,7 +60,7 @@ class OwnerApartmentPreviewScreen extends GetView<OwnerMyApartmentController> {
 
                       // description layout
                       Text(
-                        AppStrings.apartmetnDescription,
+                        AppStrings.apartmentDescription,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -79,7 +79,7 @@ class OwnerApartmentPreviewScreen extends GetView<OwnerMyApartmentController> {
                       const SizedBox(height: AppSizes.spaceBetweenItems,),
                       // facilities layout
                       Text(
-                        AppStrings.apartmetnFacilities,
+                        AppStrings.apartmentFacilities,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -107,7 +107,7 @@ class OwnerApartmentPreviewScreen extends GetView<OwnerMyApartmentController> {
 
                       // image layout
                       Text(
-                        AppStrings.apartmetnImage,
+                        AppStrings.apartmentImage,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -293,7 +293,7 @@ class RenterDetail extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          "Alax tom",
+                          "Ajax tom",
                           style: context.txtTheme.bodyLarge,
                         ),
                       ],
@@ -301,7 +301,7 @@ class RenterDetail extends StatelessWidget {
                     
                     const SizedBox(height: AppSizes.sm,),
                     Text(
-                      "Suncity Dhaka bd",
+                      "Sanity Dhaka bd",
                       style: context.txtTheme.bodyLarge,
                     ),
                     const SizedBox(height: AppSizes.sm,),

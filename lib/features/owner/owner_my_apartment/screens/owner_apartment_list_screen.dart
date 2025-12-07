@@ -136,7 +136,7 @@ class OwnerApartmentListScreen extends GetView<OwnerMyApartmentController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            AppStrings.apartmetnImage,
+                            AppStrings.apartmentImage,
                             style: context.txtTheme.titleLarge?.copyWith(
                               decoration: TextDecoration.underline,
                               decorationColor: AppColors.primaryColor,

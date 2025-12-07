@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class DatePickerUtils {
   DatePickerUtils._();
 
-  static Future<String?> pickFormatedDate({
+  static Future<String?> pickFormattedDate({
     required BuildContext context,
     DateTime? initialDate,
     DateTime? firstDate,

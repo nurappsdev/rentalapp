@@ -65,13 +65,13 @@ class OwnerCreateEventScreen extends GetView<OwnerEventController> {
                         child: SvgPicture.asset(AppIcons.dateIcon),
                       ),
                       prefixIconCallBack: () async{
-                        final String? date = await DatePickerUtils.pickFormatedDate(context: context);
+                        final String? date = await DatePickerUtils.pickFormattedDate(context: context);
                         if(date != null){
                           controller.dateCTRL.text = date;
                         }
                       },
                       onTab: () async{
-                        final String? date = await DatePickerUtils.pickFormatedDate(context: context);
+                        final String? date = await DatePickerUtils.pickFormattedDate(context: context);
                         if(date != null){
                           controller.dateCTRL.text = date;
                         }

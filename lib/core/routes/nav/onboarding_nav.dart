@@ -16,7 +16,7 @@ class OnboardingNav{
     ),
 
      GetPage<dynamic>(
-      name: AppRoutes.onboardingAfetLoginRoute, 
+      name: AppRoutes.onboardingAfterLoginRoute, 
       page: () => const OnboardingAfterLoginScreen(), 
       binding: OnboardingBinding(),
       transition: Transition.noTransition

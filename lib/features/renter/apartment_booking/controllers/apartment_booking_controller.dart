@@ -26,7 +26,7 @@ class ApartmentBookingController extends GetxController {
   Rxn<File?> incomeTaxDoc = Rxn<File>(null);
   Rxn<File?> idCardFront = Rxn<File>(null);
   Rxn<File?> idCardBack = Rxn<File>(null);
-  Rxn<File?> creditCardApplicaitonDoc = Rxn<File>(null);
+  Rxn<File?> creditCardApplicationDoc = Rxn<File>(null);
 
 
   

@@ -27,7 +27,7 @@ class DeleteBottomSheet extends StatelessWidget {
             const SizedBox(height: AppSizes.spaceBetweenItems),
 
             Text(
-              AppStrings.deleteBottmSheetTitle,
+              AppStrings.deleteBottomSheetTitle,
               style: context.txtTheme.bodyLarge,
             ),
 
@@ -36,7 +36,7 @@ class DeleteBottomSheet extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
-                AppStrings.deleteBottmSheetSubTitle, 
+                AppStrings.deleteBottomSheetSubTitle, 
                 style: context.txtTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),

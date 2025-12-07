@@ -139,7 +139,7 @@ class RenterRequestScreen extends GetView<RenterRequestController> {
                                 borderRadius: BorderRadius.circular(20.0)
                               ),
                               child:  Text(
-                                "Reqeust Approved",
+                                "Request Approved",
                                 style: context.txtTheme.labelSmall?.copyWith(
                                   color: AppColors.textWhiteColor
                                 )
@@ -255,7 +255,7 @@ class RequestBottomSheet extends StatelessWidget {
 
                             CustomButton(
                               onTap: (){
-                                Get.offAllNamed(AppRoutes.homeRentarRoute);
+                                Get.offAllNamed(AppRoutes.homeRenterRoute);
                               }, 
                               width: 100.0,
                               height: 40.0,
@@ -283,7 +283,7 @@ class RequestBottomSheet extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20.0)
                       ),
                       child:  Text(
-                        "Reqeust Approved",
+                        "Request Approved",
                         style: context.txtTheme.labelSmall?.copyWith(
                           color: AppColors.textWhiteColor
                         )

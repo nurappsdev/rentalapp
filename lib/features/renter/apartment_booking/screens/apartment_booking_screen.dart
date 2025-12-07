@@ -132,13 +132,13 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
                         child: SvgPicture.asset(AppIcons.dateIcon),
                       ),
                       prefixIconCallBack: () async{
-                        final String? date = await DatePickerUtils.pickFormatedDate(context: context);
+                        final String? date = await DatePickerUtils.pickFormattedDate(context: context);
                         if(date != null){
                           controller.movingDateCTRL.text = date;
                         }
                       },
                       onTab: () async{
-                        final String? date = await DatePickerUtils.pickFormatedDate(context: context);
+                        final String? date = await DatePickerUtils.pickFormattedDate(context: context);
                         if(date != null){
                           controller.movingDateCTRL.text = date;
                         }
@@ -197,10 +197,10 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
                     Obx(
                       () => CustomFileUploadLayout(
                         label: 'Upload your credit card application doc', 
-                        file: controller.creditCardApplicaitonDoc.value,
+                        file: controller.creditCardApplicationDoc.value,
                         onBrowseCallback: () async{  
                           final File? file = await ImagePickerUtils.pickImageFile();
-                          controller.creditCardApplicaitonDoc.value = file;
+                          controller.creditCardApplicationDoc.value = file;
                         },
                       ),
                     ),

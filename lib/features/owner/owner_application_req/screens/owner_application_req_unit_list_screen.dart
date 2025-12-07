@@ -18,7 +18,7 @@ class OwnerApplicationReqUnitListScreen extends GetView<OwnerApplicationReqContr
 
   @override
   Widget build(BuildContext context) {
-    controller.handleRetriveUnitList();
+    controller.handleRetrieveUnitList();
     return Scaffold(
       appBar: const CustomAppBar(
         title: AppStrings.unitList,
@@ -32,7 +32,7 @@ class OwnerApplicationReqUnitListScreen extends GetView<OwnerApplicationReqContr
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
           child: Column(
             children: <Widget>[
-              // maintenence list with handling loading and empty state
+              // maintenance list with handling loading and empty state
               Obx((){
                 if(controller.applicationReqList.isEmpty){
                   return SizedBox(

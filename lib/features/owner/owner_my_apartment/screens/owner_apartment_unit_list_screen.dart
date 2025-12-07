@@ -19,7 +19,7 @@ class OwnerApartmentUnitListScreen extends GetView<OwnerMyApartmentController> {
 
   @override
   Widget build(BuildContext context) {
-    controller.handleRetriveUnitList();
+    controller.handleRetrieveUnitList();
     return Scaffold(
       appBar: const CustomAppBar(
         title: AppStrings.unitList,
@@ -33,7 +33,7 @@ class OwnerApartmentUnitListScreen extends GetView<OwnerMyApartmentController> {
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
           child: Column(
             children: <Widget>[
-              // maintenence list with handling loading and empty state
+              // maintenance list with handling loading and empty state
               Obx((){
                 if(controller.unitListLoading.value){
                   return const ApplicationReqShimmer();

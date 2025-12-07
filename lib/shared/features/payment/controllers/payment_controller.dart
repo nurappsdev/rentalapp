@@ -33,7 +33,7 @@ class PaymentController extends GetxController{
 
   final RxBool isAutoPayAccept = false.obs;
 
-  set updateisAutoPayStatus(bool? value){
+  set updateIsAutoPayStatus(bool? value){
     if(value != null){
       isAutoPayAccept.value = value;
     }

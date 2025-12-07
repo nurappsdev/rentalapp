@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_images.dart';
@@ -179,7 +181,7 @@ class PaymentCard extends StatelessWidget {
                 () => Checkbox(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   value: controller.isAutoPayAccept.value, 
-                  onChanged: (bool? value) => controller.updateisAutoPayStatus = value,
+                  onChanged: (bool? value) => controller.updateIsAutoPayStatus = value,
                 ),
               ),
               Expanded(
@@ -290,7 +292,7 @@ class AutoPayBottomSheet extends StatelessWidget {
               () => Checkbox(
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 value: controller.isAutoPayAccept.value, 
-                onChanged: (bool? value) => controller.updateisAutoPayStatus = value,
+                onChanged: (bool? value) => controller.updateIsAutoPayStatus = value,
               ),
             ),
             Text(

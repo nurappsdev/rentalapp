@@ -1,5 +1,5 @@
 enum RoleType{
-  rentar, 
+  renter, 
   owner,
   crew,
   agent,

@@ -8,14 +8,14 @@ class MaintenanceNav{
   static final List<GetPage<dynamic>> routes = <GetPage<dynamic>>[
     // maintenance routes
     GetPage<dynamic>(
-      name: AppRoutes.maintananceDetailsRoute, 
+      name: AppRoutes.maintenanceDetailsRoute, 
       page: () => const MaintenanceDetailsScreen(), 
       binding: MaintenanceDetailsBinding(),
       transition: Transition.noTransition
     ),
 
     GetPage<dynamic>(
-      name: AppRoutes.maintananceRoute, 
+      name: AppRoutes.maintenanceRoute, 
       page: () => const MaintenanceScreen(), 
       binding: MaintenanceBinding(),
       transition: Transition.noTransition

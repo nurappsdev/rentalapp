@@ -14,7 +14,7 @@ class OwnerMyApartmentController extends GetxController {
   final RxList<ApartmentModel> unitListDetails = <ApartmentModel>[].obs;
   final RxBool unitDetailsLoading = false.obs;
 
-  Future<void> handleRetriveUnitListDetails() async{
+  Future<void> handleRetrieveUnitListDetails() async{
     unitDetailsLoading.value = true;
 
     await Future<dynamic>.delayed(const Duration(milliseconds: 500), (){
@@ -29,7 +29,7 @@ class OwnerMyApartmentController extends GetxController {
   final RxList<ApplicationReqModel> unitList = <ApplicationReqModel>[].obs;
   final RxBool unitListLoading = false.obs;
 
-  Future<void> handleRetriveUnitList() async{
+  Future<void> handleRetrieveUnitList() async{
     unitListLoading.value = true;
     await Future<dynamic>.delayed(const Duration(seconds: 1), (){
       unitList.value = ApplicationReqModel.dummyApplicationReqModel;
@@ -45,7 +45,7 @@ class OwnerMyApartmentController extends GetxController {
   final RxBool unitPreviewLoading = false.obs;
 
 
-  Future<void> handleRetriveUnitPreview() async{
+  Future<void> handleRetrieveUnitPreview() async{
     unitPreviewLoading.value = true;
 
     await Future<dynamic>.delayed(const Duration(milliseconds: 500), (){
@@ -94,7 +94,7 @@ class OwnerMyApartmentController extends GetxController {
       image: image,
       apartmentName: 'City View Apartments',
       apartmentLocation: 'Downtown, New York',
-      apartmentDescription: 'Welcome to Suncity Apartments, where comfort meets convenience. Located in a prime urban neighborhood, Suncity offers stylish 1, 2, and 3-bedroom units designed for modern living. Each apartment features spacious layouts, large windows with natural light, fully equipped kitchens, premium fittings, and private balconies with stunning city views.',
+      apartmentDescription: 'Welcome to Sun Apartments, where comfort meets convenience. Located in a prime urban neighborhood, Sun offers stylish 1, 2, and 3-bedroom units designed for modern living. Each apartment features spacious layouts, large windows with natural light, fully equipped kitchens, premium fittings, and private balconies with stunning city views.',
       apartmentFacilities: <Facility>[
         Facility(icon: AppIcons.carIcon, name: 'Parking'),
         Facility(icon: AppIcons.leftIcon, name: 'Left'),
@@ -116,7 +116,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -132,7 +132,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -149,7 +149,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -208,7 +208,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -224,7 +224,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -241,7 +241,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -300,7 +300,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -316,7 +316,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -333,7 +333,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -393,7 +393,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -409,7 +409,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -426,7 +426,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -459,7 +459,7 @@ class OwnerMyApartmentController extends GetxController {
 
     ApartmentModel(
       id: "5",
-      title: 'Downtown Highrise Studio',
+      title: 'Downtown high-rise Studio',
       image: image,
       apartmentName: 'Skyline Towers',
       apartmentLocation: 'Chicago, IL',
@@ -485,7 +485,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -501,7 +501,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -518,7 +518,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -577,7 +577,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -593,7 +593,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -610,7 +610,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -669,7 +669,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -685,7 +685,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -702,7 +702,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -760,7 +760,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -776,7 +776,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -793,7 +793,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -852,7 +852,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -868,7 +868,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -885,7 +885,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -945,7 +945,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -961,7 +961,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.wifiIcon, name: 'Wifi'),
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,
@@ -978,7 +978,7 @@ class OwnerMyApartmentController extends GetxController {
             Facility(icon: AppIcons.carIcon, name: 'Parking'),
             Facility(icon: AppIcons.squareFitIcon, name: '1600 Sq Ft'),
             Facility(icon: AppIcons.gardenIcon, name: 'Ground'),
-            Facility(icon: AppIcons.gardenIcon, name: 'Belcony'),
+            Facility(icon: AppIcons.gardenIcon, name: 'Balcony'),
           ],
           unitImages: <String>[
             apartmentImage,

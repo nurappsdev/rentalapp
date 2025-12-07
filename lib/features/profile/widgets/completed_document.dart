@@ -32,7 +32,7 @@ class CompletedDocument extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          // maintenence list with handling loading and empty state
+          // maintenance list with handling loading and empty state
           Obx((){
             if(controller.completedDocumentsList.isEmpty){
               return SizedBox(
@@ -45,7 +45,7 @@ class CompletedDocument extends StatelessWidget {
                 ).centered,
               );
             }
-            else if(controller.compeletedDocumentsLoading.value){
+            else if(controller.completedDocumentsLoading.value){
               return const DocumentShimmer();
             }
             return ListView.separated(

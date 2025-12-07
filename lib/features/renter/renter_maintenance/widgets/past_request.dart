@@ -26,9 +26,9 @@ class PastRequest extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          // maintenence list with handling loading and empty state
+          // maintenance list with handling loading and empty state
           Obx((){
-            if(controller.pastMaintainanceList.isEmpty){
+            if(controller.pastMaintenanceList.isEmpty){
               return SizedBox(
                 width: context.screenWidth,
                 height: context.screenHeight * .6,
@@ -45,11 +45,11 @@ class PastRequest extends StatelessWidget {
             return ListView.separated(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: controller.pastMaintainanceList.length,
+              itemCount: controller.pastMaintenanceList.length,
               itemBuilder: (_, int index){
                 return RequestCard(
                   controller: controller,
-                  maintenance: controller.pastMaintainanceList[index],
+                  maintenance: controller.pastMaintenanceList[index],
                   isPast: true,
                   index: index,
                 );

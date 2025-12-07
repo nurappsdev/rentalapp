@@ -112,7 +112,7 @@ class RequestCard extends StatelessWidget {
             const SizedBox(height: AppSizes.xs,),
         
             Obx(() {
-              if (isPast ? controller.pastMaintainanceList.isEmpty : controller.openMaintainanceList.isEmpty) {
+              if (isPast ? controller.pastMaintenanceList.isEmpty : controller.openMaintenanceList.isEmpty) {
                 return const SizedBox.shrink();
               }
               return SizedBox(
@@ -120,14 +120,14 @@ class RequestCard extends StatelessWidget {
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: isPast ? controller.pastMaintainanceList.length : controller.openMaintainanceList.length,
+                  itemCount: isPast ? controller.pastMaintenanceList.length : controller.openMaintenanceList.length,
                   itemBuilder: (BuildContext context, int i) {
                     final VideoItemModel? item;
                     if(isPast){
-                      item = controller.pastReqeustVideoItems[index]?[i];
+                      item = controller.pastRequestVideoItems[index]?[i];
                     }
                     else{
-                      item = controller.openReqeustVideoItems[index]?[i];
+                      item = controller.openRequestVideoItems[index]?[i];
                     }                
                     return VisibilityDetector(
                       key: Key('video_$index$i]'),

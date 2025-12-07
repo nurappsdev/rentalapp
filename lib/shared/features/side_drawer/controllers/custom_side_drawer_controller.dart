@@ -16,7 +16,7 @@ class CustomSideDrawerController extends GetxController{
   final RxBool userLoading = false.obs;
 
 
-   Rx<RoleType> roleType = RoleType.rentar.obs;
+   Rx<RoleType> roleType = RoleType.renter.obs;
 
    Future<void> getRoleType() async{
     isRoleLoading.value = true;

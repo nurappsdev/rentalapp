@@ -29,7 +29,7 @@ class EmptyNotification extends StatelessWidget{
         const SizedBox(height: AppSizes.sm,),
     
         Text(
-          AppStrings.notificaitonEmpty,
+          AppStrings.notificationEmpty,
           textAlign: TextAlign.center,
           style: context.txtTheme.titleSmall,
         )

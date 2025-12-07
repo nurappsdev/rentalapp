@@ -28,14 +28,14 @@ class OpenRequest extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            // maintenence list with handling loading and empty state
+            // maintenance list with handling loading and empty state
             Obx((){
-              if(controller.openMaintainanceList.isEmpty){
+              if(controller.openMaintenanceList.isEmpty){
                 return SizedBox(
                   width: context.screenWidth,
                   height: context.screenHeight * .6,
                   child: Text(
-                    AppStrings.emptyOpenReqest,
+                    AppStrings.emptyOpenRequest,
                     textAlign: TextAlign.center,
                     style: context.txtTheme.titleSmall,
                   ).centered,
@@ -47,11 +47,11 @@ class OpenRequest extends StatelessWidget {
               return ListView.separated(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: controller.openMaintainanceList.length,
+                itemCount: controller.openMaintenanceList.length,
                 itemBuilder: (_, int index){
                   return RequestCard(
                     controller: controller,
-                    maintenance: controller.openMaintainanceList[index],
+                    maintenance: controller.openMaintenanceList[index],
                     isPast: false,
                     index: index,
                   );

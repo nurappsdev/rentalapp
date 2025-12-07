@@ -19,10 +19,10 @@ class HelperMethod{
   static Future<RoleType> getRoleType() async{
     final String? roleType = await SecureStorageService().read(AppConstants.roleType);
     if(roleType == null){
-      return RoleType.rentar;
+      return RoleType.renter;
     }
-    if(roleType == "rentar"){
-      return RoleType.rentar;
+    if(roleType == "renter"){
+      return RoleType.renter;
     }
     else if(roleType == "owner"){
       return RoleType.owner;
@@ -34,4 +34,9 @@ class HelperMethod{
       return RoleType.crew;
     }
   }
+
+  static Future<void> clearAllSecureStorage() async{
+    await SecureStorageService().clear();
+  }
+
 }

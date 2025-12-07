@@ -57,7 +57,7 @@ class OwnerCreateApartmentPreviewScreen extends GetView<OwnerCreateApartmentCont
 
                   // description layout
                   Text(
-                    AppStrings.apartmetnDescription,
+                    AppStrings.apartmentDescription,
                     style: context.txtTheme.titleMedium?.copyWith(
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.primaryColor,
@@ -78,7 +78,7 @@ class OwnerCreateApartmentPreviewScreen extends GetView<OwnerCreateApartmentCont
 
                   // facilities layout
                   Text(
-                    AppStrings.apartmetnFacilities,
+                    AppStrings.apartmentFacilities,
                     style: context.txtTheme.titleMedium?.copyWith(
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.primaryColor,
@@ -107,7 +107,7 @@ class OwnerCreateApartmentPreviewScreen extends GetView<OwnerCreateApartmentCont
 
                   // image layout
                   Text(
-                    AppStrings.apartmetnImage,
+                    AppStrings.apartmentImage,
                     style: context.txtTheme.titleMedium?.copyWith(
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.primaryColor,

@@ -38,14 +38,14 @@ class AppStrings{
   static const String emailTakingTitle = "Forgot Password";
   static const String emailTakingSubTitle = "Please enter your phone number to reset password.";
 
-  static const String resetPasswordBottmSheetTitle = "Password Changed!";
-  static const String resetPasswordBottmSheetSubTitle = "Return to the login page to enter your account with your new password.";
+  static const String resetPasswordBottomSheetTitle = "Password Changed!";
+  static const String resetPasswordBottomSheetSubTitle = "Return to the login page to enter your account with your new password.";
 
-  static const String logoutBottmSheetTitle = "LogOut";
-  static const String logoutBottmSheetSubTitle = "Are you sure you want to log out ?";
+  static const String logoutBottomSheetTitle = "LogOut";
+  static const String logoutBottomSheetSubTitle = "Are you sure you want to log out ?";
 
-  static const String deleteBottmSheetTitle = "Delete";
-  static const String deleteBottmSheetSubTitle = "Are you sure you want to delete ?";
+  static const String deleteBottomSheetTitle = "Delete";
+  static const String deleteBottomSheetSubTitle = "Are you sure you want to delete ?";
 
 
   // auth fields
@@ -83,7 +83,7 @@ class AppStrings{
   // auth others
   static const String resetPassword = "Reset Password";
   static const String doNotHaveAcc = "Don’t have an account?";
-  static const String didNotRecieveCode = "Didn’t receive code?";
+  static const String didNotReceiveCode = "Didn’t receive code?";
   static const String resendCode = "Resend Code";
   static const String termsAndConditionsAgreement = "By creating an account, I accept the Terms & Conditions & Privacy Policy.";
   static const String needEarlyService = "Need Early Service";
@@ -99,8 +99,8 @@ class AppStrings{
   static const String chooseRoleTitle = "Join as";
   static const String chooseRoleSubTitle = "please select an one option to start your journey with Apartment Rent  service .";
 
-  static const String rentar = "Renter";
-  static const String rentarRoleDesc = "create your account as a Apartment renter.";
+  static const String renter = "Renter";
+  static const String renterRoleDesc = "create your account as a Apartment renter.";
   static const String owner = "Owner";
   static const String ownerRoleDesc = "Create your account as a Apartment Owner.";
   static const String agent = "Front Desk Agent";
@@ -120,7 +120,7 @@ class AppStrings{
   static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
   static const String balanceDetailsNull = "Something went wrong!! Not Found the Balance Details";
   static const String apartmentDetailsNull = "Something went wrong!! Not Found the Apartment Details";
-  static const String notificaitonEmpty = "Notification is empty.";
+  static const String notificationEmpty = "Notification is empty.";
   static const String maintenanceDetails = "Maintenance details";
   static const String apartmentDetails = "Apartment details";
 
@@ -130,7 +130,7 @@ class AppStrings{
   static const String selectFloor = "Select Floor";
   static const String availableUnitType = "Available Unit Type";
   static const String unitType = "Unit Type";
-  static const String notificaiton = "Notification";
+  static const String notification = "Notification";
   static const String apartmentName = "Apartment Name";
   static const String apartmentRoomNo = "Apartment Room Number";
   static const String location = "Location";
@@ -139,10 +139,10 @@ class AppStrings{
   static const String issueDate = "Issue Date";
   static const String description = "Description";
   static const String calendar = "Calendar";
-  static const String apartmetnDescription = "Apartment  Description";
-  static const String apartmetnImage = "Apartment Image";
+  static const String apartmentDescription = "Apartment  Description";
+  static const String apartmentImage = "Apartment Image";
   static const String image = "Image";
-  static const String apartmetnFacilities = "Apartment Facilities";
+  static const String apartmentFacilities = "Apartment Facilities";
   static const String facilities = "Facilities";
   static const String issueImage = "Issue Image";
   static const String issueVideo = "Issue Video";
@@ -199,7 +199,7 @@ class AppStrings{
   static const String pastPayment = "Past Payment";
   static const String allocateBill = "Allocate Bill";
   static const String accountDetails = "Account Details";
-  static const String emptyOpenReqest = "You don’t have any open maintenance request at this time add one by clicking on the + button";
+  static const String emptyOpenRequest = "You don’t have any open maintenance request at this time add one by clicking on the + button";
   static const String emptyPastRequest = "You don’t have any past maintenance request at this time for add go to open request and add request";
   static const String emptyPendingDoc = "You don’t have any pending documents at this time upload one by clicking on the upload button";
   static const String emptyCompleteDoc = "You don’t have any completed documents at this time for add go to pending documents and add documents";
@@ -280,8 +280,8 @@ class AppStrings{
     static const String thisWeekEvents = "This Week";
     static const String thisMonthEvents = "This Month";
 
-    static const String myDocumentsTab = "My Docuemnts";
-    static const String receivedDocuments = "Recieved Docuemnts";
+    static const String myDocumentsTab = "My Documents";
+    static const String receivedDocuments = "Received Documents";
 
     static const String recentRequest = "Recent Request";
 

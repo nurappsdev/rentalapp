@@ -123,7 +123,7 @@ class ResetPassBottomSheet extends StatelessWidget {
             const SizedBox(height: AppSizes.spaceBetweenItems),
 
             Text(
-              AppStrings.resetPasswordBottmSheetTitle,
+              AppStrings.resetPasswordBottomSheetTitle,
               style: context.txtTheme.bodyLarge,
             ),
 
@@ -132,7 +132,7 @@ class ResetPassBottomSheet extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
-                AppStrings.resetPasswordBottmSheetSubTitle, 
+                AppStrings.resetPasswordBottomSheetSubTitle, 
                 style: context.txtTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),

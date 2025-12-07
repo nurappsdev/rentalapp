@@ -18,15 +18,15 @@ class RenterMaintenanceController extends GetxController with GetSingleTickerPro
 
   late TabController tabController;
 
-  final RxList<RenterMaintenanceModel> openMaintainanceList = <RenterMaintenanceModel>[].obs;
+  final RxList<RenterMaintenanceModel> openMaintenanceList = <RenterMaintenanceModel>[].obs;
   final RxBool openMaintenanceLoading = false.obs;
 
-  final RxList<RenterMaintenanceModel> pastMaintainanceList = <RenterMaintenanceModel>[].obs;
+  final RxList<RenterMaintenanceModel> pastMaintenanceList = <RenterMaintenanceModel>[].obs;
   final RxBool pastMaintenanceLoading = false.obs;
 
 
-  final RxMap<int, RxList<VideoItemModel>> openReqeustVideoItems = <int, RxList<VideoItemModel>>{}.obs;
-  final RxMap<int, RxList<VideoItemModel>> pastReqeustVideoItems = <int, RxList<VideoItemModel>>{}.obs;
+  final RxMap<int, RxList<VideoItemModel>> openRequestVideoItems = <int, RxList<VideoItemModel>>{}.obs;
+  final RxMap<int, RxList<VideoItemModel>> pastRequestVideoItems = <int, RxList<VideoItemModel>>{}.obs;
 
   Future<void> _initializeVideos(int index, List<String> urls, bool isPast) async {
     for (final String url in urls) {
@@ -46,38 +46,38 @@ class RenterMaintenanceController extends GetxController with GetSingleTickerPro
 
       item.initialized = true;
       if(isPast){
-        pastReqeustVideoItems.putIfAbsent(index, () => <VideoItemModel>[].obs).add(item);
+        pastRequestVideoItems.putIfAbsent(index, () => <VideoItemModel>[].obs).add(item);
       }
       else{
-        openReqeustVideoItems.putIfAbsent(index, () => <VideoItemModel>[].obs).add(item);
+        openRequestVideoItems.putIfAbsent(index, () => <VideoItemModel>[].obs).add(item);
       }
     }
-    LoggerUtils.debug(<RxMap<int, RxList<VideoItemModel>>>{pastReqeustVideoItems, openReqeustVideoItems});
+    LoggerUtils.debug(<RxMap<int, RxList<VideoItemModel>>>{pastRequestVideoItems, openRequestVideoItems});
   }
 
   // Play only one video at a time
   void playOnly(int index, int videoIndex, bool isPast) {
     if(isPast){
-      if (!pastReqeustVideoItems.containsKey(index)) {
+      if (!pastRequestVideoItems.containsKey(index)) {
         return;
       }
-      for (int i = 0; i < (pastReqeustVideoItems[index]?.length ?? 0); i++) {
+      for (int i = 0; i < (pastRequestVideoItems[index]?.length ?? 0); i++) {
         if (i == videoIndex) {
-          pastReqeustVideoItems[index]?[i].videoController.play();
+          pastRequestVideoItems[index]?[i].videoController.play();
         } else {
-          pastReqeustVideoItems[index]?[i].videoController.pause();
+          pastRequestVideoItems[index]?[i].videoController.pause();
         }
       }
     }
     else{
-      if (!openReqeustVideoItems.containsKey(index)) {
+      if (!openRequestVideoItems.containsKey(index)) {
         return;
       }
-      for (int i = 0; i < (openReqeustVideoItems[index]?.length ?? 0); i++) {
+      for (int i = 0; i < (openRequestVideoItems[index]?.length ?? 0); i++) {
         if (i == videoIndex) {
-          openReqeustVideoItems[index]?[i].videoController.play();
+          openRequestVideoItems[index]?[i].videoController.play();
         } else {
-          openReqeustVideoItems[index]?[i].videoController.pause();
+          openRequestVideoItems[index]?[i].videoController.pause();
         }
       }
     }
@@ -85,14 +85,14 @@ class RenterMaintenanceController extends GetxController with GetSingleTickerPro
 
   @override
   void onClose() {
-    for (final MapEntry<int, RxList<VideoItemModel>> item in pastReqeustVideoItems.entries) {
+    for (final MapEntry<int, RxList<VideoItemModel>> item in pastRequestVideoItems.entries) {
       for(final VideoItemModel it in item.value){
         it.chewieController.dispose();
         it.videoController.dispose();
       }
     }
 
-    for (final MapEntry<int, RxList<VideoItemModel>> item in openReqeustVideoItems.entries) {
+    for (final MapEntry<int, RxList<VideoItemModel>> item in openRequestVideoItems.entries) {
       for(final VideoItemModel it in item.value){
         it.chewieController.dispose();
         it.videoController.dispose();
@@ -114,10 +114,10 @@ class RenterMaintenanceController extends GetxController with GetSingleTickerPro
 
     openMaintenanceLoading.value = true;
     Future<dynamic>.delayed(const Duration(seconds: 2), (){
-      openMaintainanceList.value = <RenterMaintenanceModel>[];
-      if(openMaintainanceList.isNotEmpty){
-        for(int i = 0; i < openMaintainanceList.length; i++){
-          _initializeVideos(i, openMaintainanceList[i].issueVideos, false);
+      openMaintenanceList.value = <RenterMaintenanceModel>[];
+      if(openMaintenanceList.isNotEmpty){
+        for(int i = 0; i < openMaintenanceList.length; i++){
+          _initializeVideos(i, openMaintenanceList[i].issueVideos, false);
         }
       }
     });
@@ -129,10 +129,10 @@ class RenterMaintenanceController extends GetxController with GetSingleTickerPro
 
     pastMaintenanceLoading.value = true;
     Future<dynamic>.delayed(const Duration(seconds: 2), (){
-      pastMaintainanceList.value = RenterMaintenanceModel.dummyMaintenanceList;
-      if(pastMaintainanceList.isNotEmpty){
-        for(int i = 0; i < pastMaintainanceList.length; i++){
-          _initializeVideos(i, pastMaintainanceList[i].issueVideos, true);
+      pastMaintenanceList.value = RenterMaintenanceModel.dummyMaintenanceList;
+      if(pastMaintenanceList.isNotEmpty){
+        for(int i = 0; i < pastMaintenanceList.length; i++){
+          _initializeVideos(i, pastMaintenanceList[i].issueVideos, true);
         }
       }
     });

@@ -91,7 +91,7 @@ class VerifyEmailCard extends StatelessWidget {
             spacing: AppSizes.xs,
             children: <Widget>[
               Text(
-                AppStrings.didNotRecieveCode,
+                AppStrings.didNotReceiveCode,
                 style: context.txtTheme.labelLarge
               ),
               GestureDetector(

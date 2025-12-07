@@ -128,18 +128,18 @@ class ProfileScreen extends GetView<ProfileController> {
                       final UserModel user = controller.user.value!;
                       return Column(
                         children: <Widget>[
-                          userdetails(context, user),
+                          userDetails(context, user),
                           const SizedBox(height: AppSizes.spaceBetweenSections,),
                           CustomButton(
                             onTap: (){
-                              controller.isVacentBtnVisible.value = !controller.isVacentBtnVisible.value;
+                              controller.isVacantBtnVisible.value = !controller.isVacantBtnVisible.value;
                             },
                             width: 100.0,
                             isOutline: true,
                             text: "Vacant Notice"
-                          ).centered.visible(controller.isVacentBtnVisible.value),
+                          ).centered.visible(controller.isVacantBtnVisible.value),
 
-                          if(!controller.isVacentBtnVisible.value)
+                          if(!controller.isVacantBtnVisible.value)
                             Row(
                               spacing: AppSizes.md,
                               children: <Widget>[
@@ -176,7 +176,7 @@ class ProfileScreen extends GetView<ProfileController> {
     );
   }
 
-  Column userdetails(BuildContext context, UserModel user) {
+  Column userDetails(BuildContext context, UserModel user) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

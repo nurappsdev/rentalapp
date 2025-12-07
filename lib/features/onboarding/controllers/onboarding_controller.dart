@@ -4,22 +4,19 @@ import 'package:alora/core/utils/helper_method.dart';
 import 'package:get/get.dart';
 
 class OnboardingController extends GetxController {
+  final Rx<RoleType> roleType = RoleType.renter.obs;
 
-  final Rx<RoleType> roleType = RoleType.rentar.obs;
-
-
-  Future<void> getRoleType() async{
+  Future<void> getRoleType() async {
     roleType.value = await HelperMethod.getRoleType();
   }
 
-
   final RxBool isLoading = false.obs;
 
-  Future<void> handleGetStarted() async{
+  Future<void> handleGetStarted() async {
     isLoading.value = true;
     await getRoleType();
-    switch(roleType.value){
-      case RoleType.rentar:
+    switch (roleType.value) {
+      case RoleType.renter:
         Get.offAllNamed(AppRoutes.searchApartmentsRoute);
         break;
       case RoleType.owner:
@@ -32,15 +29,20 @@ class OnboardingController extends GetxController {
         Get.offAllNamed(AppRoutes.homeOwnerRoute);
         break;
     }
-    
+
     isLoading.value = false;
+  }
+
+  Future<void> handleGetStartedBefore() async {
+    await HelperMethod.clearAllSecureStorage();
+    Get.offAllNamed(AppRoutes.signInRoute);
   }
 
   /// [onInit] Lifecycle method called when the controller is initialized.
   ///
   /// Resets loading states, clears existing data, and triggers and more..
   /// initial fetch
-  /// 
+  ///
   @override
   void onInit() {
     super.onInit();

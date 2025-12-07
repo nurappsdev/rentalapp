@@ -12,9 +12,7 @@ import 'package:get/get.dart';
 import '../controllers/onboarding_controller.dart';
 
 class OnboardingScreen extends GetView<OnboardingController> {
-  const OnboardingScreen({
-    super.key
-  });
+  const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +23,9 @@ class OnboardingScreen extends GetView<OnboardingController> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              SizedBox(height: context.screenHeight * .4,),
+              SizedBox(height: context.screenHeight * .4),
               const OnboardingCard(),
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
+              const SizedBox(height: AppSizes.spaceBetweenSections),
             ],
           ),
         ),
@@ -35,7 +33,6 @@ class OnboardingScreen extends GetView<OnboardingController> {
     );
   }
 }
-
 
 class OnboardingCard extends StatelessWidget {
   const OnboardingCard({super.key});
@@ -48,20 +45,14 @@ class OnboardingCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.blue50.withValues(alpha: .8),
         borderRadius: BorderRadius.circular(AppSizes.borderRadiusXxxL),
-        border: Border.all(
-          color: AppColors.whiteColor,
-          width: AppSizes.dividerThick
-        )
+        border: Border.all(color: AppColors.whiteColor, width: AppSizes.dividerThick),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Image.asset(
-            AppImages.appLogo, 
-            width: 110
-          ).centered,
+          Image.asset(AppImages.appLogo, width: 110).centered,
 
-          const SizedBox(height: AppSizes.spaceBetweenSections,),
+          const SizedBox(height: AppSizes.spaceBetweenSections),
 
           Text(
             AppStrings.onboardingCardTitle,
@@ -69,26 +60,25 @@ class OnboardingCard extends StatelessWidget {
             style: context.txtTheme.headlineMedium,
           ),
 
-
-          const SizedBox(height: AppSizes.spaceBetweenSections,),
+          const SizedBox(height: AppSizes.spaceBetweenSections),
 
           SizedBox(
             width: context.screenWidth * .7,
             child: Text(
               AppStrings.onboardingCardSubTitle,
               textAlign: TextAlign.center,
-              style: context.txtTheme.labelLarge
+              style: context.txtTheme.labelLarge,
             ),
           ),
 
-          const SizedBox(height: AppSizes.spaceBetweenSections,),
+          const SizedBox(height: AppSizes.spaceBetweenSections),
 
           CustomButton(
-            onTap: () => Get.offAllNamed(AppRoutes.chooseRoleRoute),
+            onTap: Get.find<OnboardingController>().handleGetStartedBefore,
             text: AppStrings.getStarted,
           ),
 
-          const SizedBox(height: AppSizes.spaceBetweenItems,),
+          const SizedBox(height: AppSizes.spaceBetweenItems),
         ],
       ),
     );

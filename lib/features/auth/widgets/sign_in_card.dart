@@ -116,7 +116,7 @@ class SignInCard extends StatelessWidget {
                     style: context.txtTheme.labelLarge
                   ),
                   GestureDetector(
-                    onTap: () => Get.offAllNamed(AppRoutes.signUpRoute),
+                    onTap: () => Get.offAllNamed(AppRoutes.chooseRoleRoute),
                     child: Text(
                       AppStrings.signUp,
                       style: context.txtTheme.labelLarge?.copyWith(

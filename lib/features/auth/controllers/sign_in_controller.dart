@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class SignInController extends GetxController {
 
-  final Rx<RoleType> roleType = RoleType.rentar.obs;
+  final Rx<RoleType> roleType = RoleType.renter.obs;
 
 
   Future<void> getRoleType() async{
@@ -18,11 +18,11 @@ class SignInController extends GetxController {
     isLoading.value = true;
     
     switch(roleType.value){
-      case RoleType.rentar:
-        Get.offAllNamed(AppRoutes.onboardingAfetLoginRoute);
+      case RoleType.renter:
+        Get.offAllNamed(AppRoutes.onboardingAfterLoginRoute);
         break;
       case RoleType.owner:
-        Get.offAllNamed(AppRoutes.onboardingAfetLoginRoute);
+        Get.offAllNamed(AppRoutes.onboardingAfterLoginRoute);
         break;
       case RoleType.crew:
         Get.offAllNamed(AppRoutes.homeCrewRoute);

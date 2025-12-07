@@ -27,7 +27,7 @@ class PaymentTicketController extends GetxController {
     isLoading.value = true;
     
     switch(roleType){
-      case RoleType.rentar:
+      case RoleType.renter:
         Get.offAllNamed(AppRoutes.renterRequestRoute);
         break;
       case RoleType.owner:

@@ -53,7 +53,7 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
             children: <Widget>[
               const SizedBox(height: AppSizes.spaceBetweenItems,),
 
-              // calander
+              // calender
               Container(
                 decoration: BoxDecoration(
                   color: AppColors.whiteColor,
@@ -91,7 +91,7 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
 
               const SizedBox(height: AppSizes.spaceBetweenSections,),
 
-              // maintenence list with handling loading and empty state
+              // maintenance list with handling loading and empty state
               Obx((){
                 if(controller.maintenanceList.isEmpty){
                   return const EmptyMaintenance().centered;
@@ -107,7 +107,7 @@ class HomeCrewScreen extends GetView<HomeCrewController> {
                     return MaintenanceCard(
                       maintenanceModel: controller.maintenanceList[index],
                       onViewCallback: () => Get.toNamed(
-                        AppRoutes.maintananceDetailsRoute, 
+                        AppRoutes.maintenanceDetailsRoute, 
                         arguments: <String, String>{
                           "maintenance_id": controller.maintenanceList[index].id
                         }

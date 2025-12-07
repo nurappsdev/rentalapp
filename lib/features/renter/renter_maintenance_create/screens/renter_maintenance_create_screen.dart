@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:io';
 
 import 'package:alora/core/config/app_colors.dart';
@@ -24,13 +26,10 @@ import 'package:get/get.dart';
 import '../controllers/renter_maintenance_create_controller.dart';
 
 class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateController> {
-  const RenterMaintenanceCreateScreen({
-    super.key
-  });
+  const RenterMaintenanceCreateScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: const CustomAppBar(
         showBackBtn: true,
@@ -40,8 +39,8 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
       backgroundColor: AppColors.surfaceColor,
       body: SingleChildScrollView(
         child: Padding(
-           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
-           child: Column(
+          padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -49,70 +48,57 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                 "Please provide us with some information about your maintenance issue. ",
                 style: context.txtTheme.titleMedium,
               ),
-              const SizedBox(height: AppSizes.spaceBetweenItems,),
+              const SizedBox(height: AppSizes.spaceBetweenItems),
 
               Container(
                 width: context.screenWidth,
                 padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    width: AppSizes.dividerThick,
-                    color: AppColors.borderColor
-                  )
+                  border: Border.all(width: AppSizes.dividerThick, color: AppColors.borderColor),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
-                    Text(
-                      AppStrings.apartmentRoomNo,
-                      style: context.txtTheme.bodyMedium
-                    ),
-                    const SizedBox(height: AppSizes.md,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text(AppStrings.apartmentRoomNo, style: context.txtTheme.bodyMedium),
+                    const SizedBox(height: AppSizes.md),
 
                     CustomTextField(
                       controller: TextEditingController(),
                       isBorder: true,
                       readOnly: true,
                       borderRadius: 12.0,
-                      onTab: () async{
-                      },
+                      onTab: () async {},
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenInputs,),
-                    Text(
-                      AppStrings.description,
-                      style: context.txtTheme.bodyMedium
-                    ),
-                    const SizedBox(height: AppSizes.md,),
+                    const SizedBox(height: AppSizes.spaceBetweenInputs),
+                    Text(AppStrings.description, style: context.txtTheme.bodyMedium),
+                    const SizedBox(height: AppSizes.md),
 
                     CustomTextField(
                       controller: TextEditingController(),
                       isBorder: true,
                       readOnly: true,
                       borderRadius: 12.0,
-                      onTab: () async{
-                      },
+                      onTab: () async {},
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
 
                     CustomFileUploadLayout(
-                      label: 'Upload issue images', 
-                      onBrowseCallback: () async{  
-                      },
+                      label: 'Upload issue images',
+                      onBrowseCallback: () async {},
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
 
                     CustomFileUploadLayout(
-                      label: 'Upload issue videos', 
-                      onBrowseCallback: () async{  
-                      },
+                      label: 'Upload issue videos',
+                      onBrowseCallback: () async {},
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -121,30 +107,30 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                         Obx(
                           () => Checkbox(
                             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                            value: controller.isNeedEarlyService.value, 
+                            value: controller.isNeedEarlyService.value,
                             onChanged: (bool? value) => controller.updateNeedEarlyService = value,
                           ),
                         ),
                         Expanded(
                           child: Text(
                             AppStrings.needEarlyService,
-                            style: context.txtTheme.titleSmall
+                            style: context.txtTheme.titleSmall,
                           ),
                         ),
-                        const SizedBox(width: AppSizes.lg,),
+                        const SizedBox(width: AppSizes.lg),
                       ],
                     ),
 
                     Text(
                       "You will receive your service within the next 24 hours.",
-                      style: context.txtTheme.labelMedium
+                      style: context.txtTheme.labelMedium,
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
 
                     Text(
                       "The services team may arrive when you are not home",
-                      style: context.txtTheme.titleMedium
+                      style: context.txtTheme.titleMedium,
                     ),
 
                     Row(
@@ -159,10 +145,7 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                             onChanged: (bool? value) => controller.updateYes = value,
                           ),
                         ),
-                        Text(
-                          AppStrings.yes,
-                          style: context.txtTheme.titleMedium
-                        ),
+                        Text(AppStrings.yes, style: context.txtTheme.titleMedium),
 
                         // option paypal
                         Obx(
@@ -172,19 +155,13 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                             onChanged: (bool? value) => controller.updateYes = value,
                           ),
                         ),
-                        Text(
-                          AppStrings.no,
-                          style: context.txtTheme.titleMedium
-                        ),
+                        Text(AppStrings.no, style: context.txtTheme.titleMedium),
                       ],
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
-                    Text(
-                      AppStrings.calendar,
-                      style: context.txtTheme.bodyMedium
-                    ),
-                    const SizedBox(height: AppSizes.md,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text(AppStrings.calendar, style: context.txtTheme.bodyMedium),
+                    const SizedBox(height: AppSizes.md),
 
                     CustomTextField(
                       controller: controller.calendarCTRL,
@@ -195,33 +172,33 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                         padding: const EdgeInsets.all(8.0),
                         child: SvgPicture.asset(AppIcons.dateIcon),
                       ),
-                      prefixIconCallBack: () async{
-                        final String? date = await DatePickerUtils.pickFormatedDate(context: context);
-                        if(date != null){
+                      prefixIconCallBack: () async {
+                        final String? date = await DatePickerUtils.pickFormattedDate(
+                          context: context,
+                        );
+                        if (date != null) {
                           controller.calendarCTRL.text = date;
                         }
                       },
-                      onTab: () async{
-                        final String? date = await DatePickerUtils.pickFormatedDate(context: context);
-                        if(date != null){
+                      onTab: () async {
+                        final String? date = await DatePickerUtils.pickFormattedDate(
+                          context: context,
+                        );
+                        if (date != null) {
                           controller.calendarCTRL.text = date;
                         }
                       },
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
 
-                    CustomButton(
-                      onTap: () => Get.back(), 
-                      text: AppStrings.submitIssue
-                    ),
+                    CustomButton(onTap: () => Get.back(), text: AppStrings.submitIssue),
 
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
-
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
                   ],
                 ),
               ),
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
+              const SizedBox(height: AppSizes.spaceBetweenSections),
             ],
           ),
         ),
@@ -229,5 +206,3 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
     );
   }
 }
-
-

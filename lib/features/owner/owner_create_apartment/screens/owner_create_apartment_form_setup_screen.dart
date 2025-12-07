@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:alora/core/config/app_colors.dart';
 import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';

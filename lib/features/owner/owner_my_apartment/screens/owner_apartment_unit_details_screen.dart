@@ -19,7 +19,7 @@ class OwnerApartmentUnitDetailsScreen extends GetView<OwnerMyApartmentController
 
   @override
   Widget build(BuildContext context) {
-    controller.handleRetriveUnitListDetails();
+    controller.handleRetrieveUnitListDetails();
     return Scaffold(
       appBar: const CustomAppBar(
         title: AppStrings.unitDetailsList,

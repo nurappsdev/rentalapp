@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class HomeOwnerController extends GetxController {
 
-  final Rx<RoleType> roleType = RoleType.rentar.obs;
+  final Rx<RoleType> roleType = RoleType.renter.obs;
 
 
   Future<void> getRoleType() async{

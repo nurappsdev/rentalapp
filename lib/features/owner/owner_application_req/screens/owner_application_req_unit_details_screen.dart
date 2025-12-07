@@ -25,7 +25,7 @@ class OwnerApplicationReqUnitDetailsScreen extends GetView<OwnerApplicationReqCo
 
   @override
   Widget build(BuildContext context) {
-    controller.handleRetriveUnitDetails();
+    controller.handleRetrieveUnitDetails();
     return Scaffold(
      appBar: const CustomAppBar(
         title: AppStrings.unitDetails,
@@ -60,7 +60,7 @@ class OwnerApplicationReqUnitDetailsScreen extends GetView<OwnerApplicationReqCo
 
                       // description layout
                       Text(
-                        AppStrings.apartmetnDescription,
+                        AppStrings.apartmentDescription,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -79,7 +79,7 @@ class OwnerApplicationReqUnitDetailsScreen extends GetView<OwnerApplicationReqCo
                       const SizedBox(height: AppSizes.spaceBetweenItems,),
                       // facilities layout
                       Text(
-                        AppStrings.apartmetnFacilities,
+                        AppStrings.apartmentFacilities,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -107,7 +107,7 @@ class OwnerApplicationReqUnitDetailsScreen extends GetView<OwnerApplicationReqCo
 
                       // image layout
                       Text(
-                        AppStrings.apartmetnImage,
+                        AppStrings.apartmentImage,
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
@@ -281,12 +281,12 @@ class ReqList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "Suncity Dhaka bd",
+                        "Sanity Dhaka bd",
                         style: context.txtTheme.bodyLarge,
                       ),
                       const SizedBox(height: AppSizes.sm,),
                       Text(
-                        "Alax tom",
+                        "Ajax tom",
                         style: context.txtTheme.bodyLarge,
                       ),
                       const SizedBox(height: AppSizes.sm,),
