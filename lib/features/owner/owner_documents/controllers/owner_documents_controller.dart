@@ -24,7 +24,7 @@ class OwnerDocumentsController extends GetxController with GetSingleTickerProvid
 
   final Rxn<ApartmentModel?> singleApartment = Rxn<ApartmentModel?>(null);
   final RxBool singleApartmentLoading = false.obs;
-  Future<void> handleRetriveSingleApartment() async{
+  Future<void> handleRetrieveSingleApartment() async{
     singleApartmentLoading.value = true;
 
     await Future<dynamic>.delayed(const Duration(milliseconds: 500), (){

@@ -10,10 +10,10 @@ class RenterPaymentController extends GetxController {
   final RxBool pastPaymentsLoading = false.obs;
 
 
-  Future<void> handleRetrivePastPayments() async{
+  Future<void> handleRetrievePastPayments() async{
     pastPaymentsLoading.value = true;
     Future<dynamic>.delayed(const Duration(seconds: 1), (){
-      pastPayments.value = RenterBalanceDetailsModel.dummyBalanceDeatailsList;
+      pastPayments.value = RenterBalanceDetailsModel.dummyBalanceDetailsList;
     });
 
     Future<dynamic>.delayed(const Duration(seconds: 2), (){
@@ -28,10 +28,10 @@ class RenterPaymentController extends GetxController {
   String paymentId = '';
   set updatePaymentId(String paymentId) => this.paymentId = paymentId;
 
-  Future<void> handleRetriveSinglePastPayments() async{
+  Future<void> handleRetrieveSinglePastPayments() async{
     singlePastPaymentLoading.value = true;
     Future<dynamic>.delayed(const Duration(seconds: 1), (){
-      pastPayment.value = RenterBalanceDetailsModel.dummyBalanceDeatailsList.firstWhere(
+      pastPayment.value = RenterBalanceDetailsModel.dummyBalanceDetailsList.firstWhere(
         (RenterBalanceDetailsModel balance) => paymentId == balance.id
       );
     });
@@ -51,7 +51,7 @@ class RenterPaymentController extends GetxController {
     super.onInit();
     balanceDetailsLoading.value = true;
     Future<dynamic>.delayed(const Duration(seconds: 1), (){
-      balanceDetails.value = RenterBalanceDetailsModel.dummyBalanceDeatailsList.first;
+      balanceDetails.value = RenterBalanceDetailsModel.dummyBalanceDetailsList.first;
     });
 
     Future<dynamic>.delayed(const Duration(seconds: 2), (){

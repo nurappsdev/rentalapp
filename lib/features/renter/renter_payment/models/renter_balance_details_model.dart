@@ -37,7 +37,7 @@ class RenterBalanceDetailsModel {
         pestControlBill;
   }
 
-   static final List<RenterBalanceDetailsModel> dummyBalanceDeatailsList = <RenterBalanceDetailsModel>[
+   static final List<RenterBalanceDetailsModel> dummyBalanceDetailsList = <RenterBalanceDetailsModel>[
      RenterBalanceDetailsModel(
       id: "1",
       isSuccess: false,
@@ -54,7 +54,7 @@ class RenterBalanceDetailsModel {
 
     RenterBalanceDetailsModel(
       id: "2",
-      transactionId: "1345 GDSFH 346",
+      transactionId: "1345 GASH 346",
       isSuccess: true,
       date: DateTime(2025, 6, 1),
       gasBill: 35.5,
@@ -84,7 +84,7 @@ class RenterBalanceDetailsModel {
 
     RenterBalanceDetailsModel(
       id: "4",
-      transactionId: "1345 SGSGS 346",
+      transactionId: "1345 SAGS 346",
       isSuccess: true,
       rent: 3000.0,
       date: DateTime(2025, 4, 1),

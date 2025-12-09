@@ -8,7 +8,6 @@ import 'package:get/get_utils/get_utils.dart';
 
 enum TitleAlignment { left, center, right }
 
-
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final bool isTitleUnderline;
@@ -21,6 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showBackBtn;
   final bool showDrawerIcon;
   final GlobalKey<ScaffoldState>? scaffoldKey;
+  final double translateValue;
 
   const CustomAppBar({
     super.key,
@@ -33,12 +33,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.leading,
     this.scaffoldKey,
+    this.translateValue = -25.0,
     this.backgroundColor = AppColors.whiteColor,
     this.elevation = 4.0,
-  }) : assert(!(showBackBtn && showDrawerIcon),
-            'Cannot show both back button and drawer icon'),
-      assert(!showDrawerIcon || scaffoldKey != null,
-        'scaffoldKey must be provided if showDrawerIcon is true');
+  }) : assert(!(showBackBtn && showDrawerIcon), 'Cannot show both back button and drawer icon'),
+       assert(
+         !showDrawerIcon || scaffoldKey != null,
+         'scaffoldKey must be provided if showDrawerIcon is true',
+       );
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +49,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     if (showBackBtn) {
       leading = IconButton(
         icon: SvgPicture.asset(
-          AppIcons.backIcon, 
-          width: 24.0, 
+          AppIcons.backIcon,
+          width: 24.0,
           height: 24.0,
           colorFilter: const ColorFilter.mode(AppColors.blackColor, BlendMode.srcATop),
         ),
@@ -57,17 +59,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     } else if (showDrawerIcon) {
       leading = IconButton(
         icon: SvgPicture.asset(
-          AppIcons.sideDrawerIcon, 
-          width: 32.0, 
+          AppIcons.sideDrawerIcon,
+          width: 32.0,
           height: 32.0,
           colorFilter: const ColorFilter.mode(AppColors.blackColor, BlendMode.srcATop),
         ),
         onPressed: () {
-          if(scaffoldKey != null && scaffoldKey!.currentState != null && scaffoldKey!.currentState!.hasDrawer){
-            if(!scaffoldKey!.currentState!.isDrawerOpen){
+          if (scaffoldKey != null &&
+              scaffoldKey!.currentState != null &&
+              scaffoldKey!.currentState!.hasDrawer) {
+            if (!scaffoldKey!.currentState!.isDrawerOpen) {
               scaffoldKey!.currentState!.openDrawer();
-            }
-            else{
+            } else {
               scaffoldKey!.currentState!.closeDrawer();
             }
           }
@@ -85,17 +88,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         decorationColor: Colors.black,
         decorationThickness: 2.0,
       ),
-      title: title != null ? Align(
-        alignment: _getTitleAlignment(),
-        child: Text(
-            title!,
-            style: context.txtTheme.headlineSmall?.copyWith(
-              decoration: isTitleUnderline ? TextDecoration.underline : null,
-              decorationColor: AppColors.blackColor,
-              decorationThickness: AppSizes.dividerHeight,
-            ),
-          ),
-      ) : null,
+      title:
+          title != null
+              ? Align(
+                alignment: _getTitleAlignment(),
+                child: Transform.translate(
+                  offset:
+                      titleAlignment == TitleAlignment.center
+                          ? Offset(translateValue, 0)
+                          : Offset.zero,
+                  child: Text(
+                    title!,
+                    style: context.txtTheme.headlineSmall?.copyWith(
+                      decoration: isTitleUnderline ? TextDecoration.underline : null,
+                      decorationColor: AppColors.blackColor,
+                      decorationThickness: AppSizes.dividerHeight,
+                    ),
+                  ),
+                ),
+              )
+              : null,
       centerTitle: false,
       actions: actions,
     );

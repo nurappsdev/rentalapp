@@ -20,9 +20,7 @@ import 'package:get/get.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileScreen extends GetView<ProfileController> {
-  const ProfileScreen({
-    super.key
-  });
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +36,7 @@ class ProfileScreen extends GetView<ProfileController> {
         padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
         child: Column(
           children: <Widget>[
-            const SizedBox(height: AppSizes.spaceBetweenItems,),
+            const SizedBox(height: AppSizes.spaceBetweenItems),
 
             Obx(
               () => ProfileImage(
@@ -48,13 +46,13 @@ class ProfileScreen extends GetView<ProfileController> {
                 borderColor: AppColors.primaryColor,
                 borderWidth: AppSizes.dividerThick,
                 isEdit: true,
-                editProfile: () async{
-                 controller.profileImageFile.value = await ImagePickerUtils.pickImageFile();
+                editProfile: () async {
+                  controller.profileImageFile.value = await ImagePickerUtils.pickImageFile();
                 },
               ),
             ),
 
-            const SizedBox(height: AppSizes.spaceBetweenItems,),
+            const SizedBox(height: AppSizes.spaceBetweenItems),
 
             Card(
               color: AppColors.whiteColor,
@@ -63,28 +61,19 @@ class ProfileScreen extends GetView<ProfileController> {
                 padding: const EdgeInsets.all(AppSizes.md),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                  border: Border.all(
-                    color: AppColors.greyColor,
-                    width: AppSizes.dividerHeight
-                  )
+                  border: Border.all(color: AppColors.greyColor, width: AppSizes.dividerHeight),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      AppStrings.personalInformation,
-                      style: context.txtTheme.titleMedium,
-                    ),
+                    Text(AppStrings.personalInformation, style: context.txtTheme.titleMedium),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                    const Divider(
-                      thickness: AppSizes.dividerThick,
-                    ),
+                    const Divider(thickness: AppSizes.dividerThick),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
-
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -94,82 +83,74 @@ class ProfileScreen extends GetView<ProfileController> {
                           child: Text(
                             AppStrings.editProfile,
                             style: context.txtTheme.labelMedium?.copyWith(
-                              decoration: TextDecoration.underline
+                              decoration: TextDecoration.underline,
                             ),
                           ),
                         ),
 
-                        const SizedBox(width: AppSizes.lg,),
-
+                        const SizedBox(width: AppSizes.lg),
 
                         GestureDetector(
                           onTap: () => Get.toNamed(AppRoutes.changePasswordRoute),
                           child: Text(
                             AppStrings.changePassword,
                             style: context.txtTheme.labelMedium?.copyWith(
-                              decoration: TextDecoration.underline
+                              decoration: TextDecoration.underline,
                             ),
                           ),
                         ),
                       ],
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
 
-
-
-                    Obx((){
-                      if(controller.userLoading.value){
+                    Obx(() {
+                      if (controller.userLoading.value) {
                         return const UserShimmer();
-                      }
-                      else if(controller.user.value == null){
+                      } else if (controller.user.value == null) {
                         return const EmptyUserInfo().centered;
                       }
                       final UserModel user = controller.user.value!;
                       return Column(
                         children: <Widget>[
                           userDetails(context, user),
-                          const SizedBox(height: AppSizes.spaceBetweenSections,),
+                          const SizedBox(height: AppSizes.spaceBetweenSections),
                           CustomButton(
-                            onTap: (){
-                              controller.isVacantBtnVisible.value = !controller.isVacantBtnVisible.value;
+                            onTap: () {
+                              // controller.isVacantBtnVisible.value = !controller.isVacantBtnVisible.value;
+                              Get.toNamed(AppRoutes.renterProfileDocumentsRoute);
                             },
                             width: 100.0,
                             isOutline: true,
-                            text: "Vacant Notice"
-                          ).centered.visible(controller.isVacantBtnVisible.value),
+                            text: "Vacant Notice",
+                          ).centered,
 
-                          if(!controller.isVacantBtnVisible.value)
-                            Row(
-                              spacing: AppSizes.md,
-                              children: <Widget>[
-                                Expanded(
-                                  child: CustomButton(
-                                    onTap: (){
-                                    },
-                                    text: "Download Pdf"
-                                  ),
+                          //.visible(controller.isVacantBtnVisible.value),
+                          const SizedBox(height: AppSizes.spaceBetweenItems),
+
+                          // if(!controller.isVacantBtnVisible.value)
+                          Row(
+                            spacing: AppSizes.md,
+                            children: <Widget>[
+                              Expanded(child: CustomButton(onTap: () {}, text: "Download Pdf")),
+                              Expanded(
+                                child: CustomButton(
+                                  onTap: () {
+                                    Get.toNamed(AppRoutes.renterProfileCreateDocumentsRoute);
+                                  },
+                                  isOutline: true,
+                                  text: "Submit Document",
                                 ),
-                                Expanded(
-                                  child: CustomButton(
-                                    onTap: (){
-                                      Get.toNamed(AppRoutes.renterProfileDocumentsRoute);
-                                    },
-                                    isOutline: true,
-                                    text: "Submit Document"
-                                  ),
-                                )
-                              ],
-                            )
+                              ),
+                            ],
+                          ),
                         ],
                       );
                     }),
-
                   ],
                 ),
               ),
-            )
-
+            ),
           ],
         ),
       ),
@@ -183,134 +164,105 @@ class ProfileScreen extends GetView<ProfileController> {
       children: <Widget>[
         Row(
           children: <Widget>[
-            SvgPicture.asset(
-              AppIcons.userNamePrefixIcon,
-              width: 24.0,
-              height: 24.0,
-            ),
-            const SizedBox(width: AppSizes.md,),
+            SvgPicture.asset(AppIcons.userNamePrefixIcon, width: 24.0, height: 24.0),
+            const SizedBox(width: AppSizes.md),
 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  AppStrings.name,
-                  style: context.txtTheme.labelSmall,
-                ),
-            
-                const SizedBox(height: AppSizes.xs,),
-            
+                Text(AppStrings.name, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
                 Text(
                   user.name,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: context.txtTheme.bodySmall,
-                )
+                ),
               ],
             ),
           ],
         ),
 
-        const SizedBox(height: AppSizes.spaceBetweenItems,),
+        const SizedBox(height: AppSizes.spaceBetweenItems),
 
         Row(
           children: <Widget>[
-            SvgPicture.asset(
-              AppIcons.emailPrefixIcon,
-              width: 20.0,
-              height: 20.0,
-            ),
-            const SizedBox(width: AppSizes.md,),
+            SvgPicture.asset(AppIcons.emailPrefixIcon, width: 20.0, height: 20.0),
+            const SizedBox(width: AppSizes.md),
 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  AppStrings.email,
-                  style: context.txtTheme.labelSmall,
-                ),
-            
-                const SizedBox(height: AppSizes.xs,),
-            
+                Text(AppStrings.email, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
                 Text(
                   user.email,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: context.txtTheme.bodySmall,
-                )
+                ),
               ],
             ),
           ],
         ),
 
-        const SizedBox(height: AppSizes.spaceBetweenItems,),
+        const SizedBox(height: AppSizes.spaceBetweenItems),
 
         Row(
           children: <Widget>[
-            SvgPicture.asset(
-              AppIcons.phonePrefixIcon,
-              width: 24.0,
-              height: 24.0,
-            ),
-            const SizedBox(width: AppSizes.md,),
+            SvgPicture.asset(AppIcons.phonePrefixIcon, width: 24.0, height: 24.0),
+            const SizedBox(width: AppSizes.md),
 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  AppStrings.phoneNo,
-                  style: context.txtTheme.labelSmall,
-                ),
-            
-                const SizedBox(height: AppSizes.xs,),
-            
+                Text(AppStrings.phoneNo, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
                 Text(
                   user.phoneNumber,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: context.txtTheme.bodySmall,
-                )
+                ),
               ],
             ),
           ],
         ),
 
-        const SizedBox(height: AppSizes.spaceBetweenItems,),
+        const SizedBox(height: AppSizes.spaceBetweenItems),
 
         Row(
           children: <Widget>[
-            SvgPicture.asset(
-              AppIcons.locationPrefixIcon,
-              width: 24.0,
-              height: 24.0,
-            ),
-            const SizedBox(width: AppSizes.md,),
+            SvgPicture.asset(AppIcons.locationPrefixIcon, width: 24.0, height: 24.0),
+            const SizedBox(width: AppSizes.md),
 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  AppStrings.address,
-                  style: context.txtTheme.labelSmall,
-                ),
-            
-                const SizedBox(height: AppSizes.xs,),
-            
+                Text(AppStrings.address, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
                 Text(
                   user.address,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: context.txtTheme.bodySmall,
-                )
+                ),
               ],
             ),
           ],
-        )
-
+        ),
       ],
     );
   }

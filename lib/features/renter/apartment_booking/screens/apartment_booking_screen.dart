@@ -16,6 +16,7 @@ import 'package:alora/core/widgets/custom_text_field.dart';
 import 'package:alora/core/widgets/dotted_border.dart';
 import 'package:alora/shared/features/payment/widget/payment_card.dart';
 import 'package:alora/shared/widgets/congratulation_sheet.dart';
+import 'package:alora/shared/widgets/custom_dropdown.dart';
 import 'package:alora/shared/widgets/custom_file_upload_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,19 +24,23 @@ import 'package:get/get.dart';
 import '../controllers/apartment_booking_controller.dart';
 
 class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
-  const ApartmentBookingScreen({
-    super.key
-  });
+  const ApartmentBookingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final dynamic arguments = Get.arguments;
-    controller.updateSelectedApartmentId = arguments != null ? (arguments as Map<String, dynamic>)['apartment_id'] : '';
-    controller.updateSelectedApartmentName = arguments != null ? (arguments as Map<String, dynamic>)['apartment_name'] : '';
-    controller.updateSelectedUnitType = arguments != null ? (arguments as Map<String, dynamic>)['unit_type'] : '';
-    controller.updateSelectedFloor = arguments != null ? (arguments as Map<String, dynamic>)['floor'] : '';
-    controller.updateSelectedApartmentNumber = arguments != null ? (arguments as Map<String, dynamic>)['apartment_number'] : '';
-    controller.movingDateCTRL.text = arguments != null ? (arguments as Map<String, dynamic>)['moving_date'] : '';
+    controller.updateSelectedApartmentId =
+        arguments != null ? (arguments as Map<String, dynamic>)['apartment_id'] : '';
+    controller.updateSelectedApartmentName =
+        arguments != null ? (arguments as Map<String, dynamic>)['apartment_name'] : '';
+    controller.updateSelectedUnitType =
+        arguments != null ? (arguments as Map<String, dynamic>)['unit_type'] : '';
+    controller.updateSelectedFloor =
+        arguments != null ? (arguments as Map<String, dynamic>)['floor'] : '';
+    controller.updateSelectedApartmentNumber =
+        arguments != null ? (arguments as Map<String, dynamic>)['apartment_number'] : '';
+    controller.movingDateCTRL.text =
+        arguments != null ? (arguments as Map<String, dynamic>)['moving_date'] : '';
     final double? price = arguments != null ? (arguments as Map<String, dynamic>)['price'] : null;
 
     // arguments: <String, String>{
@@ -55,39 +60,36 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
       backgroundColor: AppColors.surfaceColor,
       body: SingleChildScrollView(
         child: Padding(
-           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
-           child: Column(
+          padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
+          child: Column(
             children: <Widget>[
               Container(
                 width: context.screenWidth,
                 padding: const EdgeInsets.all(AppSizes.sm),
-                decoration: const BoxDecoration(
-                  color: AppColors.primaryColor
-                ),
+                decoration: const BoxDecoration(color: AppColors.primaryColor),
                 child: Column(
                   children: <Widget>[
                     Text(
                       controller.selectedApartmentName,
-                      style: context.txtTheme.bodyMedium?.copyWith(
-                        color: AppColors.textWhiteColor
-                      ),
+                      style: context.txtTheme.bodyMedium?.copyWith(color: AppColors.textWhiteColor),
                     ),
-                    const SizedBox(height: AppSizes.sm,),
+                    const SizedBox(height: AppSizes.sm),
 
-                    const Divider(
-                      color: AppColors.whiteColor,
-                      thickness: AppSizes.dividerHeight,
-                    ),
+                    const Divider(color: AppColors.whiteColor, thickness: AppSizes.dividerHeight),
 
                     Row(
                       children: <Widget>[
-                        subHeader(context, AppStrings.apartmentNumber, controller.selectedApartmentNumber),
+                        subHeader(
+                          context,
+                          AppStrings.apartmentNumber,
+                          controller.selectedApartmentNumber,
+                        ),
                         verticalDivider(),
                         subHeader(context, AppStrings.unitType, controller.selectedUnitType),
                         verticalDivider(),
                         subHeader(context, AppStrings.floor, controller.selectedFloor),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -96,143 +98,140 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
                 padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
                 decoration: const BoxDecoration(
                   border: Border(
-                    right: BorderSide(
-                      width: AppSizes.dividerThick,
-                      color: AppColors.borderColor
-                    ),
-                    left: BorderSide(
-                      width: AppSizes.dividerThick,
-                      color: AppColors.borderColor
-                    ),
-                    bottom: BorderSide(
-                      width: AppSizes.dividerThick,
-                      color: AppColors.borderColor
-                    )
-                  )
+                    right: BorderSide(width: AppSizes.dividerThick, color: AppColors.borderColor),
+                    left: BorderSide(width: AppSizes.dividerThick, color: AppColors.borderColor),
+                    bottom: BorderSide(width: AppSizes.dividerThick, color: AppColors.borderColor),
+                  ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const SizedBox(height: AppSizes.spaceBetweenInputs,),
-                    Text(
-                      AppStrings.expectedMovingDate,
-                      style: context.txtTheme.bodyMedium
-                    ),
-                    const SizedBox(height: AppSizes.md,),
+                    const SizedBox(height: AppSizes.spaceBetweenInputs),
 
-                    CustomTextField(
-                      controller: controller.movingDateCTRL,
-                      isBorder: true,
-                      readOnly: true,
-                      borderRadius: 12.0,
-                      hintText: AppStrings.selectMovingDateHint,
-                      suffixIcons: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture.asset(AppIcons.dateIcon),
-                      ),
-                      prefixIconCallBack: () async{
-                        final String? date = await DatePickerUtils.pickFormattedDate(context: context);
-                        if(date != null){
-                          controller.movingDateCTRL.text = date;
-                        }
-                      },
-                      onTab: () async{
-                        final String? date = await DatePickerUtils.pickFormattedDate(context: context);
-                        if(date != null){
-                          controller.movingDateCTRL.text = date;
-                        }
-                      },
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            spacing: AppSizes.xs,
+                            children: <Widget>[
+                              Text("Lease Terms", style: context.txtTheme.bodyMedium),
+                              Text("3 Months", style: context.txtTheme.bodyLarge),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            spacing: AppSizes.xs,
+                            children: <Widget>[
+                              Text(
+                                AppStrings.expectedMovingDate,
+                                style: context.txtTheme.bodyMedium,
+                              ),
+                              Text("2/11/2025", style: context.txtTheme.bodyLarge),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text(AppStrings.submitYourInfo, style: context.txtTheme.titleLarge),
+                    const SizedBox(height: AppSizes.md),
 
-                    Text(
-                      AppStrings.submitYourInfo,
-                      style: context.txtTheme.bodyMedium
+                    CustomDropdown<String>(
+                      options: const <String>[
+                        'Government Id',
+                        "Passport",
+                        'Driving License',
+                        'Other',
+                      ],
+                      displayString: (dynamic value) => value,
+                      hint: "Choose for proof of Income",
                     ),
-                    const SizedBox(height: AppSizes.md,),
+
+                    const SizedBox(height: AppSizes.md),
 
                     Obx(
                       () => CustomFileUploadLayout(
-                        label: 'Income tax doc', 
+                        label: 'Upload your income doc',
                         file: controller.incomeTaxDoc.value,
-                        onBrowseCallback: () async{  
+                        onBrowseCallback: () async {
                           final File? file = await ImagePickerUtils.pickImageFile();
                           controller.incomeTaxDoc.value = file;
                         },
                       ),
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+
+                    CustomDropdown<String>(
+                      options: const <String>[
+                        'Government Id',
+                        "Passport",
+                        'Driving License',
+                        'Other',
+                      ],
+                      displayString: (dynamic value) => value,
+                      hint: "Choose for proof of ID",
+                    ),
+
+                    const SizedBox(height: AppSizes.md),
 
                     Obx(
                       () => CustomFileUploadLayout(
-                        label: 'ID Card (Front Side)', 
+                        label: 'Id card (must be included front & back side)',
                         file: controller.idCardFront.value,
-                        onBrowseCallback: () async{  
+                        onBrowseCallback: () async {
                           final File? file = await ImagePickerUtils.pickImageFile();
                           controller.idCardFront.value = file;
                         },
                       ),
                     ),
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
 
+                    Text(
+                      "Please enter your email to receive the necessary following steps.for a background/credit check.",
+                      style: context.txtTheme.bodyMedium,
+                    ),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
-
-
-                   Obx(
-                      () => CustomFileUploadLayout(
-                        label: 'ID Card (Back Side)', 
-                        file: controller.idCardBack.value,
-                        onBrowseCallback: () async{  
-                          final File? file = await ImagePickerUtils.pickImageFile();
-                          controller.idCardBack.value = file;
-                        },
-                      ),
+                    CustomTextField(
+                      controller: TextEditingController(),
+                      isBorder: true,
+                      hintText: 'Enter Email Address',
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
-
-                    Obx(
-                      () => CustomFileUploadLayout(
-                        label: 'Upload your credit card application doc', 
-                        file: controller.creditCardApplicationDoc.value,
-                        onBrowseCallback: () async{  
-                          final File? file = await ImagePickerUtils.pickImageFile();
-                          controller.creditCardApplicationDoc.value = file;
-                        },
-                      ),
-                    ),
-
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
 
                     PaymentCard(
                       isAutoPay: false,
                       price: price,
-                      onPayCallBack: (PaymentData data){
+                      onPayCallBack: (PaymentData data) {
                         CustomBottomSheet.showCustomBottomSheet(
-                          context: context, 
+                          context: context,
                           isDismissible: false,
                           child: CongratulationSheet(
                             title: "Congratulations!",
-                            description: "You have successfully registered your property. We will update you via email within 72 hours.",
-                            onProceedCallback: (){
+                            description:
+                                "You have successfully registered your property. We will update you via email within 72 hours.",
+                            onProceedCallback: () {
                               data.price = price;
                               data.email = "email.@gmail.com";
-                              Get.toNamed(
-                                AppRoutes.paymentTicketRoute,
-                                arguments: data,
-                              );
+                              Get.toNamed(AppRoutes.paymentTicketRoute, arguments: data);
                             },
-                          )
+                          ),
                         );
-                      }
+                      },
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
+              const SizedBox(height: AppSizes.spaceBetweenSections),
             ],
           ),
         ),
@@ -257,21 +256,15 @@ class ApartmentBookingScreen extends GetView<ApartmentBookingController> {
         children: <Widget>[
           Text(
             label,
-            style: context.txtTheme.labelSmall?.copyWith(
-              color: AppColors.textWhiteColor
-            ),
+            style: context.txtTheme.labelSmall?.copyWith(color: AppColors.textWhiteColor),
           ),
-          const SizedBox(height: AppSizes.sm,),
+          const SizedBox(height: AppSizes.sm),
           Text(
             value,
-            style: context.txtTheme.bodyMedium?.copyWith(
-              color: AppColors.textWhiteColor
-            ),
+            style: context.txtTheme.bodyMedium?.copyWith(color: AppColors.textWhiteColor),
           ),
         ],
       ),
     );
   }
 }
-
-

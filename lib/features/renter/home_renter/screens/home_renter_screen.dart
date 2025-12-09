@@ -14,12 +14,11 @@ import 'package:alora/features/renter/home_renter/widgets/banner_card.dart';
 import 'package:alora/shared/widgets/home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../shared/widgets/payment_disclaimer.dart';
 import '../controllers/home_renter_controller.dart';
 
 class HomeRenterScreen extends GetView<HomeRenterController> {
-  const HomeRenterScreen({
-    super.key
-  });
+  const HomeRenterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +39,8 @@ class HomeRenterScreen extends GetView<HomeRenterController> {
             boxShape: BoxShape.rectangle,
             onTap: () => Get.toNamed(AppRoutes.notificationRoute),
           ),
-          const SizedBox(width: AppSizes.sm,)
-        ]
+          const SizedBox(width: AppSizes.sm),
+        ],
       ),
       backgroundColor: AppColors.surfaceColor,
       drawer: const CustomSideDrawer(),
@@ -53,12 +52,10 @@ class HomeRenterScreen extends GetView<HomeRenterController> {
               BannerCard(
                 price: 1959.90,
                 onMakePaymentCallback: () {
-                  Get.toNamed(
-                    AppRoutes.renterBalanceDetailsRoute,
-                  );
+                  Get.dialog(const PaymentDisclaimer());
                 },
               ),
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
+              const SizedBox(height: AppSizes.spaceBetweenSections),
 
               Row(
                 spacing: AppSizes.spaceBetweenItems,
@@ -80,7 +77,7 @@ class HomeRenterScreen extends GetView<HomeRenterController> {
                 ],
               ),
 
-              const SizedBox(height: AppSizes.spaceBetweenItems,),
+              const SizedBox(height: AppSizes.spaceBetweenItems),
 
               Row(
                 spacing: AppSizes.spaceBetweenItems,
@@ -89,7 +86,8 @@ class HomeRenterScreen extends GetView<HomeRenterController> {
                     child: HomeCard(
                       svgAsset: AppIcons.searchIcon,
                       text: AppStrings.searchProperty,
-                      onTapCallback: () => Get.toNamed(AppRoutes.searchApartmentsRoute, arguments: true),
+                      onTapCallback:
+                          () => Get.toNamed(AppRoutes.searchApartmentsRoute, arguments: true),
                     ),
                   ),
                   Expanded(
@@ -108,7 +106,3 @@ class HomeRenterScreen extends GetView<HomeRenterController> {
     );
   }
 }
-
-
-
-

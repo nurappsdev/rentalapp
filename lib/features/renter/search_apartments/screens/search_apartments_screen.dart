@@ -17,22 +17,26 @@ import 'package:get/get.dart';
 import '../controllers/search_apartments_controller.dart';
 
 class SearchApartmentsScreen extends GetView<SearchApartmentsController> {
-  const SearchApartmentsScreen({
-    super.key
-  });
+  const SearchApartmentsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: (Get.arguments is bool) ? const CustomAppBar(
-        showBackBtn: true,
-        elevation: 0.0,
-        backgroundColor: AppColors.whiteColor,
-      ) : null,
+      appBar:
+          (Get.arguments is bool)
+              ? const CustomAppBar(
+                showBackBtn: true,
+                elevation: 0.0,
+                backgroundColor: AppColors.whiteColor,
+              )
+              : null,
       backgroundColor: AppColors.surfaceColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSizes.screenHorizontal,
+            vertical: AppSizes.sm,
+          ),
           child: CustomScrollView(
             slivers: <Widget>[
               // Sliver App Bar with Search Field
@@ -56,49 +60,47 @@ class SearchApartmentsScreen extends GetView<SearchApartmentsController> {
                   onChange: (_) => controller.handleSearchApartments(),
                 ),
               ),
-          
+
               // Space between search and list
-              const SliverToBoxAdapter(
-                child: SizedBox(height: AppSizes.spaceBetweenItems),
-              ),
-          
+              const SliverToBoxAdapter(child: SizedBox(height: AppSizes.spaceBetweenItems)),
+
               // Reactive apartment list with loading/empty states
               Obx(() {
                 if (controller.apartmentsLoading.value) {
-                  return const SliverToBoxAdapter(
-                    child: ApartmentsShimmer(),
-                  );
+                  return const SliverToBoxAdapter(child: ApartmentsShimmer());
                 }
-          
+
                 if (controller.apartmentList.isEmpty) {
                   return SliverFillRemaining(
                     hasScrollBody: false,
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxHeight: Get.height * 0.7,
-                        maxWidth: Get.width * 0.7,
-                      ),
-                      child: Text(
-                        "Enter the address or name of your property in the search field.",
-                        style: Get.textTheme.labelLarge,
-                        textAlign: TextAlign.center,
-                      ).centered,
-                    ).centered,
+                    child:
+                        ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxHeight: Get.height * 0.7,
+                            maxWidth: Get.width * 0.7,
+                          ),
+                          child:
+                              Text(
+                                "Enter the address or name of your property in the search field.",
+                                style: Get.textTheme.labelLarge,
+                                textAlign: TextAlign.center,
+                              ).centered,
+                        ).centered,
                   );
                 }
-          
+
                 return SliverList.separated(
                   itemCount: controller.apartmentList.length,
                   itemBuilder: (_, int index) {
                     return ApartmentCard(
                       apartment: controller.apartmentList[index],
-                      onViewCallback: (){
+                      onViewCallback: () {
                         Get.toNamed(
-                          AppRoutes.apartmentDetailsRoute, 
+                          AppRoutes.apartmentDetailsRoute,
                           arguments: <String, String>{
-                            "aparment_id": controller.apartmentList[index].id,
-                            "type": "apartment"
-                          }
+                            "apartment_id": controller.apartmentList[index].id,
+                            "type": "apartment",
+                          },
                         );
                       },
                     );
@@ -106,15 +108,12 @@ class SearchApartmentsScreen extends GetView<SearchApartmentsController> {
                   separatorBuilder: (_, __) => const SizedBox(height: AppSizes.spaceBetweenItems),
                 );
               }),
-          
-              const SliverToBoxAdapter(
-                child: SizedBox(height: AppSizes.spaceBetweenSections),
-              ),
+
+              const SliverToBoxAdapter(child: SizedBox(height: AppSizes.spaceBetweenSections)),
             ],
           ),
         ),
       ),
     );
-
   }
 }

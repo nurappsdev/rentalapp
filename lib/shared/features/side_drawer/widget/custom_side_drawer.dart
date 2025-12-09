@@ -31,9 +31,8 @@ class CustomSideDrawer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                
                 // header section
-                const SizedBox(height: AppSizes.spaceBetweenSections,),
+                const SizedBox(height: AppSizes.spaceBetweenSections),
                 Obx(
                   () => ProfileImage(
                     imageUrl: controller.user.value?.profileImage,
@@ -43,45 +42,42 @@ class CustomSideDrawer extends StatelessWidget {
                     borderColor: AppColors.primaryColor,
                   ),
                 ),
-                  
-                const SizedBox(height: AppSizes.md,),
-                  
+
+                const SizedBox(height: AppSizes.md),
+
                 Obx(
                   () => Text(
                     controller.user.value?.name ?? "Unknown",
                     style: context.txtTheme.titleMedium,
                   ),
                 ),
-                  
-                const SizedBox(height: AppSizes.xs,),
-                  
+
+                const SizedBox(height: AppSizes.xs),
+
                 GestureDetector(
                   onTap: () => Get.toNamed(AppRoutes.profileRoute),
                   child: Text(
-                  AppStrings.viewProfile,
+                    AppStrings.viewProfile,
                     style: context.txtTheme.labelMedium?.copyWith(
                       color: AppColors.textPrimaryColor,
                       decoration: TextDecoration.underline,
-                      decorationColor: AppColors.primaryColor
+                      decorationColor: AppColors.primaryColor,
                     ),
                   ),
                 ),
 
-                const SizedBox(height: AppSizes.spaceBetweenSections,),
+                const SizedBox(height: AppSizes.spaceBetweenSections),
 
-                const Divider(
-                  thickness: AppSizes.dividerHeight,
-                ),
-                
-                const SizedBox(height: AppSizes.sm,),
-                
+                const Divider(thickness: AppSizes.dividerHeight),
+
+                const SizedBox(height: AppSizes.sm),
+
                 // items section
-                Obx((){
-                  if(controller.isRoleLoading.value){
-                    return const CustomLoading(size: 28,);
-                  }
-                  else{
-                    if(controller.isRoleTypeMatch(RoleType.crew).value){
+                Obx(() {
+                  if (controller.isRoleLoading.value) {
+                    return const CustomLoading(size: 28);
+                  } else {
+                    if (controller.isRoleTypeMatch(RoleType.crew).value) {
                       return Column(
                         children: <Widget>[
                           item(
@@ -99,12 +95,11 @@ class CustomSideDrawer extends StatelessWidget {
                           ),
                         ],
                       );
-                    }
-                    else if(controller.isRoleTypeMatch(RoleType.renter).value){
-                       return Column(
-                         children: <Widget>[
+                    } else if (controller.isRoleTypeMatch(RoleType.renter).value) {
+                      return Column(
+                        children: <Widget>[
                           const PaymentDropDown(),
-                           item(
+                          item(
                             context: context,
                             text: AppStrings.maintenance,
                             svgAsset: AppIcons.maintenanceIcon,
@@ -120,15 +115,15 @@ class CustomSideDrawer extends StatelessWidget {
                             context: context,
                             text: AppStrings.myDocuments,
                             svgAsset: AppIcons.docIcon,
-                            onTapCallback: () => Get.toNamed(AppRoutes.renterDocumentRoute),
+                            onTapCallback: () => Get.toNamed(AppRoutes.renterMyDocumentRoute),
                           ),
-                         ],
-                       );
-                    }
-                    else if(controller.isRoleTypeMatch(RoleType.owner).value || controller.isRoleTypeMatch(RoleType.agent).value){
-                       return Column(
-                         children: <Widget>[
-                          const PaymentDropDown(isOwner: true,),
+                        ],
+                      );
+                    } else if (controller.isRoleTypeMatch(RoleType.owner).value ||
+                        controller.isRoleTypeMatch(RoleType.agent).value) {
+                      return Column(
+                        children: <Widget>[
+                          const PaymentDropDown(isOwner: true),
 
                           item(
                             context: context,
@@ -164,10 +159,9 @@ class CustomSideDrawer extends StatelessWidget {
                             svgAsset: AppIcons.fileDownloadIcon,
                             onTapCallback: () => Get.toNamed(AppRoutes.ownerMaintenanceCrewRoute),
                           ),
-                         ],
-                       );
-                    }
-                    else{
+                        ],
+                      );
+                    } else {
                       return const SizedBox.shrink();
                     }
                   }
@@ -180,24 +174,21 @@ class CustomSideDrawer extends StatelessWidget {
                   onTapCallback: () => Get.toNamed(AppRoutes.settingRoute),
                 ),
 
-                SizedBox(height: context.screenHeight * .1,),
+                SizedBox(height: context.screenHeight * .1),
 
-                const Divider(
-                  thickness: AppSizes.dividerHeight,
-                ),
-            
+                const Divider(thickness: AppSizes.dividerHeight),
+
                 item(
                   context: context,
                   text: AppStrings.logout,
                   svgAsset: AppIcons.logoutIcon,
                   onTapCallback: () {
                     CustomBottomSheet.showCustomBottomSheet(
-                      context: context, 
-                      child: LogoutBottomSheet(controller: controller,)
+                      context: context,
+                      child: LogoutBottomSheet(controller: controller),
                     );
                   },
                 ),
-            
               ],
             ),
           ),
@@ -207,11 +198,11 @@ class CustomSideDrawer extends StatelessWidget {
   }
 
   ListTile item({
-    required BuildContext context, 
-    required String text,  
-    required String svgAsset,  
-    required VoidCallback onTapCallback,  
-    }) {
+    required BuildContext context,
+    required String text,
+    required String svgAsset,
+    required VoidCallback onTapCallback,
+  }) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: CustomRoundedInnerIcon(
@@ -220,10 +211,7 @@ class CustomSideDrawer extends StatelessWidget {
         bgColor: AppColors.primaryColor,
         iconColor: AppColors.whiteColor,
       ),
-      title: Text(
-        text,
-        style: context.txtTheme.bodyMedium,
-      ),
+      title: Text(text, style: context.txtTheme.bodyMedium),
       onTap: onTapCallback,
     );
   }
@@ -231,68 +219,55 @@ class CustomSideDrawer extends StatelessWidget {
 
 class LogoutBottomSheet extends StatelessWidget {
   final CustomSideDrawerController controller;
-  const LogoutBottomSheet({
-    super.key,
-    required this.controller
-  });
-
+  const LogoutBottomSheet({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            SvgPicture.asset(AppIcons.logoutBottomSheetIcon),
+      padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          SvgPicture.asset(AppIcons.logoutBottomSheetIcon),
 
-            const SizedBox(height: AppSizes.spaceBetweenItems),
+          const SizedBox(height: AppSizes.spaceBetweenItems),
 
-            Text(
-              AppStrings.logoutBottomSheetTitle,
-              style: context.txtTheme.bodyLarge,
+          Text(AppStrings.logoutBottomSheetTitle, style: context.txtTheme.bodyLarge),
+
+          const SizedBox(height: AppSizes.sm),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: Text(
+              AppStrings.logoutBottomSheetSubTitle,
+              style: context.txtTheme.labelMedium,
+              textAlign: TextAlign.center,
             ),
+          ),
 
-            const SizedBox(height: AppSizes.sm),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Text(
-                AppStrings.logoutBottomSheetSubTitle, 
-                style: context.txtTheme.labelMedium,
-                textAlign: TextAlign.center,
+          const SizedBox(height: AppSizes.spaceBetweenSections),
+          Row(
+            spacing: AppSizes.sm,
+            children: <Widget>[
+              Expanded(
+                child: CustomButton(onTap: () => Get.back(), text: AppStrings.no, isOutline: true),
               ),
-            ),
-
-            const SizedBox(height: AppSizes.spaceBetweenSections),
-            Row(
-              spacing: AppSizes.sm,
-              children: <Widget>[
-                Expanded(
-                  child: CustomButton(
-                    onTap: () => Get.back(), 
-                    text: AppStrings.no,
-                    isOutline: true,
+              Expanded(
+                child: Obx(
+                  () => CustomButton(
+                    loading: controller.isLogoutLoading.value,
+                    onTap: controller.handleLogout,
+                    text: AppStrings.yes,
                   ),
                 ),
-                Expanded(
-                  child: Obx(
-                    () => CustomButton(
-                      loading: controller.isLogoutLoading.value,
-                      onTap: controller.handleLogout, 
-                      text: AppStrings.yes
-                    ),
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
-
-
 
 class PaymentDropDown extends StatefulWidget {
   final bool isOwner;
@@ -323,133 +298,105 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
     super.dispose();
   }
 
-  
-
   OverlayEntry _createDropdown() {
     final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final Offset offset = renderBox.localToGlobal(Offset.zero);
     final Size size = renderBox.size;
 
     return OverlayEntry(
-      builder: (BuildContext context) => Stack(
-        children: <Widget>[
-           Positioned.fill(
-            child: GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: _toggleDropdown,
-              child: const SizedBox.expand(),
-            ),
-          ),
-
-          Positioned(
-            left: offset.dx,
-            top: offset.dy + size.height,
-            width: size.width,
-            child: Material(
-              elevation: 4,
-              color: AppColors.whiteColor,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    if(widget.isOwner)...<Widget>[
-                      ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: Text(
-                          AppStrings.pastPayment,
-                          style: context.txtTheme.bodyMedium,
-                        ), 
-                        onTap: (){
-                          _toggleDropdown();
-                          Get.toNamed(
-                            AppRoutes.renterPastPaymentsRoute,
-                          );
-                        }
-                      ),
-          
-                      const Divider(
-                        thickness: .5,
-                        color: AppColors.dividerColor,
-                      ),
-                      
-          
-                      ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: Text(
-                          AppStrings.allocateBill,
-                          style: context.txtTheme.bodyMedium,
-                        ), 
-                        onTap: (){
-                          _toggleDropdown();
-                          Get.toNamed(
-                            AppRoutes.ownerAllocateBillRoute,
-                            arguments: true,
-                          );
-                        }
-                      ),
-          
-                    ]
-                    else ...<Widget>[
-                      ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: Text(
-                          AppStrings.makePayment,
-                          style: context.txtTheme.bodyMedium,
-                        ), 
-                        onTap: (){
-                          _toggleDropdown();
-                          Get.toNamed(
-                            AppRoutes.renterBalanceDetailsRoute,
-                          );
-                        }
-                      ),
-                      const Divider(
-                        thickness: .5,
-                        color: AppColors.dividerColor,
-                      ),
-                      
-                      ListTile(
-                        contentPadding: EdgeInsets.zero,
-                        title: Text(
-                          AppStrings.pastPayment,
-                          style: context.txtTheme.bodyMedium,
-                        ), 
-                        onTap: (){
-                          _toggleDropdown();
-                          Get.toNamed(
-                            AppRoutes.renterPastPaymentsRoute,
-                          );
-                        }
-                      ),
-                  
-                      // const Divider(
-                      //   thickness: .5,
-                      //   color: AppColors.dividerColor,
-                      // ),
-                      
-                      // ListTile(
-                      //   contentPadding: EdgeInsets.zero,
-                      //   title: Text(
-                      //     AppStrings.balanceDetails,
-                      //     style: context.txtTheme.bodyMedium,
-                      //   ), 
-                      //   onTap: (){
-                      //     _toggleDropdown();
-                      //     Get.toNamed(
-                      //       AppRoutes.renterBalanceDetailsRoute,
-                      //       arguments: false,
-                      //     );
-                      //   }
-                      // ),
-                    ]
-                  ],
+      builder:
+          (BuildContext context) => Stack(
+            children: <Widget>[
+              Positioned.fill(
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: _toggleDropdown,
+                  child: const SizedBox.expand(),
                 ),
               ),
-            ),
+
+              Positioned(
+                left: offset.dx,
+                top: offset.dy + size.height,
+                width: size.width,
+                child: Material(
+                  elevation: 4,
+                  color: AppColors.whiteColor,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        if (widget.isOwner) ...<Widget>[
+                          ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(AppStrings.pastPayment, style: context.txtTheme.bodyMedium),
+                            onTap: () {
+                              _toggleDropdown();
+                              Get.toNamed(AppRoutes.renterPastPaymentsRoute);
+                            },
+                          ),
+
+                          const Divider(thickness: .5, color: AppColors.dividerColor),
+
+                          ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(
+                              AppStrings.allocateBill,
+                              style: context.txtTheme.bodyMedium,
+                            ),
+                            onTap: () {
+                              _toggleDropdown();
+                              Get.toNamed(AppRoutes.ownerAllocateBillRoute, arguments: true);
+                            },
+                          ),
+                        ] else ...<Widget>[
+                          ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(AppStrings.makePayment, style: context.txtTheme.bodyMedium),
+                            onTap: () {
+                              _toggleDropdown();
+                              Get.toNamed(AppRoutes.renterBalanceDetailsRoute);
+                            },
+                          ),
+                          const Divider(thickness: .5, color: AppColors.dividerColor),
+
+                          ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(AppStrings.pastPayment, style: context.txtTheme.bodyMedium),
+                            onTap: () {
+                              _toggleDropdown();
+                              Get.toNamed(AppRoutes.renterPastPaymentsRoute);
+                            },
+                          ),
+
+                          // const Divider(
+                          //   thickness: .5,
+                          //   color: AppColors.dividerColor,
+                          // ),
+
+                          // ListTile(
+                          //   contentPadding: EdgeInsets.zero,
+                          //   title: Text(
+                          //     AppStrings.balanceDetails,
+                          //     style: context.txtTheme.bodyMedium,
+                          //   ),
+                          //   onTap: (){
+                          //     _toggleDropdown();
+                          //     Get.toNamed(
+                          //       AppRoutes.renterBalanceDetailsRoute,
+                          //       arguments: false,
+                          //     );
+                          //   }
+                          // ),
+                        ],
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 
@@ -458,20 +405,17 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
     return CompositedTransformTarget(
       link: _layerLink,
       child: ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: const CustomRoundedInnerIcon(
-        icon: AppIcons.paymentIcon,
-        containerSize: 32.0,
-        bgColor: AppColors.primaryColor,
-        iconColor: AppColors.whiteColor,
+        contentPadding: EdgeInsets.zero,
+        leading: const CustomRoundedInnerIcon(
+          icon: AppIcons.paymentIcon,
+          containerSize: 32.0,
+          bgColor: AppColors.primaryColor,
+          iconColor: AppColors.whiteColor,
+        ),
+        title: Text(AppStrings.payment, style: context.txtTheme.bodyMedium),
+        trailing: const Icon(Icons.arrow_drop_down, size: 24.0),
+        onTap: _toggleDropdown,
       ),
-      title: Text(
-        AppStrings.payment,
-        style: context.txtTheme.bodyMedium,
-      ),
-      trailing: const Icon(Icons.arrow_drop_down, size: 24.0,),
-      onTap: _toggleDropdown,
-    ),
     );
   }
 }

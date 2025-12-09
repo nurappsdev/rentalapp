@@ -50,6 +50,13 @@ class RenterNav{
       transition: Transition.noTransition
     ),
 
+    GetPage<dynamic>(
+      name: AppRoutes.renterMyDocumentRoute, 
+      page: () => const RenterMyDocumentsScreen(), 
+      binding: RenterDocumentsBinding(),
+      transition: Transition.noTransition
+    ),
+
 
     GetPage<dynamic>(
       name: AppRoutes.renterDocumentCreateRoute, 

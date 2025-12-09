@@ -27,7 +27,7 @@ class RenterPaymentDetailsScreen extends GetView<RenterPaymentController> {
   @override
   Widget build(BuildContext context) {
     controller.updatePaymentId = Get.arguments;
-    controller.handleRetriveSinglePastPayments();
+    controller.handleRetrieveSinglePastPayments();
 
     return Scaffold(
       appBar: const CustomAppBar(

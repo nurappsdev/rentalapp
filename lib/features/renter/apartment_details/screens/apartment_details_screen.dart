@@ -25,14 +25,13 @@ import 'package:get/get.dart';
 import '../controllers/apartment_details_controller.dart';
 
 class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
-  const ApartmentDetailsScreen({
-    super.key
-  });
+  const ApartmentDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final dynamic arguments = Get.arguments;
-    controller.updateApartmentId = arguments != null ? (arguments as Map<String, dynamic>)['apartment_id'] : '';
+    controller.updateApartmentId =
+        arguments != null ? (arguments as Map<String, dynamic>)['apartment_id'] : '';
     // final String type = arguments != null ? (arguments as Map<String, dynamic>)['type'] : '';
     return Scaffold(
       appBar: const CustomAppBar(
@@ -47,337 +46,525 @@ class ApartmentDetailsScreen extends GetView<ApartmentDetailsController> {
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
           child: Column(
             children: <Widget>[
-              Obx(
-                (){
-                  if(controller.apartmentLoading.value){
-                    return const ApartmentDetailsShimmer();
-                  }
-                  else if(controller.apartment.value == null){
-                    return const EmptyApartmentDetails().centered;
-                  }
-                  final ApartmentModel apartment = controller.apartment.value!;
+              Obx(() {
+                if (controller.apartmentLoading.value) {
+                  return const ApartmentDetailsShimmer();
+                } else if (controller.apartment.value == null) {
+                  return const EmptyApartmentDetails().centered;
+                }
+                final ApartmentModel apartment = controller.apartment.value!;
 
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      // top card
-                      ApartmentCard(apartment: apartment,),
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    // top card
+                    ApartmentCard(apartment: apartment),
 
-                      const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                      // description layout
+                    Text(
+                      AppStrings.apartmentImage,
+                      style: context.txtTheme.titleMedium?.copyWith(
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.primaryColor,
+                        decorationThickness: 1.0,
+                      ),
+                    ),
+
+                    const SizedBox(height: AppSizes.md),
+
+                    SizedBox(
+                      height: 100.0,
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: apartment.apartmentImages.length,
+                        itemBuilder: (_, int index) {
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                            child: CustomNetworkImage(
+                              imageUrl: apartment.apartmentImages[index],
+                              width: 100.0,
+                              height: double.infinity,
+                              boxShape: BoxShape.rectangle,
+                            ),
+                          );
+                        },
+                        separatorBuilder: (_, _) => const SizedBox(width: AppSizes.md),
+                      ),
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+
+                    // description layout
+                    Text(
+                      AppStrings.apartmentDescription,
+                      style: context.txtTheme.titleMedium?.copyWith(
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.primaryColor,
+                        decorationThickness: 1.0,
+                      ),
+                    ),
+
+                    const SizedBox(height: AppSizes.md),
+
+                    Text(apartment.apartmentDescription, style: context.txtTheme.bodyMedium),
+
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+
+                    // description layout
+                    Text(
+                      "Parking Type",
+                      style: context.txtTheme.titleMedium?.copyWith(
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.primaryColor,
+                        decorationThickness: 1.0,
+                      ),
+                    ),
+
+                    const SizedBox(height: AppSizes.md),
+
+                    Text("Street Parking", style: context.txtTheme.bodyMedium),
+
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+
+                    // facilities layout
+                    Text(
+                      AppStrings.apartmentFacilities,
+                      style: context.txtTheme.titleMedium?.copyWith(
+                        decoration: TextDecoration.underline,
+                        decorationColor: AppColors.primaryColor,
+                        decorationThickness: 1.0,
+                      ),
+                    ),
+
+                    const SizedBox(height: AppSizes.md),
+
+                    SizedBox(
+                      height: 180.0,
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: apartment.apartmentImages.length,
+                        itemBuilder: (_, int index) {
+                          return Stack(
+                            clipBehavior: Clip.none,
+                            children: <Widget>[
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                                child: CustomNetworkImage(
+                                  imageUrl: apartment.apartmentImages[index],
+                                  width: 150.0,
+                                  height: 150.0,
+                                  boxShape: BoxShape.rectangle,
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 30,
+                                right: 8,
+                                child: CustomButton(
+                                  width: 50,
+                                  height: 30,
+                                  onTap: () {},
+                                  borderRadius: 30,
+                                  text: "See all",
+                                ),
+                              ),
+
+                              Positioned(
+                                bottom: 4,
+                                left: 0,
+                                child: Text(
+                                  "Garden",
+                                  style: context.txtTheme.titleMedium?.copyWith(
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: AppColors.blackColor,
+                                    decorationThickness: 1.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                        separatorBuilder: (_, _) => const SizedBox(width: AppSizes.md),
+                      ),
+                    ),
+
+                    const SizedBox(height: AppSizes.md),
+                    const Divider(height: 5.0, color: AppColors.greyColor),
+                    const SizedBox(height: AppSizes.md),
+
+                    const SizedBox(height: AppSizes.spaceBetweenInputs),
+
+                    // floors
+                    CustomDropdown<String>(
+                      options: const <String>["1 Month", "3 Months", "6 Months", "12 Months"],
+                      displayString: (String value) => value,
+                      borderColor: AppColors.primaryColor,
+                      hint: "Select Lease Terms",
+                      onChanged: (String value) {
+                        controller.updateSelectedLeaseTerms = value;
+                      },
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenInputs),
+
+                    // date with picker
+                    CustomTextField(
+                      controller: controller.movingDateCTRL,
+                      isBorder: true,
+                      readOnly: true,
+                      borderRadius: 12.0,
+                      borderColor: AppColors.primaryColor,
+                      hintText: AppStrings.selectMovingDateHint,
+                      suffixIcons: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SvgPicture.asset(AppIcons.dateIcon),
+                      ),
+                      prefixIconCallBack: () async {
+                        final String? date = await DatePickerUtils.pickFormattedDate(
+                          context: context,
+                        );
+                        if (date != null) {
+                          controller.movingDateCTRL.text = date;
+                        }
+                      },
+                      onTab: () async {
+                        final String? date = await DatePickerUtils.pickFormattedDate(
+                          context: context,
+                        );
+                        if (date != null) {
+                          controller.movingDateCTRL.text = date;
+                        }
+                      },
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenInputs),
+
+                    // unit types
+                    CustomDropdown<String>(
+                      options: apartment.availableUnitTypes,
+                      displayString: (String unit) => unit,
+                      borderColor: AppColors.primaryColor,
+                      hint: AppStrings.availableUnitType,
+                      onChanged: (String value) {
+                        controller.updateSelectedUnitType = value;
+                      },
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenInputs),
+
+                    // floors
+                    CustomDropdown<String>(
+                      options: apartment.availableFloors,
+                      displayString: (String unit) => unit,
+                      borderColor: AppColors.primaryColor,
+                      hint: AppStrings.selectFloor,
+                      onChanged: (String value) {
+                        controller.updateSelectedFloor = value;
+                      },
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenInputs),
+
+                    // numbers
+                    CustomDropdown<ApartmentUnit>(
+                      options: apartment.apartmentNumbers,
+                      displayString: (ApartmentUnit unit) => unit.title,
+                      borderColor: AppColors.primaryColor,
+                      hint: AppStrings.apartmentNumber,
+                      onChanged: (ApartmentUnit value) {
+                        controller.updateSelectedApartmentNumber = value;
+                      },
+                    ),
+
+                    // unit facilities and images
+                    if (controller.selectedApartmentNumber.value != null) ...<Widget>[
+                      const SizedBox(height: AppSizes.spaceBetweenSections),
+                      // facilities layout
                       Text(
-                        AppStrings.apartmentDescription,
+                        "${controller.selectedUnitType} / ${controller.selectedApartmentNumber.value!.title}",
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
                           decorationThickness: 1.0,
                         ),
                       ),
-                  
-                      const SizedBox(height: AppSizes.md,),
-                  
-                      Text(
-                        apartment.apartmentDescription,
-                        style: context.txtTheme.bodyMedium,
+
+                      const SizedBox(height: AppSizes.md),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(AppStrings.price, style: context.txtTheme.headlineMedium),
+                          Text(
+                            " \$${apartment.price}",
+                            style: context.txtTheme.headlineMedium?.copyWith(
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(" / ${apartment.priceType}", style: context.txtTheme.bodyLarge),
+                        ],
                       ),
 
+                      const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                      const SizedBox(height: AppSizes.spaceBetweenItems,),
+                      Text(
+                        "Floor Level",
+                        style: context.txtTheme.titleMedium?.copyWith(
+                          decoration: TextDecoration.underline,
+                          decorationColor: AppColors.primaryColor,
+                          decorationThickness: 1.0,
+                        ),
+                      ),
+
+                      const SizedBox(height: AppSizes.md),
+
+                      Text(controller.selectedFloor, style: context.txtTheme.bodyMedium),
+
+                      const SizedBox(height: AppSizes.spaceBetweenItems),
+
+                      Wrap(
+                        runSpacing: 8,
+                        children:
+                            <Map<String, dynamic>>[
+                              <String, dynamic>{"name": "Bed Rooms", "value": 03},
+                              <String, dynamic>{"name": "Bathrooms", "value": 02},
+                              <String, dynamic>{"name": "Square Ft", "value": 1600},
+                            ].map((Map<String, dynamic> facility) {
+                              return Container(
+                                margin: const EdgeInsets.all(4.0),
+                                padding: const EdgeInsets.all(16.0),
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: AppColors.primaryColor, width: .5),
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      facility['name'].toString(),
+                                      style: context.txtTheme.bodyLarge?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      facility['value'].toString(),
+                                      style: context.txtTheme.bodyLarge,
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }).toList(),
+                      ),
+
+                      const SizedBox(height: AppSizes.spaceBetweenSections),
+
+                      Text(
+                        "Unit Amenities",
+                        style: context.txtTheme.headlineMedium?.copyWith(
+                          decoration: TextDecoration.underline,
+                          decorationColor: AppColors.primaryColor,
+                          decorationThickness: 1.0,
+                        ),
+                      ),
+
+                      const SizedBox(height: AppSizes.spaceBetweenItems),
+
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: <Widget>[
+                            SizedBox(
+                              width: context.screenWidth * .8,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                spacing: AppSizes.sm,
+                                children: <Widget>[
+                                  Text("Core Amenities", style: context.txtTheme.titleMedium),
+                                  const Wrap(
+                                    spacing: 8.0,
+                                    runSpacing: 8.0,
+                                    children: <Widget>[
+                                      CustomChipLayout(name: "Air conditioning"),
+                                      CustomChipLayout(name: "Heating"),
+                                      CustomChipLayout(name: "Ceiling fans"),
+                                      CustomChipLayout(name: "In-unit washer"),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: context.screenWidth * .8,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                spacing: AppSizes.sm,
+                                children: <Widget>[
+                                  Text("Kitchen Appliances", style: context.txtTheme.titleMedium),
+                                  const Wrap(
+                                    spacing: 8.0,
+                                    runSpacing: 8.0,
+                                    children: <Widget>[
+                                      CustomChipLayout(name: "Refrigerator"),
+                                      CustomChipLayout(name: "Garbage disposal"),
+                                      CustomChipLayout(name: "Ceiling fans"),
+                                      CustomChipLayout(name: "In-unit washer"),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: context.screenWidth * .8,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                spacing: AppSizes.sm,
+                                children: <Widget>[
+                                  Text("Core Amenities", style: context.txtTheme.titleMedium),
+                                  const Wrap(
+                                    spacing: 8.0,
+                                    runSpacing: 8.0,
+                                    children: <Widget>[
+                                      CustomChipLayout(name: "Air conditioning"),
+                                      CustomChipLayout(name: "Heating"),
+                                      CustomChipLayout(name: "Ceiling fans"),
+                                      CustomChipLayout(name: "In-unit washer"),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: AppSizes.spaceBetweenSections),
+
                       // image layout
                       Text(
-                        AppStrings.apartmentImage,
+                        "Unit ${AppStrings.image}",
                         style: context.txtTheme.titleMedium?.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.primaryColor,
                           decorationThickness: 1.0,
                         ),
                       ),
-                  
-                      const SizedBox(height: AppSizes.md,),
-                  
+
+                      const SizedBox(height: AppSizes.md),
+
                       SizedBox(
                         height: 100.0,
                         child: ListView.separated(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemCount: apartment.apartmentImages.length,
-                          itemBuilder: (_, int index){
+                          itemCount: controller.selectedApartmentNumber.value!.unitImages.length,
+                          itemBuilder: (_, int index) {
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
                               child: CustomNetworkImage(
-                                imageUrl: apartment.apartmentImages[index],
+                                imageUrl:
+                                    controller.selectedApartmentNumber.value!.unitImages[index],
                                 width: 100.0,
                                 height: double.infinity,
                                 boxShape: BoxShape.rectangle,
                               ),
                             );
                           },
-                          separatorBuilder: (_,_) => const SizedBox(width: AppSizes.md,),
+                          separatorBuilder: (_, _) => const SizedBox(width: AppSizes.md),
                         ),
                       ),
 
+                      const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                      const SizedBox(height: AppSizes.spaceBetweenItems,),
-                      // facilities layout
-                      Text(
-                        AppStrings.apartmentFacilities,
-                        style: context.txtTheme.titleMedium?.copyWith(
-                          decoration: TextDecoration.underline,
-                          decorationColor: AppColors.primaryColor,
-                          decorationThickness: 1.0,
-                        ),
-                      ),
-                  
-                      const SizedBox(height: AppSizes.md,),
-
-
-                      Wrap(
-                        children: apartment.apartmentFacilities.map((Facility facility) {
-                          return Container(
-                            margin: const EdgeInsets.all(6.0),
-                            child: CustomChipLayout(
-                              name: facility.name,
-                              icon: facility.icon,
-                            ),
-                          );
-                        }).toList(),
-                      ),
-
-
-                      const SizedBox(height: AppSizes.spaceBetweenSections,),
-
-                      // date with picker
-                      CustomTextField(
-                        controller: controller.movingDateCTRL,
-                        isBorder: true,
-                        readOnly: true,
-                        borderRadius: 12.0,
-                        borderColor: AppColors.primaryColor,
-                        hintText: AppStrings.selectMovingDateHint,
-                        suffixIcons: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SvgPicture.asset(AppIcons.dateIcon),
-                        ),
-                        prefixIconCallBack: () async{
-                          final String? date = await DatePickerUtils.pickFormattedDate(context: context);
-                          if(date != null){
-                            controller.movingDateCTRL.text = date;
-                          }
-                        },
-                        onTab: () async{
-                          final String? date = await DatePickerUtils.pickFormattedDate(context: context);
-                          if(date != null){
-                            controller.movingDateCTRL.text = date;
-                          }
-                        },
-                      ),
-
-                      const SizedBox(height: AppSizes.spaceBetweenInputs,),
-
-                      // unit types
-                      CustomDropdown<String>(
-                        options: apartment.availableUnitTypes, 
-                        displayString: (String unit) => unit,
-                        borderColor: AppColors.primaryColor,
-                        hint: AppStrings.availableUnitType,
-                        onChanged: (String value) {
-                          controller.updateSelectedUnitType = value;
-                        },
-                      ),
-
-                      const SizedBox(height: AppSizes.spaceBetweenInputs,),
-
-                      // floors
-                      CustomDropdown<String>(
-                        options: apartment.availableFloors, 
-                        displayString: (String unit) => unit,
-                        borderColor: AppColors.primaryColor,
-                        hint: AppStrings.selectFloor,
-                        onChanged: (String value) {
-                          controller.updateSelectedFloor = value;
-                        },
-                      ),
-
-                      const SizedBox(height: AppSizes.spaceBetweenInputs,),
-
-                      // numbers
-                      CustomDropdown<ApartmentUnit>(
-                        options: apartment.apartmentNumbers, 
-                        displayString: (ApartmentUnit unit) => unit.title,
-                        borderColor: AppColors.primaryColor,
-                        hint: AppStrings.apartmentNumber,
-                        onChanged: (ApartmentUnit value) {
-                          controller.updateSelectedApartmentNumber = value;
-                        },
-                      ),
-
-                      // unit facilities and images
-                      if(controller.selectedApartmentNumber.value != null)...<Widget>[
-                        const SizedBox(height: AppSizes.spaceBetweenSections,),
-                        // facilities layout
-                        Text(
-                          "${controller.selectedApartmentNumber.value!.title} ${AppStrings.facilities}",
-                          style: context.txtTheme.titleMedium?.copyWith(
-                            decoration: TextDecoration.underline,
-                            decorationColor: AppColors.primaryColor,
-                            decorationThickness: 1.0,
+                      Card(
+                        color: AppColors.whiteColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                          side: const BorderSide(
+                            color: AppColors.greyColor,
+                            width: AppSizes.dividerHeight,
                           ),
                         ),
-                    
-                        const SizedBox(height: AppSizes.md,),
-
-
-                        Wrap(
-                          runSpacing: 8,
-                          children: controller.selectedApartmentNumber.value!.facilities.map((Facility facility) {
-                            return Container(
-                              margin: const EdgeInsets.all(6.0),
-                              child: CustomChipLayout(
-                                name: facility.name,
-                                icon: facility.icon,
-                              ),
-                            );
-                          }).toList(),
-                        ),
-
-                        const SizedBox(height: AppSizes.spaceBetweenSections,),
-
-                        // image layout
-                        Text(
-                          "${controller.selectedApartmentNumber.value!.title} ${AppStrings.image}",
-                          style: context.txtTheme.titleMedium?.copyWith(
-                            decoration: TextDecoration.underline,
-                            decorationColor: AppColors.primaryColor,
-                            decorationThickness: 1.0,
-                          ),
-                        ),
-                    
-                        const SizedBox(height: AppSizes.md,),
-
-                        SizedBox(
-                          height: 100.0,
-                          child: ListView.separated(
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            itemCount: controller.selectedApartmentNumber.value!.unitImages.length,
-                            itemBuilder: (_, int index){
-                              return ClipRRect(
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(AppSizes.md),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              ClipRRect(
                                 borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
                                 child: CustomNetworkImage(
-                                  imageUrl: controller.selectedApartmentNumber.value!.unitImages[index],
-                                  width: 100.0,
-                                  height: double.infinity,
+                                  imageUrl: apartment.image,
+                                  height: 48.0,
+                                  width: 48.0, // or any fixed width
                                   boxShape: BoxShape.rectangle,
                                 ),
-                              );
-                            },
-                            separatorBuilder: (_,_) => const SizedBox(width: AppSizes.md,),
-                          ),
-                        ),
+                              ),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                              const SizedBox(width: AppSizes.spaceBetweenItems),
 
-                        Card(
-                          color: AppColors.whiteColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                            side: const BorderSide(
-                              color: AppColors.greyColor,
-                              width: AppSizes.dividerHeight,
-                            ),
-                          ),
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(AppSizes.md),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                                  child: CustomNetworkImage(
-                                    imageUrl: apartment.image,
-                                    height: 48.0,
-                                    width: 48.0, // or any fixed width
-                                    boxShape: BoxShape.rectangle,
-                                  ),
-                                ),
-
-                                const SizedBox(width: AppSizes.spaceBetweenItems),
-
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(
-                                        AppStrings.apartmentName,
-                                        style: context.txtTheme.labelSmall,
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        apartment.apartmentName,
-                                        style: context.txtTheme.bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-
-                                Row(
-                                  spacing: AppSizes.md,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    CustomRoundedInnerIcon(
-                                      onTap: (){
-                                        DeviceUtility.launchEmail(apartment.ownerEmail);
-                                      },
-                                      containerSize: 32.0,
-                                      boxShape: BoxShape.rectangle,
-                                      icon: AppIcons.emailPrefixIcon
+                                    Text(
+                                      AppStrings.apartmentName,
+                                      style: context.txtTheme.labelSmall,
                                     ),
-                                    CustomRoundedInnerIcon(
-                                      onTap: (){
-                                        DeviceUtility.launchPhone(apartment.ownerPhoneNumber);
-                                      },
-                                      containerSize: 32.0,
-                                      boxShape: BoxShape.rectangle,
-                                      icon: AppIcons.phonePrefixIcon
-                                    )
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      apartment.apartmentName,
+                                      style: context.txtTheme.bodyMedium,
+                                    ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+
+                              Row(
+                                spacing: AppSizes.md,
+                                children: <Widget>[
+                                  CustomRoundedInnerIcon(
+                                    onTap: () {
+                                      DeviceUtility.launchEmail(apartment.ownerEmail);
+                                    },
+                                    containerSize: 32.0,
+                                    boxShape: BoxShape.rectangle,
+                                    icon: AppIcons.emailPrefixIcon,
+                                  ),
+                                  CustomRoundedInnerIcon(
+                                    onTap: () {
+                                      DeviceUtility.launchPhone(apartment.ownerPhoneNumber);
+                                    },
+                                    containerSize: 32.0,
+                                    boxShape: BoxShape.rectangle,
+                                    icon: AppIcons.phonePrefixIcon,
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
-
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Text(
-                              "${AppStrings.price} \$${apartment.price}",
-                              style: context.txtTheme.headlineMedium,
-                            ),
-                            Text(
-                              " / ${apartment.priceType}",
-                              style: context.txtTheme.bodyLarge,
-                            )
-                          ],
-                        )
-                      ],
-                      const SizedBox(height: AppSizes.spaceBetweenItems,),
-                      CustomButton(
-                        onTap: controller.handleApartmentApplicationProcess, 
-                        text: AppStrings.beginApplicationProcess
                       ),
-                      const SizedBox(height: AppSizes.spaceBetweenSections,),
                     ],
-                  );
-                }
-              ),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    CustomButton(
+                      onTap: controller.handleApartmentApplicationProcess,
+                      text: AppStrings.beginApplicationProcess,
+                    ),
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
+                  ],
+                );
+              }),
 
-              SizedBox(height: context.screenHeight * .4,),
+              SizedBox(height: context.screenHeight * .4),
             ],
           ),
         ),

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.getTheme(ThemeMode.light),
       darkTheme: AppTheme.getTheme(ThemeMode.dark),
       themeMode: Get.find<ThemeManager>().currentThemeMode,
-      initialRoute: AppRoutes.initialRoute,
+      initialRoute: AppRoutes.homeRenterRoute,
       getPages: AppNavigation.routes,
       initialBinding: AppBindings(),
       builder: (BuildContext context, Widget? child) {

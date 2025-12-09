@@ -15,7 +15,7 @@ class AppNavigation{
       transition: Transition.noTransition
     ),
 
-    // onbaording routes
+    // onboarding routes
     ...OnboardingNav.routes,
 
     // choose role routes

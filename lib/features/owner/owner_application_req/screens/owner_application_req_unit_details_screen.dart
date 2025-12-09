@@ -96,7 +96,6 @@ class OwnerApplicationReqUnitDetailsScreen extends GetView<OwnerApplicationReqCo
                             margin: const EdgeInsets.all(6.0),
                             child: CustomChipLayout(
                               name: facility.name,
-                              icon: facility.icon,
                             ),
                           );
                         }).toList(),
@@ -157,7 +156,6 @@ class OwnerApplicationReqUnitDetailsScreen extends GetView<OwnerApplicationReqCo
                             margin: const EdgeInsets.all(6.0),
                             child: CustomChipLayout(
                               name: facility.name,
-                              icon: facility.icon,
                             ),
                           );
                         }).toList(),

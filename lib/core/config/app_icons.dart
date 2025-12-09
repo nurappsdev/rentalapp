@@ -45,6 +45,8 @@ class AppIcons{
   static const String deleteIcon ="$baseUrl/delete_icon.svg";
   static const String deleteBottomSheetIcon ="$baseUrl/delete_bottom_sheet_icon.svg";
   static const String lockIcon ="$baseUrl/lock_icon.svg";
+  static const String threeDot ="$baseUrl/three_dot.svg";
+  static const String pdfIcon ="$baseUrl/pdf_icon.svg";
   
 
   //

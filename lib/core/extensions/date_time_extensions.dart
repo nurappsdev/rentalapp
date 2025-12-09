@@ -2,7 +2,8 @@ import 'package:intl/intl.dart';
 import 'package:alora/core/config/app_strings.dart';
 
 extension DateTimeExtensions on DateTime {
-  String toFormattedString() => "${day.toString().padLeft(2, '0')}/${month.toString().padLeft(2, '0')}/$year";
+  String toFormattedString() =>
+      "${day.toString().padLeft(2, '0')}/${month.toString().padLeft(2, '0')}/$year";
 
   int get age => DateTime.now().year - year;
 
@@ -16,8 +17,9 @@ extension DateTimeExtensions on DateTime {
 
   String get formattedDateTime12 => DateFormat('MMM d, yyyy  h:mm a').format(this);
 
-  bool get isExpired => isBefore(DateTime.now().toUtc());
+  String get formattedTime12 => DateFormat('h:mm a').format(this);
 
+  bool get isExpired => isBefore(DateTime.now().toUtc());
 
   bool get isValid => !isExpired;
 

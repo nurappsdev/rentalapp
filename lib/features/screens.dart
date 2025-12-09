@@ -31,7 +31,7 @@ export 'package:alora/features/crew/maintenance_details/screens/maintenance_deta
 export 'package:alora/features/crew/contact_us/screens/contact_us_screen.dart';
 export 'package:alora/features/crew/maintenance/screens/maintenance_screen.dart';
 
-// rentar
+// rental
 export 'package:alora/features/renter/home_renter/screens/home_renter_screen.dart';
 export 'package:alora/features/renter/search_apartments/screens/search_apartments_screen.dart';
 export 'package:alora/features/renter/apartment_details/screens/apartment_details_screen.dart';
@@ -43,6 +43,7 @@ export 'package:alora/features/renter/renter_payment/screens/renter_payment_deta
 export 'package:alora/features/renter/renter_maintenance/screens/renter_maintenance_screen.dart';
 export 'package:alora/features/renter/renter_maintenance_create/screens/renter_maintenance_create_screen.dart';
 export 'package:alora/features/renter/renter_documents/screens/renter_documents_screen.dart';
+export 'package:alora/features/renter/renter_documents/screens/renter_my_documents_screen.dart';
 export 'package:alora/features/renter/renter_documents/screens/renter_create_documents_screen.dart';
 export 'package:alora/features/renter/renter_events/screens/renter_events_screen.dart';
 export 'package:alora/features/renter/renter_request/screens/renter_request_screen.dart';

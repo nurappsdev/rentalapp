@@ -95,7 +95,6 @@ class OwnerCreateApartmentPreviewScreen extends GetView<OwnerCreateApartmentCont
                         margin: const EdgeInsets.all(6.0),
                         child: CustomChipLayout(
                           name: facility.name,
-                          icon: facility.icon,
                         ),
                       );
                     }).toList(),
@@ -180,7 +179,6 @@ class OwnerCreateApartmentPreviewScreen extends GetView<OwnerCreateApartmentCont
                         margin: const EdgeInsets.all(6.0),
                         child: CustomChipLayout(
                           name: facility.name,
-                          icon: facility.icon,
                         ),
                       );
                     }).toList(),

@@ -6,7 +6,7 @@ import '../app_routes.dart';
 class OwnerNav{
   OwnerNav._();
   static final List<GetPage<dynamic>> routes = <GetPage<dynamic>>[
-    // owner rotutes
+    // owner routes
 
     // subscription
     GetPage<dynamic>(

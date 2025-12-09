@@ -54,6 +54,7 @@ class AppRoutes {
   static const String renterMaintenanceRoute = "/renter-maintenance-screen";
   static const String renterMaintenanceCreateRoute = "/renter-maintenance-create-screen";
   static const String renterDocumentRoute = "/renter-document-screen";
+  static const String renterMyDocumentRoute = "/renter-my-document-screen";
   static const String renterDocumentCreateRoute = "/renter-document-create-screen";
   static const String renterEventsRoute = "/renter-events-screen";
   static const String renterRequestRoute = "/renter-request-screen";

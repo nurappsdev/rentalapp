@@ -1,5 +1,1 @@
-### Splash actual navigation 
-[x] 
-
-### Sign in for rentar 
-[x] change to home for dev testing
+[x] -> home renter route instead of initial  route

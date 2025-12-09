@@ -1,4 +1,5 @@
 import 'package:alora/core/config/app_colors.dart';
+import 'package:alora/core/config/app_icons.dart';
 import 'package:alora/core/config/app_sizes.dart';
 import 'package:alora/core/config/app_strings.dart';
 import 'package:alora/core/extensions/context_extensions.dart';
@@ -14,8 +15,12 @@ import 'package:alora/shared/widgets/maintenance_card.dart';
 import 'package:alora/shared/widgets/maintenance_shimmer.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+
+import '../../../../shared/models/user_model.dart';
+import 'resolve_ticket.dart';
 
 class RequestCard extends StatelessWidget {
   final RenterMaintenanceModel maintenance;
@@ -40,176 +45,324 @@ class RequestCard extends StatelessWidget {
         padding: const EdgeInsets.all(AppSizes.md),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-          border: Border.all(
-            color: AppColors.greyColor,
-            width: AppSizes.dividerHeight
-          )
+          border: Border.all(color: AppColors.greyColor, width: AppSizes.dividerHeight),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: <Widget>[
-            header1(context, maintenance),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                header1(context, maintenance),
 
-            const SizedBox(height: AppSizes.spaceBetweenItems,),
+                const SizedBox(height: AppSizes.spaceBetweenItems),
 
-            const Divider(
-              thickness: AppSizes.dividerThick,
-            ),
+                const Divider(thickness: AppSizes.dividerThick),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(AppStrings.issueDate, style: context.txtTheme.labelSmall),
 
-            // description layout
-            Text(
-              AppStrings.description,
-              style: context.txtTheme.bodyLarge,
-            ),
-        
-            const SizedBox(height: AppSizes.xs,),
-        
-            Text(
-              maintenance.description,
-              style: context.txtTheme.bodySmall,
-            ),
+                        const SizedBox(height: AppSizes.xs),
 
-            const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        Text(
+                          maintenance.issueDate.formattedDate,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: context.txtTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text("Issue Time", style: context.txtTheme.labelSmall),
 
+                        const SizedBox(height: AppSizes.xs),
 
-            // issue image layout
-            Text(
-              AppStrings.issueImage,
-              style: context.txtTheme.bodyLarge,
-            ),
-        
-            const SizedBox(height: AppSizes.xs,),
+                        Text(
+                          maintenance.issueDate.formattedTime12,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: context.txtTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
 
+                const SizedBox(height: AppSizes.spaceBetweenItems),
 
-            SizedBox(
-              height: 100.0,
-              child: ListView.separated(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: maintenance.issueImages.length,
-                itemBuilder: (_, int index){
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                    child: CustomNetworkImage(
-                      imageUrl: maintenance.issueImages[index],
-                      width: 100.0,
-                      height: double.infinity,
-                      boxShape: BoxShape.rectangle,
+                const Divider(thickness: AppSizes.dividerThick),
+
+                // description layout
+                Text(AppStrings.description, style: context.txtTheme.bodyLarge),
+
+                const SizedBox(height: AppSizes.xs),
+
+                Text(maintenance.description, style: context.txtTheme.bodySmall),
+
+                const SizedBox(height: AppSizes.spaceBetweenItems),
+
+                // issue image layout
+                Text(AppStrings.issueImage, style: context.txtTheme.bodyLarge),
+
+                const SizedBox(height: AppSizes.xs),
+
+                SizedBox(
+                  height: 100.0,
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: maintenance.issueImages.length,
+                    itemBuilder: (_, int index) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                        child: CustomNetworkImage(
+                          imageUrl: maintenance.issueImages[index],
+                          width: 100.0,
+                          height: double.infinity,
+                          boxShape: BoxShape.rectangle,
+                        ),
+                      );
+                    },
+                    separatorBuilder: (_, _) => const SizedBox(width: AppSizes.md),
+                  ),
+                ),
+                const SizedBox(height: AppSizes.spaceBetweenItems),
+                // issue video layout
+                Text(AppStrings.issueVideo, style: context.txtTheme.bodyLarge),
+
+                const SizedBox(height: AppSizes.xs),
+
+                Obx(() {
+                  if (isPast
+                      ? controller.pastMaintenanceList.isEmpty
+                      : controller.openMaintenanceList.isEmpty) {
+                    return const SizedBox.shrink();
+                  }
+                  return SizedBox(
+                    height: 150.0,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount:
+                          isPast
+                              ? controller.pastMaintenanceList.length
+                              : controller.openMaintenanceList.length,
+                      itemBuilder: (BuildContext context, int i) {
+                        final VideoItemModel? item;
+                        if (isPast) {
+                          item = controller.pastRequestVideoItems[index]?[i];
+                        } else {
+                          item = controller.openRequestVideoItems[index]?[i];
+                        }
+                        return VisibilityDetector(
+                          key: Key('video_$index$i]'),
+                          onVisibilityChanged: (VisibilityInfo info) {
+                            if (info.visibleFraction > 0.5) {
+                              controller.playOnly(index, i, isPast);
+                            }
+                          },
+                          child: Container(
+                            width: context.screenWidth * .8,
+                            margin: const EdgeInsets.only(right: AppSizes.sm),
+                            height: 150.0,
+                            decoration: BoxDecoration(
+                              color: AppColors.greyColor,
+                              borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                            ),
+                            child:
+                                (item != null && item.initialized == true)
+                                    ? AspectRatio(
+                                      aspectRatio:
+                                          item
+                                              .chewieController
+                                              .videoPlayerController
+                                              .value
+                                              .aspectRatio,
+                                      child: Chewie(controller: item.chewieController),
+                                    )
+                                    : const Center(child: CircularProgressIndicator()),
+                          ),
+                        );
+                      },
                     ),
                   );
+                }),
+
+                const SizedBox(height: AppSizes.spaceBetweenItems),
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.dividerColor, width: .5),
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  child: Column(
+                    spacing: AppSizes.md,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text("Maintenance Details Crew", style: context.txtTheme.titleLarge),
+                      userDetails(
+                        context,
+                        UserModel(
+                          name: "name",
+                          profileImage: "profileImage",
+                          phoneNumber: "phoneNumber",
+                          email: "email",
+                          address: "address",
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: AppSizes.spaceBetweenItems),
+              ],
+            ),
+            Positioned(
+              top: -10,
+              right: 0,
+              child: IconButton(
+                onPressed: () {
+                  Get.defaultDialog(
+                    backgroundColor: AppColors.whiteColor,
+                    title: '',
+                    content: ResolveTicket(
+                      onYes: () {
+                        Get.back();
+                      },
+                      onNo: () {
+                        Get.back();
+                      },
+                    ),
+                    barrierDismissible: true,
+                    radius: 12.0,
+                    contentPadding: EdgeInsets.zero,
+                    titlePadding: EdgeInsets.zero,
+                    actions: <Widget>[],
+                  );
                 },
-                separatorBuilder: (_,_) => const SizedBox(width: AppSizes.md,),
+                icon: SvgPicture.asset(AppIcons.threeDot, width: 6.0, height: 6.0),
               ),
             ),
-            const SizedBox(height: AppSizes.spaceBetweenItems,),
-            // issue video layout
-            Text(
-              AppStrings.issueVideo,
-              style: context.txtTheme.bodyLarge,
-            ),
-        
-            const SizedBox(height: AppSizes.xs,),
-        
-            Obx(() {
-              if (isPast ? controller.pastMaintenanceList.isEmpty : controller.openMaintenanceList.isEmpty) {
-                return const SizedBox.shrink();
-              }
-              return SizedBox(
-                height: 150.0,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: isPast ? controller.pastMaintenanceList.length : controller.openMaintenanceList.length,
-                  itemBuilder: (BuildContext context, int i) {
-                    final VideoItemModel? item;
-                    if(isPast){
-                      item = controller.pastRequestVideoItems[index]?[i];
-                    }
-                    else{
-                      item = controller.openRequestVideoItems[index]?[i];
-                    }                
-                    return VisibilityDetector(
-                      key: Key('video_$index$i]'),
-                      onVisibilityChanged: (VisibilityInfo info) {
-                        if (info.visibleFraction > 0.5) {
-                          controller.playOnly(index, i, isPast);
-                        }
-                      },
-                      child: Container(
-                        width: context.screenWidth * .8,
-                        margin: const EdgeInsets.only(right: AppSizes.sm),
-                        height: 150.0,
-                        decoration: BoxDecoration(
-                          color: AppColors.greyColor,
-                          borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd)
-                        ),
-                        child: (item != null && item.initialized == true)
-                            ? AspectRatio(
-                              aspectRatio: item.chewieController.videoPlayerController.value.aspectRatio,
-                              child: Chewie(controller: item.chewieController),
-                            )
-                            : const Center(child: CircularProgressIndicator()),
-                      ),
-                    );
-                  },
-                ),
-              );
-            }),
-
-            const SizedBox(height: AppSizes.spaceBetweenItems,),
           ],
         ),
       ),
     );
   }
+
   Row header1(BuildContext context, RenterMaintenanceModel maintenance) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Expanded(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
-                AppStrings.apartmentRoomNo,
-                style: context.txtTheme.labelSmall,
-              ),
-          
-              const SizedBox(height: AppSizes.xs,),
-          
+              Text(AppStrings.apartmentRoomNo, style: context.txtTheme.labelMedium),
+
+              const SizedBox(height: AppSizes.xs),
+
               Text(
                 maintenance.apartmentRoomNumber,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: context.txtTheme.bodySmall,
-              )
+                style: context.txtTheme.titleSmall,
+              ),
             ],
           ),
         ),
+      ],
+    );
+  }
 
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Text(
-                AppStrings.issueDate,
-                style: context.txtTheme.labelSmall,
-              ),
-          
-              const SizedBox(height: AppSizes.xs,),
-              
-              Text(
-                maintenance.issueDate.formattedDate,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: context.txtTheme.bodySmall,
-              )
-            ],
-          ),
-        )
+  Column userDetails(BuildContext context, UserModel user) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            SvgPicture.asset(AppIcons.userNamePrefixIcon, width: 24.0, height: 24.0),
+            const SizedBox(width: AppSizes.md),
+
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(AppStrings.name, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
+                Text(
+                  user.name,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.txtTheme.bodySmall,
+                ),
+              ],
+            ),
+          ],
+        ),
+
+        const SizedBox(height: AppSizes.spaceBetweenItems),
+
+        Row(
+          children: <Widget>[
+            SvgPicture.asset(AppIcons.emailPrefixIcon, width: 20.0, height: 20.0),
+            const SizedBox(width: AppSizes.md),
+
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(AppStrings.email, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
+                Text(
+                  user.email,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.txtTheme.bodySmall,
+                ),
+              ],
+            ),
+          ],
+        ),
+
+        const SizedBox(height: AppSizes.spaceBetweenItems),
+
+        Row(
+          children: <Widget>[
+            SvgPicture.asset(AppIcons.phonePrefixIcon, width: 24.0, height: 24.0),
+            const SizedBox(width: AppSizes.md),
+
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(AppStrings.phoneNo, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
+                Text(
+                  user.phoneNumber,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.txtTheme.bodySmall,
+                ),
+              ],
+            ),
+          ],
+        ),
       ],
     );
   }

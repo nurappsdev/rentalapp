@@ -19,6 +19,7 @@ import 'package:alora/core/widgets/custom_text_field.dart';
 import 'package:alora/core/widgets/dotted_border.dart';
 import 'package:alora/shared/features/payment/widget/payment_card.dart';
 import 'package:alora/shared/widgets/congratulation_sheet.dart';
+import 'package:alora/shared/widgets/custom_dropdown.dart';
 import 'package:alora/shared/widgets/custom_file_upload_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -34,6 +35,7 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
       appBar: const CustomAppBar(
         showBackBtn: true,
         elevation: 0.0,
+        title: "Create Request",
         backgroundColor: AppColors.whiteColor,
       ),
       backgroundColor: AppColors.surfaceColor,
@@ -61,7 +63,19 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     const SizedBox(height: AppSizes.spaceBetweenItems),
-                    Text(AppStrings.apartmentRoomNo, style: context.txtTheme.bodyMedium),
+                    Text("Unit Name", style: context.txtTheme.bodyMedium),
+                    const SizedBox(height: AppSizes.md),
+
+                    CustomTextField(
+                      controller: TextEditingController(),
+                      isBorder: true,
+                      borderRadius: 12.0,
+                      onTab: () async {},
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenInputs),
+
+                    Text("Issue Date", style: context.txtTheme.bodyMedium),
                     const SizedBox(height: AppSizes.md),
 
                     CustomTextField(
@@ -69,10 +83,12 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                       isBorder: true,
                       readOnly: true,
                       borderRadius: 12.0,
+                      // suffixIcons: ,
                       onTab: () async {},
                     ),
 
                     const SizedBox(height: AppSizes.spaceBetweenInputs),
+
                     Text(AppStrings.description, style: context.txtTheme.bodyMedium),
                     const SizedBox(height: AppSizes.md),
 
@@ -81,6 +97,8 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                       isBorder: true,
                       readOnly: true,
                       borderRadius: 12.0,
+                      minLines: 4,
+                      maxLines: 6,
                       onTab: () async {},
                     ),
 
@@ -160,34 +178,39 @@ class RenterMaintenanceCreateScreen extends GetView<RenterMaintenanceCreateContr
                     ),
 
                     const SizedBox(height: AppSizes.spaceBetweenItems),
-                    Text(AppStrings.calendar, style: context.txtTheme.bodyMedium),
+                    Text("Select time of availability ", style: context.txtTheme.bodyLarge),
                     const SizedBox(height: AppSizes.md),
 
-                    CustomTextField(
-                      controller: controller.calendarCTRL,
-                      isBorder: true,
-                      readOnly: true,
-                      borderRadius: 12.0,
-                      suffixIcons: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture.asset(AppIcons.dateIcon),
-                      ),
-                      prefixIconCallBack: () async {
-                        final String? date = await DatePickerUtils.pickFormattedDate(
-                          context: context,
-                        );
-                        if (date != null) {
-                          controller.calendarCTRL.text = date;
-                        }
-                      },
-                      onTab: () async {
-                        final String? date = await DatePickerUtils.pickFormattedDate(
-                          context: context,
-                        );
-                        if (date != null) {
-                          controller.calendarCTRL.text = date;
-                        }
-                      },
+                    // CustomTextField(
+                    //   controller: controller.calendarCTRL,
+                    //   isBorder: true,
+                    //   readOnly: true,
+                    //   borderRadius: 12.0,
+                    //   suffixIcons: Padding(
+                    //     padding: const EdgeInsets.all(8.0),
+                    //     child: SvgPicture.asset(AppIcons.dateIcon),
+                    //   ),
+                    //   prefixIconCallBack: () async {
+                    //     final String? date = await DatePickerUtils.pickFormattedDate(
+                    //       context: context,
+                    //     );
+                    //     if (date != null) {
+                    //       controller.calendarCTRL.text = date;
+                    //     }
+                    //   },
+                    //   onTab: () async {
+                    //     final String? date = await DatePickerUtils.pickFormattedDate(
+                    //       context: context,
+                    //     );
+                    //     if (date != null) {
+                    //       controller.calendarCTRL.text = date;
+                    //     }
+                    //   },
+                    // ),
+                    CustomDropdown<String>(
+                      options: const <String>['Morning (8-12)', 'Afternoon (1-5)', 'Evening (5-8)'],
+                      hint: "Select Availability",
+                      displayString: (String value) => value,
                     ),
 
                     const SizedBox(height: AppSizes.spaceBetweenSections),

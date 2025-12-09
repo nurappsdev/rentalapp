@@ -22,9 +22,7 @@ import 'package:get/get.dart';
 import '../controllers/renter_request_controller.dart';
 
 class RenterRequestScreen extends GetView<RenterRequestController> {
-  const RenterRequestScreen({
-    super.key
-  });
+  const RenterRequestScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +39,7 @@ class RenterRequestScreen extends GetView<RenterRequestController> {
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
           child: Column(
             children: <Widget>[
-
-              const SizedBox(height: AppSizes.spaceBetweenItems,),
+              const SizedBox(height: AppSizes.spaceBetweenItems),
 
               CustomTextField(
                 controller: TextEditingController(),
@@ -51,109 +48,110 @@ class RenterRequestScreen extends GetView<RenterRequestController> {
                 prefixIcon: SvgPicture.asset(AppIcons.searchIcon),
               ),
 
-              const SizedBox(height: AppSizes.spaceBetweenItems,),
+              const SizedBox(height: AppSizes.spaceBetweenItems),
 
               // event list with handling loading and empty state
-              Container(
-                alignment: Alignment.center,
-                width: context.screenWidth,
-                padding: const EdgeInsets.symmetric(horizontal: AppSizes.sm, vertical: AppSizes.md),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                  border: Border.all(
-                    width: .5,
-                    color: AppColors.dividerColor
-                  )
-                ),
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: <Widget>[
-                    
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                          child: CustomNetworkImage(
-                            imageUrl: MaintenanceModel.maintenanceImage, 
-                            height: 50.0, 
-                            boxShape: BoxShape.rectangle,
-                            width: 50.0
-                          ),
-                        ),
-
-                        const SizedBox(width: AppSizes.sm,),
-
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Sat 12 April 2025  8.30 PM ",
-                                style: context.txtTheme.labelMedium
-                              ),
-                          
-                              const SizedBox(height: AppSizes.xs,),
-                          
-                              Text(
-                                "Driftwood property",
-                                style: context.txtTheme.titleMedium
-                              ),
-                              const SizedBox(height: AppSizes.xs,),
-                              Text(
-                                "100 Smart Street, LA, USA",
-                                style: context.txtTheme.labelMedium
-                              ),
-                              const SizedBox(height: AppSizes.xs,),
-                              Text(
-                                "Studio Room",
-                                style: context.txtTheme.labelMedium
-                              ),
-                            ],
-                          ),
-                        ),
-                    
-                      ],
-                    ),
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Row(
-                        spacing: AppSizes.md,
+              GestureDetector(
+                onTap: () {
+                  CustomBottomSheet.showCustomBottomSheet(
+                    context: context,
+                    child: const RequestBottomSheet(),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  width: context.screenWidth,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSizes.sm,
+                    vertical: AppSizes.md,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                    border: Border.all(width: .5, color: AppColors.dividerColor),
+                  ),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          GestureDetector(
-                            onTap: (){
-                              CustomBottomSheet.showCustomBottomSheet(
-                                context: context, 
-                                child: const RequestBottomSheet(
-                                  
-                                )
-                              );
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: AppSizes.sm, vertical: AppSizes.sm),
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 3, 156, 9),
-                                borderRadius: BorderRadius.circular(20.0)
-                              ),
-                              child:  Text(
-                                "Request Approved",
-                                style: context.txtTheme.labelSmall?.copyWith(
-                                  color: AppColors.textWhiteColor
-                                )
-                              ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
+                            child: CustomNetworkImage(
+                              imageUrl: MaintenanceModel.maintenanceImage,
+                              height: 50.0,
+                              boxShape: BoxShape.rectangle,
+                              width: 50.0,
                             ),
-                          )
+                          ),
+
+                          const SizedBox(width: AppSizes.sm),
+
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Sat 12 April 2025  8.30 PM ",
+                                  style: context.txtTheme.labelMedium,
+                                ),
+
+                                const SizedBox(height: AppSizes.xs),
+
+                                Text("Driftwood property", style: context.txtTheme.titleMedium),
+                                const SizedBox(height: AppSizes.xs),
+                                Text(
+                                  "100 Smart Street, LA, USA",
+                                  style: context.txtTheme.labelMedium,
+                                ),
+                                const SizedBox(height: AppSizes.xs),
+                                Text("Studio Room", style: context.txtTheme.labelMedium),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
-                    ),
-                  ],
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Row(
+                          spacing: AppSizes.md,
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: () {
+                                CustomBottomSheet.showCustomBottomSheet(
+                                  context: context,
+                                  child: const RequestBottomSheet(),
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: AppSizes.sm,
+                                  vertical: AppSizes.sm,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 3, 156, 9),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                child: Text(
+                                  "Request Approved",
+                                  style: context.txtTheme.labelSmall?.copyWith(
+                                    color: AppColors.textWhiteColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-          
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
+
+              const SizedBox(height: AppSizes.spaceBetweenSections),
             ],
           ),
         ),
@@ -162,7 +160,6 @@ class RenterRequestScreen extends GetView<RenterRequestController> {
   }
 }
 
-
 class RequestBottomSheet extends StatelessWidget {
   const RequestBottomSheet({super.key});
 
@@ -170,13 +167,9 @@ class RequestBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(
-          "Accept the property you like.",
-          style: context.txtTheme.titleMedium
-        ),
+        Text("Accept the property you like.", style: context.txtTheme.titleMedium),
 
-        const SizedBox(height: AppSizes.spaceBetweenItems,),
-
+        const SizedBox(height: AppSizes.spaceBetweenItems),
 
         Container(
           alignment: Alignment.center,
@@ -184,15 +177,11 @@ class RequestBottomSheet extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.sm, vertical: AppSizes.md),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-            border: Border.all(
-              width: .5,
-              color: AppColors.dividerColor
-            )
+            border: Border.all(width: .5, color: AppColors.dividerColor),
           ),
           child: Stack(
             clipBehavior: Clip.none,
             children: <Widget>[
-              
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -200,74 +189,61 @@ class RequestBottomSheet extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
                     child: CustomNetworkImage(
-                      imageUrl: MaintenanceModel.maintenanceImage, 
-                      height: 50.0, 
+                      imageUrl: MaintenanceModel.maintenanceImage,
+                      height: 50.0,
                       boxShape: BoxShape.rectangle,
-                      width: 50.0
+                      width: 50.0,
                     ),
                   ),
 
-                  const SizedBox(width: AppSizes.sm,),
+                  const SizedBox(width: AppSizes.sm),
 
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          "Sat 12 April 2025  8.30 PM ",
-                          style: context.txtTheme.labelMedium
-                        ),
-                    
-                        const SizedBox(height: AppSizes.xs,),
-                    
-                        Text(
-                          "Driftwood property",
-                          style: context.txtTheme.titleMedium
-                        ),
-                        const SizedBox(height: AppSizes.xs,),
-                        Text(
-                          "100 Smart Street, LA, USA",
-                          style: context.txtTheme.labelMedium
-                        ),
-                        const SizedBox(height: AppSizes.xs,),
-                        Text(
-                          "Studio Room",
-                          style: context.txtTheme.labelMedium
-                        ),
+                        Text("Sat 12 April 2025  8.30 PM ", style: context.txtTheme.labelMedium),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.xs),
+
+                        Text("Driftwood property", style: context.txtTheme.titleMedium),
+                        const SizedBox(height: AppSizes.xs),
+                        Text("100 Smart Street, LA, USA", style: context.txtTheme.labelMedium),
+                        const SizedBox(height: AppSizes.xs),
+                        Text("Studio Room", style: context.txtTheme.labelMedium),
+
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             CustomButton(
-                              onTap: (){
+                              onTap: () {
                                 Get.back();
-                              }, 
+                              },
                               width: 100.0,
                               height: 40.0,
                               isOutline: true,
-                              text: "Deny"
+                              text: "Deny",
                             ),
 
-                            const SizedBox(width: AppSizes.spaceBetweenItems,),
+                            const SizedBox(width: AppSizes.spaceBetweenItems),
 
                             CustomButton(
-                              onTap: (){
+                              onTap: () {
                                 Get.offAllNamed(AppRoutes.homeRenterRoute);
-                              }, 
+                              },
                               width: 100.0,
                               height: 40.0,
-                              text: "Accept"
-                            )
+                              text: "Accept",
+                            ),
                           ],
                         ),
-                        const SizedBox(height: AppSizes.xs,),
+                        const SizedBox(height: AppSizes.xs),
                       ],
                     ),
                   ),
-              
                 ],
               ),
               Positioned(
@@ -277,18 +253,21 @@ class RequestBottomSheet extends StatelessWidget {
                   spacing: AppSizes.md,
                   children: <Widget>[
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: AppSizes.sm, vertical: AppSizes.sm),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppSizes.sm,
+                        vertical: AppSizes.sm,
+                      ),
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 3, 156, 9),
-                        borderRadius: BorderRadius.circular(20.0)
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
-                      child:  Text(
+                      child: Text(
                         "Request Approved",
                         style: context.txtTheme.labelSmall?.copyWith(
-                          color: AppColors.textWhiteColor
-                        )
+                          color: AppColors.textWhiteColor,
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

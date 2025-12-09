@@ -14,13 +14,11 @@ import 'package:get/get.dart';
 import '../controllers/renter_payment_controller.dart';
 
 class RenterPastPaymentsScreen extends GetView<RenterPaymentController> {
-  const RenterPastPaymentsScreen({
-    super.key
-  });
+  const RenterPastPaymentsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    controller.handleRetrivePastPayments();
+    controller.handleRetrievePastPayments();
     return Scaffold(
       appBar: const CustomAppBar(
         title: AppStrings.pastPayment,
@@ -31,94 +29,91 @@ class RenterPastPaymentsScreen extends GetView<RenterPaymentController> {
       backgroundColor: AppColors.surfaceColor,
       body: SingleChildScrollView(
         child: Padding(
-           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
-           child: Column(
-              children: <Widget>[
-                Container(),
-                const SizedBox(height: AppSizes.spaceBetweenItems,),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    CustomRoundedInnerIcon(
-                      icon: AppIcons.dateIcon,
-                      iconColor: AppColors.whiteColor,
-                      containerSize: 32.0,
-                      bgColor: AppColors.primaryColor,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: AppSizes.spaceBetweenItems,),
+          padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
+          child: Column(
+            children: <Widget>[
+              Container(),
+              const SizedBox(height: AppSizes.spaceBetweenItems),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  CustomRoundedInnerIcon(
+                    icon: AppIcons.dateIcon,
+                    iconColor: AppColors.whiteColor,
+                    containerSize: 32.0,
+                    bgColor: AppColors.primaryColor,
+                  ),
+                ],
+              ),
+              const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                Obx(
-                  () {
-                    return ListView.separated(
-                      shrinkWrap: true,
-                      itemCount: controller.pastPayments.length,
-                      itemBuilder: (_, int index){
-                        final RenterBalanceDetailsModel pastPayment = controller.pastPayments[index];
-                        return GestureDetector(
-                          behavior: HitTestBehavior.opaque,
-                          onTap: () {
-                            Get.toNamed(
-                              AppRoutes.renterPaymentDetailsRoute,
-                              arguments: pastPayment.id
-                            );
-                          },
-                          child: Column(
+              Obx(() {
+                return ListView.separated(
+                  shrinkWrap: true,
+                  itemCount: controller.pastPayments.length,
+                  itemBuilder: (_, int index) {
+                    final RenterBalanceDetailsModel pastPayment = controller.pastPayments[index];
+                    return GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        Get.toNamed(AppRoutes.renterPaymentDetailsRoute, arguments: pastPayment.id);
+                      },
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    pastPayment.isSuccess ? 'Payment Success' : "Payment Due",
-                                    style: context.txtTheme.bodyMedium
-                                  ),
-                                  SvgPicture.asset(AppIcons.infoIcon, width: 24.0, height: 24.0,)
-                                ],
+                              Text(
+                                pastPayment.isSuccess ? 'Payment Success' : "Payment Due",
+                                style: context.txtTheme.bodyMedium?.copyWith(
+                                  color:
+                                      pastPayment.isSuccess
+                                          ? AppColors.successColor
+                                          : AppColors.errorColor,
+                                ),
                               ),
-                          
-                              const SizedBox(height: AppSizes.sm,),
-                          
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    pastPayment.date.formattedDateTime12,
-                                    style: context.txtTheme.titleLarge
-                                  ),
-                          
-                                  Text(
-                                    pastPayment.totalBill.toString(),
-                                    style: context.txtTheme.titleLarge
-                                  ),
-                                ],
-                              )
+                              SvgPicture.asset(AppIcons.infoIcon, width: 24.0, height: 24.0),
                             ],
                           ),
-                        );
-                      }, 
-                      separatorBuilder: (_, int index){
-                        if((index - 1) == controller.pastPayments.length){
-                          return const SizedBox.shrink();
-                        }
-                        return const Column(
-                          children: <Widget>[
-                            SizedBox(height: AppSizes.sm,),
-                            Divider(
-                              thickness: .5,
-                              color: AppColors.dividerColor,
-                            ),
-                            SizedBox(height: AppSizes.sm,),
-                          ],
-                        );
-                      }, 
+
+                          const SizedBox(height: AppSizes.sm),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                pastPayment.date.formattedDateTime12,
+                                style: context.txtTheme.titleSmall,
+                              ),
+
+                              Text(
+                                pastPayment.totalBill.toString(),
+                                style: context.txtTheme.titleSmall,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     );
                   },
-                ),
-              ],
-           ),
+                  separatorBuilder: (_, int index) {
+                    if ((index - 1) == controller.pastPayments.length) {
+                      return const SizedBox.shrink();
+                    }
+                    return const Column(
+                      children: <Widget>[
+                        SizedBox(height: AppSizes.sm),
+                        Divider(thickness: .5, color: AppColors.dividerColor),
+                        SizedBox(height: AppSizes.sm),
+                      ],
+                    );
+                  },
+                );
+              }),
+            ],
+          ),
         ),
       ),
     );

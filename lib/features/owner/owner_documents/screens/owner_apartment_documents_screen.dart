@@ -17,7 +17,7 @@ class OwnerApartmentDocumentsScreen extends GetView<OwnerDocumentsController> {
   Widget build(BuildContext context) {
     final Map<String, dynamic>? arguments = Get.arguments;
     controller.updateApartmentId = arguments?['id'];
-    controller.handleRetriveSingleApartment();
+    controller.handleRetrieveSingleApartment();
 
     return Scaffold(
      appBar: const CustomAppBar(

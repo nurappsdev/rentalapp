@@ -22,6 +22,9 @@ class ApartmentDetailsController extends GetxController {
   String selectedFloor = '';
   set updateSelectedFloor(String selectedFloor) => this.selectedFloor = selectedFloor;
 
+  String selectedLeaseTerms = '';
+  set updateSelectedLeaseTerms(String selectedLeaseTerms) => this.selectedLeaseTerms = selectedLeaseTerms;
+
   Rxn<ApartmentUnit?> selectedApartmentNumber = Rxn<ApartmentUnit?>(null);
   set updateSelectedApartmentNumber(ApartmentUnit selectedApartmentNumber) => this.selectedApartmentNumber.value = selectedApartmentNumber;
   
