@@ -22,15 +22,7 @@ class SubscriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
-    return GestureDetector(
-      onTap: onSelectCallBack,
-      child: FlipCard(
-        key: cardKey,
-        flipOnTouch: false,
-        back: _buildBack(context, cardKey),
-        front: _buildFront(context, cardKey).centered
-      ),
-    );
+    return GestureDetector(onTap: onSelectCallBack, child: _buildFront(context, cardKey));
   }
 
   Stack _buildFront(BuildContext context, GlobalKey<FlipCardState> cardKey) {
@@ -42,9 +34,12 @@ class SubscriptionCard extends StatelessWidget {
           margin: const EdgeInsets.only(top: 20),
           padding: const EdgeInsets.all(AppSizes.md),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isSelected ? AppColors.primaryColor.withValues(alpha: .1) : AppColors.whiteColor,
             borderRadius: BorderRadius.circular(AppSizes.borderRadiusXxl),
-            border: Border.all(color: isSelected ? AppColors.primaryColor : AppColors.dividerColor, width: 2.0),
+            border: Border.all(
+              color: isSelected ? AppColors.primaryColor : AppColors.dividerColor,
+              width: 2.0,
+            ),
           ),
           child: SizedBox(
             width: context.screenWidth,
@@ -52,119 +47,49 @@ class SubscriptionCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(height: AppSizes.sm,),
-                Text(
-                  subscription.durationNumber.toString(),
-                  style: context.txtTheme.headlineLarge,
+                const SizedBox(height: AppSizes.sm),
+                Row(
+                  spacing: AppSizes.xs,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      subscription.durationNumber.toString(),
+                      style: context.txtTheme.headlineLarge,
+                    ),
+                    Text(subscription.duration, style: context.txtTheme.headlineLarge),
+                  ],
                 ),
-            
-                const SizedBox(height: AppSizes.sm,),
-            
-                Text(
-                  subscription.duration,
-                  style: context.txtTheme.bodyMedium,
-                ),
-            
-                const SizedBox(height: AppSizes.sm,),
-            
+
+                const SizedBox(height: AppSizes.sm),
+
+                Text(subscription.unitType.toString(), style: context.txtTheme.bodyLarge),
+
+                const SizedBox(height: AppSizes.sm),
+
                 Text(
                   "\$ ${subscription.price}",
-                  style: context.txtTheme.headlineLarge?.copyWith(
-                    color: AppColors.primaryColor
-                  ),
-                )
+                  style: context.txtTheme.headlineLarge?.copyWith(color: AppColors.primaryColor),
+                ),
               ],
             ),
           ),
         ),
-    
+
         Positioned(
-          top: 0,
+          top: 4,
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: AppSizes.md, vertical: AppSizes.sm),
+            padding: const EdgeInsets.symmetric(horizontal: AppSizes.sm, vertical: AppSizes.xs),
             decoration: BoxDecoration(
               color: AppColors.primaryColor,
               borderRadius: BorderRadius.circular(AppSizes.borderRadiusXxxL),
             ),
             child: Text(
               subscription.title,
-              style: context.txtTheme.titleMedium?.copyWith(
-                color: AppColors.textWhiteColor
-              ),
+              style: context.txtTheme.titleMedium?.copyWith(color: AppColors.textWhiteColor),
             ),
           ),
         ),
-        Positioned(
-          top: 30,
-          right: 10,
-          child: IconButton(
-            icon: const Icon(Icons.flip),
-            onPressed: () => cardKey.currentState?.toggleCard(),
-          ),
-        ),
       ],
-    );
-  }
-
-   Widget _buildBack(BuildContext context, GlobalKey<FlipCardState> cardKey) {
-    final List<String> subscriptionFeatures = <String>[
-      "Priority Support",
-      "Early Access to Features",
-      "Priority Support",
-      "Early Access to Features",
-      "Priority Support",
-      "Early Access to Features",
-    ];
-    return Container(
-      padding: const EdgeInsets.all(AppSizes.md),
-      decoration: BoxDecoration(
-        color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(AppSizes.borderRadiusXxl),
-        border: Border.all(color: isSelected ? AppColors.primaryColor : AppColors.dividerColor, width: 2.0),
-      ),
-      width: double.infinity,
-      child: Stack(
-        children: <Widget>[
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const Text(
-                "Subscription Includes",
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 16),
-              ...subscriptionFeatures.map(
-                (String feature) => Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    const Icon(Icons.check_circle_outline, color: Colors.white, size: 20),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        feature,
-                        style: const TextStyle(fontSize: 14, color: Colors.white,),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-
-          Positioned(
-          top: 0,
-          right: 10,
-          child: IconButton(
-            icon: const Icon(Icons.flip,  color: Colors.white,),
-            onPressed: () => cardKey.currentState?.toggleCard(),
-          ),
-        ),
-        ],
-      ),
     );
   }
 }

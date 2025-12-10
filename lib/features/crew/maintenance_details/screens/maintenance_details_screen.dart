@@ -19,14 +19,13 @@ import 'package:visibility_detector/visibility_detector.dart';
 import '../controllers/maintenance_details_controller.dart';
 
 class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
-  const MaintenanceDetailsScreen({
-    super.key
-  });
+  const MaintenanceDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final dynamic arguments = Get.arguments;
-    controller.updateMaintenanceId = arguments != null ? (arguments as Map<String, dynamic>)['maintenance_id'] : '';
+    controller.updateMaintenanceId =
+        arguments != null ? (arguments as Map<String, dynamic>)['maintenance_id'] : '';
     final String type = arguments != null ? (arguments as Map<String, dynamic>)['type'] ?? '' : '';
 
     return Scaffold(
@@ -41,14 +40,13 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
           child: Column(
             children: <Widget>[
-              const SizedBox(height: AppSizes.spaceBetweenItems,),
+              const SizedBox(height: AppSizes.spaceBetweenItems),
+
               // notification list with handling loading and empty state
-              
-              Obx((){
-                if(controller.maintenanceLoading.value){
+              Obx(() {
+                if (controller.maintenanceLoading.value) {
                   return const MaintenanceDetailsShimmer();
-                }
-                else if(controller.maintenance.value == null){
+                } else if (controller.maintenance.value == null) {
                   return const EmptyMaintenanceDetails().centered;
                 }
                 final MaintenanceModel maintenance = controller.maintenance.value!;
@@ -59,10 +57,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                     padding: const EdgeInsets.all(AppSizes.md),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
-                      border: Border.all(
-                        color: AppColors.greyColor,
-                        width: AppSizes.dividerHeight
-                      )
+                      border: Border.all(color: AppColors.greyColor, width: AppSizes.dividerHeight),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -70,39 +65,27 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                       children: <Widget>[
                         header1(context, maintenance),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
 
                         header2(context, maintenance),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                        const Divider(
-                          thickness: AppSizes.dividerThick,
-                        ),
+                        const Divider(thickness: AppSizes.dividerThick),
 
                         // description layout
-                        Text(
-                          AppStrings.description,
-                          style: context.txtTheme.bodyLarge,
-                        ),
-                    
-                        const SizedBox(height: AppSizes.xs,),
-                    
-                        Text(
-                          maintenance.description,
-                          style: context.txtTheme.bodySmall,
-                        ),
+                        Text(AppStrings.description, style: context.txtTheme.bodyLarge),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.xs),
+
+                        Text(maintenance.description, style: context.txtTheme.bodySmall),
+
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
 
                         // issue image layout
-                        Text(
-                          AppStrings.issueImage,
-                          style: context.txtTheme.bodyLarge,
-                        ),
-                    
-                        const SizedBox(height: AppSizes.xs,),
+                        Text(AppStrings.issueImage, style: context.txtTheme.bodyLarge),
 
+                        const SizedBox(height: AppSizes.xs),
 
                         SizedBox(
                           height: 100.0,
@@ -110,7 +93,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
                             itemCount: maintenance.issueImages.length,
-                            itemBuilder: (_, int index){
+                            itemBuilder: (_, int index) {
                               return ClipRRect(
                                 borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
                                 child: CustomNetworkImage(
@@ -121,18 +104,15 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                                 ),
                               );
                             },
-                            separatorBuilder: (_,_) => const SizedBox(width: AppSizes.md,),
+                            separatorBuilder: (_, _) => const SizedBox(width: AppSizes.md),
                           ),
                         ),
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
                         // issue video layout
-                        Text(
-                          AppStrings.issueVideo,
-                          style: context.txtTheme.bodyLarge,
-                        ),
-                    
-                        const SizedBox(height: AppSizes.xs,),
-                    
+                        Text(AppStrings.issueVideo, style: context.txtTheme.bodyLarge),
+
+                        const SizedBox(height: AppSizes.xs),
+
                         Obx(() {
                           if (controller.videoItems.isEmpty) {
                             return const SizedBox.shrink();
@@ -145,7 +125,7 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                               itemCount: controller.videoItems.length,
                               itemBuilder: (BuildContext context, int index) {
                                 final VideoItemModel item = controller.videoItems[index];
-                            
+
                                 return VisibilityDetector(
                                   key: Key('video_$index'),
                                   onVisibilityChanged: (VisibilityInfo info) {
@@ -159,14 +139,20 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                                     height: 150.0,
                                     decoration: BoxDecoration(
                                       color: AppColors.greyColor,
-                                      borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd)
+                                      borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
                                     ),
-                                    child: item.initialized
-                                        ? AspectRatio(
-                                          aspectRatio: item.chewieController.videoPlayerController.value.aspectRatio,
-                                          child: Chewie(controller: item.chewieController),
-                                        )
-                                        : const Center(child: CircularProgressIndicator()),
+                                    child:
+                                        item.initialized
+                                            ? AspectRatio(
+                                              aspectRatio:
+                                                  item
+                                                      .chewieController
+                                                      .videoPlayerController
+                                                      .value
+                                                      .aspectRatio,
+                                              child: Chewie(controller: item.chewieController),
+                                            )
+                                            : const Center(child: CircularProgressIndicator()),
                                   ),
                                 );
                               },
@@ -174,56 +160,68 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
                           );
                         }),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                        const Divider(
-                          thickness: AppSizes.dividerThick,
-                        ),
+                        const Divider(thickness: AppSizes.dividerThick),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
 
                         // user details layout
-                        userdetails(context, maintenance),
+                        userDetails(context, maintenance),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                        const Divider(
-                          thickness: AppSizes.dividerThick,
-                        ),
+                        const Divider(thickness: AppSizes.dividerThick),
 
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                         if(type == "maintenance") 
-                          CustomButton(
-                            onTap: () => Get.back(), 
-                            text: AppStrings.accept
-                          )
-                        else if(type == "maintenance_recent")
-                          CustomButton(
-                            onTap: () => Get.back(), 
-                            text: AppStrings.resolvingIssue
-                          )
-                        else if(type == "maintenance_resolved") ...<Widget>[
-                          Text(
-                            AppStrings.resolvingIssueDate,
-                            style: context.txtTheme.labelMedium?.copyWith(
-                              color: AppColors.primaryColor
-                            ),
-                          ),
-                          const SizedBox(height: AppSizes.sm,),
-                          Text(
-                            "Sat 12 April 2025  8.30 PM",
-                            style: context.txtTheme.labelLarge
+                        if (type == "maintenance")
+                          CustomButton(onTap: () => Get.back(), text: AppStrings.accept)
+                        else if (type == "maintenance_recent")
+                          CustomButton(onTap: () => Get.back(), text: AppStrings.accept)
+                        else if (type == "maintenance_resolved") ...<Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    AppStrings.resolvingIssueDate,
+                                    style: context.txtTheme.labelMedium?.copyWith(
+                                      color: AppColors.primaryColor,
+                                    ),
+                                  ),
+                                  const SizedBox(height: AppSizes.sm),
+                                  Text("Sat 12 April 2025", style: context.txtTheme.labelLarge),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Resolved By",
+                                    style: context.txtTheme.labelMedium?.copyWith(
+                                      color: AppColors.primaryColor,
+                                    ),
+                                  ),
+                                  const SizedBox(height: AppSizes.sm),
+                                  Text("Omar Ariz", style: context.txtTheme.labelLarge),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
-                        const SizedBox(height: AppSizes.spaceBetweenItems,),
+                        const SizedBox(height: AppSizes.spaceBetweenItems),
                       ],
                     ),
                   ),
                 );
               }),
 
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
+              const SizedBox(height: AppSizes.spaceBetweenSections),
             ],
           ),
         ),
@@ -231,16 +229,13 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
     );
   }
 
-  Column userdetails(BuildContext context, MaintenanceModel maintenance) {
+  Column userDetails(BuildContext context, MaintenanceModel maintenance) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          AppStrings.userDetails,
-          style: context.txtTheme.titleMedium,
-        ),
-        const SizedBox(height: AppSizes.spaceBetweenItems,),
+        Text(AppStrings.userDetails, style: context.txtTheme.titleMedium),
+        const SizedBox(height: AppSizes.spaceBetweenItems),
 
         Row(
           children: <Widget>[
@@ -251,96 +246,78 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
               borderWidth: AppSizes.dividerHeight,
               borderColor: AppColors.blackColor,
             ),
-            const SizedBox(width: AppSizes.md,),
+            const SizedBox(width: AppSizes.md),
 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  AppStrings.name,
-                  style: context.txtTheme.labelSmall,
-                ),
-            
-                const SizedBox(height: AppSizes.xs,),
-            
+                Text(AppStrings.name, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
                 Text(
                   maintenance.userName,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: context.txtTheme.bodySmall,
-                )
+                ),
               ],
             ),
           ],
         ),
 
-        const SizedBox(height: AppSizes.spaceBetweenItems,),
+        const SizedBox(height: AppSizes.spaceBetweenItems),
 
         Row(
           children: <Widget>[
-            SvgPicture.asset(
-              AppIcons.emailPrefixIcon,
-              width: 24.0,
-              height: 24.0,
-            ),
-            const SizedBox(width: AppSizes.md,),
+            SvgPicture.asset(AppIcons.emailPrefixIcon, width: 24.0, height: 24.0),
+            const SizedBox(width: AppSizes.md),
 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  AppStrings.email,
-                  style: context.txtTheme.labelSmall,
-                ),
-            
-                const SizedBox(height: AppSizes.xs,),
-            
+                Text(AppStrings.email, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
                 Text(
                   maintenance.userEmail,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: context.txtTheme.bodySmall,
-                )
+                ),
               ],
             ),
           ],
         ),
 
-        const SizedBox(height: AppSizes.spaceBetweenItems,),
+        const SizedBox(height: AppSizes.spaceBetweenItems),
 
         Row(
           children: <Widget>[
-            SvgPicture.asset(
-              AppIcons.phonePrefixIcon,
-              width: 24.0,
-              height: 24.0,
-            ),
-            const SizedBox(width: AppSizes.md,),
+            SvgPicture.asset(AppIcons.phonePrefixIcon, width: 24.0, height: 24.0),
+            const SizedBox(width: AppSizes.md),
 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  AppStrings.phoneNo,
-                  style: context.txtTheme.labelSmall,
-                ),
-            
-                const SizedBox(height: AppSizes.xs,),
-            
+                Text(AppStrings.phoneNo, style: context.txtTheme.labelSmall),
+
+                const SizedBox(height: AppSizes.xs),
+
                 Text(
                   maintenance.userPhoneNumber,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: context.txtTheme.bodySmall,
-                )
+                ),
               ],
             ),
           ],
-        )
-
+        ),
       ],
     );
   }
@@ -354,19 +331,16 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                AppStrings.apartmentName,
-                style: context.txtTheme.labelSmall,
-              ),
-          
-              const SizedBox(height: AppSizes.xs,),
-          
+              Text(AppStrings.apartmentName, style: context.txtTheme.labelSmall),
+
+              const SizedBox(height: AppSizes.xs),
+
               Text(
                 maintenance.apartmentName,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: context.txtTheme.bodySmall,
-              )
+              ),
             ],
           ),
         ),
@@ -376,22 +350,19 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Text(
-                AppStrings.location,
-                style: context.txtTheme.labelSmall,
-              ),
-          
-              const SizedBox(height: AppSizes.xs,),
-              
+              Text(AppStrings.location, style: context.txtTheme.labelSmall),
+
+              const SizedBox(height: AppSizes.xs),
+
               Text(
                 maintenance.apartmentLocation,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: context.txtTheme.bodySmall,
-              )
+              ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
@@ -405,19 +376,16 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                AppStrings.apartmentRoomNo,
-                style: context.txtTheme.labelSmall,
-              ),
-          
-              const SizedBox(height: AppSizes.xs,),
-          
+              Text(AppStrings.apartmentRoomNo, style: context.txtTheme.labelSmall),
+
+              const SizedBox(height: AppSizes.xs),
+
               Text(
                 "${maintenance.apartmentRoomNumber} (${maintenance.floor})",
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: context.txtTheme.bodySmall,
-              )
+              ),
             ],
           ),
         ),
@@ -427,22 +395,19 @@ class MaintenanceDetailsScreen extends GetView<MaintenanceDetailsController> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              Text(
-                AppStrings.location,
-                style: context.txtTheme.labelSmall,
-              ),
-          
-              const SizedBox(height: AppSizes.xs,),
-              
+              Text(AppStrings.location, style: context.txtTheme.labelSmall),
+
+              const SizedBox(height: AppSizes.xs),
+
               Text(
                 maintenance.apartmentLocation,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: context.txtTheme.bodySmall,
-              )
+              ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

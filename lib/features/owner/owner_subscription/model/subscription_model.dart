@@ -1,3 +1,6 @@
+import 'package:alora/core/config/app_colors.dart';
+import 'package:flutter/material.dart';
+
 class SubscriptionModel {
   final String id;
   final String title;
@@ -40,44 +43,43 @@ class SubscriptionModel {
   static final List<SubscriptionModel> dummySubscriptions = <SubscriptionModel>[
     SubscriptionModel(
       id: '1',
-      title: 'Basic Plan',
+      title: 'Standard',
       duration: 'Month',
       durationNumber: 1,
       unitType: '1-3 units',
-      price: 29.99,
+      price: 9.00,
     ),
     SubscriptionModel(
       id: '2',
-      title: 'Standard Plan',
-      duration: 'Month',
-      durationNumber: 1,
-      unitType: '4-5 units',
-      price: 49.99,
-    ),
-    SubscriptionModel(
-      id: '3',
-      title: 'Premium Plan',
+      title: 'Deluxe',
       duration: 'Month',
       durationNumber: 1,
       unitType: '1-3 units',
-      price: 299.99,
+      price: 20.00,
     ),
     SubscriptionModel(
-      id: '4',
-      title: 'Family Plan',
+      id: '3',
+      title: 'Standard',
       duration: 'Month',
       durationNumber: 1,
       unitType: '4-5 units',
-      price: 449.99,
+      price: 19.00,
+    ),
+    SubscriptionModel(
+      id: '4',
+      title: 'Deluxe',
+      duration: 'Month',
+      durationNumber: 1,
+      unitType: '4-5 units',
+      price: 200.00,
     ),
     SubscriptionModel(
       id: '5',
-      title: 'Business Plan',
+      title: 'Standard',
       duration: 'Month',
       durationNumber: 1,
       unitType: '5-10 units',
       price: 99.99,
     ),
   ];
-
 }

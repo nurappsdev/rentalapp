@@ -33,7 +33,7 @@ class OwnerSubscriptionController extends GetxController {
     );
   }
 
-  Future<void> hanldeRetriveSubscriptions(String unitType) async{
+  Future<void> handleRetrieveSubscriptions(String unitType) async{
     subscriptionsLoading.value = true;
     await Future<dynamic>.delayed(const Duration(seconds: 1), (){
       subscriptions.value = SubscriptionModel.dummySubscriptions.where((SubscriptionModel subs) => subs.unitType == unitType).toList();

@@ -22,9 +22,7 @@ import 'package:get/get.dart';
 import '../controllers/owner_create_apartment_controller.dart';
 
 class OwnerCreateApartmentCreateUnitFirstScreen extends GetView<OwnerCreateApartmentController> {
-  const OwnerCreateApartmentCreateUnitFirstScreen({
-    super.key
-  });
+  const OwnerCreateApartmentCreateUnitFirstScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,123 +39,164 @@ class OwnerCreateApartmentCreateUnitFirstScreen extends GetView<OwnerCreateApart
           padding: const EdgeInsets.symmetric(horizontal: AppSizes.screenHorizontal),
           child: Column(
             children: <Widget>[
-              const SizedBox(height: AppSizes.spaceBetweenItems,),
+              const SizedBox(height: AppSizes.spaceBetweenItems),
               Container(
                 width: context.screenWidth,
                 padding: const EdgeInsets.symmetric(horizontal: AppSizes.md),
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    width: AppSizes.dividerThick,
-                    color: AppColors.borderColor
-                  ),
-                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd)
+                  border: Border.all(width: AppSizes.dividerThick, color: AppColors.borderColor),
+                  borderRadius: BorderRadius.circular(AppSizes.borderRadiusMd),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
-                    Text(
-                      "Unit Name",
-                      style: context.txtTheme.titleMedium
-                    ),
-                    const SizedBox(height: AppSizes.md,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text("Select Unit", style: context.txtTheme.titleMedium),
+                    const SizedBox(height: AppSizes.md),
 
                     CustomDropdown<String>(
                       options: const <String>["Studio", "Bed Room", "2 Bed Room", "Pent House"],
                       displayString: (String value) => value,
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    const SizedBox(height: AppSizes.md),
+                    Text("Units", style: context.txtTheme.titleMedium),
+                    const SizedBox(height: AppSizes.sm),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    const Row(
+                      spacing: AppSizes.sm,
                       children: <Widget>[
-                        CustomButton(onTap: (){}, borderRadius: 42.0, width: 100, text: "Create Unit")
+                        Icon(Icons.info, color: AppColors.greyColor),
+                        Expanded(
+                          child: Text(
+                            "Make the file for how many units you can create at a time in bulk.",
+                          ),
+                        ),
                       ],
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
-                    Text(
-                      "Number of Unit",
-                      style: context.txtTheme.titleMedium
-                    ),
-                    const SizedBox(height: AppSizes.md,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text("Select Number of Units", style: context.txtTheme.titleMedium),
+                    const SizedBox(height: AppSizes.md),
 
                     CustomTextField(
                       controller: TextEditingController(),
                       isBorder: true,
+                      hintText: "Select Number of Units",
+                      keyboardType: TextInputType.number,
                       borderRadius: 12.0,
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text("Square Fit", style: context.txtTheme.titleMedium),
+                    const SizedBox(height: AppSizes.md),
 
+                    CustomTextField(
+                      controller: TextEditingController(),
+                      isBorder: true,
+                      hintText: "Square Fit",
+                      keyboardType: TextInputType.number,
+                      borderRadius: 12.0,
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text("Set Unit price", style: context.txtTheme.titleMedium),
+                    const SizedBox(height: AppSizes.sm),
+
+                    Row(
+                      children: <Widget>[
+                        Checkbox(
+                          value: true,
+                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          onChanged: (bool? value) {},
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Set STANDARD Price for all lease terms",
+                            style: context.txtTheme.bodyLarge,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(height: AppSizes.sm),
+
+                    CustomTextField(
+                      controller: TextEditingController(),
+                      isBorder: true,
+                      hintText: "Square Fit",
+                      keyboardType: TextInputType.number,
+                      borderRadius: 12.0,
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text("Bed Rooms", style: context.txtTheme.titleMedium),
+                    const SizedBox(height: AppSizes.md),
+
+                    CustomTextField(
+                      controller: TextEditingController(),
+                      isBorder: true,
+                      hintText: "Bed Rooms",
+                      keyboardType: TextInputType.number,
+                      borderRadius: 12.0,
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
+                    Text("Bathrooms", style: context.txtTheme.titleMedium),
+                    const SizedBox(height: AppSizes.md),
+
+                    CustomTextField(
+                      controller: TextEditingController(),
+                      isBorder: true,
+                      hintText: "Bathrooms",
+                      keyboardType: TextInputType.number,
+                      borderRadius: 12.0,
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        CustomButton(onTap: (){}, borderRadius: 42.0, width: 100, text: "Add Facilites")
-                      ],
-                    ),
-
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
-
-
-                    Wrap(
-                      spacing: 0.0,
-                      runSpacing: 8.0,
-                      children: <Widget>[
-                        Obx(
-                          () => ChipWidget(
-                            onTapCallback: (){
-                              controller.studioSelect.value = 1;
-                            },
-                            isSelected: (controller.studioSelect.value == 1),
-                            text: "Studio 1",
-                          ),
-                        ),
-
-                        const SizedBox(width: AppSizes.spaceBetweenItems,),
-
-                        Obx(
-                          () => ChipWidget(
-                            onTapCallback: (){
-                              controller.studioSelect.value = 2;
-                            },
-                            isSelected: (controller.studioSelect.value == 2),
-                            text: "Studio 2",
-                          ),
-                        ),
-
-                        const SizedBox(width: AppSizes.spaceBetweenItems,),
-
-                        Obx(
-                          () => ChipWidget(
-                            onTapCallback: (){
-                              controller.studioSelect.value = 3;
-                            },
-                            isSelected: (controller.studioSelect.value == 3),
-                            text: "Studio 3",
-                          ),
+                        CustomButton(
+                          onTap: () {},
+                          borderRadius: 42.0,
+                          width: 100,
+                          text: "Add Amenities",
                         ),
                       ],
                     ),
 
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
-                    const SizedBox(height: AppSizes.spaceBetweenSections,),
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
+
+                    CustomFileUploadLayout(
+                      label: "Upload your Unit image",
+                      onBrowseCallback: () {},
+                    ),
+
+                    const SizedBox(height: AppSizes.spaceBetweenSections),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       spacing: AppSizes.md,
                       children: <Widget>[
-                        Expanded(child: CustomButton(onTap: () => Get.toNamed(AppRoutes.ownerCreateApartmentCreateUnitSecondRoute), text: "Next"))
+                        Expanded(
+                          child: CustomButton(
+                            onTap:
+                                () => Get.toNamed(
+                                  AppRoutes.ownerCreateApartmentCreateUnitSecondRoute,
+                                ),
+                            text: "Next",
+                          ),
+                        ),
                       ],
                     ),
-                    
-                    const SizedBox(height: AppSizes.spaceBetweenItems,),
+
+                    const SizedBox(height: AppSizes.spaceBetweenItems),
                   ],
                 ),
               ),
-              const SizedBox(height: AppSizes.spaceBetweenSections,),
+              const SizedBox(height: AppSizes.spaceBetweenSections),
             ],
           ),
         ),
@@ -171,7 +210,7 @@ class ChipWidget extends StatelessWidget {
   final bool isSelected;
   final String text;
   const ChipWidget({
-    super.key, 
+    super.key,
     required this.text,
     required this.isSelected,
     required this.onTapCallback,
@@ -186,13 +225,14 @@ class ChipWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primaryColor : null,
           borderRadius: BorderRadius.circular(40.0),
-          border: Border.all(
-            color: isSelected ? Colors.transparent : AppColors.primaryColor
-          )
+          border: Border.all(color: isSelected ? Colors.transparent : AppColors.primaryColor),
         ),
-        child: Text(text, style: context.txtTheme.bodyMedium?.copyWith(
-          color: isSelected ? AppColors.textWhiteColor : AppColors.textBlackColor
-        ),),
+        child: Text(
+          text,
+          style: context.txtTheme.bodyMedium?.copyWith(
+            color: isSelected ? AppColors.textWhiteColor : AppColors.textBlackColor,
+          ),
+        ),
       ),
     );
   }

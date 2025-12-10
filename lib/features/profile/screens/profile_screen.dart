@@ -114,36 +114,38 @@ class ProfileScreen extends GetView<ProfileController> {
                       return Column(
                         children: <Widget>[
                           userDetails(context, user),
-                          const SizedBox(height: AppSizes.spaceBetweenSections),
-                          CustomButton(
-                            onTap: () {
-                              // controller.isVacantBtnVisible.value = !controller.isVacantBtnVisible.value;
-                              Get.toNamed(AppRoutes.renterProfileDocumentsRoute);
-                            },
-                            width: 100.0,
-                            isOutline: true,
-                            text: "Vacant Notice",
-                          ).centered,
+                          if (controller.roleType.value != RoleType.crew) ...<Widget>[
+                            const SizedBox(height: AppSizes.spaceBetweenSections),
+                            CustomButton(
+                              onTap: () {
+                                // controller.isVacantBtnVisible.value = !controller.isVacantBtnVisible.value;
+                                Get.toNamed(AppRoutes.renterProfileDocumentsRoute);
+                              },
+                              width: 100.0,
+                              isOutline: true,
+                              text: "Vacant Notice",
+                            ).centered,
 
-                          //.visible(controller.isVacantBtnVisible.value),
-                          const SizedBox(height: AppSizes.spaceBetweenItems),
+                            //.visible(controller.isVacantBtnVisible.value),
+                            const SizedBox(height: AppSizes.spaceBetweenItems),
 
-                          // if(!controller.isVacantBtnVisible.value)
-                          Row(
-                            spacing: AppSizes.md,
-                            children: <Widget>[
-                              Expanded(child: CustomButton(onTap: () {}, text: "Download Pdf")),
-                              Expanded(
-                                child: CustomButton(
-                                  onTap: () {
-                                    Get.toNamed(AppRoutes.renterProfileCreateDocumentsRoute);
-                                  },
-                                  isOutline: true,
-                                  text: "Submit Document",
+                            // if(!controller.isVacantBtnVisible.value)
+                            Row(
+                              spacing: AppSizes.md,
+                              children: <Widget>[
+                                Expanded(child: CustomButton(onTap: () {}, text: "Download Pdf")),
+                                Expanded(
+                                  child: CustomButton(
+                                    onTap: () {
+                                      Get.toNamed(AppRoutes.renterProfileCreateDocumentsRoute);
+                                    },
+                                    isOutline: true,
+                                    text: "Submit Document",
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
+                              ],
+                            ),
+                          ],
                         ],
                       );
                     }),

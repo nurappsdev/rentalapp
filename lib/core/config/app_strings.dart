@@ -1,12 +1,10 @@
-class AppStrings{
+class AppStrings {
   AppStrings._();
   static const String hello = 'hello';
   static const String secondsAgo = 'seconds ago';
   static const String minutesAgo = 'minutes ago';
   static const String hoursAgo = 'hours ago';
   static const String daysAgo = 'days ago';
-
-
 
   // general
   static const String privacyPolicy = "Privacy Policy";
@@ -17,7 +15,6 @@ class AppStrings{
   // splash or onboarding
   static const String getStarted = 'Get Started';
   static const String alreadyHaveAcc = 'I Already Have An Account';
-
 
   // auth titles
   static const String signInTitle = "Sign in to your account";
@@ -30,7 +27,8 @@ class AppStrings{
   static const String verifyEmailSubTitle = "Please check your phone number and enter the code";
 
   static const String forgotEmailTitle = "Oops, Memory Leak?";
-  static const String forgotEmailSubTitle = "No worries! Just enter your email, and we’ll fix this little brain freeze.";
+  static const String forgotEmailSubTitle =
+      "No worries! Just enter your email, and we’ll fix this little brain freeze.";
 
   static const String resetPasswordTitle = "Reset Password";
   static const String resetPasswordSubTitle = "Enter a new password";
@@ -39,14 +37,14 @@ class AppStrings{
   static const String emailTakingSubTitle = "Please enter your phone number to reset password.";
 
   static const String resetPasswordBottomSheetTitle = "Password Changed!";
-  static const String resetPasswordBottomSheetSubTitle = "Return to the login page to enter your account with your new password.";
+  static const String resetPasswordBottomSheetSubTitle =
+      "Return to the login page to enter your account with your new password.";
 
   static const String logoutBottomSheetTitle = "LogOut";
   static const String logoutBottomSheetSubTitle = "Are you sure you want to log out ?";
 
   static const String deleteBottomSheetTitle = "Delete";
   static const String deleteBottomSheetSubTitle = "Are you sure you want to delete ?";
-
 
   // auth fields
   static const String nameHint = "Enter Name";
@@ -71,7 +69,6 @@ class AppStrings{
 
   static const String forgotPasswordQuestion = "Forgot Password?";
 
-
   static const String searchApartmentHint = "Search Property";
   static const String selectMovingDateHint = "Select moving date";
   static const String selectDateHint = "Select Date";
@@ -79,25 +76,27 @@ class AppStrings{
   static const String expectedMovingDate = "Expected moving date";
   static const String submitYourInfo = "Submit  your  information";
 
-
   // auth others
   static const String resetPassword = "Reset Password";
   static const String doNotHaveAcc = "Don’t have an account?";
   static const String didNotReceiveCode = "Didn’t receive code?";
   static const String resendCode = "Resend Code";
-  static const String termsAndConditionsAgreement = "By creating an account, I accept the Terms & Conditions & Privacy Policy.";
+  static const String termsAndConditionsAgreement =
+      "By creating an account, I accept the Terms & Conditions & Privacy Policy.";
   static const String needEarlyService = "Need Early Service";
-  static const String paymentTermsAndConditionAgreement = "I accept the Terms & Conditions & Privacy Policy.";
+  static const String paymentTermsAndConditionAgreement =
+      "I accept the Terms & Conditions & Privacy Policy.";
   static const String termsAndConditions = "terms and conditions.";
   static const String enableAutoPay = "Enable Auto Pay";
 
-
   static const String onboardingCardTitle = "Smart Rentals for\nModern Living";
-  static const String onboardingCardSubTitle = "Now you can find your dream house easily and quickly at a low price";
+  static const String onboardingCardSubTitle =
+      "Now you can find your dream house easily and quickly at a low price";
   static const String skip = "Skip";
 
   static const String chooseRoleTitle = "Join as";
-  static const String chooseRoleSubTitle = "please select an one option to start your journey with Apartment Rent  service .";
+  static const String chooseRoleSubTitle =
+      "please select an one option to start your journey with Apartment Rent  service .";
 
   static const String renter = "Renter";
   static const String renterRoleDesc = "create your account as a Apartment renter.";
@@ -109,7 +108,6 @@ class AppStrings{
   static const String crewDetails = "Crew Details";
   static const String crewRoleDesc = "Sign In as a Apartment Crew.";
 
-
   static const String maintenanceReqList = "Maintenance req list";
   static const String maintenanceEmpty = "Maintenance is empty.";
   static const String subscriptionEmpty = "Subscriptions are empty.";
@@ -117,9 +115,11 @@ class AppStrings{
   static const String eventsCrew = "Crew are empty.";
   static const String userInfoNotFound = "User info is not found.";
   static const String crewInfoNotFound = "Crew info is not found.";
-  static const String maintenanceDetailsNull = "Something went wrong!! Not Found the Maintenance Details";
+  static const String maintenanceDetailsNull =
+      "Something went wrong!! Not Found the Maintenance Details";
   static const String balanceDetailsNull = "Something went wrong!! Not Found the Balance Details";
-  static const String apartmentDetailsNull = "Something went wrong!! Not Found the Apartment Details";
+  static const String apartmentDetailsNull =
+      "Something went wrong!! Not Found the Apartment Details";
   static const String notificationEmpty = "Notification is empty.";
   static const String maintenanceDetails = "Maintenance details";
   static const String apartmentDetails = "Apartment details";
@@ -175,7 +175,7 @@ class AppStrings{
   static const String apartmentList = "Apartment List";
   static const String editApartment = "Edit Apartment";
   static const String createUnit = "Create Unit";
-  static const String formInformationSetup = "Form Information Setup";
+  static const String formInformationSetup = "Application Form Setup";
   static const String contactUs = "Contact Us";
   static const String setting = "Setting";
   static const String logout = "Logout";
@@ -183,7 +183,8 @@ class AppStrings{
   static const String submissionFee = "Submission fee";
   static const String resolvingIssueDate = "Resolving Issue Date";
   static const String dropFileOrBrowse = "Drop file or browse";
-  static const String onboardingAfterLoginDesc = "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
+  static const String onboardingAfterLoginDesc =
+      "As a renter, easily find and book apartments, manage rent payments, view lease documents, and communicate with landlords—all in one place for a hassle-free living experience.";
   static const String formatFile = "Format: .jpeg, .png & Max file size: 25 MB";
   static const String paymentTicket = "Payment Ticket";
   static const String payment = "Payment";
@@ -199,23 +200,22 @@ class AppStrings{
   static const String pastPayment = "Past Payment";
   static const String allocateBill = "Allocate Bill";
   static const String accountDetails = "Account Details";
-  static const String emptyOpenRequest = "You don’t have any open maintenance request at this time add one by clicking on the + button";
-  static const String emptyPastRequest = "You don’t have any past maintenance request at this time for add go to open request and add request";
-  static const String emptyPendingDoc = "You don’t have any pending documents at this time upload one by clicking on the upload button";
-  static const String emptyCompleteDoc = "You don’t have any completed documents at this time for add go to pending documents and add documents";
+  static const String emptyOpenRequest =
+      "You don’t have any open maintenance request at this time add one by clicking on the + button";
+  static const String emptyPastRequest =
+      "You don’t have any past maintenance request at this time for add go to open request and add request";
+  static const String emptyPendingDoc =
+      "You don’t have any pending documents at this time upload one by clicking on the upload button";
+  static const String emptyCompleteDoc =
+      "You don’t have any completed documents at this time for add go to pending documents and add documents";
   static const String balanceDetails = "Balance Details";
   static const String subscription = "Subscription";
   static const String subscriptionTitle = "Purchase your preferred subscription package.";
   static const String selectUnit = "Select unit";
   static const String totalBalance = "Total Balance";
 
-
-
-
-
-
   // ============================================================// ============================================================
-  // buttons 
+  // buttons
   // ============================================================// ============================================================
   static const String signIn = "Sign In";
   static const String signUp = "Sign Up";
@@ -259,30 +259,25 @@ class AppStrings{
   static const String update = "Update";
   static const String uploadPdf = "Upload Pdf";
 
-
-
-
-
   // ============================================================// ============================================================
   // tab item
   // ============================================================// ============================================================
-  
-    static const String recentMaintenance = "Recent Maintenance";
-    static const String resolvedMaintenance = "Resolved Maintenance";
 
-    static const String openRequest = "Open Request";
-    static const String pastRequest = "Past Request";
+  static const String recentMaintenance = "Recent Maintenance";
+  static const String resolvedMaintenance = "Resolved Maintenance";
 
-    static const String pendingDocuments = "Pending Documents";
-    static const String completedDocuments = "Completed Documents";
+  static const String openRequest = "Open Request";
+  static const String pastRequest = "Past Request";
 
-    static const String allEvents = "All Events";
-    static const String thisWeekEvents = "This Week";
-    static const String thisMonthEvents = "This Month";
+  static const String pendingDocuments = "Pending Documents";
+  static const String completedDocuments = "Completed Documents";
 
-    static const String myDocumentsTab = "My Documents";
-    static const String receivedDocuments = "Received Documents";
+  static const String allEvents = "All Events";
+  static const String thisWeekEvents = "This Week";
+  static const String thisMonthEvents = "This Month";
 
-    static const String recentRequest = "Recent Request";
+  static const String myDocumentsTab = "My Documents";
+  static const String receivedDocuments = "Received Documents";
 
+  static const String recentRequest = "Recent Request";
 }
