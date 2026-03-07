@@ -58,6 +58,8 @@ dependencies:
   # open a file 
   open_file: ^3.5.10
   flip_card: ^0.7.0
+
+  flutter_screenutil: ^5.9.3
  
 
 dev_dependencies:

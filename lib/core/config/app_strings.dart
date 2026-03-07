@@ -199,6 +199,10 @@ class AppStrings {
   static const String autoPay = "Auto Pay";
   static const String pastPayment = "Past Payment";
   static const String allocateBill = "Allocate Bill";
+  static const String manageSub = "manage subscription";
+  static const String billingsDetails = "Billings Details";
+  static const String accountAnalytical = "account analytics";
+  static const String managePayOut = "manage pay out ";
   static const String accountDetails = "Account Details";
   static const String emptyOpenRequest =
       "You don’t have any open maintenance request at this time add one by clicking on the + button";

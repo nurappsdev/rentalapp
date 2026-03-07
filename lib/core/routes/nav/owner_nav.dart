@@ -1,4 +1,16 @@
+import 'package:alora/features/owner/drawer_payment/account_analylical_screen/bindings/account_analytical_binding.dart';
+import 'package:alora/features/owner/drawer_payment/account_analylical_screen/controller/account_analytical_controller.dart';
+import 'package:alora/features/owner/drawer_payment/account_analylical_screen/screens/account_analytical_screen.dart';
+import 'package:alora/features/owner/drawer_payment/billing_details/bindings/billings_binding.dart';
+import 'package:alora/features/owner/drawer_payment/billing_details/screens/bank_account_details.dart';
+import 'package:alora/features/owner/drawer_payment/billing_details/screens/bank_account_screen.dart';
+import 'package:alora/features/owner/drawer_payment/manage_pay_out/bindings/manage_pay_out_binding.dart';
 import 'package:get/get.dart';
+import '../../../features/owner/drawer_payment/manage_pay_out/screens/manage_pay_out_screen.dart';
+import '../../../features/owner/drawer_payment/manage_sub/bindings/manage_sub_binding.dart';
+import '../../../features/owner/drawer_payment/manage_sub/screens/manage_sub_screen.dart' hide ManagePayOutScreen;
+import '../../../features/owner/drawer_payment/manage_pay_out/screens/withdraw_balance_screen.dart';
+import '../../../features/owner/drawer_payment/manage_sub/screens/subscription_screen.dart';
 import '../../../features/screens.dart';
 import '../../../features/bindings.dart';
 import '../app_routes.dart';
@@ -274,6 +286,51 @@ class OwnerNav{
       transition: Transition.noTransition
     ),
 
+
+    GetPage<dynamic>(
+        name: AppRoutes.manageSubscription,
+        page: () => const ManageSubScreen(),
+        binding: ManageSubBinding(),
+        transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+        name: AppRoutes.selectSubscription,
+        page: () => const OwnerSubscriptionScreenDrawer(),
+        binding: ManageSubBinding(),
+        transition: Transition.noTransition
+    ),
+  GetPage<dynamic>(
+        name: AppRoutes.withdrawBalanceScreen,
+        page: () => const WithdrawBalanceScreen(),
+        binding: ManageSubBinding(),
+        transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+        name: AppRoutes.bankAccount,
+        page: () => const BankAccountScreen(),
+        binding: BillingsBinding(),
+        transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+        name: AppRoutes.bankDetailsAccount,
+        page: () => const BankAccountDetails(),
+        binding: BillingsBinding(),
+        transition: Transition.noTransition
+    ),
+    GetPage<dynamic>(
+        name: AppRoutes.accountAnalytical,
+        page: () => const AccountAnalyticalScreen(),
+        binding: AccountAnalyticalBinding(),
+        transition: Transition.noTransition
+    ),
+
+    GetPage<dynamic>(
+        name: AppRoutes.managePayOut,
+        page: () => const ManagePayOutScreen(),
+        binding: ManagePayOutBinding(),
+        transition: Transition.noTransition
+    ),
 
 
   ];

@@ -328,26 +328,80 @@ class _PaymentDropDownState extends State<PaymentDropDown> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         if (widget.isOwner) ...<Widget>[
-                          ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            title: Text(AppStrings.pastPayment, style: context.txtTheme.bodyMedium),
-                            onTap: () {
-                              _toggleDropdown();
-                              Get.toNamed(AppRoutes.renterPastPaymentsRoute);
-                            },
-                          ),
-
-                          const Divider(thickness: .5, color: AppColors.dividerColor),
+                          // ListTile(
+                          //   contentPadding: EdgeInsets.zero,
+                          //   title: Text(AppStrings.pastPayment, style: context.txtTheme.bodyMedium),
+                          //   onTap: () {
+                          //     _toggleDropdown();
+                          //     Get.toNamed(AppRoutes.renterPastPaymentsRoute);
+                          //   },
+                          // ),
+                          //
+                          // const Divider(thickness: .5, color: AppColors.dividerColor),
+                          //
+                          // ListTile(
+                          //   contentPadding: EdgeInsets.zero,
+                          //   title: Text(
+                          //     AppStrings.allocateBill,
+                          //     style: context.txtTheme.bodyMedium,
+                          //   ),
+                          //   onTap: () {
+                          //     _toggleDropdown();
+                          //     Get.toNamed(AppRoutes.ownerAllocateBillRoute, arguments: true);
+                          //   },
+                          // ),
+                          // const Divider(thickness: .5, color: AppColors.dividerColor),
 
                           ListTile(
                             contentPadding: EdgeInsets.zero,
                             title: Text(
-                              AppStrings.allocateBill,
+                              AppStrings.manageSub,
                               style: context.txtTheme.bodyMedium,
                             ),
                             onTap: () {
                               _toggleDropdown();
-                              Get.toNamed(AppRoutes.ownerAllocateBillRoute, arguments: true);
+                              Get.toNamed(AppRoutes.manageSubscription, arguments: true);
+                            },
+                          ),
+                          const Divider(thickness: .5, color: AppColors.dividerColor),
+                          ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(
+                              AppStrings.billingsDetails,
+                              style: context.txtTheme.bodyMedium,
+                            ),
+                            onTap: () {
+                              _toggleDropdown();
+                              Get.toNamed(AppRoutes.bankAccount, arguments: true);
+
+                            },
+                          ),
+
+                          const Divider(thickness: .5, color: AppColors.dividerColor),
+                          ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(
+                              AppStrings.accountAnalytical,
+                              style: context.txtTheme.bodyMedium,
+                            ),
+                            onTap: () {
+                              _toggleDropdown();
+                              Get.toNamed(AppRoutes.accountAnalytical, arguments: true);
+
+                            },
+                          ),
+
+                          const Divider(thickness: .5, color: AppColors.dividerColor),
+                          ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            title: Text(
+                              AppStrings.managePayOut,
+                              style: context.txtTheme.bodyMedium,
+                            ),
+                            onTap: () {
+                              _toggleDropdown();
+                              Get.toNamed(AppRoutes.managePayOut, arguments: true);
+
                             },
                           ),
                         ] else ...<Widget>[

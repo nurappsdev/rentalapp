@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'core/routes/app_navigation.dart';
@@ -19,19 +20,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Alora Rental Application',
-      theme: AppTheme.getTheme(ThemeMode.light),
-      darkTheme: AppTheme.getTheme(ThemeMode.dark),
-      themeMode: Get.find<ThemeManager>().currentThemeMode,
-      initialRoute: AppRoutes.initialRoute,
-      getPages: AppNavigation.routes,
-      initialBinding: AppBindings(),
-      builder: (BuildContext context, Widget? child) {
-        return child == null
-            ? const Scaffold(body: Center(child: Text("Something Wrong")))
-            : SafeArea(top: false, child: child);
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Alora Rental Application',
+          theme: AppTheme.getTheme(ThemeMode.light),
+          darkTheme: AppTheme.getTheme(ThemeMode.dark),
+          themeMode: Get.find<ThemeManager>().currentThemeMode,
+          initialRoute: AppRoutes.initialRoute,
+          getPages: AppNavigation.routes,
+          initialBinding: AppBindings(),
+          builder: (BuildContext context, Widget? child) {
+            return child == null
+                ? const Scaffold(body: Center(child: Text("Something Wrong")))
+                : SafeArea(top: false, child: child);
+          },
+        );
       },
     );
   }

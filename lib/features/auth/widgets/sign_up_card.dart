@@ -152,7 +152,6 @@ class SignUpCard extends StatelessWidget {
               )
             ],
           ),
-          
         ],
       ),
     );

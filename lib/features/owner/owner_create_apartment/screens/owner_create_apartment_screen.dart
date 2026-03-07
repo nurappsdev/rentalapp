@@ -16,6 +16,7 @@ import 'package:alora/shared/widgets/custom_dropdown.dart';
 import 'package:alora/shared/widgets/custom_file_upload_layout.dart';
 import 'package:alora/shared/widgets/delete_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../controllers/owner_create_apartment_controller.dart';
@@ -389,7 +390,17 @@ class OwnerCreateApartmentScreen extends GetView<OwnerCreateApartmentController>
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         CustomButton(
-                          onTap: () {},
+                          onTap: () async{
+
+                            final result = await showDialog<AmenitiesSelection>(
+                              context: context,
+                              builder: (_) => const AmenitiesDialog(),
+                            );
+                            if (result != null) {
+                              // Handle selected amenities
+                              debugPrint('Selected: ${result.selected}');
+                            }
+                          },
                           width: 150,
                           borderRadius: 50.0,
                           text: "Add Facilities",
@@ -449,6 +460,297 @@ class OwnerCreateApartmentScreen extends GetView<OwnerCreateApartmentController>
               ),
               const SizedBox(height: AppSizes.spaceBetweenSections),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+// ─── Data Model ────────────────────────────────────────────────────────────
+
+class AmenitiesData {
+  final Map<String, List<String>> sections = {
+    'Core Amenities': [
+      'Air Conditioning', 'Heating', 'Ceiling Fans', 'In-Unit Washer',
+      'In-Unit Dryer', 'Washer And Dryer Hookups', 'Ethernet Ports',
+      'Pre-Installed Wi-Fi', 'Cable Or Satellite Ready',
+    ],
+    'Kitchen Appliances': [
+      'Refrigerator', 'Stove / Oven', 'Microwave', 'Dishwasher',
+      'Garbage Disposal', 'Range Hood', 'Ice Maker',
+      'Water Dispenser', 'Smart Appliances (If Applicable)',
+    ],
+    'Bathroom Features': [
+      'Bathtub', 'Walk-In Shower', 'Double Sink', 'Exhaust Fan',
+      'Bidet Hookup',
+    ],
+    'Interior Features': [
+      'Balcony Or Patio Access', 'Walk-in Closets', 'Built-In Shelves',
+      'Smart Thermostat', 'Smart Lock Or Keyless Entry',
+      'Furnished Or Unfurnished Option', 'Storage Room Or Closet',
+    ],
+    'Floor Types': [
+      'Carpet', 'Hardwood', 'Laminate', 'Vinyl / LVP', 'Tile', 'Concrete',
+    ],
+    'Utilities & Safety': [
+      'Water Included', 'Gas Included', 'Electricity Included',
+      'Fire Extinguisher', 'Smoke Detectors',
+      'Carbon Monoxide Detectors', 'Sprinkler System',
+    ],
+  };
+}
+
+// ─── Selected Amenities State ───────────────────────────────────────────────
+
+class AmenitiesSelection {
+  final Map<String, Set<String>> selected = {};
+  final Map<String, String> otherText = {};
+
+  void toggle(String section, String item) {
+    selected[section] ??= {};
+    if (selected[section]!.contains(item)) {
+      selected[section]!.remove(item);
+    } else {
+      selected[section]!.add(item);
+    }
+  }
+
+  bool isSelected(String section, String item) {
+    return selected[section]?.contains(item) ?? false;
+  }
+}
+
+// ─── Dialog ────────────────────────────────────────────────────────────────
+
+class AmenitiesDialog extends StatefulWidget {
+  const AmenitiesDialog({super.key});
+
+  @override
+  State<AmenitiesDialog> createState() => _AmenitiesDialogState();
+}
+
+class _AmenitiesDialogState extends State<AmenitiesDialog> {
+  final AmenitiesData _data = AmenitiesData();
+  final AmenitiesSelection _selection = AmenitiesSelection();
+  final Map<String, TextEditingController> _otherControllers = {};
+
+  @override
+  void dispose() {
+    for (final c in _otherControllers.values) {
+      c.dispose();
+    }
+    super.dispose();
+  }
+
+  TextEditingController _getOtherController(String section) {
+    _otherControllers[section] ??= TextEditingController();
+    return _otherControllers[section]!;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      insetPadding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+        vertical: 24.h,
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12.r),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Header
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+              decoration: const BoxDecoration(
+                border: Border(bottom: BorderSide(color: Color(0xFFE0E0E0))),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Amenities',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xFF1A1A1A),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.close, size: 20.r),
+                    onPressed: () => Navigator.of(context).pop(),
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
+                  ),
+                ],
+              ),
+            ),
+
+            // Scrollable content
+            Flexible(
+              child: SingleChildScrollView(
+                padding: EdgeInsets.all(20.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: _data.sections.entries.map((entry) {
+                    return _buildSection(entry.key, entry.value);
+                  }).toList(),
+                ),
+              ),
+            ),
+
+            // Footer buttons
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+              decoration: const BoxDecoration(
+                border: Border(top: BorderSide(color: Color(0xFFE0E0E0))),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      style: OutlinedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 14.h),
+                        side: const BorderSide(color: Color(0xFFCCCCCC)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                      ),
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(
+                          color: const Color(0xFF666666),
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 12.w),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(_selection);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 14.h),
+                        backgroundColor: const Color(0xFF1A1A1A),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.r),
+                        ),
+                      ),
+                      child: Text(
+                        'Save',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSection(String title, List<String> items) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 24.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 15.sp,
+              fontWeight: FontWeight.w600,
+              color: const Color(0xFF1A1A1A),
+            ),
+          ),
+          SizedBox(height: 12.h),
+          Wrap(
+            spacing: 8.w,
+            runSpacing: 8.h,
+            children: items.map((item) => _buildChip(title, item)).toList(),
+          ),
+          SizedBox(height: 10.h),
+          Text(
+            'Other',
+            style: TextStyle(fontSize: 13.sp, color: const Color(0xFF555555)),
+          ),
+          SizedBox(height: 6.h),
+          SizedBox(
+            height: 40.h,
+            child: TextField(
+              controller: _getOtherController(title),
+              decoration: InputDecoration(
+                hintText: "add new",
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 10.w,
+                  vertical: 8.h,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(6.r),
+                  borderSide: const BorderSide(color: Color(0xFF2CB5EB)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(6.r),
+                  borderSide: const BorderSide(color:Color(0xFF2CB5EB)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(6.r),
+                  borderSide: const BorderSide(color: Color(0xFF2CB5EB)),
+                ),
+              ),
+              style: TextStyle(fontSize: 13.sp),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildChip(String section, String label) {
+    final selected = _selection.isSelected(section, label);
+    return GestureDetector(
+      onTap: () => setState(() => _selection.toggle(section, label)),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150),
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+        decoration: BoxDecoration(
+          gradient: selected
+              ? const LinearGradient(
+            colors: [Color(0xFF2CB5EB), Color(0xFF196685)], // replace 2nd color with your desired end color
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          )
+              : const LinearGradient(
+            colors: [Color(0xffEAF8FD), Color(0xffEAF8FD)],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
+          border: Border.all(
+            color: selected ? const Color(0xFF2CB5EB) : const Color(0xFF2CB5EB),
+          ),
+          borderRadius: BorderRadius.circular(6.r),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 13.sp,
+            color: selected ? Colors.white : const Color(0xFF333333),
+            fontWeight: selected ? FontWeight.w500 : FontWeight.normal,
           ),
         ),
       ),

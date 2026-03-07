@@ -112,4 +112,12 @@ class AppRoutes {
       "/owner-owner-renter-list-create-documents-screen";
 
   static const String paymentTicketRoute = "/payment-ticket-screen";
+  static const String manageSubscription = "/manageSubscription";
+  static const String selectSubscription = "/selectSubscription";
+  static const String withdrawBalanceScreen = "/withdrawBalanceScreen";
+  static const String accountAnalytical = "/accountAnalytical";
+  static const String managePayOut = "/managePayOut";
+  static const String bankAccount = "/bankAccount";
+  static const String bankDetailsAccount = "/bankDetailsAccount";
+
 }
